@@ -4,23 +4,71 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #1f2a44;
+  background-color: #1a2644;
   color: white;
-  position: fixed; /* Фиксирует навбар в верхней части экрана */
-  top: 0; /* Закрепляет его сверху */
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%; /* Растягивает навбар на всю ширину экрана */
-  z-index: 1000; /* Устанавливает высокий приоритет слоя для перекрытия контента */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Добавляет тень для отделения */
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid white; /* Белая граница снизу */
 }
-
 /* Стилизованный текст с названием адвоката */
 .brand {
   font-size: 1.2rem;
   font-family: serif;
   font-weight: bold;
+  margin-right: auto;
 }
 
+/* Контейнер для навигационных ссылок */
+.navLinks {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+/* Кнопка "Заказать звонок" */
+.callButton {
+  display: flex;
+  align-items: center;
+  background-color: #1919e6;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.callButton:hover {
+  background-color: #1f1fcc;
+}
+
+.callButtonText {
+  margin-right: 8px;
+}
+
+.callButtonIcon {
+  font-size: 1rem;
+  display: none;
+}
+
+/* Стили для мобильной версии кнопки "Заказать звонок" */
+@media (max-width: 768px) {
+  .callButtonText {
+    display: none;
+  }
+  .callButtonIcon {
+    display: inline;
+  }
+}
+
+/* Ссылки навигации */
 .navList {
   display: flex;
   gap: 1rem;
@@ -38,7 +86,7 @@
 /* Стиль для мобильного меню */
 @media (max-width: 768px) {
   .navList {
-    display: none; /* Скрываем меню по умолчанию */
+    display: none;
     flex-direction: column;
     gap: 0.5rem;
     position: absolute;
@@ -50,7 +98,7 @@
   }
 
   .showMenu {
-    display: flex; /* Показываем меню, когда оно открыто */
+    display: flex;
   }
 
   .menuButton {

@@ -1,227 +1,148 @@
-/* Основной стиль для всей страницы */
-.container {
-    color: white;
-    font-family: sans-serif;
-    justify-content: space-between;
-    margin-top: 70px;
-    padding: 0; /* Убираем боковые отступы */
-  }
-  
-  /* Контейнер для карточек */
-  .cardContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 16px; /* Отступ между карточками на мобильных */
-    margin-top: 16px; /* Отступ между первой карточкой и остальными */
-  }
-  
-  @media (min-width: 768px) {
-    .cardContainer {
-      flex-direction: row;
-      gap: 16px;
-    }
-  }
-  
-  /* Первая карточка на всю ширину */
-  .heroSection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 16px;
-    padding-bottom: 40px;
-    min-height: 400px;
-    background-size: cover;
-    background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('https://cdn.usegalileo.ai/stability/e5c4e67b-e57f-45a8-bc14-7fab19e2d130.png');
-  }
-  
-  .heroTextContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: left;
-    max-width: 500px;
-  }
-  
-  .heroTitle {
-    color: white;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1.2;
-  }
-  
-  .heroDescription {
-    color: white;
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.4;
-  }
-  
-  .heroButton {
-    margin-top: 16px;
-    background-color: #1919e6;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-  }
-  
-  .heroButton:hover {
-    background-color: #1f1fcc;
-  }
-  
-  /* Карточка для кейсов */
-  .callbackCases {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 40px;
-    min-height: 200px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-image: url('/foto8.jpg');
-    background-blend-mode: overlay;
-  }
-  
-  /* Карточка обратного звонка */
-  .callbackCard {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px;
-    min-height: 200px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-image: url('/foto6.jpeg');
-    background-blend-mode: overlay;
-    position: relative;
-  }
+:root {
+  --background: #1a2633;
+}
 
-  .socialIcons {
-    display: flex;
-    gap: 8px;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-  }
-  
-  /* Стили для иконок */
-  .iconLink {
-    color: white;
-    font-size: 1.5rem; /* Размер иконок */
-    transition: color 0.3s;
-  }
-  
-  .iconLink:hover {
-    color: #1f1fcc; /* Цвет при наведении */
-  }
-  
-  /* Убираем отступы для мобильных устройств */
-  @media (max-width: 768px) {
-    .callbackCard,
-    .callbackCases {
-      margin: 0;
-    }
-  }
-  
-  .callbackTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .callbackDescription {
-    font-size: 0.875rem;
-    color: #b3b3b3;
-  }
-  
-  .callbackButton {
-    margin-top: 16px;
-    background-color: #1919e6;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-  }
-  
-  .callbackButton:hover {
-    background-color: #1f1fcc;
-  }
-  
-  /* Модальное окно */
-  .modalOverlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-  }
-  
-  .modalContent {
-    background-color: #1f2a44;
-    padding: 24px;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 100%;
-    margin: 16px;
-  }
-  
-  .modalTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 16px;
-    text-align: center;
-    color: white;
-  }
-  
-  .modalForm {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .modalInput,
-  .modalTextarea {
-    padding: 8px;
-    border-radius: 8px;
-    background-color: #4a4a4a;
-    color: white;
-    placeholder-color: #ccc;
-  }
-  
-  .modalButtonCancel {
-    flex: 1;
-    background-color: #e60000;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-  }
-  
-  .modalButtonCancel:hover {
-    background-color: #cc0000;
-  }
-  
-  .modalButtonSubmit {
-    flex: 1;
-    background-color: #1919e6;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-  }
-  
-  .modalButtonSubmit:hover {
-    background-color: #1f1fcc;
-  }
-  
+.container {
+  width: 959px;
+  margin: 0 auto;
+  background-color: var(--background);
+  color: white;
+  padding: 20px;
+}
+
+/* Верхний контейнер */
+.heroSection {
+  width: 959px;
+  height: 512px;
+  background-image: url('/13.jpg'); /* Замените на реальный путь */
+  background-size: cover; /* Заполняет весь контейнер */
+  background-repeat: no-repeat;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroTextContainer {
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 8px;
+  position: absolute; /* Размещение текста поверх изображения */
+  bottom: 20px;
+  left: 20px;
+}
+
+.heroTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.heroDescription {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+
+
+/* Контейнер "Услуги" */
+.servicesHeader {
+  width: 959px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Контейнер с 4 карточками */
+.fourCardsSection {
+  width: 959px;
+  height: 250px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardWrapper {
+  width: 927px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.serviceCard {
+  width: 223px;
+  height: 218px;
+  background-color: #2a2e38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Контейнер с кнопкой "Все услуги" */
+.allServicesButton {
+  width: 959px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.allServicesButton button {
+  background-color: #1919e6;
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.allServicesButton button:hover {
+  background-color: #1f1fcc;
+}
+
+/* Секция с 3 карточками */
+.threeCardsSection {
+  width: 959px;
+  height: 291px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caseCard {
+  width: 301px;
+  height: 259px;
+  background-color: #2a2e38;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  gap: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.caseImage {
+  width: 100%; /* Делает картинку адаптивной по ширине карточки */
+  height: 169px;
+  background-color: #404552;
+  border-radius: 8px;
+  object-fit: cover;
+}
