@@ -1,0 +1,22 @@
+.footer {
+    background-color: #1f2a44;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+  
+  .footerText {
+    color: #b3b3b3;
+  }
+  
+  .footerLink {
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .footerLink:hover {
+    color: #ffd700; /* Желтый при наведении */
+  }
+  
