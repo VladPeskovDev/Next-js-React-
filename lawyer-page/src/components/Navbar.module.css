@@ -1,0 +1,70 @@
+/* Основной стиль для навбара */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #1a1a1a; /* Темный фон */
+    color: white;
+    position: relative;
+  }
+  
+  /* Стилизованный текст с названием адвоката */
+  .brand {
+    font-size: 1.2rem;
+    font-family: serif;
+    font-weight: bold;
+  }
+  
+  /* Скрытое меню на мобильных */
+  .navList {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .menuButton {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Для мобильных устройств */
+  @media (max-width: 768px) {
+    .navList {
+      display: none; /* По умолчанию скрываем меню */
+      flex-direction: column;
+      gap: 0.5rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      width: 100%;
+      padding: 1rem 0;
+    }
+  
+    /* Показать меню, когда оно открыто */
+    .showMenu {
+      display: flex;
+    }
+  
+    .menuButton {
+      display: block;
+    }
+  }
+  
+  /* Стили для ссылок */
+  .navLink {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Эффект при наведении */
+  .navLink:hover {
+    color: #ffd700; /* Желтый цвет при наведении */
+  }
+  
