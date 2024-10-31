@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #1f2a44;
+  --background: #1a2633;
   --foreground: #171717;
+  --navbar-footer-color: #1a2644;
 }
 
 @media (prefers-color-scheme: dark) {
