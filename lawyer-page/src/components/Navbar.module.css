@@ -1,70 +1,72 @@
 /* Основной стиль для навбара */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #1a1a1a; /* Темный фон */
-    color: white;
-    position: relative;
-  }
-  
-  /* Стилизованный текст с названием адвоката */
-  .brand {
-    font-size: 1.2rem;
-    font-family: serif;
-    font-weight: bold;
-  }
-  
-  /* Скрытое меню на мобильных */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #1f2a44;
+  color: white;
+  position: fixed; /* Фиксирует навбар в верхней части экрана */
+  top: 0; /* Закрепляет его сверху */
+  left: 0;
+  width: 100%; /* Растягивает навбар на всю ширину экрана */
+  z-index: 1000; /* Устанавливает высокий приоритет слоя для перекрытия контента */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Добавляет тень для отделения */
+}
+
+/* Стилизованный текст с названием адвоката */
+.brand {
+  font-size: 1.2rem;
+  font-family: serif;
+  font-weight: bold;
+}
+
+.navList {
+  display: flex;
+  gap: 1rem;
+}
+
+.menuButton {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Стиль для мобильного меню */
+@media (max-width: 768px) {
   .navList {
-    display: flex;
-    gap: 1rem;
+    display: none; /* Скрываем меню по умолчанию */
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    width: 100%;
+    padding: 1rem 0;
   }
-  
+
+  .showMenu {
+    display: flex; /* Показываем меню, когда оно открыто */
+  }
+
   .menuButton {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+    display: block;
   }
-  
-  /* Для мобильных устройств */
-  @media (max-width: 768px) {
-    .navList {
-      display: none; /* По умолчанию скрываем меню */
-      flex-direction: column;
-      gap: 0.5rem;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #1a1a1a;
-      width: 100%;
-      padding: 1rem 0;
-    }
-  
-    /* Показать меню, когда оно открыто */
-    .showMenu {
-      display: flex;
-    }
-  
-    .menuButton {
-      display: block;
-    }
-  }
-  
-  /* Стили для ссылок */
-  .navLink {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    cursor: pointer;
-  }
-  
-  /* Эффект при наведении */
-  .navLink:hover {
-    color: #ffd700; /* Желтый цвет при наведении */
-  }
-  
+}
+
+/* Стили для ссылок */
+.navLink {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  color: #ffd700;
+}
