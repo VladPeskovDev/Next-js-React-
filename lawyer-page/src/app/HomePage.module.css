@@ -8,6 +8,7 @@
   background-color: var(--background);
   color: white;
   padding: 20px;
+  margin-top: 75px;
 }
 
 /* Верхний контейнер */
@@ -80,14 +81,43 @@
 .serviceCard {
   width: 223px;
   height: 218px;
-  background-color: #2a2e38;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
+  background-color: #334D66;
+  border: 1px solid #94ADC7;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.serviceCard:hover {
+  transform: translateY(-5px); /* Поднимает карточку вверх на 5px */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Добавляет тень для глубины */
+}
+
+.serviceCard h2 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.serviceCard p {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #D0E0F1;
+}
+
+.cardIcon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  color: #D0E0F1;
 }
 
 /* Контейнер с кнопкой "Все услуги" */
@@ -101,7 +131,7 @@
 }
 
 .allServicesButton button {
-  background-color: #1919e6;
+  background-color: #243647;
   color: white;
   padding: 8px 16px;
   font-size: 1rem;
@@ -129,7 +159,7 @@
 .caseCard {
   width: 301px;
   height: 259px;
-  background-color: #2a2e38;
+  background-color: #1a2633;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,9 +170,11 @@
 }
 
 .caseImage {
-  width: 100%; /* Делает картинку адаптивной по ширине карточки */
+  width: 100%;
   height: 169px;
   background-color: #404552;
   border-radius: 8px;
   object-fit: cover;
 }
+
+

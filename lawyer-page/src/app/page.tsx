@@ -1,15 +1,15 @@
-'use client';
-
-
-import { useState } from "react";
 import styles from "./HomePage.module.css";
-import Modal from "../components/Modal";
+import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Адвокат по уголовным делам | Главная",
+  description: "Адвокат по уголовным делам в Москве – помощь и консультации.",
+};
 
 export default function HomePage(): JSX.Element {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+ 
 
   return (
     <div className={styles.container}>
@@ -30,39 +30,69 @@ export default function HomePage(): JSX.Element {
 
       {/* Контейнер с 4 карточками */}
       <section className={styles.fourCardsSection}>
-        <div className={styles.cardWrapper}>
-          <div className={styles.serviceCard}>Услуга 1</div>
-          <div className={styles.serviceCard}>Услуга 2</div>
-          <div className={styles.serviceCard}>Услуга 3</div>
-          <div className={styles.serviceCard}>Услуга 4</div>
-        </div>
-      </section>
+  <div className={styles.cardWrapper}>
+    <div className={styles.serviceCard}>
+      <FaUserShield className={styles.cardIcon} />
+      <h2>Предварительное следствие</h2>
+      <p>Защита на стадии предварительного следствия по любой категории дел.</p>
+    </div>
+    <div className={styles.serviceCard}>
+      <FaBook className={styles.cardIcon} />
+      <h2>Допросы и дача показаний</h2>
+      <p>Защита на стадии допросов и дачи показаний по любой категории дел.</p>
+    </div>
+    <div className={styles.serviceCard}>
+      <FaGavel className={styles.cardIcon} />
+      <h2>Защита в суде</h2>
+      <p>Защита на стадии судебного разбирательства.</p>
+    </div>
+    <div className={styles.serviceCard}>
+      <FaFileAlt className={styles.cardIcon} />
+      <h2>Составление жалоб</h2>
+      <p>Составление апелляционных, кассационных и иных жалоб для защиты.</p>
+    </div>
+  </div>
+</section>
 
       {/* Контейнер с кнопкой "Все услуги" */}
       <section className={styles.allServicesButton}>
-        <button>Все услуги</button>
+        <Link href="/pricing">
+        <button >Все услуги</button>
+        </Link>
       </section>
 
       {/* Контейнер с 3 карточками (фото, текст) */}
       <section className={styles.threeCardsSection}>
-        <div className={styles.cardWrapper}>
-          <div className={styles.caseCard}>
-            <div className={styles.caseImage} />
-            <p>Описание кейса 1</p>
-          </div>
-          <div className={styles.caseCard}>
-            <div className={styles.caseImage} />
-            <p>Описание кейса 2</p>
-          </div>
-          <div className={styles.caseCard}>
-            <div className={styles.caseImage} />
-            <p>Описание кейса 3</p>
-          </div>
-        </div>
-      </section>
+  <div className={styles.cardWrapper}>
+    <div className={styles.caseCard}>
+      <img
+        src="/next.svg"
+        alt="Адвокат по уголовным делам в Москве предоставляет консультации и защиту прав"
+        className={styles.caseImage}
+      />
+      <h1>Дело о мошенничестве</h1>
+    </div>
+    <div className={styles.caseCard}>
+      <img
+        src="/vercel.svg"
+        alt="Юридическая помощь по уголовным делам"
+        className={styles.caseImage}
+      />
+      <p>Дело о краже</p>
+    </div>
+    <div className={styles.caseCard}>
+      <img
+        src="/window.svg"
+        alt="Адвокат по делам о наркотиках в Москве"
+        className={styles.caseImage}
+      />
+      <p>Дело о наркотиках</p>
+    </div>
+  </div>
+</section>
 
-      {/* Использование модального окна */}
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
+
+
     </div>
   );
 }
