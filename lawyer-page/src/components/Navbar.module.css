@@ -12,7 +12,7 @@
   width: 100%;
   z-index: 1000;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid white; /* Белая граница снизу */
+  border-bottom: 1px solid #94ADC7; /* Белая граница снизу */
 }
 /* Стилизованный текст с названием адвоката */
 .brand {
@@ -92,7 +92,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #1a1a1a;
+    background-color: #1a2633;
     width: 100%;
     padding: 1rem 0;
   }
