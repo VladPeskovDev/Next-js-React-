@@ -3,7 +3,8 @@
 }
 
 .container {
-  width: 959px;
+  width: 100%;
+  max-width: 959px;
   margin: 0 auto;
   background-color: var(--background);
   color: white;
@@ -13,10 +14,12 @@
 
 /* Верхний контейнер */
 .heroSection {
-  width: 959px;
+  width: 100%;
+  max-width: 959px;
   height: 512px;
-  background-image: url('/13.jpg'); /* Замените на реальный путь */
-  background-size: cover; /* Заполняет весь контейнер */
+  background-image: url('/13.jpg'); /* Укажите реальный путь */
+  background-size: cover; /* Полностью заполнит блок */
+  background-position: center; /* Центрирует изображение */
   background-repeat: no-repeat;
   padding: 20px;
   display: flex;
@@ -26,11 +29,12 @@
   overflow: hidden;
 }
 
+
 .heroTextContainer {
   max-width: 500px;
   padding: 10px;
   border-radius: 8px;
-  position: absolute; /* Размещение текста поверх изображения */
+  position: absolute;
   bottom: 20px;
   left: 20px;
 }
@@ -47,11 +51,10 @@
   line-height: 1.4;
 }
 
-
-
 /* Контейнер "Услуги" */
 .servicesHeader {
-  width: 959px;
+  width: 100%;
+  max-width: 959px;
   height: 60px;
   display: flex;
   align-items: center;
@@ -63,8 +66,8 @@
 
 /* Контейнер с 4 карточками */
 .fourCardsSection {
-  width: 959px;
-  height: 250px;
+  width: 100%;
+  max-width: 959px;
   padding: 16px 0;
   display: flex;
   align-items: center;
@@ -72,14 +75,16 @@
 }
 
 .cardWrapper {
-  width: 927px;
+  width: 100%;
+  max-width: 927px;
   display: flex;
   gap: 16px;
   justify-content: space-between;
 }
 
 .serviceCard {
-  width: 223px;
+  width: 100%;
+  max-width: 223px;
   height: 218px;
   display: flex;
   flex-direction: column;
@@ -96,9 +101,10 @@
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .serviceCard:hover {
-  transform: translateY(-5px); /* Поднимает карточку вверх на 5px */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Добавляет тень для глубины */
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .serviceCard h2 {
@@ -122,11 +128,13 @@
 
 /* Контейнер с кнопкой "Все услуги" */
 .allServicesButton {
-  width: 959px;
+  width: 100%;
+  max-width: 959px;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 16px; /* Отступ между кнопками */
   margin-top: 20px;
 }
 
@@ -140,16 +148,38 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  
 }
 
 .allServicesButton button:hover {
   background-color: #1f1fcc;
 }
 
+.actionButton {
+  width: 150px; /* Фиксированная ширина */
+  height: 48px; /* Фиксированная высота */
+  background-color: #243647;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center; /* Центрируем текст по вертикали */
+  justify-content: center; /* Центрируем текст по горизонтали */
+  padding: 0; /* Убираем лишние внутренние отступы */
+}
+
+.actionButton:hover {
+  background-color: #1f1fcc;
+}
+
 /* Секция с 3 карточками */
 .threeCardsSection {
-  width: 959px;
-  height: 291px;
+  width: 100%;
+  max-width: 959px;
   padding: 16px 0;
   display: flex;
   align-items: center;
@@ -157,7 +187,8 @@
 }
 
 .caseCard {
-  width: 301px;
+  width: 100%;
+  max-width: 301px;
   height: 259px;
   background-color: #1a2633;
   display: flex;
@@ -169,6 +200,14 @@
   text-align: center;
 }
 
+.cardWrapper3card {
+  width: 100%;
+  max-width: 927px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
 .caseImage {
   width: 100%;
   height: 169px;
@@ -177,4 +216,124 @@
   object-fit: cover;
 }
 
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .container, .heroSection, .servicesHeader, .fourCardsSection, .allServicesButton, .threeCardsSection {
+    width: 100%;
+    max-width: 100%;
+  }
 
+  .heroTextContainer {
+    max-width: 100%;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px;
+  }
+
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+
+  .heroDescription {
+    font-size: 0.9rem;
+  }
+
+  .cardWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardWrapper3card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serviceCard, .caseCard {
+    width: 100%;
+    max-width: 90%;
+    margin-bottom: 16px;
+  }
+
+  .allServicesButton button {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 300px; /* Уменьшение высоты для мобильных устройств */
+    background-position: top center; /* Фокус на верхней части */
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Основной контейнер карусели */
+  .fourCardsSection {
+    width: 100%;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    display: flex;
+    padding: 16px 0;
+    align-items: center;
+    justify-content: flex-start; /* Карточки выровнены влево */
+  }
+
+  .cardWrapper {
+    width: max-content; /* Ширина на основе содержимого */
+    display: flex;
+    gap: 16px;
+    flex-direction: row; /* Горизонтальная компоновка карточек */
+  }
+
+  .serviceCard {
+    width: 80vw; /* Ширина карточки относительно ширины экрана */
+    flex-shrink: 0; /* Отключаем сжатие, чтобы они не сжимались */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #334D66;
+    border: 1px solid #94ADC7;
+    padding: 16px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Прокрутка по горизонтали без вертикальной полосы прокрутки */
+  .fourCardsSection::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .threeCardsSection {
+      display: flex;
+      overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+      padding: 16px 0;
+    }
+  
+    .cardWrapper3card {
+      width: max-content; /* Ширина на основе содержимого */
+      display: flex;
+      gap: 16px;
+      flex-direction: row; /* Горизонтальная компоновка карточек */
+    }
+  
+    .caseCard {
+      flex-shrink: 0; /* Отключаем сжатие, чтобы карточки не сжимались */
+      width: 80vw; /* Ширина карточки относительно ширины экрана */
+      max-width: none;
+    }
+  
+    /* Прокрутка по горизонтали без полосы прокрутки на мобильных устройствах */
+    .threeCardsSection::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+
+}

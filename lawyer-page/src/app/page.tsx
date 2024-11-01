@@ -3,6 +3,7 @@ import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
 import Link from "next/link";
 import type { Metadata } from "next";
 
+
 export const metadata: Metadata = {
   title: "Адвокат по уголовным делам | Главная",
   description: "Адвокат по уголовным делам в Москве – помощь и консультации.",
@@ -57,13 +58,16 @@ export default function HomePage(): JSX.Element {
       {/* Контейнер с кнопкой "Все услуги" */}
       <section className={styles.allServicesButton}>
         <Link href="/pricing">
-        <button >Все услуги</button>
+          <button className={styles.actionButton}>Все услуги</button>
         </Link>
+        <a href="tel:+79165780936">
+          <button className={styles.actionButton}>Позвонить адвокату</button>
+        </a>
       </section>
 
       {/* Контейнер с 3 карточками (фото, текст) */}
       <section className={styles.threeCardsSection}>
-  <div className={styles.cardWrapper}>
+  <div className={styles.cardWrapper3card}>
     <div className={styles.caseCard}>
       <img
         src="/next.svg"
@@ -90,8 +94,6 @@ export default function HomePage(): JSX.Element {
     </div>
   </div>
 </section>
-
-
 
     </div>
   );
