@@ -1,0 +1,151 @@
+/* Основной контейнер */
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: var(--background);
+    color: white;
+    padding: 20px;
+    margin-top: 65px;
+    margin-bottom: 65px;
+}
+
+/* Контейнер для фото */
+.photoContainer {
+    width: 100%;
+    max-width: 960px;
+    height: 512px;
+    background-image: url('/foto7.jpg'); /* Укажите реальный путь */
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/* Текст и кнопки на фото */
+.photoOverlay {
+    width: auto;
+    max-width: 400px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 20px;
+}
+
+.overlayText {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+/* Кнопки для вызова и Telegram */
+.buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.button, .buttonTelegram {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #243647;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    flex: 1; /* Равномерное распределение */
+    max-width: 170px; /* Ограничение ширины для мобильных */
+}
+
+.button:hover, .buttonTelegram:hover {
+    background-color: #1f1fcc;
+}
+
+.buttonTelegram {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Контейнер с карточками для адреса, телефона и почты */
+.infoSection {
+    width: 100%;
+    max-width: 960px;
+    height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.infoWrapper {
+    width: 928px;
+    height: 74px;
+    display: flex;
+    gap: 16px;
+}
+
+.card {
+    width: 301px;
+    height: 74px;
+    background-color: #334D66;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D0E0F1;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.card:hover {
+    background-color: #1f1fcc;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+
+    .container{
+        margin-bottom: 150px;
+    }
+    .photoOverlay {
+        width: auto;
+        max-width: 100%;
+        margin: 10px;
+    }
+
+    .buttons {
+        gap: 8px;
+        justify-content: space-between;
+    }
+
+    .button, .buttonTelegram {
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        max-width: 140px; /* Дополнительное уменьшение для мобильных */
+    }
+
+    .infoWrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%; /* Полная ширина для мобильных */
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        padding: 10px;
+    }
+}
