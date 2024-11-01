@@ -31,10 +31,10 @@ export default function Navbar(): JSX.Element {
         <div className={styles.navLinks}>
           <ul className={`${styles.navList} ${isMenuOpen ? styles.showMenu : ""}`}>
             <li><Link href="/" className={styles.navLink} onClick={toggleMenu}>Главная</Link></li>
+            <li><Link href="/pricing" className={styles.navLink} onClick={toggleMenu}>Прайс</Link></li>
             <li><Link href="/cases" className={styles.navLink} onClick={toggleMenu}>Кейсы</Link></li>
             <li><Link href="/about" className={styles.navLink} onClick={toggleMenu}>Обо мне</Link></li>
             <li><Link href="/contact" className={styles.navLink} onClick={toggleMenu}>Контакты</Link></li>
-            <li><Link href="/pricing" className={styles.navLink} onClick={toggleMenu}>Прайс</Link></li>
           </ul>
 
           {/* Кнопка для вызова модального окна */}

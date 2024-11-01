@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #1a2644;
+  background-color: var(--background); /* Использует основной цвет фона */
   color: white;
   position: fixed;
   top: 0;
