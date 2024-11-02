@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { FormEvent, useState } from "react";
 import styles from "./Modal.module.css";
@@ -8,7 +8,10 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | null {
+export default function Modal({
+  isOpen,
+  onClose,
+}: ModalProps): JSX.Element | null {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [problem, setProblem] = useState("");
@@ -19,10 +22,17 @@ export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | nu
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const phoneRegex = /^(\+7|8)9\d{9}$/; 
+    const phoneRegex = /^(\+7|8)9\d{9}$/;
 
-    if (!phoneRegex.test(phone)) {
-      setError("Введите корректный номер телефона в формате +7 или 89xxxxxxxxx");
+    // Проверка соответствия формату и длине номера
+    if (
+      !phoneRegex.test(phone) ||
+      (phone.startsWith("+7") && phone.length !== 12) ||
+      (phone.startsWith("8") && phone.length !== 11)
+    ) {
+      setError(
+        "Введите корректный номер телефона: +7xxxxxxxxxx (12 символов) или 89xxxxxxxxx (11 символов)."
+      );
       return;
     }
 
@@ -81,8 +91,16 @@ export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | nu
           ></textarea>
           {error && <p className={styles.error}>{error}</p>}
           <div className={styles.buttonContainer}>
-            <button type="button" onClick={onClose} className={styles.modalButtonCancel}>Отмена</button>
-            <button type="submit" className={styles.modalButtonSubmit}>Заказать звонок</button>
+            <button
+              type="button"
+              onClick={onClose}
+              className={styles.modalButtonCancel}
+            >
+              Отмена
+            </button>
+            <button type="submit" className={styles.modalButtonSubmit}>
+              Заказать звонок
+            </button>
           </div>
         </form>
       </div>

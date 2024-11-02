@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from "react";
-import styles from "./Modal.module.css";
+import styles from "./ModalCases.module.css";
 
 interface ModalProps {
   isOpen: boolean;

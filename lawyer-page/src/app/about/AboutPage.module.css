@@ -1,0 +1,21 @@
+:root {
+    --background: #1a2633;
+  }
+
+  .mainContainer {
+    width: 100%;
+    max-width: 959px;
+    margin: 0 auto;
+    background-color: var(--background);
+    color: white;
+    padding: 20px;
+    margin-top: 75px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+    color: blue;
+  }
