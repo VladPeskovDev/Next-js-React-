@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
 }
 
 /* Контейнер строки с карточками */
@@ -21,20 +22,19 @@
 /* Карточка кейса */
 .caseCard {
   width: 176px;
-  height: 363px;
-  display: flex;
-  flex-direction: column;
+  height: 363px; /* Фиксируем высоту */
   background-color: #334D66;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: box-shadow 0.3s ease; /* Убираем transform */
+  border: 1px solid #94ADC7;
 }
 
 .caseCard:hover {
-  transform: translateY(-5px);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Контейнер для изображения в карточке */
 .caseImageContainer {
@@ -76,11 +76,16 @@
 
   .caseCard {
     flex-shrink: 0; /* Фиксирует ширину карточки, чтобы она не сжималась */
-    width: 176px;
-    height: 363px;
+    width: 350px;
+    height: 300px;
   }
 
   .caseRow::-webkit-scrollbar {
     display: none; /* Отключаем полосу прокрутки для эстетики */
+  }
+
+  .caseImageContainer {
+    height: 150px;
+    
   }
 }

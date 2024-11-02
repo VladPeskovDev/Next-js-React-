@@ -14,21 +14,31 @@
 
 .modalContent {
   width: 300px;
+  max-height: 80vh; /* Ограничиваем высоту модального окна */
   background-color: #1a2633;
   padding: 20px;
   border-radius: 8px;
   color: white;
+  overflow-y: auto; /* Добавляем прокрутку по вертикали */
+  position: relative;
 }
 
 .closeButton {
-  background-color: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
+  padding: 8px 16px;
   font-size: 1rem;
-  margin-bottom: 16px;
-  text-align: right;
+  font-weight: bold;
+  color: white;
+  background-color: #ff4d4f; /* Красный цвет для кнопки закрытия */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.closeButton:hover {
+  background-color: #ff7875; /* Светлее при наведении */
+}
+
 
 /* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
