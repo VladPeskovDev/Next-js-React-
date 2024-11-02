@@ -1,3 +1,5 @@
+'use client';
+
 import { FormEvent, useState } from "react";
 import styles from "./Modal.module.css";
 
@@ -10,11 +12,29 @@ export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | nu
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [problem, setProblem] = useState("");
+  const [error, setError] = useState("");
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    const phoneRegex = /^(\+7|8)9\d{9}$/; 
+
+    if (!phoneRegex.test(phone)) {
+      setError("Введите корректный номер телефона в формате +7 или 89xxxxxxxxx");
+      return;
+    }
+
+    if (name.length < 2) {
+      setError("Имя должно содержать хотя бы 2 символа.");
+      return;
+    }
+
+    if (problem.length < 10) {
+      setError("Описание проблемы должно содержать хотя бы 10 символов.");
+      return;
+    }
 
     try {
       await fetch("/api/sendToTelegram", {
@@ -24,6 +44,7 @@ export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | nu
         },
         body: JSON.stringify({ name, phone, problem }),
       });
+      setError("");
       onClose();
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error);
@@ -58,6 +79,7 @@ export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | nu
             value={problem}
             onChange={(e) => setProblem(e.target.value)}
           ></textarea>
+          {error && <p className={styles.error}>{error}</p>}
           <div className={styles.buttonContainer}>
             <button type="button" onClick={onClose} className={styles.modalButtonCancel}>Отмена</button>
             <button type="submit" className={styles.modalButtonSubmit}>Заказать звонок</button>

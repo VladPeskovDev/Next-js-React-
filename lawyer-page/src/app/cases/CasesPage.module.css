@@ -1,0 +1,56 @@
+/* Основной контейнер */
+.mainContainer {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: var(--background);
+  color: white;
+  padding: 20px;
+  margin-top: 65px;
+  margin-bottom: 65px;
+}
+
+/* Контейнер для фото */
+.photoContainer {
+  width: 100%;
+  max-width: 960px;
+  height: 512px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.caseImage {
+  width: 928px;
+  height: 480px;
+  object-fit: cover;
+}
+
+.overlayText {
+  position: absolute;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  right: 20px;
+  bottom: 20px;
+}
+
+/* Основной контейнер для кейсов */
+.casesContainer {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  .casesContainer {
+      gap: 12px;
+      overflow-x: auto; /* Горизонтальная прокрутка для кейсов */
+      padding: 10px;
+  }
+}
