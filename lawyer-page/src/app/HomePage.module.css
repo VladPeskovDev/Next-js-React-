@@ -51,6 +51,34 @@
   line-height: 1.4;
 }
 
+/* Кнопки для вызова и Telegram */
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end; /* Расположение справа */
+  width: 100%;
+  margin-top: 20px; /* Отступ для визуального разделения */
+  
+}
+
+.button, .buttonTelegram {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #243647;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  display: inline-block;
+  max-width: 170px;
+}
+
+.button:hover, .buttonTelegram:hover {
+  background-color: #1f1fcc;
+}
+
+
 /* Контейнер "Услуги" */
 .servicesHeader {
   width: 100%;
@@ -278,6 +306,17 @@
     justify-content: flex-start; /* Карточки выровнены влево */
   }
 
+  .buttons {
+    justify-content: center; /* Центрирование кнопок на мобильных */
+  }
+
+  .button, .buttonTelegram {
+    padding: 8px 16px;
+    font-size: 0.800rem; /* Уменьшение размера текста */
+    max-width: 140px; /* Уменьшение ширины */
+    margin-left: 200px;
+  }
+
   .cardWrapper {
     width: max-content; /* Ширина на основе содержимого */
     display: flex;
@@ -334,6 +373,4 @@
       display: none;
     }
   }
-  
-
 }
