@@ -2,8 +2,7 @@
 
 import styles from './ContactPage.module.css';
 import { FaTelegramPlane } from 'react-icons/fa';
-
-
+import YandexMap from '../../components/YandexMap';
 
 export default function ContactPage(): JSX.Element {
   return (
@@ -14,15 +13,16 @@ export default function ContactPage(): JSX.Element {
           <div className={styles.buttons}>
             <a href="tel:+79165780936" className={styles.button}>+7 916 578 09 36</a>
             <a href="https://t.me/VladislavPeskov" target="_blank" rel="noopener noreferrer" className={styles.buttonTelegram}>
-            <FaTelegramPlane className={styles.icon}/>Telegram</a>
+              <FaTelegramPlane className={styles.icon}/>Telegram
+            </a>
           </div>
         </div>
       </div>
-      
+
       <div className={styles.infoSection}>
         <div className={styles.infoWrapper}>
           <div className={styles.card}>
-            <p>Адрес: г. Москва, ул. Маршала Рыбалко 2, корп.1-9, оф.408</p>
+            <p>Адрес: г. Москва, ул. Маршала Рыбалко 2, корп.6, оф.408</p>
           </div>
           <div className={styles.card}>
             <p>Телефон: +7 916 578 09 36</p>
@@ -31,6 +31,10 @@ export default function ContactPage(): JSX.Element {
             <p>Email: peskov_lawyer@mail.ru</p>
           </div>
         </div>
+      </div>
+
+      <div className={styles.mapContainer}>
+        <YandexMap />
       </div>
     </main>
   );
