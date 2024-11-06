@@ -21,6 +21,9 @@ export default function HomePage(): JSX.Element {
           <p className={styles.heroDescription}>
             Опытный адвокат по уголовным делам, с успешной практикой на протяжении долгих лет.
           </p>
+          <div className={styles.buttons}>
+            <a href="tel:+79165780936" className={styles.button}>Позвонить</a>
+            </div>
         </div>
       </section>
 
@@ -45,12 +48,12 @@ export default function HomePage(): JSX.Element {
     <div className={styles.serviceCard}>
       <FaGavel className={styles.cardIcon} />
       <h2>Защита в суде</h2>
-      <p>Защита на стадии судебного разбирательства.</p>
+      <p>Защита на стадии судебного разбирательства по любой категории дел.</p>
     </div>
     <div className={styles.serviceCard}>
       <FaFileAlt className={styles.cardIcon} />
       <h2>Составление жалоб</h2>
-      <p>Составление апелляционных, кассационных и иных жалоб для защиты.</p>
+      <p>Составление апелляционных, кассационных и иных жалоб необходимых для защиты.</p>
     </div>
   </div>
 </section>

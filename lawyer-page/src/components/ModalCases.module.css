@@ -13,7 +13,7 @@
 }
 
 .modalContent {
-  width: 300px;
+  width: 450px;
   max-height: 80vh; /* Ограничиваем высоту модального окна */
   background-color: #1a2633;
   padding: 20px;
