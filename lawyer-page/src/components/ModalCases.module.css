@@ -25,14 +25,15 @@
 
 .closeButton {
   padding: 8px 16px;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: bold;
   color: white;
-  background-color: #ff4d4f; /* Красный цвет для кнопки закрытия */
+  background-color: #1f05e5; /* Красный цвет для кнопки закрытия */
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  height: 30px;
 }
 
 .closeButton:hover {

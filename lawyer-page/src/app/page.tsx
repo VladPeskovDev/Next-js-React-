@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 export default function HomePage(): JSX.Element {
  
-
   return (
     <div className={styles.container}>
       {/* Верхний контейнер */}
@@ -72,32 +71,37 @@ export default function HomePage(): JSX.Element {
       <section className={styles.threeCardsSection}>
   <div className={styles.cardWrapper3card}>
     <div className={styles.caseCard}>
+      <Link href="/cases">
       <img
         src="/next.svg"
-        alt="Адвокат по уголовным делам в Москве предоставляет консультации и защиту прав"
+        alt="Адвокат по уголовным делам в Москве"
         className={styles.caseImage}
       />
+      </Link>
       <h1>Дело о мошенничестве</h1>
     </div>
     <div className={styles.caseCard}>
+    <Link href="/cases">
       <img
         src="/vercel.svg"
         alt="Юридическая помощь по уголовным делам"
         className={styles.caseImage}
-      />
+      />      
+      </Link>
       <p>Дело о краже</p>
     </div>
     <div className={styles.caseCard}>
+    <Link href="/cases">
       <img
         src="/window.svg"
         alt="Адвокат по делам о наркотиках в Москве"
         className={styles.caseImage}
       />
+      </Link>
       <p>Дело о наркотиках</p>
     </div>
   </div>
 </section>
-
     </div>
   );
 }
