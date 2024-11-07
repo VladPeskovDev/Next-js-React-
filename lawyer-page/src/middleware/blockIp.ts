@@ -11,7 +11,9 @@ export function blockIpMiddleware(request: NextRequest) {
 
   // Проверка, если IP-адрес есть в списке заблокированных
   if (blockedIps.blockedIps.includes(normalizedIp)) {
-    return new NextResponse('Доступ запрещен ', { status: 403 });
+    return NextResponse.rewrite(new URL('/blocked.png', request.url), {
+      status: 403,
+    });
   }
 
   return NextResponse.next(); 

@@ -11,14 +11,11 @@ export default function AboutPage(): JSX.Element {
       <div className={styles.mainContainer}>
         <div className={styles.photoContainer}>
           <div className={styles.photoOverlay}>
-            <img
-              src="/foto007.svg"
+            <img src="/foto008.svg"
               alt="Адвокат по уголовным делам в Москве"
-              className={styles.photo}
-            />
-          </div>
+              className={styles.photo}/>
+            </div>
         </div>
-
         <div className={styles.aboutSection}>
           <div className={styles.aboutContent}>
             <h2>Обо мне</h2>
