@@ -46,6 +46,14 @@ export default function PricingPage(): JSX.Element {
           <h2 className={styles.serviceTitle}>Подготовка кассационной жалобы</h2>
           <p className={styles.price}>от 30,000 руб.</p>
         </div>
+        <div className={styles.pricingItem}>
+          <h2 className={styles.serviceTitle}>Защита свидетелей в ходе допроса (суд/следствие/объяснение)</h2>
+          <p className={styles.price}>от 25,000 руб.</p>
+        </div>
+        <div className={styles.pricingItem}>
+          <h2 className={styles.serviceTitle}>Защита потерпевших</h2>
+          <p className={styles.price}>от 50,000 руб.</p>
+        </div>
       </section>
     </main>
   );

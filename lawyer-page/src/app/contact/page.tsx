@@ -25,7 +25,7 @@ export default function ContactPage(): JSX.Element {
             <p>Адрес: г. Москва, ул. Маршала Рыбалко 2, корп.6, оф.408</p>
           </div>
           <div className={styles.card}>
-            <p>Телефон: +7 916 578 09 36</p>
+            <p>Коллегия адвокатов №1, ИНН 1326186560, ОГРН 1021300987070</p>
           </div>
           <div className={styles.card}>
             <p>Email: peskov_lawyer@mail.ru</p>
