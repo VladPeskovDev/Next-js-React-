@@ -46,11 +46,96 @@
   margin-top: 20px;
 }
 
+/* Контейнер для статей */
+.articlesContainer {
+  width: 100%;
+  max-width: 960px;
+  background-color: #1a2633;
+  color: white;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.articlesTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.articlesContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toc {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #80bfff;
+  padding: 10px;
+  background-color: #223a4e;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.toc p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.toc a {
+  color: #80bfff;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.article {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #223a4e;
+  border: 1px solid #2f4b63;
+  margin-bottom: 20px;
+}
+
+.article h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #a0c4ff;
+  margin-bottom: 10px;
+}
+
+.article p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0e0f1;
+}
+
 /* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
-  .casesContainer {
-      gap: 12px;
-      overflow-x: auto; /* Горизонтальная прокрутка для кейсов */
-      padding: 10px;
+  .articlesContainer {
+    padding: 15px;
+  }
+
+  .articlesTitle {
+    font-size: 1.5rem;
+  }
+
+  .toc {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .article h3 {
+    font-size: 1.3rem;
+  }
+
+  .article p {
+    font-size: 0.95rem;
   }
 }
