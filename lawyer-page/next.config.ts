@@ -13,12 +13,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Добавляем настройки CORS для всех API-маршрутов
+        // Настройки CORS для всех API-маршрутов
         source: "/api/:path*",
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "*", // или укажите ваш домен для повышения безопасности, например, "https://advocatpeskov.com"
+            value: "*", // Для безопасности можно заменить на "https://advocatpeskov.com"
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -32,7 +32,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/yandex_ca6674660fe1aaf4.html',
+        destination: '/api/yandexVerification',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
-
