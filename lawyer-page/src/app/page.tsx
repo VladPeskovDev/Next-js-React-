@@ -8,6 +8,7 @@ export default function HomePage(): JSX.Element {
     <div className={styles.container}>
       <Head>
         <title>Адвокат по уголовным делам | Главная</title>
+        <meta name="google-site-verification" content="OfUKS37mZTQtIaO4HfoDJeWAvCIullKEuV2r7lYfuXc" />
         <meta
           name="description"
           content="Адвокат по уголовным делам в Москве – помощь и консультации."
