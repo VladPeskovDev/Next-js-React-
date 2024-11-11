@@ -12,7 +12,9 @@ export function notifyVisitMiddleware(request: NextRequest) {
   if (request.nextUrl.pathname === '/') {
     const message = `Новый визит на сайт:\nIP: ${ip}\nБраузер: ${userAgent}`;
 
-    fetch('https://next-js-react-94tt.vercel.app/api/sendTelegramNotification', {  // Замените на URL вашего Vercel приложения
+    //https://next-js-react-94tt.vercel.app
+
+    fetch('https://advokatpeskov.com/api/sendTelegramNotification', {  // Замените на URL вашего Vercel приложения
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
