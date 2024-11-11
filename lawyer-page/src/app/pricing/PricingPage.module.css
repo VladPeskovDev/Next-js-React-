@@ -1,9 +1,4 @@
-:root {
-    --background: #1a2633;
-    --text-color: #ffffff;
-    --accent-color: #1f1fcc;
-  }
-  
+
   .mainContainer {
     background-color: var(--background);
     color: var(--text-color);
@@ -53,12 +48,13 @@
   .serviceTitle {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: white;
   }
   
   .price {
     font-size: 1.1rem;
     font-weight: bold;
+    color: white;
   }
   
   @media (max-width: 768px) {
