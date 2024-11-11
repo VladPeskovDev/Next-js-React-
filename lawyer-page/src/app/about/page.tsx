@@ -1,5 +1,6 @@
 import styles from "./AboutPage.module.css";
 
+
 export const metadata = {
   title: "Адвокат по уголовным делам | Обо мне",
   description: "Информация об адвокате, специализирующемся на уголовных делах.",
