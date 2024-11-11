@@ -1,3 +1,8 @@
+:root {
+  --background: #1a2633;
+  --text-color: white;
+  --accent-color: #1f1fcc;
+}
 
 .mainContainer {
   width: 100%;
@@ -48,7 +53,6 @@
 .aboutContent {
   width: 928px;
   text-align: center;
-  color: white;
 }
 
 .aboutContent h2 {
@@ -71,7 +75,6 @@
   padding: 0 16px;
   margin-top: 10px;
   margin-bottom: 75px;
-  color: white;
 }
 
 .educationSection h3 {
