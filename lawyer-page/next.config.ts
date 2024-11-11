@@ -32,14 +32,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: '/yandex_ca6674660fe1aaf4.html',
-        destination: '/api/yandexVerification',
-      },
-    ];
-  },
+  //async rewrites() {
+    //return [
+      //{
+        //source: '/yandex_ca6674660fe1aaf4.html',
+        //destination: '/api/yandexVerification',
+      //},
+    //];
+  //},
 };
 
 export default nextConfig;
