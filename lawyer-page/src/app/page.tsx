@@ -84,7 +84,7 @@ export default function HomePage(): JSX.Element {
     <Link href="/cases">
       <img
         src="/vercel.svg"
-        alt="Юридическая помощь по уголовным делам"
+        alt="Юрист по уголовным делам в Москве"
         className={styles.caseImage}
       />      
       </Link>

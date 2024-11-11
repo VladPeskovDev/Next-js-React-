@@ -18,7 +18,6 @@ export default function ContactPage(): JSX.Element {
           </div>
         </div>
       </div>
-
       <div className={styles.infoSection}>
         <div className={styles.infoWrapper}>
           <div className={styles.card}>
@@ -28,11 +27,10 @@ export default function ContactPage(): JSX.Element {
             <p>Коллегия адвокатов №1, ИНН 1326186560, ОГРН 1021300987070</p>
           </div>
           <div className={styles.card}>
-            <p>Email: peskov_lawyer@mail.ru</p>
+            <p>Регистрационный №13/597, Удостоверение № 686</p>
           </div>
         </div>
       </div>
-
       <div className={styles.mapContainer}>
         <YandexMap />
       </div>

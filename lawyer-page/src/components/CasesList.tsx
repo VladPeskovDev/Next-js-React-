@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Modal from "./ModalCases";
 import styles from "./CasesList.module.css";
-import casesData from "../data/casesData"; // Импорт массива данных
+import casesData from "../data/casesData"; 
 
 export default function CasesList(): JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState(false);
