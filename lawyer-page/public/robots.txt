@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://advocatpeskov.com
+Host: https://advokatpeskov.com
 
 # Sitemaps
-Sitemap: https://advocatpeskov.com/sitemap.xml
+Sitemap: https://advokatpeskov.com/sitemap.xml
