@@ -2,6 +2,7 @@ import styles from "./HomePage.module.css";
 import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
 import Link from "next/link";
 import Head from "next/head";
+import ChatGPTAssistant from "../components/ChatGPTAssistant";
 
 export default function HomePage(): JSX.Element {
   return (
@@ -110,6 +111,7 @@ export default function HomePage(): JSX.Element {
           </div>
         </div>
       </section>
+      <ChatGPTAssistant />
     </div>
   );
 }
