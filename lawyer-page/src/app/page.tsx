@@ -12,7 +12,7 @@ export default function HomePage(): JSX.Element {
         <meta name="google-site-verification" content="OfUKS37mZTQtIaO4HfoDJeWAvCIullKEuV2r7lYfuXc" />
         <meta
           name="description"
-          content="Адвокат по уголовным делам в Москве – помощь и консультации."
+          content="Услуги адвоката по уголовным делам в Москве. Консультации, защита в суде, подготовка жалоб и сопровождение дел любой сложности."
         />
         <meta name="yandex-verification" content="ca6674660fe1aaf4" />
       </Head>

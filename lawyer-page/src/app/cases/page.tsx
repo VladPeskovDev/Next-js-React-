@@ -1,13 +1,19 @@
+import Head from "next/head";
 import CasesList from "../../components/CasesList";
 import styles from "./CasesPage.module.css";
 
 export const metadata = {
   title: "Адвокат по уголовным делам | Кейсы",
-  description: "Примеры успешно завершенных уголовных дел адвоката.",
+  description: "Примеры успешно завершенных уголовных дел адвоката. Адвокат по 228 УК РФ в Москве.",
 };
 
 export default function CasesPage(): JSX.Element {
   return (
+    <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
     <main className={styles.mainContainer}>
       <div className={styles.photoContainer}>
         <img src="/4.jpg" alt="Практика адвоката по уголовным делам" className={styles.caseImage} />
@@ -237,5 +243,6 @@ export default function CasesPage(): JSX.Element {
         </div>
       </div>
     </main>
+    </>
   );
 }
