@@ -1,3 +1,4 @@
+import Head from "next/head";
 import styles from './PricingPage.module.css';
 
 export const metadata = {
@@ -8,13 +9,20 @@ export const metadata = {
 export default function PricingPage(): JSX.Element {
   return (
     <main className={`${styles.mainContainer} container mx-auto p-4`}>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+
       <header className={styles.header}>
         <h1 className={styles.title}>Прайс-лист на услуги адвоката по уголовным делам</h1>
-        <p className={styles.subtitle}>Ниже представлены ориентировочные цены на услуги. Пожалуйста, свяжитесь для уточнения стоимости конкретного дела.</p>
+        <p className={styles.subtitle}>
+          Ниже представлены ориентировочные цены на услуги. Пожалуйста, свяжитесь для уточнения стоимости конкретного дела.
+        </p>
       </header>
 
       <section className={styles.pricingTable}>
-      <div className={styles.pricingItem}>
+        <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Первичная устная консультация по телефону</h2>
           <p className={styles.price}>Бесплатно</p>
         </div>
