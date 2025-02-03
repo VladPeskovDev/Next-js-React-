@@ -44,24 +44,32 @@ export default function HomePage(): JSX.Element {
       <section className={styles.fourCardsSection}>
         <div className={styles.cardWrapper}>
           <div className={styles.serviceCard}>
+          <Link href="/pricing">
             <FaUserShield className={styles.cardIcon} />
             <h2>Предварительное следствие</h2>
             <p>Защита на стадии предварительного следствия по любой категории дел.</p>
+          </Link>
           </div>
           <div className={styles.serviceCard}>
+          <Link href="/pricing">
             <FaBook className={styles.cardIcon} />
             <h2>Допросы и дача показаний</h2>
             <p>Защита на стадии допросов и дачи показаний по любой категории дел.</p>
+          </Link>
           </div>
           <div className={styles.serviceCard}>
+          <Link href="/pricing">
             <FaGavel className={styles.cardIcon} />
             <h2>Защита в суде</h2>
             <p>Защита на стадии судебного разбирательства по любой категории дел.</p>
+            </Link>
           </div>
           <div className={styles.serviceCard}>
+          <Link href="/pricing">
             <FaFileAlt className={styles.cardIcon} />
             <h2>Составление жалоб</h2>
             <p>Составление апелляционных, кассационных и иных жалоб, необходимых для защиты.</p>
+            </Link>
           </div>
         </div>
       </section>
