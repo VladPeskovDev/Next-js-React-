@@ -1,24 +1,29 @@
-//import type { NextConfig } from "next";
-
-//const nextConfig: NextConfig = {
-  /* config options here */
-  //reactStrictMode: false,
-//};
-
-//export default nextConfig; 
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: false,
+
   async headers() {
     return [
       {
-        // Настройки CORS для всех API-маршрутов
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/xml",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        // Настройки CORS для API-маршрутов
         source: "/api/:path*",
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "*", // Для безопасности можно заменить на "https://advocatpeskov.com"
+            value: "*", // Можно заменить на "https://advokatpeskov.com" для безопасности
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -32,14 +37,46 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  //async rewrites() {
-    //return [
-      //{
-        //source: '/yandex_ca6674660fe1aaf4.html',
-        //destination: '/api/yandexVerification',
-      //},
-    //];
-  //},
+};
+
+module.exports = nextConfig;
+
+
+
+
+
+
+
+
+
+
+/*
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: false,
+  async headers() {
+    return [
+      {
+        source: "/api/:path*",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*", 
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "Content-Type, Authorization",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
+*/
