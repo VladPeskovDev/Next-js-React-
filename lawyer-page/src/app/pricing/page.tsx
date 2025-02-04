@@ -27,7 +27,7 @@ export default function PricingPage(): JSX.Element {
           <p className={styles.price}>Бесплатно</p>
         </div>
         <div className={styles.pricingItem}>
-          <h2 className={styles.serviceTitle}>Устная консультация по уголовному делу</h2>
+          <h2 className={styles.serviceTitle}>Устная консультация по уголовному делу  офисе</h2>
           <p className={styles.price}>от 5,000 руб.</p>
         </div>
         <div className={styles.pricingItem}>
@@ -36,19 +36,19 @@ export default function PricingPage(): JSX.Element {
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Разовый срочный выезд</h2>
-          <p className={styles.price}>от 25,000 руб.</p>
+          <p className={styles.price}>от 15,000 руб.</p>
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Представление интересов на стадии предварительного следствия</h2>
-          <p className={styles.price}>от 75,000 руб.</p>
+          <p className={styles.price}>от 40,000 руб.</p>
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Защита в суде первой инстанции</h2>
-          <p className={styles.price}>от 75,000 руб.</p>
+          <p className={styles.price}>от 40,000 руб.</p>
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Апелляционное обжалование приговора</h2>
-          <p className={styles.price}>от 50,000 руб.</p>
+          <p className={styles.price}>от 30,000 руб.</p>
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Подготовка кассационной жалобы</h2>
@@ -56,11 +56,11 @@ export default function PricingPage(): JSX.Element {
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Защита свидетелей в ходе допроса (суд/следствие/объяснение)</h2>
-          <p className={styles.price}>от 25,000 руб.</p>
+          <p className={styles.price}>от 15,000 руб.</p>
         </div>
         <div className={styles.pricingItem}>
           <h2 className={styles.serviceTitle}>Защита потерпевших</h2>
-          <p className={styles.price}>от 50,000 руб.</p>
+          <p className={styles.price}>от 40,000 руб.</p>
         </div>
       </section>
     </main>
