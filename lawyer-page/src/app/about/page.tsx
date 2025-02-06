@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "./AboutPage.module.css";
 
 export const metadata = {
-  title: "Адвокат по уголовным делам | Обо мне",
+  title: "Услуги адвоката по уголовным делам | Обо мне",
   description: "Информация об адвокате, специализирующемся на уголовных делах. Телефон и контакты.",
 };
 
@@ -18,7 +18,7 @@ export default function AboutPage(): JSX.Element {
           <div className={styles.photoOverlay}>
             <img
               src="/foto008.svg"
-              alt="Адвокат по уголовным делам в Москве"
+              alt="Услуги адвоката по уголовным делам"
               className={styles.photo}
             />
           </div>
