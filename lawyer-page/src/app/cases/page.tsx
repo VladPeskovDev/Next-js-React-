@@ -3,7 +3,7 @@ import CasesList from "../../components/CasesList";
 import styles from "./CasesPage.module.css";
 
 export const metadata = {
-  title: "Адвокат по уголовным делам | Кейсы",
+  title: "Адвокат по уголовным делам москва | Кейсы",
   description: "Примеры успешно завершенных уголовных дел адвоката. Адвокат по 228 УК РФ в Москве.",
 };
 
