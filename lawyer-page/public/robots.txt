@@ -1,9 +1,10 @@
-# *
+User-agent: YandexBot
+Allow: /
+Disallow: /admin
+
 User-agent: *
 Allow: /
+Disallow: /admin
 
-# Host
 Host: https://advokatpeskov.com
-
-# Sitemaps
 Sitemap: https://advokatpeskov.com/sitemap.xml

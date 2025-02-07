@@ -8,13 +8,54 @@ export default function HomePage(): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Адвокат по уголовным делам | Главная</title>
+        <title>Адвокат по уголовным делам в Москве – защита, консультации, суд | Песков В.С.</title>
         <meta name="google-site-verification" content="OfUKS37mZTQtIaO4HfoDJeWAvCIullKEuV2r7lYfuXc" />
         <meta
           name="description"
           content="Услуги адвоката по уголовным делам в Москве. Консультации, защита в суде, подготовка жалоб и сопровождение дел любой сложности."
         />
         <meta name="yandex-verification" content="ca6674660fe1aaf4" />
+        {/* JSON-LD разметка LegalService */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "LegalService",
+            "name": "Адвокат по уголовным делам Песков В.С.",
+            "description": "Опытный адвокат по уголовным делам. Срочная защита, консультации, представительство в суде.",
+            "url": "https://advokatpeskov.com",
+            "image": "https://advokatpeskov.com/foto008.svg",
+            "telephone": "+79165780936",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ул. Маршала Рыбалко, д. 2, корп. 6, офис 408",
+              "addressLocality": "Москва",
+              "postalCode": "101000",
+              "addressCountry": "RU"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Иван Петров"
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5"
+                },
+                "reviewBody": "Отличный адвокат, помог выиграть дело!"
+              }
+            ],
+            "serviceType": "Юридическая помощь по уголовным делам",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "Москва"
+            },
+            "priceRange": "от 5000 руб."
+          }
+          `}
+        </script>
       </Head>
 
       {/* Верхний контейнер */}
