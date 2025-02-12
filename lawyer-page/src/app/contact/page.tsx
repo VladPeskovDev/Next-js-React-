@@ -1,8 +1,11 @@
-'use client';
+import styles from "./ContactPage.module.css";
+import { FaTelegramPlane } from "react-icons/fa";
+import ClientYandexMap from "../../components/ClientYandexMap"; // Импортируем клиентский компонент
 
-import styles from './ContactPage.module.css';
-import { FaTelegramPlane } from 'react-icons/fa';
-import YandexMap from '../../components/YandexMap';
+export const metadata = {
+  title: "Телефон адвокатов по уголовным делам в Москве – Примеры дел и успешные кейсы",
+  description: "Телефон адвоката по уголовным делам в Москве. Свяжитесь для консультации – телефон, адрес, Telegram. Юридическая помощь 24/7.",
+};
 
 export default function ContactPage(): JSX.Element {
   return (
@@ -31,8 +34,10 @@ export default function ContactPage(): JSX.Element {
           </div>
         </div>
       </div>
+
+      {/* Карта загружается лениво */}
       <div className={styles.mapContainer}>
-        <YandexMap />
+        <ClientYandexMap />
       </div>
     </main>
   );
