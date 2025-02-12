@@ -3,7 +3,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import ClientYandexMap from "../../components/ClientYandexMap"; // Импортируем клиентский компонент
 
 export const metadata = {
-  title: "Телефон адвокатов по уголовным делам в Москве – Примеры дел и успешные кейсы",
+  title: "Телефон адвокатов по уголовным делам в Москве – найти адвоката",
   description: "Телефон адвоката по уголовным делам в Москве. Свяжитесь для консультации – телефон, адрес, Telegram. Юридическая помощь 24/7.",
 };
 
