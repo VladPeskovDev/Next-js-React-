@@ -22,7 +22,7 @@ export default function Modal({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const phoneRegex = /^(\+7|8)9\d{9}$/;
+    { /* const phoneRegex = /^(\+7|8)9\d{9}$/;
 
     // Проверка соответствия формату и длине номера
     if (
@@ -34,7 +34,7 @@ export default function Modal({
         "Введите корректный номер телефона: +7xxxxxxxxxx (12 символов) или 89xxxxxxxxx (11 символов)."
       );
       return;
-    }
+    } */}
 
     if (name.length < 2) {
       setError("Имя должно содержать хотя бы 2 символа.");
