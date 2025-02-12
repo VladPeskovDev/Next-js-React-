@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "./AboutPage.module.css";
 
 export const metadata = {
-  title: "Услуги адвоката по уголовным делам | Обо мне",
+  title: "Услуги адвоката по уголовным делам в Москве",
   description: "Информация об адвокате, специализирующемся на уголовных делах. Телефон и контакты.",
 };
 

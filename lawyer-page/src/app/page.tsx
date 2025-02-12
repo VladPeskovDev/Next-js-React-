@@ -4,11 +4,13 @@ import Link from "next/link";
 import Head from "next/head";
 import ChatGPTAssistant from "../components/ChatGPTAssistant";
 
+
+
 export default function HomePage(): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Адвокат по уголовным делам в Москве – защита, консультации, суд | Песков В.С.</title>
+        <title>Адвокат по уголовным делам в Москве – защита, консультации, суд, срочный выезд.</title>
         <meta name="google-site-verification" content="OfUKS37mZTQtIaO4HfoDJeWAvCIullKEuV2r7lYfuXc" />
         <meta
           name="description"
