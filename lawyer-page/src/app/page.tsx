@@ -1,65 +1,36 @@
+export const metadata = {
+  title: "Уголовный юрист в Москве – защита, консультации, суд, срочный выезд.",
+  description: "Услуги адвоката по уголовным делам в Москве. Консультации, защита в суде, подготовка жалоб и сопровождение дел любой сложности.",
+  keywords: "уголовный юрист, адвокат, уголовные дела, защита, суд, консультация",
+  openGraph: {
+    title: "Адвокат по уголовным делам в Москве",
+    description: "Консультации, защита в суде, подготовка жалоб и сопровождение дел.",
+    url: "https://advokatpeskov.com",
+    siteName: "Адвокат Песков",
+    images: [
+      {
+        url: "https://advokatpeskov.com/foto008.svg",
+        width: 1200,
+        height: 630,
+        alt: "Адвокат по уголовным делам Песков В.С.",
+      },
+    ],
+    type: "website",
+  },
+  verification: {
+    google: "OfUKS37mZTQtIaO4HfoDJeWAvCIullKEuV2r7lYfuXc",
+    yandex: "ca6674660fe1aaf4",
+  },
+};
+
 import styles from "./HomePage.module.css";
 import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
 import Link from "next/link";
-import Head from "next/head";
 import ChatGPTAssistant from "../components/ChatGPTAssistant";
-
-
 
 export default function HomePage(): JSX.Element {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Адвокат по уголовным делам в Москве – защита, консультации, суд, срочный выезд.</title>
-        <meta name="google-site-verification" content="OfUKS37mZTQtIaO4HfoDJeWAvCIullKEuV2r7lYfuXc" />
-        <meta
-          name="description"
-          content="Услуги адвоката по уголовным делам в Москве. Консультации, защита в суде, подготовка жалоб и сопровождение дел любой сложности."
-        />
-        <meta name="yandex-verification" content="ca6674660fe1aaf4" />
-        {/* JSON-LD разметка LegalService */}
-        <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            "name": "Адвокат по уголовным делам Песков В.С.",
-            "description": "Опытный адвокат по уголовным делам. Срочная защита, консультации, представительство в суде.",
-            "url": "https://advokatpeskov.com",
-            "image": "https://advokatpeskov.com/foto008.svg",
-            "telephone": "+79165780936",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "ул. Маршала Рыбалко, д. 2, корп. 6, офис 408",
-              "addressLocality": "Москва",
-              "postalCode": "101000",
-              "addressCountry": "RU"
-            },
-            "review": [
-              {
-                "@type": "Review",
-                "author": {
-                  "@type": "Person",
-                  "name": "Иван Петров"
-                },
-                "reviewRating": {
-                  "@type": "Rating",
-                  "ratingValue": "5"
-                },
-                "reviewBody": "Отличный адвокат, помог выиграть дело!"
-              }
-            ],
-            "serviceType": "Юридическая помощь по уголовным делам",
-            "areaServed": {
-              "@type": "AdministrativeArea",
-              "name": "Москва"
-            },
-            "priceRange": "от 5000 руб."
-          }
-          `}
-        </script>
-      </Head>
-
       {/* Верхний контейнер */}
       <section className={styles.heroSection}>
         <div className={styles.heroTextContainer}>
@@ -87,31 +58,31 @@ export default function HomePage(): JSX.Element {
       <section className={styles.fourCardsSection}>
         <div className={styles.cardWrapper}>
           <div className={styles.serviceCard}>
-          <Link href="/pricing">
-            <FaUserShield className={styles.cardIcon} />
-            <h2>Предварительное следствие</h2>
-            <p>Защита на стадии предварительного следствия по любой категории дел.</p>
-          </Link>
-          </div>
-          <div className={styles.serviceCard}>
-          <Link href="/pricing">
-            <FaBook className={styles.cardIcon} />
-            <h2>Допросы и дача показаний</h2>
-            <p>Защита на стадии допросов и дачи показаний по любой категории дел.</p>
-          </Link>
-          </div>
-          <div className={styles.serviceCard}>
-          <Link href="/pricing">
-            <FaGavel className={styles.cardIcon} />
-            <h2>Защита в суде</h2>
-            <p>Защита на стадии судебного разбирательства по любой категории дел.</p>
+            <Link href="/pricing">
+              <FaUserShield className={styles.cardIcon} />
+              <h2>Предварительное следствие</h2>
+              <p>Защита на стадии предварительного следствия по любой категории дел.</p>
             </Link>
           </div>
           <div className={styles.serviceCard}>
-          <Link href="/pricing">
-            <FaFileAlt className={styles.cardIcon} />
-            <h2>Составление жалоб</h2>
-            <p>Составление апелляционных, кассационных и иных жалоб, необходимых для защиты.</p>
+            <Link href="/pricing">
+              <FaBook className={styles.cardIcon} />
+              <h2>Допросы и дача показаний</h2>
+              <p>Защита на стадии допросов и дачи показаний по любой категории дел.</p>
+            </Link>
+          </div>
+          <div className={styles.serviceCard}>
+            <Link href="/pricing">
+              <FaGavel className={styles.cardIcon} />
+              <h2>Защита в суде</h2>
+              <p>Защита на стадии судебного разбирательства по любой категории дел.</p>
+            </Link>
+          </div>
+          <div className={styles.serviceCard}>
+            <Link href="/pricing">
+              <FaFileAlt className={styles.cardIcon} />
+              <h2>Составление жалоб</h2>
+              <p>Составление апелляционных, кассационных и иных жалоб, необходимых для защиты.</p>
             </Link>
           </div>
         </div>
@@ -166,7 +137,6 @@ export default function HomePage(): JSX.Element {
     </div>
   );
 }
-
 
 
 
