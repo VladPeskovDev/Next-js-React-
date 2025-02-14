@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CasesList from "../../components/CasesList";
 import styles from "./CasesPage.module.css";
 
@@ -28,6 +29,9 @@ export default function CasesPage(): JSX.Element {
             <p><a href="#article4">4. Хранение и сбыт наркотиков виды наказания по 228 статье</a></p>
             <p><a href="#article5">5. Как выбрать лучшего адвоката по уголовным делам в Москве</a></p>
             <p><a href="#article6">6. Что делать если поймали с наркотиками</a></p>
+            <Link href="/article">
+            <p>7. Как работает адвокат по уголовным делам в Москве</p>
+            </Link>
           </div>
 
           <div id="article1" className={styles.article}>
