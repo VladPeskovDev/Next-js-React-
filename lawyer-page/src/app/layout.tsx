@@ -19,6 +19,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Адвокат по уголовным делам",
   description: "Юридическая помощь и консультации по уголовным делам в Москве.",
+  keywords: "уголовный адвокат, адвокат, уголовные дела, защита, суд, консультация",
 };
 
 export default function RootLayout({
