@@ -1,18 +1,21 @@
-import Head from "next/head";
 import styles from "./AboutPage.module.css";
 
 export const metadata = {
-  title: "Услуги адвоката по уголовным делам в Москве",
-  description: "Информация об адвокате, специализирующемся на уголовных делах. Телефон и контакты.",
+  title: "Адвокат по уголовным делам в Москве – Консультация и защита",
+  description:
+    "Опытный адвокат по уголовным делам в Москве. Помощь в сложных ситуациях: суд, следствие, обжалование. Узнайте стоимость услуг и запишитесь на консультацию.",
+  keywords: "адвокат по уголовным делам москва, услуги адвоката по уголовным делам, адвокат по уголовному делу цена, консультация адвоката в суде, срочный адвокат",
+  openGraph: {
+    title: "Опытный адвокат по уголовным делам – Защита и консультация",
+    description:
+      "Как работает адвокат по уголовным делам? Защита на всех этапах, консультация, представительство в суде. Узнайте, как получить юридическую помощь.",
+  },
 };
+
 
 export default function AboutPage(): JSX.Element {
   return (
     <main className="container mx-auto p-4">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </Head>
       <div className={styles.mainContainer}>
         <div className={styles.photoContainer}>
           <div className={styles.photoOverlay}>
