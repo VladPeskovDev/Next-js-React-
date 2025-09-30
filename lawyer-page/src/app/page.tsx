@@ -26,7 +26,7 @@ export const metadata = {
 import styles from "./HomePage.module.css";
 import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
 import Link from "next/link";
-import ChatGPTAssistant from "../components/ChatGPTAssistant";
+//import ChatGPTAssistant from "../components/ChatGPTAssistant";
 
 export default function HomePage(): JSX.Element {
   return (
@@ -133,7 +133,7 @@ export default function HomePage(): JSX.Element {
           </div>
         </div>
       </section>
-      <ChatGPTAssistant />
+     {/* <ChatGPTAssistant /> */}
     </div>
   );
 }

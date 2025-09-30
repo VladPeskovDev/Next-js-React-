@@ -1,21 +1,29 @@
 import Link from "next/link";
-import CasesList from "../../components/CasesList";
+//import CasesList from "../../components/CasesList";
 import styles from "./CasesPage.module.css";
 
 export const metadata = {
-  title: "Адвокат по уголовным делам в Москве – Примеры дел и успешные кейсы",
-  description: "Примеры выигранных уголовных дел и судебных разбирательств адвоката. Ознакомьтесь с успешными кейсами по сложным уголовным делам в Москве",
+  title: "Блог адвоката по уголовным делам в Москве – статьи, советы и разборы",
+  description:
+    "Полезные статьи адвоката по уголовным делам: практика, советы, разборы резонансных дел, а также материалы о праве и актуальных законах. Читайте блог и узнайте больше о защите ваших прав.",
+  keywords:
+    "адвокат по уголовным делам, блог адвоката, юридические статьи, уголовное право, советы адвоката, разбор дел",
+  openGraph: {
+    title: "Блог адвоката по уголовным делам в Москве",
+    description:
+      "Читайте статьи адвоката по уголовным делам: уголовное право, защита в суде, разборы кейсов и актуальные правовые вопросы.",
+  },
 };
+
 
 export default function CasesPage(): JSX.Element {
   return (
     <>
     <main className={styles.mainContainer}>
-      <div className={styles.photoContainer}>
+      {/*<div className={styles.photoContainer}>
         <img src="/4.jpg" alt="Практика адвоката по уголовным делам" className={styles.caseImage} />
-        <h2 className={styles.overlayText}>Результаты деятельности за долгие годы практики по уголовным делам</h2>
       </div>
-      <CasesList />
+      <CasesList /> */}
 
       {/* Контейнер для полезных статей */}
       <div className={styles.articlesContainer}>
