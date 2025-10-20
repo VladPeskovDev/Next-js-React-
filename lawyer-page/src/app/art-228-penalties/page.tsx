@@ -23,7 +23,7 @@ export default function Art228PenaltiesPage(): JSX.Element {
     description:
       "Части 228, масса, практика, смягчающие, типичные ошибки защиты. Когда обращаться к адвокату по наркотическим делам.",
     datePublished: "2025-10-01",
-    mainEntityOfPage: "https://YOUR_DOMAIN/art-228-penalties",
+    mainEntityOfPage: "https://advokatpeskov.com/art-228-penalties",
   };
 
   return (
