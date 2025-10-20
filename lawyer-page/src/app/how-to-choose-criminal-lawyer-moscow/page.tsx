@@ -23,7 +23,7 @@ export default function ChooseLawyerPage(): JSX.Element {
     description:
       "На что смотреть при выборе защитника: опыт, специализация, стратегия, документы и прозрачные условия сотрудничества.",
     datePublished: "2025-10-01",
-    mainEntityOfPage: "https://YOUR_DOMAIN/how-to-choose-criminal-lawyer-moscow",
+    mainEntityOfPage: "https://advokatpeskov.com/how-to-choose-criminal-lawyer-moscow",
   };
 
   return (

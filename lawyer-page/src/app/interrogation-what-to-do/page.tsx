@@ -23,7 +23,7 @@ export default function InterrogationPage(): JSX.Element {
     description:
       "Порядок вызова, права, длительность, протокол и роль адвоката. Рекомендации по поведению и речи.",
     datePublished: "2025-10-01",
-    mainEntityOfPage: "https://YOUR_DOMAIN/interrogation-what-to-do",
+    mainEntityOfPage: "https://advokatpeskov.com/interrogation-what-to-do",
   };
 
   return (

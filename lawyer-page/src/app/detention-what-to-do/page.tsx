@@ -23,7 +23,7 @@ export default function DetentionPage(): JSX.Element {
     description:
       "Процедура задержания, сроки, права задержанного, протокол и роль адвоката по уголовным делам.",
     datePublished: "2025-10-01",
-    mainEntityOfPage: "https://YOUR_DOMAIN/detention-what-to-do",
+    mainEntityOfPage: "https://advokatpeskov.com/detention-what-to-do",
   };
 
   return (

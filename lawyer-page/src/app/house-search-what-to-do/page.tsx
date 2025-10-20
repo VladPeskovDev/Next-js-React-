@@ -23,7 +23,7 @@ export default function HouseSearchPage(): JSX.Element {
     description:
       "Основания для обыска, права, понятые, протокол, фиксация нарушений. Советы адвоката по уголовным делам.",
     datePublished: "2025-10-01",
-    mainEntityOfPage: "https://YOUR_DOMAIN/house-search-what-to-do",
+    mainEntityOfPage: "https://advokatpeskov.com/house-search-what-to-do",
   };
 
   return (
