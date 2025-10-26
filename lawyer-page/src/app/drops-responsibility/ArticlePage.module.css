@@ -205,7 +205,3 @@
   }
 }
 
-/* Плавная прокрутка — глобально (разрешено через :global) */
-:global(html) {
-  scroll-behavior: smooth;
-}
