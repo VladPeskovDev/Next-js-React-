@@ -184,5 +184,3 @@
   }
 }
 
-/* Плавная прокрутка (если используешь CSS-модули, оформи как :global) */
-:global(html) { scroll-behavior: smooth; }
