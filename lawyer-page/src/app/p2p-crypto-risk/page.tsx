@@ -1,0 +1,320 @@
+import Link from "next/link";
+import styles from "./ArticlePage.module.css";
+
+/** ====== SEO ====== */
+export const metadata = {
+  title: "Опасность P2P‑обмена криптовалюты: как не стать фигурантом уголовного дела",
+  description:
+    "Разбираем риски P2P‑обмена (Bybit, Binance, OKX): схема ‘треугольник’, почему возбуждают дела по ст. 159 УК РФ, когда возможны 174, 174.1 и 172.2 УК РФ, как защититься и что делать при блокировке счёта. Консультация адвоката по уголовным делам.",
+  keywords:
+    "P2P криптовалюта мошенничество, P2P обмен Bybit, треугольник крипта, ст. 159 УК РФ, 174 УК РФ, 174.1 УК РФ, 172.2 УК РФ, адвокат по уголовным делам Москва, блокировка счёта p2p",
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "none",
+    "max-video-preview": -1,
+    "max-snippet": -1,
+  },
+  alternates: {
+    canonical: "https://advokatpeskov.com/p2p-crypto-risk",
+    languages: {
+      ru: "https://advokatpeskov.com/p2p-crypto-risk",
+    },
+  },
+  openGraph: {
+    type: "article",
+    url: "https://advokatpeskov.com/p2p-crypto-risk",
+    title: "P2P‑обмен криптовалюты: риски и ответственность",
+    description:
+      "Как P2P‑сделка может превратиться в уголовное дело по ст. 159 УК РФ. Примеры из практики и рекомендации адвоката.",
+    siteName: "Адвокат Песков — уголовные дела",
+  },
+  twitter: {
+    card: "summary",
+    title: "P2P‑обмен криптовалюты: риски и ответственность",
+    description:
+      "Схема ‘треугольник’, уголовные риски по ст. 159 УК РФ и как защитить себя при обмене криптовалюты через P2P.",
+  },
+  icons: { icon: "/favicon.ico" },
+};
+
+const PUBLISHED = "2025-10-26";
+const MODIFIED = "2025-10-26";
+
+export default function CryptoP2PRiskPage(): JSX.Element {
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Опасность P2P‑обмена криптовалюты: как не стать фигурантом уголовного дела",
+    description:
+      "Почему сделки через P2P (Bybit, Binance, OKX) могут привести к делу по ст. 159 УК РФ, что такое ‘треугольник’ и как защититься.",
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    inLanguage: "ru-RU",
+    mainEntityOfPage: "https://advokatpeskov.com/p2p-crypto-risk",
+    author: {
+      "@type": "Person",
+      name: "Адвокат Песков",
+      url: "https://advokatpeskov.com/about",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Адвокат Песков",
+      url: "https://advokatpeskov.com",
+    },
+    articleSection: [
+      "Вводная",
+      "Схема ‘треугольник’",
+      "Почему возникает уголовное дело",
+      "Примеры из практики",
+      "Какая ответственность грозит",
+      "Как защитить себя",
+      "Если уже стали участником",
+      "Вывод",
+    ],
+  };
+
+  const breadcrumbsLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Блог",
+        item: "https://advokatpeskov.com/cases",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Опасность P2P‑обмена криптовалюты",
+        item: "https://advokatpeskov.com/p2p-crypto-risk",
+      },
+    ],
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Могут ли возбудить дело, если я просто продал USDT через P2P?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Да, если оплата пришла деньгами потерпевшего от мошенничества — возможна квалификация по ст. 159 УК РФ и/или проверка на 174, 174.1, 172.2 УК РФ.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Как себя обезопасить при P2P‑сделке?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Не принимайте переводы от третьих лиц, сверяйте имя плательщика с никнеймом контрагента, сохраняйте переписку, при сомнениях не переводите криптовалюту и сообщайте в банк.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Что делать, если банк заблокировал счёт после P2P?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Сохраните доказательства сделки, не давайте объяснений без адвоката, запросите материалы проверки и действуйте по стратегии защиты, согласованной с юристом.",
+        },
+      },
+    ],
+  };
+
+  const webSiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Адвокат Песков — уголовные дела",
+    url: "https://advokatpeskov.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://advokatpeskov.com/search?q={query}",
+      "query-input": "required name=query",
+    },
+    inLanguage: "ru-RU",
+  };
+
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Адвокат Песков",
+    url: "https://advokatpeskov.com",
+  };
+
+  return (
+    <div className={styles.articlesContainer}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
+
+      {/* ====== Хлебные крошки ====== */}
+      <nav className={styles.breadcrumbs} aria-label="breadcrumb">
+        <Link href="/cases">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
+      </nav>
+
+      {/* ====== Заголовок ====== */}
+      <h1 className={styles.articlesTitle}>Опасность обмена криптовалюты через P2P: как не стать фигурантом уголовного дела</h1>
+
+      {/* ====== Оглавление (адаптивное) ====== */}
+      <details className={styles.toc} open>
+        <summary className={styles.tocSummary} aria-label="Показать содержание">
+          <span className={styles.tocBadge}>Содержание</span>
+        </summary>
+        <nav aria-label="Содержание статьи">
+          <ul className={styles.tocList}>
+            <li><a href="#intro">Вводная</a></li>
+            <li><a href="#triangle">Как работает схема «треугольник»</a></li>
+            <li><a href="#why-crime">Почему возникает уголовное дело</a></li>
+            <li><a href="#cases">Примеры из практики</a></li>
+            <li><a href="#liability">Какая ответственность грозит</a></li>
+            <li><a href="#protect">Как защитить себя</a></li>
+            <li><a href="#what-to-do">Если вы уже стали участником</a></li>
+            <li><a href="#summary">Вывод</a></li>
+          </ul>
+        </nav>
+      </details>
+
+      {/* ====== Контент ====== */}
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="intro">
+        <h3>Вводная</h3>
+        <p>
+          В последние годы криптовалюта стала популярным способом сохранения и перевода средств. Многие пользуются удобными
+          сервисами — например, <strong>P2P‑площадками</strong> на биржах вроде <em>Bybit</em>, <em>Binance</em> или
+          <em> OKX</em>, где можно напрямую обменять криптовалюту с другим человеком. Но всё чаще именно такие сделки становятся
+          причиной <strong>уголовных дел по статье 159 УК РФ (мошенничество)</strong>. И зачастую под следствие попадают вовсе не
+          мошенники, а обычные люди, просто продавшие свою крипту.
+        </p>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="triangle">
+        <h3>Как работает схема «треугольник»</h3>
+        <p>На первый взгляд, всё выглядит безобидно:</p>
+        <ul className={styles.listTight}>
+          <li>Вы размещаете объявление на P2P‑площадке о продаже USDT или другой криптовалюты.</li>
+          <li>Вам пишет покупатель, вы обговариваете условия, он обещает перевести деньги на ваш банковский счёт.</li>
+          <li>Деньги поступают — всё вроде бы честно.</li>
+          <li>Вы переводите криптовалюту покупателю.</li>
+        </ul>
+        <p>
+          Но спустя несколько дней вам звонит следователь: на ваш счёт поступили похищенные деньги от потерпевшего, обманутого
+          мошенниками. Оказалось, что «покупатель» не переводил деньги со своего счёта — он использовал чужие средства, полученные
+          преступным путём. В итоге получается «треугольник»:
+        </p>
+        <ul className={styles.listTight}>
+          <li>Мошенник получает деньги от жертвы,</li>
+          <li>отправляет их вам как оплату за криптовалюту,</li>
+          <li>получает от вас крипту и исчезает.</li>
+        </ul>
+        <p>А в поле зрения правоохранителей попадаете именно вы, ведь именно на ваш счёт пришли деньги потерпевшего.</p>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="why-crime">
+        <h3>Почему возникает уголовное дело</h3>
+        <p>
+          Следствие расценивает такие ситуации как <strong>участие в мошеннической схеме (статья 159 УК РФ)</strong> или, при
+          определённых обстоятельствах, <strong>легализацию (отмывание) денежных средств — статьи 174 и 174.1 УК РФ</strong>, а
+          также <strong>незаконные операции с платёжными средствами (статья 172.2 УК РФ)</strong>.
+        </p>
+        <p>
+          Даже если вы не знали о преступном происхождении денег, <em>факт получения и перевода средств</em> может быть истолкован
+          как пособничество или причастность к мошенничеству. Особенно настороженно правоохранители относятся к случаям, когда:
+        </p>
+        <ul className={styles.listBullets}>
+          <li>операции выглядят нетипично (крупные суммы, регулярные переводы от разных лиц);</li>
+          <li>вы не можете подтвердить личность покупателя или источник средств;</li>
+          <li>вы не предприняли попыток проверить контрагента.</li>
+        </ul>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="cases">
+        <h3>Примеры из практики</h3>
+        <p>
+          В 2023–2025 годах в разных регионах России фиксировались случаи, когда обычные пользователи P2P становились фигурантами
+          дел. Пример типовой ситуации: продавец через Bybit продал криптовалюту на несколько сотен тысяч рублей, получил оплату на
+          карту и перевёл USDT. Спустя неделю банк заблокировал счёт, а полиция возбудила дело: перевод поступил со счёта
+          потерпевшего, обманутого при онлайн‑покупке. Хотя продавец действовал добросовестно, ему вменили пособничество в
+          мошенничестве; только с помощью адвоката удалось доказать отсутствие умысла.
+        </p>
+        <p>
+          Для укрепления позиции можно сослаться на публикации в СМИ и аналитические обзоры по тематике P2P и ст. 159 УК РФ.
+          Практика регулярно освещается правовыми и отраслевыми ресурсами; при необходимости в суде уместно ходатайствовать об
+          истребовании материалов проверки и экспертиз по конкретной сделке.
+        </p>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="liability">
+        <h3>Какая ответственность грозит</h3>
+        <p>
+          <strong>Статья 159 УК РФ (мошенничество)</strong> предусматривает наказание вплоть до лишения свободы. В зависимости от
+          суммы ущерба и обстоятельств:
+        </p>
+        <ul className={styles.listBullets}>
+          <li>до <strong>2 лет</strong> — если сумма небольшая;</li>
+          <li>до <strong>6 лет</strong> — если причинён значительный ущерб;</li>
+          <li>до <strong>10 лет</strong> — при особо крупном размере.</li>
+        </ul>
+        <p>
+          Даже если удаётся доказать отсутствие умысла, часто возбуждается <em>уголовное дело по факту</em>, счёт блокируется, а
+          деньги изымаются как вещественные доказательства. Кроме того, банки нередко вносят клиентов в «чёрные списки» как
+          участников сомнительных операций.
+        </p>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="protect">
+        <h3>Как защитить себя</h3>
+        <ul className={styles.listBullets}>
+          <li><strong>Не принимайте переводы от третьих лиц.</strong> Имя плательщика должно совпадать с данными контрагента на P2P.</li>
+          <li><strong>Используйте только внутренние инструменты биржи.</strong> Не уходите в мессенджеры и «удобные переводы».</li>
+          <li><strong>Не торопитесь.</strong> Давление на скорость — частый признак мошенничества.</li>
+          <li><strong>Сохраняйте переписку и скриншоты.</strong> Это ключевые доказательства вашей добросовестности.</li>
+          <li><strong>При подозрительных средствах — сообщите в банк и не переводите крипту.</strong></li>
+        </ul>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="what-to-do">
+        <h3>Если вы уже стали участником такой ситуации</h3>
+        <p>
+          Если ваш счёт заблокировали, а полиция вызывает на допрос — <strong>не пытайтесь объясниться самостоятельно</strong>.
+          Любое слово может быть использовано против вас. Необходимо обратиться к адвокату по уголовным делам, который:
+        </p>
+        <ul className={styles.listBullets}>
+          <li>запросит материалы проверки,</li>
+          <li>поможет выстроить линию защиты,</li>
+          <li>докажет отсутствие умысла и преступного сговора,</li>
+          <li>добьётся прекращения дела или снятия ареста со счёта.</li>
+        </ul>
+      </section>
+
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="summary">
+        <h3>Вывод</h3>
+        <p>
+          Продажа криптовалюты через P2P кажется простой и безопасной, но на практике может привести к уголовной ответственности по
+          статье 159 УК РФ, даже если вы сами никого не обманывали. Чтобы не стать «пострадавшим дважды» — от мошенников и от
+          следствия — действуйте осмотрительно и при малейших подозрениях обращайтесь к юристу.
+        </p>
+      </section>
+
+      {/* ====== CTA (релевантный тематике статьи) ====== */}
+      <div className={styles.cta}>
+        <p>
+          <strong>Нужна защита по делам о мошенничестве, легализации средств или P2P‑операциям?</strong>
+          Подключусь на любой стадии, выстрою стратегию защиты, подготовлю ходатайства и представлю ваши интересы.
+        </p>
+        <p className={styles.linksRow}>
+          <Link href="/contact" aria-label="Связаться с адвокатом">Связаться</Link> ·{" "}
+          <Link href="/about" aria-label="Узнать обо мне">Обо мне</Link> ·{" "}
+          <Link href="/fraud" aria-label="Адвокат по делам о мошенничестве (ст. 159 УК РФ)">Ст. 159 УК РФ</Link> ·{" "}
+          <Link href="/money-laundering-174" aria-label="Адвокат по делам о легализации доходов (ст. 174, 174.1 УК РФ)">Ст. 174, 174.1 УК РФ</Link>
+        </p>
+      </div>
+    </div>
+  );
+}

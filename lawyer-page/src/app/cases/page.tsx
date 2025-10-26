@@ -30,7 +30,7 @@ export default function CasesPage(): JSX.Element {
           <div className={styles.toc}>
             <p><Link href="/house-search-what-to-do">1. Что делать при обыске</Link></p>
             <p><Link href="/detention-what-to-do">2. Что делать, если задержали</Link></p>
-            <p><Link href="/interrogation-what-to-do">3. Что делать, если вызвали на допрос</Link></p>
+            <p><Link href="/p2p-crypto-risk">3. Опасность обмена криптовалюты через P2P: как не стать фигурантом уголовного дела</Link></p>
             <p><Link href="/drops-responsibility">4. Кто такие дропы и какая ответственность за это в России</Link></p>
             <p><Link href="/vpn-laws-russia">5. Новые правила по VPN-сервисам в России: что важно знать</Link></p>
             <Link href="/drugs"><p>6. Как работает адвокат по наркотикам, что делать если задержали с наркотиками</p></Link>
