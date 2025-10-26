@@ -2,46 +2,180 @@
   width: 100%;
   max-width: 960px;
   background-color: #1a2633;
-  color: white;
+  color: #d0e0f1;
   margin: 65px auto;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 32px 24px;
+  border-radius: 12px;
+  line-height: 1.7;
 }
 
+/* === Заголовок и лид === */
 .articlesTitle {
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
   text-align: center;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
+.lead {
+  font-size: 1.1rem;
+  color: #d8e6f8;
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  opacity: 0.9;
+}
+/* === Навигация (breadcrumbs + TOC) === */
+.breadcrumbs {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  opacity: 0.75;
+}
+
+/* Перевели .toc в details */
+.toc {
+  background-color: #223a4e;
+  border: 1px solid #2f4b63;
+  border-radius: 8px;
+  padding: 0;                /* управляем внутренними отступами через элементы внутри */
+  margin-bottom: 24px;
+  overflow: hidden;          /* чтобы скругления выглядели аккуратно */
+}
+
+.tocSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  outline: none;
+  color: #a0c4ff;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Иконка-стрелка */
+.tocSummary::after {
+  content: "▸";
+  transition: transform 0.2s ease;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+/* Поворот стрелки при открытом состоянии */
+.toc[open] .tocSummary::after {
+  transform: rotate(90deg);
+}
+
+.tocList {
+  padding: 0 16px 14px 36px; /* отступ под нумерацию */
+  margin: 0;
+  list-style: decimal;
+}
+
+.tocList li {
+  margin: 6px 0;
+}
+
+.tocList a {
+  color: #9ecbff;
+  text-decoration: none;
+}
+
+.tocList a:hover {
+  text-decoration: underline;
+}
+
+/* === Основные блоки статьи === */
 .article {
   padding: 20px;
   border-radius: 8px;
   background-color: #223a4e;
   border: 1px solid #2f4b63;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-.article h2, .article h3 {
-  font-size: 1.6rem;
-  font-weight: bold;
+.article h2,
+.article h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #a0c4ff;
   margin-bottom: 10px;
 }
 
 .article p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #d0e0f1;
 }
 
-.breadcrumbs {
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-  opacity: 0.8;
+.listBullets {
+  list-style: disc;
+  padding-left: 24px;
+  margin: 10px 0 10px 0;
 }
 
+.listBullets li {
+  margin-bottom: 8px;
+}
+
+.note {
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-left: 3px solid #4da3ff;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-top: 12px;
+  color: #d8ecff;
+}
+
+/* === CTA блок === */
+.ctaBlock {
+  background: linear-gradient(145deg, #2b4b70, #1d334a);
+  border: 1px solid #3e628c;
+  text-align: center;
+}
+
+.ctaBlock h3 {
+  color: #ffffff;
+}
+
+.ctaBlock p {
+  color: #d8e6f8;
+  font-size: 1.05rem;
+}
+
+.ctaBlock a {
+  color: #a0c4ff;
+  text-decoration: underline;
+}
+
+/* === FAQ (локально, через контейнер .faq) === */
+.faq details {
+  background-color: #1d3246;
+  border: 1px solid #2f4b63;
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 10px 14px;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #a0c4ff;
+}
+
+.faq details p {
+  margin-top: 8px;
+  color: #d0e0f1;
+}
+
+/* === Ссылки и списки ссылок === */
 .readMore {
   margin-top: 12px;
   font-size: 0.95rem;
@@ -50,24 +184,77 @@
 
 .linksRow {
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
+.listLinks {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.listLinks li {
+  margin-bottom: 8px;
+}
+
+.listLinks a {
+  color: #9ecbff;
+  text-decoration: none;
+}
+
+.listLinks a:hover {
+  text-decoration: underline;
+}
+
+/* === Дисклеймер === */
+.disclaimer {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  border-top: 1px solid #2f4b63;
+  padding-top: 16px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* === Мобильная адаптация === */
 @media (max-width: 768px) {
   .articlesContainer {
-    padding: 15px;
+    padding: 18px;
   }
 
   .articlesTitle {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
-  .article h2, .article h3 {
-    font-size: 1.3rem;
+  .lead {
+    font-size: 1rem;
   }
 
-  .article p {
+  .article h2,
+  .article h3 {
+    font-size: 1.25rem;
+  }
+
+  .article p,
+  .listBullets {
     font-size: 0.95rem;
+  }
+
+  .toc {
+    font-size: 0.9rem;
+  }
+
+  .ctaBlock {
+    padding: 16px 12px;
+  }
+}
+@media (max-width: 768px) {
+  .tocSummary {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+  .tocList {
+    padding: 0 14px 12px 30px;
   }
 }
