@@ -1,0 +1,145 @@
+.articlesContainer {
+  width: 100%;
+  max-width: 960px;
+  background-color: #1a2633;
+  color: white;
+  margin: 65px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.articlesTitle {
+  font-size: 1.9rem; /* +чуть крупнее заголовок */
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.lead {
+  margin: 0 auto 16px;
+  padding: 10px 14px;
+  background: #1e3144;
+  border: 1px solid #2f4b63;
+  border-radius: 8px;
+  color: #d9e7f6;
+  line-height: 1.6;
+}
+
+.meta {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+.metaDot { opacity: 0.4; }
+
+.toc {
+  margin: 12px 0 18px;
+  padding: 12px 14px;
+  background: #1f364a;
+  border: 1px solid #2a4963;
+  border-radius: 8px;
+}
+.toc ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+.toc a {
+  color: #a0c4ff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(160,196,255,0.4);
+}
+.toc a:hover {
+  border-bottom-color: rgba(160,196,255,0.8);
+}
+
+.article {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #223a4e;
+  border: 1px solid #2f4b63;
+  margin-bottom: 20px;
+}
+
+.article h2, .article h3 {
+  font-weight: 800;
+  color: #a0c4ff;
+  margin-bottom: 10px;
+  scroll-margin-top: 80px; /* якоря не скрываются за шапками */
+}
+.article h2 { font-size: 1.6rem; }
+.article h3 { font-size: 1.3rem; }
+
+.article p {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: #d0e0f1;
+  margin: 10px 0 14px;
+}
+
+.ol, .article ol {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+.ul, .article ul {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.note {
+  display: inline-block;
+  margin-left: 6px;
+  color: #cfe4ff;
+  opacity: 0.95;
+}
+
+.breadcrumbs {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+.breadcrumbs a {
+  color: #c6dcff;
+  text-decoration: none;
+}
+.breadcrumbs a:hover { text-decoration: underline; }
+
+.readMore {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.linksRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cta {
+  margin: 18px 0 8px;
+  padding: 16px;
+  background: #1e3144;
+  border: 1px solid #2f4b63;
+  border-radius: 10px;
+}
+.cta a {
+  color: #9fcbff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.cta a:hover { text-decoration: underline; }
+
+.separator {
+  border: none;
+  border-top: 1px solid #2f4b63;
+  margin: 18px 0 0;
+}
+
+@media (max-width: 768px) {
+  .articlesContainer { padding: 15px; }
+  .articlesTitle { font-size: 1.6rem; }
+  .lead { font-size: 0.98rem; }
+  .article h2 { font-size: 1.35rem; }
+  .article h3 { font-size: 1.12rem; }
+  .article p { font-size: 0.98rem; }
+  .toc { padding: 10px 12px; }
+}

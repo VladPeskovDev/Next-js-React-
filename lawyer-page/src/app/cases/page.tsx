@@ -32,9 +32,7 @@ export default function CasesPage(): JSX.Element {
             <p><Link href="/detention-what-to-do">2. Что делать, если задержали</Link></p>
             <p><Link href="/interrogation-what-to-do">3. Что делать, если вызвали на допрос</Link></p>
             <p><Link href="/art-228-penalties">4. Хранение и сбыт наркотиков: наказание по 228</Link></p>
-            <p><Link href="/how-to-choose-criminal-lawyer-moscow">5. Как выбрать лучшего адвоката по уголовным делам в Москве</Link></p>
-
-            {/* уже были линками — оставляем как есть */}
+            <p><Link href="/vpn-laws-russia">5. Новые правила по VPN-сервисам в России: что важно знать</Link></p>
             <Link href="/drugs"><p>6. Как работает адвокат по наркотикам, что делать если задержали с наркотиками</p></Link>
             <Link href="/article"><p>7. Как работает адвокат по уголовным делам в Москве</p></Link>
             <Link href="/fraud"><p>8. Как работает адвокат по делам о мошенничестве в Москве</p></Link>
