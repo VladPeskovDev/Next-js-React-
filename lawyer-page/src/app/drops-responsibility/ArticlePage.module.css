@@ -1,0 +1,211 @@
+/* Контейнер */
+.articlesContainer {
+  width: 100%;
+  max-width: 960px;
+  background-color: #1a2633;
+  color: #fff;
+  margin: 65px auto;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+
+/* Заголовок */
+.articlesTitle {
+  font-size: 1.9rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: .2px;
+  margin-bottom: 18px;
+}
+
+/* Карточки секций */
+.article {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #20384d;
+  border: 1px solid #2f4b63;
+  margin-bottom: 20px;
+}
+
+.article h2,
+.article h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #a0c4ff;
+  margin-bottom: 10px;
+}
+
+.article p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #d3e4f4;
+}
+
+/* Списки */
+.listBullets {
+  padding-left: 1.1rem;
+  margin: .6rem 0 1rem;
+}
+.listBullets li {
+  margin: .3rem 0;
+}
+
+.listTight {
+  padding-left: 1.1rem;
+  margin: .4rem 0 .8rem;
+}
+.listTight li {
+  margin: .25rem 0;
+}
+
+.listOrdered {
+  padding-left: 1.25rem;
+  margin: .6rem 0 1rem;
+}
+.listOrdered li {
+  margin: .35rem 0;
+}
+
+/* Блок CTA */
+.cta {
+  margin: 18px 0 8px;
+  padding: 16px;
+  background: #1e3144;
+  border: 1px solid #2f4b63;
+  border-radius: 12px;
+}
+.cta a {
+  color: #9fcbff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.cta a:hover { text-decoration: underline; }
+
+/* Ряд ссылок */
+.linksRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ====== СОДЕРЖАНИЕ (TOC) ====== */
+
+/* Аккордеон с summary — нативный, без JS */
+.toc {
+  margin: 10px 0 18px;
+  border: 1px solid #2f4b63;
+  border-radius: 12px;
+  background: #1f3245;
+  padding: 10px 12px;
+}
+
+.toc[open] {
+  padding-bottom: 12px;
+}
+
+.tocSummary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  font-weight: 700;
+  color: #e6f0ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tocSummary::-webkit-details-marker {
+  display: none;
+}
+
+/* Плашка "Содержание" */
+.tocBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #27425a;
+  border: 1px solid #385a76;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.tocList {
+  margin: 10px 0 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.tocList a {
+  color: #b9d8ff;
+  text-decoration: none;
+  font-size: 0.97rem;
+  border-bottom: 1px dashed transparent;
+}
+.tocList a:hover,
+.tocList a:focus {
+  border-bottom-color: #9fc6ff;
+  outline: none;
+}
+
+/* Якорные секции: смещение под фикс. шапку (если есть) */
+.anchorTarget {
+  scroll-margin-top: 84px; /* чтобы заголовок не уезжал под header */
+}
+/* ====== АДАПТИВ ====== */
+@media (max-width: 900px) {
+  .tocList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .articlesContainer {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .articlesTitle {
+    font-size: 1.55rem;
+  }
+
+  .article {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .article h2,
+  .article h3 {
+    font-size: 1.25rem;
+  }
+
+  .article p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .toc {
+    padding: 8px 10px;
+  }
+
+  .tocBadge {
+    font-size: 0.92rem;
+    padding: 5px 9px;
+  }
+}
+
+/* Плавная прокрутка — глобально (разрешено через :global) */
+:global(html) {
+  scroll-behavior: smooth;
+}
