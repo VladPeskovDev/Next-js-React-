@@ -54,6 +54,45 @@
   flex-wrap: wrap;
 }
 
+.note {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.listBullets {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  list-style: disc;
+}
+
+.listOrdered {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  list-style: decimal;
+}
+
+.disclaimer {
+  background: #223a4e;
+  border: 1px solid #2f4b63;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.cta {
+  background: #1d4169;
+  border: 1px solid #2b5a8a;
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 22px;
+}
+
+.cta .linksRow a { text-decoration: underline; }
+
+
 @media (max-width: 768px) {
   .articlesContainer {
     padding: 15px;
