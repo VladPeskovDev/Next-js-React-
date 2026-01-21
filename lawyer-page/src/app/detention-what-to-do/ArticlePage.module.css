@@ -110,3 +110,71 @@
     font-size: 0.95rem;
   }
 }
+
+/* ===== FAQ ===== */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.faqItem {
+  background: #1a2633;          /* чуть темнее карточки статьи */
+  border: 1px solid #2f4b63;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.faqQ {
+  cursor: pointer;
+  font-weight: 700;
+  color: #a0c4ff;
+  list-style: none;
+  outline: none;
+}
+
+.faqQ::-webkit-details-marker {
+  display: none;
+}
+
+/* кастомная "стрелка" */
+.faqQ::after {
+  content: "▾";
+  float: right;
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] .faqQ::after {
+  transform: rotate(180deg);
+}
+
+.faqA {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0e0f1;
+  opacity: 0.95;
+}
+
+/* hover/focus для UX */
+.faqItem:hover {
+  border-color: #3a5b78;
+}
+
+.faqQ:focus-visible {
+  outline: 2px solid #a0c4ff;
+  outline-offset: 3px;
+}
+
+/* mobile tweaks */
+@media (max-width: 768px) {
+  .faqItem {
+    padding: 10px 12px;
+  }
+
+  .faqA {
+    font-size: 0.95rem;
+  }
+}

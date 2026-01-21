@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Script from "next/script";
 import styles from "./ArticlePage.module.css";
+
 
 /** ====== SEO ====== */
 export const metadata = {
@@ -41,119 +43,119 @@ export const metadata = {
 const PUBLISHED = "2025-10-26";
 const MODIFIED = "2025-10-26";
 
+const SITE_URL = "https://advokatpeskov.com";
+const PAGE_URL = "https://advokatpeskov.com/p2p-crypto-risk";
+
 export default function CryptoP2PRiskPage(): JSX.Element {
-  const articleLd = {
+  const faqItems = [
+    {
+      q: "Могут ли возбудить дело, если я просто продал USDT через P2P?",
+      a: "Да, если оплата пришла деньгами потерпевшего от мошенничества — возможна квалификация по ст. 159 УК РФ и/или проверка на 174, 174.1, 172.2 УК РФ.",
+    },
+    {
+      q: "Как себя обезопасить при P2P-сделке?",
+      a: "Не принимайте переводы от третьих лиц, сверяйте имя плательщика с данными контрагента, сохраняйте переписку, при сомнениях не переводите криптовалюту и сообщайте в банк.",
+    },
+    {
+      q: "Что делать, если банк заблокировал счёт после P2P?",
+      a: "Сохраните доказательства сделки, не давайте объяснений без адвоката, запросите материалы проверки и действуйте по стратегии защиты, согласованной с защитником.",
+    },
+  ];
+
+  const jsonLdGraph = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Опасность P2P‑обмена криптовалюты: как не стать фигурантом уголовного дела",
-    description:
-      "Почему сделки через P2P (Bybit, Binance, OKX) могут привести к делу по ст. 159 УК РФ, что такое ‘треугольник’ и как защититься.",
-    datePublished: PUBLISHED,
-    dateModified: MODIFIED,
-    inLanguage: "ru-RU",
-    mainEntityOfPage: "https://advokatpeskov.com/p2p-crypto-risk",
-    author: {
-      "@type": "Person",
-      name: "Адвокат Песков",
-      url: "https://advokatpeskov.com/about",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Адвокат Песков",
-      url: "https://advokatpeskov.com",
-    },
-    articleSection: [
-      "Вводная",
-      "Схема ‘треугольник’",
-      "Почему возникает уголовное дело",
-      "Примеры из практики",
-      "Какая ответственность грозит",
-      "Как защитить себя",
-      "Если уже стали участником",
-      "Вывод",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}#website`,
+        name: "Адвокат Песков — уголовные дела",
+        url: SITE_URL,
+        inLanguage: "ru-RU",
+      },
+      {
+        "@type": "LegalService",
+        "@id": `${SITE_URL}#legalservice`,
+        name: "Адвокат Песков",
+        url: SITE_URL,
+        areaServed: { "@type": "Country", name: "Россия" },
+        telephone: "+79165780936",
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: "+79165780936",
+            contactType: "customer service",
+            availableLanguage: ["ru"],
+            url: `${SITE_URL}/contact`,
+          },
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}#person`,
+        name: "Адвокат Песков",
+        jobTitle: "Адвокат",
+        url: `${SITE_URL}/about`,
+        worksFor: { "@id": `${SITE_URL}#legalservice` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${PAGE_URL}#webpage`,
+        url: PAGE_URL,
+        name: "Опасность P2P-обмена криптовалюты: как не стать фигурантом уголовного дела",
+        isPartOf: { "@id": `${SITE_URL}#website` },
+        about: { "@id": `${SITE_URL}#legalservice` },
+        inLanguage: "ru-RU",
+      },
+      {
+        "@type": "Article",
+        "@id": `${PAGE_URL}#article`,
+        headline: "Опасность P2P-обмена криптовалюты: как не стать фигурантом уголовного дела",
+        description:
+          "Почему сделки через P2P (Bybit, Binance, OKX) могут привести к делу по ст. 159 УК РФ, что такое ‘треугольник’ и как защититься.",
+        datePublished: PUBLISHED,
+        dateModified: MODIFIED,
+        inLanguage: "ru-RU",
+        mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
+        author: { "@id": `${SITE_URL}#person` },
+        publisher: { "@id": `${SITE_URL}#legalservice` },
+        articleSection: [
+          "Вводная",
+          "Схема ‘треугольник’",
+          "Почему возникает уголовное дело",
+          "Примеры из практики",
+          "Какая ответственность грозит",
+          "Как защитить себя",
+          "Если уже стали участником",
+          "Вывод",
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PAGE_URL}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Главная", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Блог", item: `${SITE_URL}/cases` },
+          { "@type": "ListItem", position: 3, name: "P2P-обмен криптовалюты", item: PAGE_URL },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${PAGE_URL}#faq`,
+        mainEntity: faqItems.map((x) => ({
+          "@type": "Question",
+          name: x.q,
+          acceptedAnswer: { "@type": "Answer", text: x.a },
+        })),
+      },
     ],
   };
 
-  const breadcrumbsLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Блог",
-        item: "https://advokatpeskov.com/cases",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Опасность P2P‑обмена криптовалюты",
-        item: "https://advokatpeskov.com/p2p-crypto-risk",
-      },
-    ],
-  };
-
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Могут ли возбудить дело, если я просто продал USDT через P2P?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Да, если оплата пришла деньгами потерпевшего от мошенничества — возможна квалификация по ст. 159 УК РФ и/или проверка на 174, 174.1, 172.2 УК РФ.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Как себя обезопасить при P2P‑сделке?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Не принимайте переводы от третьих лиц, сверяйте имя плательщика с никнеймом контрагента, сохраняйте переписку, при сомнениях не переводите криптовалюту и сообщайте в банк.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Что делать, если банк заблокировал счёт после P2P?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Сохраните доказательства сделки, не давайте объяснений без адвоката, запросите материалы проверки и действуйте по стратегии защиты, согласованной с юристом.",
-        },
-      },
-    ],
-  };
-
-  const webSiteLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Адвокат Песков — уголовные дела",
-    url: "https://advokatpeskov.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://advokatpeskov.com/search?q={query}",
-      "query-input": "required name=query",
-    },
-    inLanguage: "ru-RU",
-  };
-
-  const orgLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Адвокат Песков",
-    url: "https://advokatpeskov.com",
-  };
 
   return (
     <div className={styles.articlesContainer}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
+      <Script id="ld-p2p-graph" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(jsonLdGraph)}
+      </Script>
 
       {/* ====== Хлебные крошки ====== */}
       <nav className={styles.breadcrumbs} aria-label="breadcrumb">
@@ -331,6 +333,18 @@ export default function CryptoP2PRiskPage(): JSX.Element {
     Квалификация по УК РФ зависит от фактических обстоятельств сделки. За оценкой вашей ситуации обратитесь к адвокату.
   </p>
 </div>
+      <section className={`${styles.article} ${styles.anchorTarget}`} id="faq">
+        <h3>FAQ</h3>
+        <div className={styles.faq}>
+          {faqItems.map((x) => (
+            <details key={x.q} className={styles.faqItem}>
+              <summary className={styles.faqQ}>{x.q}</summary>
+              <p className={styles.faqA}>{x.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
 
 
       {/* ====== CTA (релевантный тематике статьи) ====== */}

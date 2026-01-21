@@ -2,6 +2,7 @@ import Link from "next/link";
 import Script from "next/script";
 import styles from "./ArticlePage.module.css";
 
+
 /** ====== SEO ====== */
 export const metadata = {
   title: "Что делать, если задержали — права, сроки, протокол (памятка)",
@@ -23,35 +24,158 @@ export const metadata = {
 const PUBLISHED = "2025-10-01";
 const MODIFIED = "2025-11-03";
 
+const SITE_URL = "https://advokatpeskov.com";
+const PAGE_URL = "https://advokatpeskov.com/detention-what-to-do";
+
+// Если хочешь — заполни точно как на сайте/в контактах
+const BRAND_NAME = "Адвокат Песков";
+const PERSON_NAME = "Адвокат Песков";
+const SERVICE_NAME = "Юридическая помощь по уголовным делам";
+
 export default function DetentionPage(): JSX.Element {
+  // ВАЖНО: FAQ ниже на странице должен совпадать по смыслу/формулировкам
+  const faqItems = [
+    {
+      q: "Что делать в первые минуты после задержания?",
+      a: "Спокойно уточните основание задержания, данные сотрудников и сразу заявите требование допустить адвоката. До консультации используйте право не давать объяснений по существу.",
+    },
+    {
+      q: "Когда мне обязаны дать сделать телефонный звонок?",
+      a: "По УПК РФ — один звонок для уведомления близких делается без промедления, но не позднее 3 часов с момента доставления. Факт звонка фиксируется в протоколе.",
+    },
+    {
+      q: "Сколько максимум могут держать при уголовном задержании?",
+      a: "Общий предел — до 48 часов. В рамках рассмотрения вопроса об аресте суд может дать время до 72 часов для представления дополнительных материалов.",
+    },
+    {
+      q: "На что смотреть в протоколе задержания перед подписью?",
+      a: "Проверьте дату/время/место, основание и мотивы задержания, разъяснение прав, отметку о звонке, перечень изъятого. При несогласии пишите замечания и требуйте копию.",
+    },
+    {
+      q: "Можно ли отказаться от объяснений без адвоката?",
+      a: "Да. Без консультации защитника безопаснее не давать объяснений по существу и пользоваться правом на молчание, фиксируя процессуальные нарушения в документах через замечания.",
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Что делать, если задержали — права и обязанности",
-    description:
-      "Процедура задержания, сроки, права задержанного, протокол и роль адвоката по уголовным делам.",
-    datePublished: PUBLISHED,
-    dateModified: MODIFIED,
-    mainEntityOfPage: "https://advokatpeskov.com/detention-what-to-do",
-    inLanguage: "ru-RU",
-    author: { "@type": "Person", name: "Адвокат Песков", url: "https://advokatpeskov.com/about" },
-    publisher: { "@type": "Organization", name: "Адвокат Песков", url: "https://advokatpeskov.com" },
-    articleSection: [
-      "Основания и кто может задержать",
-      "Права задержанного",
-      "Сроки: уголовное и административное",
-      "Протокол: что проверять",
-      "Чего НЕ делать",
-      "Чек-лист действий",
-      "Если нарушили ваши права",
-      "Полезные ссылки",
+    "@graph": [
+      /** === Website === */
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}#website`,
+        url: SITE_URL,
+        name: `${BRAND_NAME} — уголовные дела`,
+        inLanguage: "ru-RU",
+      },
+
+      /** === LegalService (бренд/практика) === */
+      {
+        "@type": "LegalService",
+        "@id": `${SITE_URL}#legalservice`,
+        name: BRAND_NAME,
+        url: SITE_URL,
+        areaServed: { "@type": "Country", name: "Россия" },
+        telephone: "+79165780936",
+        description: SERVICE_NAME,
+        // address: { "@type": "PostalAddress", addressCountry: "RU", addressLocality: "Москва", streetAddress: "..." },
+        // sameAs: ["https://..."] // профили/каталоги/карты
+      },
+
+      /** === Person (адвокат) === */
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}#person`,
+        name: PERSON_NAME,
+        jobTitle: "Адвокат",
+        url: `${SITE_URL}/about`,
+        worksFor: { "@id": `${SITE_URL}#legalservice` },
+        // sameAs: ["https://..."] // если есть профили
+      },
+
+      /** === WebPage === */
+      {
+        "@type": "WebPage",
+        "@id": `${PAGE_URL}#webpage`,
+        url: PAGE_URL,
+        name: "Что делать, если задержали — права, сроки, протокол (памятка)",
+        isPartOf: { "@id": `${SITE_URL}#website` },
+        about: { "@id": `${SITE_URL}#legalservice` },
+        inLanguage: "ru-RU",
+      },
+
+      /** === Article === */
+      {
+        "@type": "Article",
+        "@id": `${PAGE_URL}#article`,
+        headline: "Что делать, если задержали: памятка по правам, срокам и протоколу",
+        description:
+          "Процедура задержания, сроки, права задержанного, протокол и роль адвоката по уголовным делам.",
+        datePublished: PUBLISHED,
+        dateModified: MODIFIED,
+        inLanguage: "ru-RU",
+        mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
+        author: { "@id": `${SITE_URL}#person` },
+        publisher: { "@id": `${SITE_URL}#legalservice` },
+        articleSection: [
+          "Основания и кто может задержать",
+          "Права задержанного",
+          "Сроки: уголовное и административное",
+          "Протокол: что проверять",
+          "Чего НЕ делать",
+          "Чек-лист действий",
+          "Если нарушили ваши права",
+          "FAQ",
+          "Полезные ссылки",
+        ],
+      },
+
+      /** === Breadcrumbs === */
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PAGE_URL}#breadcrumbs`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Главная",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Блог",
+            item: `${SITE_URL}/cases`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Что делать, если задержали",
+            item: PAGE_URL,
+          },
+        ],
+      },
+
+      /** === FAQPage (только если FAQ реально отображается на странице) === */
+      {
+        "@type": "FAQPage",
+        "@id": `${PAGE_URL}#faq`,
+        mainEntity: faqItems.map((x) => ({
+          "@type": "Question",
+          name: x.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: x.a,
+          },
+        })),
+      },
     ],
   };
 
   return (
     <div className={styles.articlesContainer}>
-      {/* JSON-LD без RSC-проблем */}
-      <Script id="ld-detention" type="application/ld+json" strategy="afterInteractive">
+      {/* JSON-LD */}
+      <Script id="ld-detention-graph" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(jsonLd)}
       </Script>
 
@@ -170,6 +294,19 @@ export default function DetentionPage(): JSX.Element {
           Сообщите адвокату, требуйте внесения замечаний в протокол, подайте жалобу прокурору/в суд. Продление задержания до 72 часов
           возможно только вместе с рассмотрением вопроса об аресте (ст. 108 УПК РФ).
         </p>
+      </section>
+
+      {/* FAQ (видимый, чтобы FAQPage schema была валидна) */}
+      <section className={styles.article} id="faq">
+        <h3>FAQ</h3>
+        <div className={styles.faq}>
+          {faqItems.map((x) => (
+            <details key={x.q} className={styles.faqItem}>
+              <summary className={styles.faqQ}>{x.q}</summary>
+              <p className={styles.faqA}>{x.a}</p>
+            </details>
+          ))}
+        </div>
       </section>
 
       {/* Полезные ссылки */}
