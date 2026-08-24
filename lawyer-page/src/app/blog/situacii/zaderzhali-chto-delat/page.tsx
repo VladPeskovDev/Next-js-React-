@@ -14,18 +14,18 @@ export const metadata = {
     title: "Если вас задержали — краткая памятка (права, сроки, протокол)",
     description:
       "Пошаговый план: какие у вас права, кто вправе задержать, как оформить протокол, что говорить и чего не подписывать.",
-    url: "https://advokatpeskov.com/detention-what-to-do",
+    url: "https://advokat-peskov.com/blog/situacii/zaderzhali-chto-delat",
     type: "article",
     siteName: "Адвокат Песков — уголовные дела",
   },
-  alternates: { canonical: "https://advokatpeskov.com/detention-what-to-do" },
+  alternates: { canonical: "https://advokat-peskov.com/blog/situacii/zaderzhali-chto-delat" },
 };
 
 const PUBLISHED = "2025-10-01";
 const MODIFIED = "2025-11-03";
 
-const SITE_URL = "https://advokatpeskov.com";
-const PAGE_URL = "https://advokatpeskov.com/detention-what-to-do";
+const SITE_URL = "https://advokat-peskov.com";
+const PAGE_URL = "https://advokat-peskov.com/blog/situacii/zaderzhali-chto-delat";
 
 // Если хочешь — заполни точно как на сайте/в контактах
 const BRAND_NAME = "Адвокат Песков";
@@ -145,11 +145,17 @@ export default function DetentionPage(): JSX.Element {
             "@type": "ListItem",
             position: 2,
             name: "Блог",
-            item: `${SITE_URL}/cases`,
+            item: `${SITE_URL}/blog`,
           },
           {
             "@type": "ListItem",
             position: 3,
+            name: "Ситуации",
+            item: `${SITE_URL}/blog/situacii`,
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
             name: "Что делать, если задержали",
             item: PAGE_URL,
           },
@@ -181,7 +187,7 @@ export default function DetentionPage(): JSX.Element {
 
       {/* Хлебные крошки */}
       <nav className={styles.breadcrumbs} aria-label="breadcrumb">
-        <Link href="/cases">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
+        <Link href="/blog">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
       </nav>
 
       {/* Заголовок */}
@@ -313,7 +319,7 @@ export default function DetentionPage(): JSX.Element {
       <section className={styles.article} id="links">
         <h3>Полезно почитать</h3>
         <ul className={styles.listBullets}>
-          <li><Link href="/house-search-what-to-do">Памятка при обыске</Link></li>
+          <li><Link href="/blog/situacii/obysk-doma">Памятка при обыске</Link></li>
           <li><Link href="/article">Как работает адвокат по уголовным делам</Link></li>
         </ul>
       </section>

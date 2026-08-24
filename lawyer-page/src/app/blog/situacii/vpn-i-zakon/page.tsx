@@ -8,11 +8,11 @@ export const metadata = {
   keywords:
     "VPN Россия закон 2025, ответственность за VPN, уголовная ответственность VPN, ст. 272 273 УК РФ, адвокат по уголовным делам Москва",
   alternates: {
-    canonical: "https://advokatpeskov.com/vpn-laws-russia",
+    canonical: "https://advokat-peskov.com/blog/situacii/vpn-i-zakon",
   },
   openGraph: {
     type: "article",
-    url: "https://advokatpeskov.com/vpn-laws-russia",
+    url: "https://advokat-peskov.com/blog/situacii/vpn-i-zakon",
     title: "Новые правила по VPN в России: что важно знать и какая ответственность",
     description:
       "Можно ли пользоваться VPN? Когда наступает ответственность: административная и уголовная. Поясняем простым языком и даём практические рекомендации.",
@@ -34,22 +34,22 @@ export default function VpnArticlePage(): JSX.Element {
     headline: "Новые правила по VPN-сервисам в России: что важно знать",
     description:
       "Понятное объяснение: что разрешено при использовании VPN, где начинается ответственность, какие статьи УК РФ применяются, и как адвокат по уголовным делам помогает на практике.",
-    mainEntityOfPage: "https://advokatpeskov.com/vpn-laws-russia",
+    mainEntityOfPage: "https://advokat-peskov.com/blog/situacii/vpn-i-zakon",
     datePublished: "2025-10-26",
     dateModified: "2025-10-26",
     inLanguage: "ru-RU",
     author: {
       "@type": "Person",
       name: "Адвокат Песков",
-      url: "https://advokatpeskov.com/about",
+      url: "https://advokat-peskov.com/about",
     },
     publisher: {
       "@type": "Organization",
       name: "Адвокат Песков",
-      url: "https://advokatpeskov.com",
+      url: "https://advokat-peskov.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://advokatpeskov.com/logo.png",
+        url: "https://advokat-peskov.com/logo.png",
       },
     },
   };
@@ -58,18 +58,10 @@ export default function VpnArticlePage(): JSX.Element {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Блог",
-        item: "https://advokatpeskov.com/cases",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Новые правила по VPN",
-        item: "https://advokatpeskov.com/vpn-laws-russia",
-      },
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com" },
+      { "@type": "ListItem", position: 2, name: "Блог", item: "https://advokat-peskov.com/blog" },
+      { "@type": "ListItem", position: 3, name: "Ситуации", item: "https://advokat-peskov.com/blog/situacii" },
+      { "@type": "ListItem", position: 4, name: "Новые правила по VPN", item: "https://advokat-peskov.com/blog/situacii/vpn-i-zakon" },
     ],
   };
 
@@ -143,7 +135,7 @@ export default function VpnArticlePage(): JSX.Element {
 
       {/* Хлебные крошки */}
       <div className={styles.breadcrumbs}>
-        <Link href="/cases">Блог</Link> · <Link href="/about">Обо мне</Link> ·{" "}
+        <Link href="/blog">Блог</Link> · <Link href="/about">Обо мне</Link> ·{" "}
         <Link href="/contact">Контакты</Link>
       </div>
 
@@ -252,7 +244,7 @@ export default function VpnArticlePage(): JSX.Element {
           <p className={styles.linksRow}>
             <Link href="/contact" aria-label="Связаться с адвокатом">Связаться</Link> ·{" "}
             <Link href="/about" aria-label="Узнать обо мне">Обо мне</Link> ·{" "}
-            <Link href="/fraud" aria-label="Адвокат по делам о мошенничестве">Мошенничество (ст. 159 УК РФ)</Link>
+            <Link href="/moshennichestvo" aria-label="Адвокат по делам о мошенничестве">Мошенничество (ст. 159 УК РФ)</Link>
           </p>
         </div>
       </article>

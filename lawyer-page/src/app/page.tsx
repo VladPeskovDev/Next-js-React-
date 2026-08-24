@@ -5,11 +5,11 @@ export const metadata = {
   openGraph: {
     title: "Адвокат по уголовным делам в Москве",
     description: "Консультации, защита в суде, подготовка жалоб и сопровождение дел.",
-    url: "https://advokatpeskov.com",
+    url: "https://advokat-peskov.com",
     siteName: "Адвокат Песков",
     images: [
       {
-        url: "https://advokatpeskov.com/foto008.svg",
+        url: "https://advokat-peskov.com/foto008.svg",
         width: 1200,
         height: 630,
         alt: "Адвокат по уголовным делам Песков В.С.",
@@ -102,7 +102,7 @@ export default function HomePage(): JSX.Element {
       <section className={styles.threeCardsSection}>
         <div className={styles.cardWrapper3card}>
           <div className={styles.caseCard}>
-            <Link href="/cases">
+            <Link href="/blog">
               <img
                 src="/next.svg"
                 alt="Адвокат по уголовным делам в Москве"
@@ -112,7 +112,7 @@ export default function HomePage(): JSX.Element {
             <h1>Дело о мошенничестве</h1>
           </div>
           <div className={styles.caseCard}>
-            <Link href="/cases">
+            <Link href="/blog">
               <img
                 src="/vercel.svg"
                 alt="Юрист по уголовным делам в Москве"
@@ -122,7 +122,7 @@ export default function HomePage(): JSX.Element {
             <p>Дело о краже</p>
           </div>
           <div className={styles.caseCard}>
-            <Link href="/cases">
+            <Link href="/blog">
               <img
                 src="/window.svg"
                 alt="Адвокат по делам о наркотиках в Москве"

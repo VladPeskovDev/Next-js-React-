@@ -1,57 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>Статьи адвоката по уголовным делам | advokatpeskov.com</title>
-    <link>https://advokatpeskov.com/cases</link>
+    <title>Статьи адвоката по уголовным делам | advokat-peskov.com</title>
+    <link>https://advokat-peskov.com/blog</link>
     <description>Полезные статьи о защите по уголовным делам, наказаниях по статье 228 УК РФ и адвокатской практике.</description>
     <language>ru</language>
 
     <item>
       <title>Что делать при обыске</title>
-      <link>https://advokatpeskov.com/cases#article1</link>
+      <link>https://advokat-peskov.com/blog/situacii/obysk-doma</link>
       <description>Рекомендации адвоката: что делать при обыске, права граждан, протокол обыска и как избежать ошибок.</description>
       <pubDate>Thu, 06 Feb 2025 12:00:00 +0300</pubDate>
-      <guid>https://advokatpeskov.com/cases#article1</guid>
+      <guid>https://advokat-peskov.com/blog/situacii/obysk-doma</guid>
     </item>
 
     <item>
       <title>Что делать, если задержали</title>
-      <link>https://advokatpeskov.com/cases#article2</link>
+      <link>https://advokat-peskov.com/blog/situacii/zaderzhali-chto-delat</link>
       <description>Пошаговое руководство по действиям при задержании: права, сроки, адвокатская помощь.</description>
       <pubDate>Thu, 06 Feb 2025 12:00:00 +0300</pubDate>
-      <guid>https://advokatpeskov.com/cases#article2</guid>
+      <guid>https://advokat-peskov.com/blog/situacii/zaderzhali-chto-delat</guid>
     </item>
 
     <item>
-      <title>Что делать, если вызвали на допрос</title>
-      <link>https://advokatpeskov.com/cases#article3</link>
-      <description>Как вести себя на допросе, права свидетеля и подозреваемого, тактика общения со следствием.</description>
+      <title>Опасность обмена криптовалюты через P2P</title>
+      <link>https://advokat-peskov.com/blog/moshennichestvo/p2p-arbitrazh</link>
+      <description>P2P-обмен и уголовные риски: схема «треугольник», ст. 159 УК РФ, как защититься.</description>
       <pubDate>Thu, 06 Feb 2025 12:00:00 +0300</pubDate>
-      <guid>https://advokatpeskov.com/cases#article3</guid>
+      <guid>https://advokat-peskov.com/blog/moshennichestvo/p2p-arbitrazh</guid>
     </item>
 
     <item>
-      <title>Хранение и сбыт наркотиков: Наказание по статье 228 УК РФ</title>
-      <link>https://advokatpeskov.com/cases#article4</link>
-      <description>Ответственность за хранение и сбыт наркотиков, практика адвоката, защита по ст. 228 УК РФ.</description>
+      <title>Кто такие дропы и какая ответственность в России</title>
+      <link>https://advokat-peskov.com/blog/moshennichestvo/droppery</link>
+      <description>Что такое дропы, какие статьи УК РФ применяются, как защититься от вовлечения в схему.</description>
       <pubDate>Thu, 06 Feb 2025 12:00:00 +0300</pubDate>
-      <guid>https://advokatpeskov.com/cases#article4</guid>
+      <guid>https://advokat-peskov.com/blog/moshennichestvo/droppery</guid>
     </item>
 
     <item>
-      <title>Как выбрать лучшего адвоката по уголовным делам в Москве</title>
-      <link>https://advokatpeskov.com/cases#article5</link>
-      <description>Основные критерии выбора адвоката: опыт, репутация, юридическая практика и прозрачность сотрудничества.</description>
+      <title>Новые правила по VPN-сервисам в России</title>
+      <link>https://advokat-peskov.com/blog/situacii/vpn-i-zakon</link>
+      <description>Законность VPN, административная и уголовная ответственность, риски и как их избежать.</description>
       <pubDate>Thu, 06 Feb 2025 12:00:00 +0300</pubDate>
-      <guid>https://advokatpeskov.com/cases#article5</guid>
-    </item>
-
-    <item>
-      <title>Что делать, если поймали с наркотиками</title>
-      <link>https://advokatpeskov.com/cases#article6</link>
-      <description>Как действовать при задержании с наркотиками, права подозреваемого, защита по уголовным делам.</description>
-      <pubDate>Thu, 06 Feb 2025 12:00:00 +0300</pubDate>
-      <guid>https://advokatpeskov.com/cases#article6</guid>
+      <guid>https://advokat-peskov.com/blog/situacii/vpn-i-zakon</guid>
     </item>
 
   </channel>

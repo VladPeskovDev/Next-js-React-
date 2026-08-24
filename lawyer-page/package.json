@@ -5,9 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "generate-sitemap": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^15.0.2",

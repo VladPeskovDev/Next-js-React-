@@ -8,10 +8,10 @@ export const metadata = {
     "Как вести себя при обыске: основания, права, понятые/видеозапись, протокол, фиксация нарушений, изъятие техники. Пошаговый чек-лист адвоката по уголовным делам в Москве.",
   keywords:
     "обыск, как вести себя при обыске, права при обыске, понятые, видеозапись, протокол обыска, изъятие телефона, адвокат по уголовным делам Москва",
-  alternates: { canonical: "https://advokatpeskov.com/house-search-what-to-do" },
+  alternates: { canonical: "https://advokat-peskov.com/blog/situacii/obysk-doma" },
   openGraph: {
     type: "article",
-    url: "https://advokatpeskov.com/house-search-what-to-do",
+    url: "https://advokat-peskov.com/blog/situacii/obysk-doma",
     title: "Что делать при обыске — инструкция адвоката",
     description:
       "Разбираем: основания, права, понятые/видеозапись, протокол, изъятие техники, замечания. Пошаговый план и чек-листы.",
@@ -43,7 +43,7 @@ export default function HouseSearchPage(): JSX.Element {
     dateModified: "2025-10-26",
     author: { "@type": "Person", name: "Адвокат Песков" },
     publisher: { "@type": "Organization", name: "Адвокат Песков" },
-    mainEntityOfPage: "https://advokatpeskov.com/house-search-what-to-do",
+    mainEntityOfPage: "https://advokat-peskov.com/blog/situacii/obysk-doma",
   };
 
   const jsonLdHowTo = {
@@ -153,8 +153,10 @@ export default function HouseSearchPage(): JSX.Element {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Блог", item: "https://advokatpeskov.com/cases" },
-      { "@type": "ListItem", position: 2, name: "Что делать при обыске", item: "https://advokatpeskov.com/house-search-what-to-do" },
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com" },
+      { "@type": "ListItem", position: 2, name: "Блог", item: "https://advokat-peskov.com/blog" },
+      { "@type": "ListItem", position: 3, name: "Ситуации", item: "https://advokat-peskov.com/blog/situacii" },
+      { "@type": "ListItem", position: 4, name: "Что делать при обыске", item: "https://advokat-peskov.com/blog/situacii/obysk-doma" },
     ],
   };
 
@@ -168,7 +170,7 @@ export default function HouseSearchPage(): JSX.Element {
 
       {/* Хлебные крошки */}
       <div className={styles.breadcrumbs}>
-        <Link href="/cases">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
+        <Link href="/blog">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
       </div>
 
       <h1 className={styles.articlesTitle}>Что делать при обыске: полный план действий, права и ошибки</h1>
@@ -275,8 +277,7 @@ export default function HouseSearchPage(): JSX.Element {
         <p className={styles.readMore}>
           Читайте также:{" "}
           <span className={styles.linksRow}>
-            <Link href="/detention-what-to-do">как действовать при задержании</Link>,{" "}
-            <Link href="/interrogation-what-to-do">что делать при вызове на допрос</Link>
+            <Link href="/blog/situacii/zaderzhali-chto-delat">как действовать при задержании</Link>
           </span>
         </p>
       </section>
@@ -352,8 +353,8 @@ export default function HouseSearchPage(): JSX.Element {
       <section className={styles.article}>
         <h3>Полезные материалы</h3>
         <ul className={styles.listLinks}>
-          <li><Link href="/detention-what-to-do">Памятка при задержании</Link></li>
-          <li><Link href="/cases">Ещё статьи блога</Link></li>
+          <li><Link href="/blog/situacii/zaderzhali-chto-delat">Памятка при задержании</Link></li>
+          <li><Link href="/blog">Ещё статьи блога</Link></li>
           <li><Link href="/about">Об адвокате</Link></li>
           <li><Link href="/contact">Контакты</Link></li>
         </ul>

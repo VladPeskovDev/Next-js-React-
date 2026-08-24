@@ -26,16 +26,16 @@ export default function PricingPage(): JSX.Element {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://advokatpeskov.com/pricing" />
-        <meta property="og:image" content="https://advokatpeskov.com/pricing" />
+        <meta property="og:url" content="https://advokat-peskov.com/pricing" />
+        <meta property="og:image" content="https://advokat-peskov.com/pricing" />
         
         {/* Twitter Cards */}
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content="https://advokatpeskov.com" />
+        <meta name="twitter:image" content="https://advokat-peskov.com" />
         
         {/* Канонический URL */}
-        <link rel="canonical" href="https://advokatpeskov.com/pricing" />
+        <link rel="canonical" href="https://advokat-peskov.com/pricing" />
       </Head>
 
       <header className={styles.header}>
@@ -100,7 +100,7 @@ export default function PricingPage(): JSX.Element {
           "@type": "LegalService",
           "name": "Адвокат по уголовным делам",
           "description": "Цены на услуги адвоката по уголовным делам в Москве. Стоимость консультации, защиты в суде и ведения дела.",
-          "url": "https://advokatpeskov.com/pricing",
+          "url": "https://advokat-peskov.com/pricing",
           "telephone": "+79165780936",
           "address": {
             "@type": "PostalAddress",

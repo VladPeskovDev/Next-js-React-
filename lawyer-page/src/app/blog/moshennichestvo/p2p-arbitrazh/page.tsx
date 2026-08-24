@@ -18,14 +18,14 @@ export const metadata = {
     "max-snippet": -1,
   },
   alternates: {
-    canonical: "https://advokatpeskov.com/p2p-crypto-risk",
+    canonical: "https://advokat-peskov.com/blog/moshennichestvo/p2p-arbitrazh",
     languages: {
-      ru: "https://advokatpeskov.com/p2p-crypto-risk",
+      ru: "https://advokat-peskov.com/blog/moshennichestvo/p2p-arbitrazh",
     },
   },
   openGraph: {
     type: "article",
-    url: "https://advokatpeskov.com/p2p-crypto-risk",
+    url: "https://advokat-peskov.com/blog/moshennichestvo/p2p-arbitrazh",
     title: "P2P‑обмен криптовалюты: риски и ответственность",
     description:
       "Как P2P‑сделка может превратиться в уголовное дело по ст. 159 УК РФ. Примеры из практики и рекомендации адвоката.",
@@ -43,8 +43,8 @@ export const metadata = {
 const PUBLISHED = "2025-10-26";
 const MODIFIED = "2025-10-26";
 
-const SITE_URL = "https://advokatpeskov.com";
-const PAGE_URL = "https://advokatpeskov.com/p2p-crypto-risk";
+const SITE_URL = "https://advokat-peskov.com";
+const PAGE_URL = "https://advokat-peskov.com/blog/moshennichestvo/p2p-arbitrazh";
 
 export default function CryptoP2PRiskPage(): JSX.Element {
   const faqItems = [
@@ -134,8 +134,9 @@ export default function CryptoP2PRiskPage(): JSX.Element {
         "@id": `${PAGE_URL}#breadcrumbs`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Главная", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: "Блог", item: `${SITE_URL}/cases` },
-          { "@type": "ListItem", position: 3, name: "P2P-обмен криптовалюты", item: PAGE_URL },
+          { "@type": "ListItem", position: 2, name: "Блог", item: `${SITE_URL}/blog` },
+          { "@type": "ListItem", position: 3, name: "Мошенничество", item: `${SITE_URL}/blog/moshennichestvo` },
+          { "@type": "ListItem", position: 4, name: "P2P-обмен криптовалюты", item: PAGE_URL },
         ],
       },
       {
@@ -159,7 +160,7 @@ export default function CryptoP2PRiskPage(): JSX.Element {
 
       {/* ====== Хлебные крошки ====== */}
       <nav className={styles.breadcrumbs} aria-label="breadcrumb">
-        <Link href="/cases">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
+        <Link href="/blog">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
       </nav>
 
       {/* ====== Заголовок ====== */}
@@ -356,7 +357,7 @@ export default function CryptoP2PRiskPage(): JSX.Element {
         <p className={styles.linksRow}>
           <Link href="/contact" aria-label="Связаться с адвокатом">Связаться</Link> ·{" "}
           <Link href="/about" aria-label="Узнать обо мне">Обо мне</Link> ·{" "}
-          <Link href="/fraud" aria-label="Адвокат по делам о мошенничестве (ст. 159 УК РФ)">Ст. 159 УК РФ</Link> ·{" "}
+          <Link href="/moshennichestvo" aria-label="Адвокат по делам о мошенничестве (ст. 159 УК РФ)">Ст. 159 УК РФ</Link> ·{" "}
           <Link href="/money-laundering-174" aria-label="Адвокат по делам о легализации доходов (ст. 174, 174.1 УК РФ)">Ст. 174, 174.1 УК РФ</Link>
         </p>
       </div>

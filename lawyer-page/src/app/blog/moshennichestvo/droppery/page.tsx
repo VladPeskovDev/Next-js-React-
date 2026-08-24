@@ -15,14 +15,14 @@ export const metadata = {
     "max-snippet": -1,
   },
   alternates: {
-    canonical: "https://advokatpeskov.com/drops-responsibility",
+    canonical: "https://advokat-peskov.com/blog/moshennichestvo/droppery",
     languages: {
-      ru: "https://advokatpeskov.com/drops-responsibility",
+      ru: "https://advokat-peskov.com/blog/moshennichestvo/droppery",
     },
   },
   openGraph: {
     type: "article",
-    url: "https://advokatpeskov.com/drops-responsibility",
+    url: "https://advokat-peskov.com/blog/moshennichestvo/droppery",
     title: "Дропы в России: кто это и какая ответственность",
     description:
       "Разбор для обычных людей: что такое дропы, какие статьи УК РФ применяются, как защититься и когда нужен адвокат.",
@@ -50,16 +50,16 @@ export default function DropsResponsibilityPage(): JSX.Element {
     datePublished: PUBLISHED,
     dateModified: MODIFIED,
     inLanguage: "ru-RU",
-    mainEntityOfPage: "https://advokatpeskov.com/drops-responsibility",
+    mainEntityOfPage: "https://advokat-peskov.com/blog/moshennichestvo/droppery",
     author: {
       "@type": "Person",
       name: "Адвокат Песков",
-      url: "https://advokatpeskov.com/about",
+      url: "https://advokat-peskov.com/about",
     },
     publisher: {
       "@type": "Organization",
       name: "Адвокат Песков",
-      url: "https://advokatpeskov.com",
+      url: "https://advokat-peskov.com",
     },
     articleSection: [
       "Кто такие дропы",
@@ -75,18 +75,10 @@ export default function DropsResponsibilityPage(): JSX.Element {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Блог",
-        item: "https://advokatpeskov.com/cases",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Дропы: кто это и какая ответственность",
-        item: "https://advokatpeskov.com/drops-responsibility",
-      },
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com" },
+      { "@type": "ListItem", position: 2, name: "Блог", item: "https://advokat-peskov.com/blog" },
+      { "@type": "ListItem", position: 3, name: "Мошенничество", item: "https://advokat-peskov.com/blog/moshennichestvo" },
+      { "@type": "ListItem", position: 4, name: "Дропы: кто это и какая ответственность", item: "https://advokat-peskov.com/blog/moshennichestvo/droppery" },
     ],
   };
 
@@ -128,10 +120,10 @@ export default function DropsResponsibilityPage(): JSX.Element {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Адвокат Песков — уголовные дела",
-    url: "https://advokatpeskov.com",
+    url: "https://advokat-peskov.com",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://advokatpeskov.com/search?q={query}",
+      target: "https://advokat-peskov.com/search?q={query}",
       "query-input": "required name=query",
     },
     inLanguage: "ru-RU",
@@ -141,7 +133,7 @@ export default function DropsResponsibilityPage(): JSX.Element {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Адвокат Песков",
-    url: "https://advokatpeskov.com",
+    url: "https://advokat-peskov.com",
   };
 
   return (
@@ -154,7 +146,7 @@ export default function DropsResponsibilityPage(): JSX.Element {
 
       {/* ====== Хлебные крошки ====== */}
       <nav className={styles.breadcrumbs} aria-label="breadcrumb">
-        <Link href="/cases">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
+        <Link href="/blog">Блог</Link> · <Link href="/about">Обо мне</Link> · <Link href="/contact">Контакты</Link>
       </nav>
 
       {/* ====== Заголовок ====== */}
@@ -301,7 +293,7 @@ export default function DropsResponsibilityPage(): JSX.Element {
   </li>
   <li>Ни при каких обстоятельствах не уничтожайте доказательства и не пытайтесь «договориться» — это может ухудшить ситуацию.</li>
   <li>
-    Обратитесь к <Link href="/criminal-lawyer">адвокату по уголовным делам</Link> — он выстроит позицию, подготовит ходатайства
+    Обратитесь к <Link href="/contact">адвокату по уголовным делам</Link> — он выстроит позицию, подготовит ходатайства
     и будет представлять ваши интересы при допросах и следственных действиях.
   </li>
 </ol>
@@ -340,8 +332,7 @@ export default function DropsResponsibilityPage(): JSX.Element {
         <p className={styles.linksRow}>
           <Link href="/contact" aria-label="Связаться с адвокатом">Связаться</Link> ·{" "}
           <Link href="/about" aria-label="Узнать обо мне">Обо мне</Link> ·{" "}
-          <Link href="/fraud" aria-label="Адвокат по делам о мошенничестве (ст. 159 УК РФ)">Ст. 159 УК РФ</Link> ·{" "}
-          <Link href="/money-laundering-174" aria-label="Адвокат по делам о легализации доходов (ст. 174, 174.1 УК РФ)">Ст. 174, 174.1 УК РФ</Link>
+          <Link href="/moshennichestvo" aria-label="Адвокат по делам о мошенничестве (ст. 159 УК РФ)">Ст. 159 УК РФ</Link>
         </p>
       </div>
     </div>
