@@ -15,7 +15,7 @@ export default function Footer() {
           Контакты
         </Link>
         <span className={styles.iconSeparator}>|</span>
-        <a href="https://t.me/VladislavPeskov" target="_blank" rel="noopener noreferrer" className={styles.iconLinkTG}>
+        <a href="https://t.me/Peskov_Vladislav" target="_blank" rel="noopener noreferrer" className={styles.iconLinkTG}>
           <FaTelegramPlane />
         </a>
         <a href="https://wa.me/+79165780936" target="_blank" rel="noopener noreferrer" className={styles.iconLinkWA}>

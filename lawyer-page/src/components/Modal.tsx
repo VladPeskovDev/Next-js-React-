@@ -34,7 +34,7 @@ export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | nu
             <span>+7 916 578-09-36</span>
           </a>
           <a
-            href="https://t.me/VladislavPeskov"
+            href="https://t.me/Peskov_Vladislav"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.contactLink}

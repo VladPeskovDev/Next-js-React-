@@ -176,6 +176,44 @@ tail -f /var/log/nginx/error.log    # только ошибки
 
 ---
 
+## 5.5. Безопасность VPS
+
+### fail2ban — защита от брутфорса SSH
+
+Установлен и настроен со строгими правилами (см. `/etc/fail2ban/jail.local`).
+
+**Правила:** 3 неудачных попытки за 10 минут → бан на 24ч; при повторах — экспоненциальный рост до недели; `recidive` jail для перманентных банов рецидивистов.
+
+**Управление:**
+```bash
+fail2ban-client status                    # список активных jail'ов
+fail2ban-client status sshd               # детально по SSH
+fail2ban-client status recidive           # рецидивисты
+fail2ban-client set sshd unbanip 1.2.3.4  # разбанить IP
+fail2ban-client reload                    # перечитать конфиг
+tail -f /var/log/fail2ban.log             # эфир событий
+```
+
+**Конфиг** (`/etc/fail2ban/jail.local`) редактируется, потом `systemctl restart fail2ban`.
+
+### SSH
+
+- Логин **только по ключу** (`PasswordAuthentication no` в `/etc/ssh/sshd_config`).
+- Root-логин запрещён (`PermitRootLogin no`).
+- Работаем под пользователем `deploy`, привилегированные операции через `sudo`.
+
+### Автообновления
+
+Пакет `unattended-upgrades` установлен — критические security-патчи ставятся автоматически.
+
+Проверить статус:
+```bash
+systemctl status unattended-upgrades
+cat /var/log/unattended-upgrades/unattended-upgrades.log | tail -30
+```
+
+---
+
 ## 6. Firewall (ufw)
 
 Текущее состояние — открыты только SSH (22) и Nginx Full (80+443):
@@ -322,8 +360,11 @@ free -h                       # память
 7. `git push origin main` (с изменением в `lawyer-page/**` или самом workflow).
 8. Смотреть `Actions` во вкладке — должен зелёный чекмарк.
 9. Открыть `http://<IP>` (пока без домена) или `https://advokat-peskov.com` (после DNS + SSL) — должна быть свежая версия сайта.
-
+10. ssh -i ~/.ssh/deploy_lawyer deploy@5.45.81.127 "stat /var/www/site/index.html" проверка деплоя
 ---
+
+
+
 
 ## 12. Дальше по плану
 

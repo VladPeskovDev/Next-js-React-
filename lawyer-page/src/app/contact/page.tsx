@@ -23,7 +23,7 @@ export default function ContactPage(): JSX.Element {
           <p className={styles.overlayText}>Если Вам нужна помощь, контакты для консультации</p>
           <div className={styles.buttons}>
             <a href="tel:+79165780936" className={styles.button}>+7 916 578 09 36</a>
-            <a href="https://t.me/VladislavPeskov" target="_blank" rel="noopener noreferrer" className={styles.buttonTelegram}>
+            <a href="https://t.me/Peskov_Vladislav" target="_blank" rel="noopener noreferrer" className={styles.buttonTelegram}>
               <FaTelegramPlane className={styles.icon}/>Telegram
             </a>
           </div>
