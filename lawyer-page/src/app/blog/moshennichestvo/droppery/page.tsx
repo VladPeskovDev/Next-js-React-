@@ -56,11 +56,7 @@ export default function DropsResponsibilityPage(): JSX.Element {
       name: "Адвокат Песков",
       url: "https://advokat-peskov.com/about",
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Адвокат Песков",
-      url: "https://advokat-peskov.com",
-    },
+    publisher: { "@id": "https://advokat-peskov.com#attorney" },
     articleSection: [
       "Кто такие дропы",
       "За что наступает ответственность",
@@ -116,33 +112,11 @@ export default function DropsResponsibilityPage(): JSX.Element {
     ],
   };
 
-  const webSiteLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Адвокат Песков — уголовные дела",
-    url: "https://advokat-peskov.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://advokat-peskov.com/search?q={query}",
-      "query-input": "required name=query",
-    },
-    inLanguage: "ru-RU",
-  };
-
-  const orgLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Адвокат Песков",
-    url: "https://advokat-peskov.com",
-  };
-
   return (
     <div className={styles.articlesContainer}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
 
       {/* ====== Хлебные крошки ====== */}
       <nav className={styles.breadcrumbs} aria-label="breadcrumb">

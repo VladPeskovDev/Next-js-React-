@@ -21,6 +21,84 @@ export const metadata: Metadata = {
   keywords: "уголовный адвокат, адвокат, уголовные дела, защита, суд, консультация",
 };
 
+const SITE_URL = "https://advokat-peskov.com";
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Attorney", "LegalService"],
+      "@id": `${SITE_URL}#attorney`,
+      name: "Адвокат Песков В.С.",
+      alternateName: "Vladislav Peskov",
+      description:
+        "Адвокат по уголовным делам в Москве. Защита на следствии и в суде, консультации, обжалование.",
+      url: SITE_URL,
+      image: `${SITE_URL}/foto008.svg`,
+      logo: `${SITE_URL}/foto008.svg`,
+      telephone: "+7-916-578-09-36",
+      priceRange: "от 15000 руб.",
+      areaServed: [
+        { "@type": "City", name: "Москва" },
+        { "@type": "Country", name: "Россия" },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "ул. Маршала Рыбалко, д. 2, корп. 6, оф. 408",
+        addressLocality: "Москва",
+        postalCode: "123298",
+        addressCountry: "RU",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 55.797279,
+        longitude: 37.4893491,
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "00:00",
+        closes: "23:59",
+      },
+      sameAs: [
+        "https://t.me/Peskov_Vladislav",
+        "https://wa.me/79165780936",
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+7-916-578-09-36",
+          contactType: "customer service",
+          areaServed: "RU",
+          availableLanguage: ["Russian"],
+        },
+      ],
+      identifier: [
+        { "@type": "PropertyValue", name: "ИНН", value: "1326186560" },
+        { "@type": "PropertyValue", name: "ОГРН", value: "1021300987070" },
+        { "@type": "PropertyValue", name: "Реестровый номер", value: "13/597" },
+        { "@type": "PropertyValue", name: "Удостоверение", value: "686" },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}#website`,
+      url: SITE_URL,
+      name: "Адвокат Песков В.С.",
+      inLanguage: "ru-RU",
+      publisher: { "@id": `${SITE_URL}#attorney` },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -29,6 +107,10 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

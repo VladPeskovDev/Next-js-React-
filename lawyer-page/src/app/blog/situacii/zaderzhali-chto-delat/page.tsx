@@ -27,10 +27,7 @@ const MODIFIED = "2025-11-03";
 const SITE_URL = "https://advokat-peskov.com";
 const PAGE_URL = "https://advokat-peskov.com/blog/situacii/zaderzhali-chto-delat";
 
-// Если хочешь — заполни точно как на сайте/в контактах
-const BRAND_NAME = "Адвокат Песков";
 const PERSON_NAME = "Адвокат Песков";
-const SERVICE_NAME = "Юридическая помощь по уголовным делам";
 
 export default function DetentionPage(): JSX.Element {
   // ВАЖНО: FAQ ниже на странице должен совпадать по смыслу/формулировкам
@@ -60,28 +57,6 @@ export default function DetentionPage(): JSX.Element {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      /** === Website === */
-      {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}#website`,
-        url: SITE_URL,
-        name: `${BRAND_NAME} — уголовные дела`,
-        inLanguage: "ru-RU",
-      },
-
-      /** === LegalService (бренд/практика) === */
-      {
-        "@type": "LegalService",
-        "@id": `${SITE_URL}#legalservice`,
-        name: BRAND_NAME,
-        url: SITE_URL,
-        areaServed: { "@type": "Country", name: "Россия" },
-        telephone: "+79165780936",
-        description: SERVICE_NAME,
-        // address: { "@type": "PostalAddress", addressCountry: "RU", addressLocality: "Москва", streetAddress: "..." },
-        // sameAs: ["https://..."] // профили/каталоги/карты
-      },
-
       /** === Person (адвокат) === */
       {
         "@type": "Person",
@@ -89,8 +64,7 @@ export default function DetentionPage(): JSX.Element {
         name: PERSON_NAME,
         jobTitle: "Адвокат",
         url: `${SITE_URL}/about`,
-        worksFor: { "@id": `${SITE_URL}#legalservice` },
-        // sameAs: ["https://..."] // если есть профили
+        worksFor: { "@id": `${SITE_URL}#attorney` },
       },
 
       /** === WebPage === */
@@ -100,7 +74,7 @@ export default function DetentionPage(): JSX.Element {
         url: PAGE_URL,
         name: "Что делать, если задержали — права, сроки, протокол (памятка)",
         isPartOf: { "@id": `${SITE_URL}#website` },
-        about: { "@id": `${SITE_URL}#legalservice` },
+        about: { "@id": `${SITE_URL}#attorney` },
         inLanguage: "ru-RU",
       },
 
@@ -116,7 +90,7 @@ export default function DetentionPage(): JSX.Element {
         inLanguage: "ru-RU",
         mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
         author: { "@id": `${SITE_URL}#person` },
-        publisher: { "@id": `${SITE_URL}#legalservice` },
+        publisher: { "@id": `${SITE_URL}#attorney` },
         articleSection: [
           "Основания и кто может задержать",
           "Права задержанного",

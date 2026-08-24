@@ -43,15 +43,7 @@ export default function VpnArticlePage(): JSX.Element {
       name: "Адвокат Песков",
       url: "https://advokat-peskov.com/about",
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Адвокат Песков",
-      url: "https://advokat-peskov.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://advokat-peskov.com/logo.png",
-      },
-    },
+    publisher: { "@id": "https://advokat-peskov.com#attorney" },
   };
 
   const jsonLdBreadcrumbs = {

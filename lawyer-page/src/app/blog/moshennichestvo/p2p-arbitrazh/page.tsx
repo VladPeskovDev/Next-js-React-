@@ -66,36 +66,12 @@ export default function CryptoP2PRiskPage(): JSX.Element {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}#website`,
-        name: "Адвокат Песков — уголовные дела",
-        url: SITE_URL,
-        inLanguage: "ru-RU",
-      },
-      {
-        "@type": "LegalService",
-        "@id": `${SITE_URL}#legalservice`,
-        name: "Адвокат Песков",
-        url: SITE_URL,
-        areaServed: { "@type": "Country", name: "Россия" },
-        telephone: "+79165780936",
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            telephone: "+79165780936",
-            contactType: "customer service",
-            availableLanguage: ["ru"],
-            url: `${SITE_URL}/contact`,
-          },
-        ],
-      },
-      {
         "@type": "Person",
         "@id": `${SITE_URL}#person`,
         name: "Адвокат Песков",
         jobTitle: "Адвокат",
         url: `${SITE_URL}/about`,
-        worksFor: { "@id": `${SITE_URL}#legalservice` },
+        worksFor: { "@id": `${SITE_URL}#attorney` },
       },
       {
         "@type": "WebPage",
@@ -103,7 +79,7 @@ export default function CryptoP2PRiskPage(): JSX.Element {
         url: PAGE_URL,
         name: "Опасность P2P-обмена криптовалюты: как не стать фигурантом уголовного дела",
         isPartOf: { "@id": `${SITE_URL}#website` },
-        about: { "@id": `${SITE_URL}#legalservice` },
+        about: { "@id": `${SITE_URL}#attorney` },
         inLanguage: "ru-RU",
       },
       {
@@ -117,7 +93,7 @@ export default function CryptoP2PRiskPage(): JSX.Element {
         inLanguage: "ru-RU",
         mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
         author: { "@id": `${SITE_URL}#person` },
-        publisher: { "@id": `${SITE_URL}#legalservice` },
+        publisher: { "@id": `${SITE_URL}#attorney` },
         articleSection: [
           "Вводная",
           "Схема ‘треугольник’",

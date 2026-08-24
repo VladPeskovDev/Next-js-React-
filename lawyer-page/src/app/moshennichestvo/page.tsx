@@ -10,9 +10,36 @@ export const metadata = {
   },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Защита по уголовным делам о мошенничестве (ст. 159 УК РФ)",
+  name: "Адвокат по мошенничеству в Москве",
+  description:
+    "Защита на всех этапах уголовного дела о мошенничестве: проверка, следствие, суд, апелляция и кассация.",
+  url: "https://advokat-peskov.com/moshennichestvo",
+  provider: { "@id": "https://advokat-peskov.com#attorney" },
+  areaServed: { "@type": "City", name: "Москва" },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "RUB",
+    price: "40000",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      priceCurrency: "RUB",
+      minPrice: "40000",
+    },
+    url: "https://advokat-peskov.com/pricing",
+  },
+};
+
 export default function FraudPage(): JSX.Element {
   return (
     <div className={styles.articlesContainer}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <h1 className={styles.articlesTitle}>Как работает адвокат по делам о мошенничестве в Москве</h1>
       
       <div className={styles.article}>

@@ -11,9 +11,36 @@ export const metadata = {
 };
 
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Защита по уголовным делам",
+  name: "Услуги адвоката по уголовным делам в Москве",
+  description:
+    "Полное сопровождение уголовного дела: консультация, участие в следствии, защита в суде, обжалование приговора.",
+  url: "https://advokat-peskov.com/article",
+  provider: { "@id": "https://advokat-peskov.com#attorney" },
+  areaServed: { "@type": "City", name: "Москва" },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "RUB",
+    price: "15000",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      priceCurrency: "RUB",
+      minPrice: "15000",
+    },
+    url: "https://advokat-peskov.com/pricing",
+  },
+};
+
 export default function ArticlePage(): JSX.Element {
   return (
     <div className={styles.articlesContainer}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <h1 className={styles.articlesTitle}>Как работает адвокат по уголовным делам</h1>
       
       <div className={styles.article}>

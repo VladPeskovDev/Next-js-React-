@@ -92,26 +92,89 @@ export default function PricingPage(): JSX.Element {
         </div>
       </section>
 
-      {/* Schema.org JSON-LD разметка */}
-      <script type="application/ld+json">
-        {`
-        {
-          "@context": "https://schema.org",
-          "@type": "LegalService",
-          "name": "Адвокат по уголовным делам",
-          "description": "Цены на услуги адвоката по уголовным делам в Москве. Стоимость консультации, защиты в суде и ведения дела.",
-          "url": "https://advokat-peskov.com/pricing",
-          "telephone": "+79165780936",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "ул. Маршала Рыбалко, д. 2, корп. 6, офис 408",
-            "addressLocality": "Москва",
-            "postalCode": "101000",
-            "addressCountry": "RU"
-          }
-        }
-        `}
-      </script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            name: "Прайс адвоката по уголовным делам",
+            url: "https://advokat-peskov.com/pricing",
+            provider: { "@id": "https://advokat-peskov.com#attorney" },
+            itemListElement: [
+              {
+                "@type": "Offer",
+                name: "Первичная устная консультация по телефону",
+                price: "0",
+                priceCurrency: "RUB",
+              },
+              {
+                "@type": "Offer",
+                name: "Устная консультация в офисе",
+                price: "5000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "5000", priceCurrency: "RUB", minPrice: "5000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Консультация с изучением материалов дела",
+                price: "10000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "10000", priceCurrency: "RUB", minPrice: "10000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Разовый срочный выезд",
+                price: "15000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "15000", priceCurrency: "RUB", minPrice: "15000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Защита на предварительном следствии",
+                price: "40000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "40000", priceCurrency: "RUB", minPrice: "40000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Защита в суде первой инстанции",
+                price: "40000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "40000", priceCurrency: "RUB", minPrice: "40000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Апелляционное обжалование приговора",
+                price: "30000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "30000", priceCurrency: "RUB", minPrice: "30000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Подготовка кассационной жалобы",
+                price: "30000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "30000", priceCurrency: "RUB", minPrice: "30000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Защита свидетелей в ходе допроса",
+                price: "15000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "15000", priceCurrency: "RUB", minPrice: "15000" },
+              },
+              {
+                "@type": "Offer",
+                name: "Защита потерпевших",
+                price: "40000",
+                priceCurrency: "RUB",
+                priceSpecification: { "@type": "PriceSpecification", price: "40000", priceCurrency: "RUB", minPrice: "40000" },
+              },
+            ],
+          }),
+        }}
+      />
     </main>
   );
 }

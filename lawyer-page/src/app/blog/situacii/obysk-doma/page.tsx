@@ -41,8 +41,8 @@ export default function HouseSearchPage(): JSX.Element {
       "Основания для обыска, права, понятые/видеозапись, протокол, фиксация нарушений, изъятие техники. Чек-листы и практические советы адвоката.",
     datePublished: "2025-10-01",
     dateModified: "2025-10-26",
-    author: { "@type": "Person", name: "Адвокат Песков" },
-    publisher: { "@type": "Organization", name: "Адвокат Песков" },
+    author: { "@type": "Person", name: "Адвокат Песков", url: "https://advokat-peskov.com/about" },
+    publisher: { "@id": "https://advokat-peskov.com#attorney" },
     mainEntityOfPage: "https://advokat-peskov.com/blog/situacii/obysk-doma",
   };
 

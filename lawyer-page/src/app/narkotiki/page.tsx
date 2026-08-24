@@ -10,9 +10,36 @@ export const metadata = {
   },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Защита по уголовным делам о наркотиках (ст. 228 УК РФ)",
+  name: "Адвокат по 228 УК РФ в Москве",
+  description:
+    "Защита на всех этапах уголовного дела о наркотиках: задержание, следствие, суд, обжалование приговора.",
+  url: "https://advokat-peskov.com/narkotiki",
+  provider: { "@id": "https://advokat-peskov.com#attorney" },
+  areaServed: { "@type": "City", name: "Москва" },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "RUB",
+    price: "40000",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      priceCurrency: "RUB",
+      minPrice: "40000",
+    },
+    url: "https://advokat-peskov.com/pricing",
+  },
+};
+
 export default function DrugsPage(): JSX.Element {
   return (
     <div className={styles.articlesContainer}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <h1 className={styles.articlesTitle}>Как работает адвокат по делам о наркотиках в Москве, что делать если поймали с наркотиками</h1>
       
       <div className={styles.article}>
