@@ -99,9 +99,13 @@ export default function HomePage() {
           <div className={styles.caseCard}>
             <Link href="/moshennichestvo/">
               <img
-                src="/next.svg"
+                src="/159.webp"
                 alt="Адвокат по делам о мошенничестве в Москве"
                 className={styles.caseImage}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <h2>Мошенничество (159 УК РФ)</h2>
@@ -109,9 +113,13 @@ export default function HomePage() {
           <div className={styles.caseCard}>
             <Link href="/situatsii/">
               <img
-                src="/vercel.svg"
+                src="/raznoye.webp"
                 alt="Что делать при задержании или обыске"
                 className={styles.caseImage}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <h2>Что делать в ситуации</h2>
@@ -119,9 +127,13 @@ export default function HomePage() {
           <div className={styles.caseCard}>
             <Link href="/narkotiki/">
               <img
-                src="/window.svg"
+                src="/narkotiki228.webp"
                 alt="Адвокат по делам о наркотиках в Москве"
                 className={styles.caseImage}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <h2>Наркотики (228 УК РФ)</h2>

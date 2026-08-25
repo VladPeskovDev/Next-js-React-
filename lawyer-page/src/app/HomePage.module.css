@@ -15,7 +15,7 @@
   width: 100%;
   max-width: 959px;
   height: 512px;
-  background-image: url('/13.jpg'); /* Укажите реальный путь */
+  background-image: url('/131.webp'); /* Укажите реальный путь */
   background-size: cover; /* Полностью заполнит блок */
   background-position: center; /* Центрирует изображение */
   background-repeat: no-repeat;
@@ -213,9 +213,8 @@
 }
 
 .caseCard {
-  width: 100%;
-  max-width: 301px;
-  height: 259px;
+  flex: 1;
+  min-width: 0;
   background-color: #1a2633;
   display: flex;
   flex-direction: column;
@@ -228,7 +227,7 @@
 
 .cardWrapper3card {
   width: 100%;
-  max-width: 927px;
+  max-width: 959px;
   display: flex;
   gap: 16px;
   justify-content: space-between;
@@ -236,7 +235,8 @@
 
 .caseImage {
   width: 100%;
-  height: 169px;
+  aspect-ratio: 4 / 3;
+  height: auto;
   background-color: #404552;
   border-radius: 8px;
   object-fit: cover;
