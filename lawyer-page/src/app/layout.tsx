@@ -16,9 +16,20 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Адвокат по уголовным делам",
-  description: "Юридическая помощь и консультации по уголовным делам в Москве.",
-  keywords: "уголовный адвокат, адвокат, уголовные дела, защита, суд, консультация",
+  metadataBase: new URL("https://advokat-peskov.com"),
+  title: {
+    default: "Адвокат по уголовным делам в Москве — Песков В.С.",
+    template: "%s | Адвокат Песков",
+  },
+  description: "Адвокат по уголовным делам в Москве. Защита на следствии и в суде, консультации, обжалование. Круглосуточно: +7 (916) 578-09-36.",
+  keywords: "уголовный адвокат Москва, адвокат по уголовным делам, защита в суде, консультация адвоката",
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    siteName: "Адвокат Песков — уголовные дела",
+    images: [{ url: "/foto008.svg", width: 1200, height: 630, alt: "Адвокат Песков В.С." }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 const SITE_URL = "https://advokat-peskov.com";

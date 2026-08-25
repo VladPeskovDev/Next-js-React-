@@ -11,7 +11,7 @@ export default function Footer() {
         &copy; {currentYear} Все права защищены | Ваш адвокат в Москве
       </p>
       <div className={styles.linksContainer}>
-        <Link href="/contact" className={styles.footerLink}>
+        <Link href="/kontakty/" className={styles.footerLink}>
           Контакты
         </Link>
         <span className={styles.iconSeparator}>|</span>

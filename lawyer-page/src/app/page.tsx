@@ -1,12 +1,13 @@
 export const metadata = {
-  title: "Уголовный юрист в Москве – защита, консультации, суд, срочный выезд.",
-  description: "Услуги адвоката по уголовным делам в Москве. Консультации, защита в суде, подготовка жалоб и сопровождение дел любой сложности.",
-  keywords: "уголовный юрист, адвокат, уголовные дела, защита, суд, консультация",
+  title: "Уголовный адвокат в Москве — Песков В.С. Защита по 228, 159, УК РФ",
+  description: "Адвокат по уголовным делам в Москве. Защита на следствии и в суде: наркотики (228), мошенничество (159), экономические составы. Первичная консультация бесплатно. Круглосуточно: +7 (916) 578-09-36.",
+  keywords: "уголовный адвокат Москва, адвокат по уголовным делам, адвокат по 228, адвокат по 159, защита в суде, защита на следствии, срочный адвокат Москва",
+  alternates: { canonical: "https://advokat-peskov.com/" },
   openGraph: {
-    title: "Адвокат по уголовным делам в Москве",
-    description: "Консультации, защита в суде, подготовка жалоб и сопровождение дел.",
+    title: "Адвокат по уголовным делам в Москве — Песков В.С.",
+    description: "Защита по уголовным делам на всех стадиях: следствие, суд, апелляция. Круглосуточно.",
     url: "https://advokat-peskov.com",
-    siteName: "Адвокат Песков",
+    siteName: "Адвокат Песков — уголовные дела",
     images: [
       {
         url: "https://advokat-peskov.com/foto008.svg",
@@ -26,12 +27,10 @@ export const metadata = {
 import styles from "./HomePage.module.css";
 import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
 import Link from "next/link";
-//import ChatGPTAssistant from "../components/ChatGPTAssistant";
 
 export default function HomePage(): JSX.Element {
   return (
     <div className={styles.container}>
-      {/* Верхний контейнер */}
       <section className={styles.heroSection}>
         <div className={styles.heroTextContainer}>
           <h1 className={styles.heroTitle}>
@@ -49,48 +48,45 @@ export default function HomePage(): JSX.Element {
         </div>
       </section>
 
-      {/* Контейнер с надписью "Услуги" */}
       <section className={styles.servicesHeader}>
         <h2>Услуги</h2>
       </section>
 
-      {/* Контейнер с 4 карточками */}
       <section className={styles.fourCardsSection}>
         <div className={styles.cardWrapper}>
           <div className={styles.serviceCard}>
-            <Link href="/pricing">
+            <Link href="/uslugi/advokat-po-228/">
               <FaUserShield className={styles.cardIcon} />
-              <h2>Предварительное следствие</h2>
-              <p>Защита на стадии предварительного следствия по любой категории дел.</p>
+              <h2>Адвокат по 228 УК РФ</h2>
+              <p>Защита по делам о наркотиках: задержание, следствие, суд, обжалование.</p>
             </Link>
           </div>
           <div className={styles.serviceCard}>
-            <Link href="/pricing">
+            <Link href="/uslugi/advokat-po-159/">
               <FaBook className={styles.cardIcon} />
-              <h2>Допросы и дача показаний</h2>
-              <p>Защита на стадии допросов и дачи показаний по любой категории дел.</p>
+              <h2>Адвокат по 159 УК РФ</h2>
+              <p>Защита по делам о мошенничестве, включая IT-составы: P2P, дропы, крипта.</p>
             </Link>
           </div>
           <div className={styles.serviceCard}>
-            <Link href="/pricing">
+            <Link href="/uslugi/">
               <FaGavel className={styles.cardIcon} />
-              <h2>Защита в суде</h2>
-              <p>Защита на стадии судебного разбирательства по любой категории дел.</p>
+              <h2>Все услуги</h2>
+              <p>Полный спектр защиты по уголовным делам на всех стадиях процесса.</p>
             </Link>
           </div>
           <div className={styles.serviceCard}>
-            <Link href="/pricing">
+            <Link href="/ceny/">
               <FaFileAlt className={styles.cardIcon} />
-              <h2>Составление жалоб</h2>
-              <p>Составление апелляционных, кассационных и иных жалоб, необходимых для защиты.</p>
+              <h2>Цены</h2>
+              <p>Прозрачный прайс с фиксированными ставками по этапам дела.</p>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Контейнер с кнопкой "Все услуги" */}
       <section className={styles.allServicesButton}>
-        <Link href="/pricing">
+        <Link href="/uslugi/">
           <button className={styles.actionButton}>Все услуги</button>
         </Link>
         <a href="tel:+79165780936">
@@ -98,46 +94,40 @@ export default function HomePage(): JSX.Element {
         </a>
       </section>
 
-      {/* Контейнер с 3 карточками (фото, текст) */}
       <section className={styles.threeCardsSection}>
         <div className={styles.cardWrapper3card}>
           <div className={styles.caseCard}>
-            <Link href="/blog">
+            <Link href="/moshennichestvo/">
               <img
                 src="/next.svg"
-                alt="Адвокат по уголовным делам в Москве"
+                alt="Адвокат по делам о мошенничестве в Москве"
                 className={styles.caseImage}
               />
             </Link>
-            <h1>Дело о мошенничестве</h1>
+            <h2>Мошенничество (159 УК РФ)</h2>
           </div>
           <div className={styles.caseCard}>
-            <Link href="/blog">
+            <Link href="/situacii/">
               <img
                 src="/vercel.svg"
-                alt="Юрист по уголовным делам в Москве"
+                alt="Что делать при задержании или обыске"
                 className={styles.caseImage}
               />
             </Link>
-            <p>Дело о краже</p>
+            <h2>Что делать в ситуации</h2>
           </div>
           <div className={styles.caseCard}>
-            <Link href="/blog">
+            <Link href="/narkotiki/">
               <img
                 src="/window.svg"
                 alt="Адвокат по делам о наркотиках в Москве"
                 className={styles.caseImage}
               />
             </Link>
-            <p>Дело о наркотиках</p>
+            <h2>Наркотики (228 УК РФ)</h2>
           </div>
         </div>
       </section>
-     {/* <ChatGPTAssistant /> */}
     </div>
   );
 }
-
-
-
- 

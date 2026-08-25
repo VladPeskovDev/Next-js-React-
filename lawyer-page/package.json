@@ -6,14 +6,21 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^15.0.2",
+    "next-mdx-remote": "^6.0.0",
     "next-sitemap": "^4.2.3",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "react-icons": "^5.3.0"
+    "react-icons": "^5.3.0",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -24,6 +31,7 @@
     "eslint-config-next": "15.0.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }
