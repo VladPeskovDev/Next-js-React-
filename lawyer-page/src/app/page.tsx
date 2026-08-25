@@ -28,7 +28,7 @@ import styles from "./HomePage.module.css";
 import { FaGavel, FaBook, FaUserShield, FaFileAlt } from "react-icons/fa";
 import Link from "next/link";
 
-export default function HomePage(): JSX.Element {
+export default function HomePage() {
   return (
     <div className={styles.container}>
       <section className={styles.heroSection}>
@@ -76,7 +76,7 @@ export default function HomePage(): JSX.Element {
             </Link>
           </div>
           <div className={styles.serviceCard}>
-            <Link href="/ceny/">
+            <Link href="/tseny/">
               <FaFileAlt className={styles.cardIcon} />
               <h2>Цены</h2>
               <p>Прозрачный прайс с фиксированными ставками по этапам дела.</p>
@@ -107,7 +107,7 @@ export default function HomePage(): JSX.Element {
             <h2>Мошенничество (159 УК РФ)</h2>
           </div>
           <div className={styles.caseCard}>
-            <Link href="/situacii/">
+            <Link href="/situatsii/">
               <img
                 src="/vercel.svg"
                 alt="Что делать при задержании или обыске"

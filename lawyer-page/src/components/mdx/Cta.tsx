@@ -13,7 +13,7 @@ export function Cta({ children }: { children?: React.ReactNode }) {
       <p className={styles.linksRow}>
         <Link href="/kontakty">Связаться</Link>
         <Link href="/ob-advokate">Обо мне</Link>
-        <Link href="/ceny">Цены</Link>
+        <Link href="/tseny">Цены</Link>
       </p>
     </div>
   );

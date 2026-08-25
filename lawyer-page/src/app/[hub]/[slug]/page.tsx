@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
                   priceCurrency: 'RUB',
                   minPrice: String(fm.priceFrom),
                 },
-                url: `${SITE_URL}/ceny/`,
+                url: `${SITE_URL}/tseny/`,
                 availability: 'https://schema.org/InStock',
               },
             }

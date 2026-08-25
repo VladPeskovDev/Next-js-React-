@@ -47,7 +47,7 @@ const personJsonLd = {
   ],
 };
 
-export default function AboutPage(): JSX.Element {
+export default function AboutPage() {
   return (
     <main className="container mx-auto p-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />

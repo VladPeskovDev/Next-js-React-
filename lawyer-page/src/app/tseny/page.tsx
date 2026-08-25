@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 
-export default function PricingPage(): JSX.Element {
+export default function PricingPage() {
   return (
     <main className={`${styles.mainContainer} container mx-auto p-4`}>
       <Head>
@@ -26,7 +26,7 @@ export default function PricingPage(): JSX.Element {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://advokat-peskov.com/ceny/" />
+        <meta property="og:url" content="https://advokat-peskov.com/tseny/" />
         <meta property="og:image" content="https://advokat-peskov.com/foto008.svg" />
         
         {/* Twitter Cards */}
@@ -35,7 +35,7 @@ export default function PricingPage(): JSX.Element {
         <meta name="twitter:image" content="https://advokat-peskov.com" />
         
         {/* Канонический URL */}
-        <link rel="canonical" href="https://advokat-peskov.com/ceny/" />
+        <link rel="canonical" href="https://advokat-peskov.com/tseny/" />
       </Head>
 
       <header className={styles.header}>
@@ -99,7 +99,7 @@ export default function PricingPage(): JSX.Element {
             "@context": "https://schema.org",
             "@type": "OfferCatalog",
             name: "Прайс адвоката по уголовным делам",
-            url: "https://advokat-peskov.com/ceny/",
+            url: "https://advokat-peskov.com/tseny/",
             provider: { "@id": "https://advokat-peskov.com#attorney" },
             itemListElement: [
               {

@@ -2,7 +2,7 @@ export type HubKey =
   | 'narkotiki'
   | 'moshennichestvo'
   | 'ekonomika'
-  | 'situacii'
+  | 'situatsii'
   | 'sledstvie'
   | 'uslugi'
   | 'praktika'
@@ -30,7 +30,7 @@ export const HUBS: Record<HubKey, HubConfig> = {
     description: 'Услуги адвоката по уголовным делам в Москве: защита на следствии, в суде, обжалование.',
     enabled: true,
   },
-  situacii: {
+  situatsii: {
     title: 'Ситуации',
     description: 'Что делать: задержание, обыск, допрос, повестка, блокировка счёта.',
     enabled: true,

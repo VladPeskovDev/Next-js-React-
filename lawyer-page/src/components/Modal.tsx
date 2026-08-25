@@ -8,7 +8,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export default function Modal({ isOpen, onClose }: ModalProps): JSX.Element | null {
+export default function Modal({ isOpen, onClose }: ModalProps): React.JSX.Element | null {
   if (!isOpen) return null;
 
   return (

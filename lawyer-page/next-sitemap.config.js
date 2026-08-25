@@ -74,13 +74,13 @@ module.exports = {
     } else if (clean === '/uslugi/') {
       priority = 0.9;
       changefreq = 'monthly';
-    } else if (['/ceny/', '/kontakty/', '/ob-advokate/'].includes(clean)) {
+    } else if (['/tseny/', '/kontakty/', '/ob-advokate/'].includes(clean)) {
       priority = 0.8;
       changefreq = 'monthly';
-    } else if (/^\/(narkotiki|moshennichestvo|situacii|blog)\/$/.test(clean)) {
+    } else if (/^\/(narkotiki|moshennichestvo|situatsii|blog)\/$/.test(clean)) {
       priority = 0.7;
       changefreq = 'weekly';
-    } else if (/^\/(narkotiki|moshennichestvo|situacii|blog)\/[^/]+\/$/.test(clean)) {
+    } else if (/^\/(narkotiki|moshennichestvo|situatsii|blog)\/[^/]+\/$/.test(clean)) {
       priority = 0.6;
       changefreq = 'monthly';
     }

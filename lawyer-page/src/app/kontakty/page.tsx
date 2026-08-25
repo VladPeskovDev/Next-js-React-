@@ -19,7 +19,7 @@ export const metadata = {
 };
 
 
-export default function ContactPage(): JSX.Element {
+export default function ContactPage() {
   return (
     <main className={styles.container}>
       <div className={styles.photoContainer}>

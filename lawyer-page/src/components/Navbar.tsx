@@ -6,7 +6,7 @@ import Modal from "../components/Modal";
 import styles from "./Navbar.module.css";
 import { FaPhone } from "react-icons/fa";
 
-export default function Navbar(): JSX.Element {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -32,7 +32,7 @@ export default function Navbar(): JSX.Element {
           <ul className={`${styles.navList} ${isMenuOpen ? styles.showMenu : ""}`}>
             <li><Link href="/" className={styles.navLink} onClick={toggleMenu}>Главная</Link></li>
             <li><Link href="/uslugi/" className={styles.navLink} onClick={toggleMenu}>Услуги</Link></li>
-            <li><Link href="/ceny/" className={styles.navLink} onClick={toggleMenu}>Цены</Link></li>
+            <li><Link href="/tseny/" className={styles.navLink} onClick={toggleMenu}>Цены</Link></li>
             <li><Link href="/blog/" className={styles.navLink} onClick={toggleMenu}>Блог</Link></li>
             <li><Link href="/ob-advokate/" className={styles.navLink} onClick={toggleMenu}>Обо мне</Link></li>
             <li><Link href="/kontakty/" className={styles.navLink} onClick={toggleMenu}>Контакты</Link></li>
