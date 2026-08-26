@@ -58,6 +58,10 @@ export default function AboutPage() {
               src="/foto008.webp"
               alt="Адвокат Песков В.С. — уголовные дела, Москва"
               className={styles.photo}
+              width={600}
+              height={800}
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>
