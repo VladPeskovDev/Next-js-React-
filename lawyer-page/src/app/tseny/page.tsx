@@ -27,7 +27,7 @@ export default function PricingPage() {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://advokat-peskov.com/tseny/" />
-        <meta property="og:image" content="https://advokat-peskov.com/foto008.svg" />
+        <meta property="og:image" content="https://advokat-peskov.com/foto008.webp" />
         
         {/* Twitter Cards */}
         <meta name="twitter:title" content={metadata.title} />

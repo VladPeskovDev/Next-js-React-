@@ -10,7 +10,7 @@ export const metadata = {
     siteName: "Адвокат Песков — уголовные дела",
     images: [
       {
-        url: "https://advokat-peskov.com/foto008.svg",
+        url: "https://advokat-peskov.com/foto008.webp",
         width: 1200,
         height: 630,
         alt: "Адвокат по уголовным делам Песков В.С.",

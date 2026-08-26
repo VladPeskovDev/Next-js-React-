@@ -35,6 +35,7 @@ collectContentLastmod();
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://advokat-peskov.com',
   generateRobotsTxt: true,
+  generateIndexSitemap: false,
   outDir: 'out',
   changefreq: 'monthly',
   priority: 0.5,

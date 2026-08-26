@@ -25,7 +25,7 @@ const personJsonLd = {
   jobTitle: "Адвокат",
   worksFor: { "@id": "https://advokat-peskov.com#attorney" },
   url: "https://advokat-peskov.com/ob-advokate/",
-  image: "https://advokat-peskov.com/foto008.svg",
+  image: "https://advokat-peskov.com/foto008.webp",
   memberOf: {
     "@type": "Organization",
     name: "Адвокатская палата",
@@ -55,7 +55,7 @@ export default function AboutPage() {
         <div className={styles.photoContainer}>
           <div className={styles.photoOverlay}>
             <img
-              src="/foto008.svg"
+              src="/foto008.webp"
               alt="Адвокат Песков В.С. — уголовные дела, Москва"
               className={styles.photo}
             />

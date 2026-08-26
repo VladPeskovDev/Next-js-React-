@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
         '@type': 'Article',
         headline: h1,
         description: fm.description,
-        image: [`${SITE_URL}/foto008.svg`],
+        image: [`${SITE_URL}/foto008.webp`],
         datePublished: fm.published,
         dateModified: fm.updated || fm.published,
         inLanguage: 'ru-RU',
