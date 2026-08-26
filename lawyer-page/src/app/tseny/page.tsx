@@ -22,7 +22,7 @@ export default function PricingPage() {
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content="адвокат по уголовным делам цены, стоимость адвоката, юридическая помощь, защита в суде, услуги адвоката" />
         
-        {/* Open Graph для соцсетей */}
+        {/* Open Graph для соцсетей и прочего */}
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
