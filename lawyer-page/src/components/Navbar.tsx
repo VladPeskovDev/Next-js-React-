@@ -34,7 +34,6 @@ export default function Navbar() {
             <li><Link href="/uslugi/" className={styles.navLink} onClick={toggleMenu}>Услуги</Link></li>
             <li><Link href="/tseny/" className={styles.navLink} onClick={toggleMenu}>Цены</Link></li>
             <li><Link href="/blog/" className={styles.navLink} onClick={toggleMenu}>Блог</Link></li>
-            <li><Link href="/ob-advokate/" className={styles.navLink} onClick={toggleMenu}>Обо мне</Link></li>
             <li><Link href="/kontakty/" className={styles.navLink} onClick={toggleMenu}>Контакты</Link></li>
           </ul>
 

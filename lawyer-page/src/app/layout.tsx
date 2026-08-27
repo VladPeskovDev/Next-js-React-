@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     siteName: "Адвокат Песков — уголовные дела",
-    images: [{ url: "/foto008.webp", width: 1200, height: 630, alt: "Адвокат Песков В.С." }],
+    images: [{ url: "/1312.webp", width: 1000, height: 723, alt: "Адвокат Песков В.С. — уголовные дела, Москва" }],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -47,8 +47,8 @@ const orgJsonLd = {
       description:
         "Адвокат по уголовным делам в Москве. Защита на следствии и в суде, консультации, обжалование.",
       url: SITE_URL,
-      image: `${SITE_URL}/foto008.webp`,
-      logo: `${SITE_URL}/foto008.webp`,
+      image: `${SITE_URL}/1312.webp`,
+      logo: `${SITE_URL}/1312.webp`,
       telephone: "+7-916-578-09-36",
       priceRange: "от 15000 руб.",
       areaServed: [
@@ -83,7 +83,6 @@ const orgJsonLd = {
       },
       sameAs: [
         "https://t.me/Peskov_Vladislav",
-        "https://wa.me/79165780936",
       ],
       contactPoint: [
         {
@@ -118,7 +117,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://mc.yandex.ru" />
         <link rel="preconnect" href="https://mc.yandex.com" />

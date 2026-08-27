@@ -13,6 +13,7 @@ export const metadata = {
     description:
       "Адвокат по уголовным делам в Москве: опыт в следствии, реестровый номер, направления работы.",
     siteName: "Адвокат Песков — уголовные дела",
+    images: [{ url: "/1312.webp", width: 1000, height: 723, alt: "Адвокат Песков В.С." }],
   },
 };
 
@@ -25,7 +26,7 @@ const personJsonLd = {
   jobTitle: "Адвокат",
   worksFor: { "@id": "https://advokat-peskov.com#attorney" },
   url: "https://advokat-peskov.com/ob-advokate/",
-  image: "https://advokat-peskov.com/foto008.webp",
+  image: "https://advokat-peskov.com/1312.webp",
   memberOf: {
     "@type": "Organization",
     name: "Адвокатская палата",
@@ -55,7 +56,7 @@ export default function AboutPage() {
         <div className={styles.photoContainer}>
           <div className={styles.photoOverlay}>
             <img
-              src="/foto008.webp"
+              src="/1312.webp"
               alt="Адвокат Песков В.С. — уголовные дела, Москва"
               className={styles.photo}
               width={600}

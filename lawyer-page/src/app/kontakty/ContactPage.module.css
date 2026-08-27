@@ -41,7 +41,17 @@
     font-size: 1.5rem;
     font-weight: bold;
     text-align: left;
-    margin-bottom: 16px;
+    margin: 0 0 12px;
+    line-height: 1.2;
+}
+
+.overlaySubtext {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: left;
+    margin: 0 0 16px;
+    line-height: 1.4;
+    color: white;
 }
 
 /* Кнопки для вызова и Telegram */

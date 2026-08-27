@@ -1,6 +1,6 @@
 "use client";
 
-import { FaPhone, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import { FaPhone, FaTelegramPlane } from "react-icons/fa";
 import styles from "./Modal.module.css";
 
 interface ModalProps {
@@ -41,15 +41,6 @@ export default function Modal({ isOpen, onClose }: ModalProps): React.JSX.Elemen
           >
             <FaTelegramPlane className={styles.contactIcon} />
             <span>Telegram</span>
-          </a>
-          <a
-            href="https://wa.me/79165780936"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.contactLink}
-          >
-            <FaWhatsapp className={styles.contactIcon} />
-            <span>WhatsApp</span>
           </a>
         </div>
       </div>

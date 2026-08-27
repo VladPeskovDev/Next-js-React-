@@ -19,7 +19,6 @@ function staticPageLastmod(clean) {
     '/': 'page.tsx',
     '/tseny/': 'tseny/page.tsx',
     '/kontakty/': 'kontakty/page.tsx',
-    '/ob-advokate/': 'ob-advokate/page.tsx',
   };
   if (staticMap[clean]) return mtimeIso(path.join(APP_DIR, staticMap[clean]));
 
@@ -78,6 +77,8 @@ module.exports = {
   trailingSlash: true,
   exclude: [
     '/404',
+    '/ob-advokate',
+    '/ob-advokate/',
     ...Array.from(DISABLED_HUBS).flatMap((h) => [`/${h}`, `/${h}/*`]),
     ...Array.from(NOINDEX_HUBS).flatMap((h) => [`/${h}`, `/${h}/`]),
   ],
@@ -119,7 +120,7 @@ module.exports = {
     } else if (clean === '/uslugi/') {
       priority = 0.9;
       changefreq = 'monthly';
-    } else if (['/tseny/', '/kontakty/', '/ob-advokate/'].includes(clean)) {
+    } else if (['/tseny/', '/kontakty/'].includes(clean)) {
       priority = 0.8;
       changefreq = 'monthly';
     } else if (/^\/(narkotiki|moshennichestvo|situatsii|blog)\/$/.test(clean)) {

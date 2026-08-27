@@ -3,7 +3,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import ClientYandexMap from "../../components/ClientYandexMap"; // Импортируем клиентский компонент
 
 export const metadata = {
-  title: "Телефон адвоката по уголовным делам в Москве — Срочная помощь 24/7",
+  title: "Телефон адвоката в Москве — помощь 24/7",
   description:
     "Телефоны адвокатов по уголовным делам. Срочная юридическая помощь, консультация, защита в суде. Звоните круглосуточно: 8 916 578 09 36.",
   keywords: "телефон адвоката, телефоны адвокатов, адвокат по уголовным делам телефон, срочный адвокат Москва, консультация адвоката",
@@ -15,6 +15,7 @@ export const metadata = {
     description:
       "Нужен адвокат? Телефон уголовного адвоката в Москве. Помощь при задержании, суде, следствии. Звоните для бесплатной консультации!",
     siteName: "Адвокат Песков — уголовные дела",
+    images: [{ url: "/1312.webp", width: 1000, height: 723, alt: "Адвокат Песков В.С." }],
   },
 };
 
@@ -24,7 +25,8 @@ export default function ContactPage() {
     <main className={styles.container}>
       <div className={styles.photoContainer}>
         <div className={styles.photoOverlay}>
-          <p className={styles.overlayText}>Если Вам нужна помощь, контакты для консультации</p>
+          <h1 className={styles.overlayText}>Контакты адвоката по уголовным делам в Москве</h1>
+          <p className={styles.overlaySubtext}>Если Вам нужна помощь, звоните — работаю круглосуточно.</p>
           <div className={styles.buttons}>
             <a href="tel:+79165780936" className={styles.button}>+7 916 578 09 36</a>
             <a href="https://t.me/Peskov_Vladislav" target="_blank" rel="noopener noreferrer" className={styles.buttonTelegram}>

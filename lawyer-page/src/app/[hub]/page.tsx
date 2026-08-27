@@ -28,7 +28,14 @@ export async function generateMetadata({ params }: { params: Promise<{ hub: stri
     title: `${cfg.title} — Адвокат Песков`,
     description: cfg.description,
     alternates: { canonical: url },
-    openGraph: { type: 'website', url, title: cfg.title, description: cfg.description },
+    openGraph: {
+      type: 'website',
+      url,
+      title: cfg.title,
+      description: cfg.description,
+      siteName: 'Адвокат Песков — уголовные дела',
+      images: [{ url: '/1312.webp', width: 1000, height: 723, alt: 'Адвокат Песков В.С.' }],
+    },
     robots: intro?.noindex ? { index: false, follow: true } : undefined,
   };
 }

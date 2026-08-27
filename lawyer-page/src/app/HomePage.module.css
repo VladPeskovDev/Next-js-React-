@@ -14,10 +14,10 @@
 .heroSection {
   width: 100%;
   max-width: 959px;
-  height: 512px;
+  height: 500px;
   background-image: url('/1312.webp'); /* Укажите реальный путь */
   background-size: cover; /* Полностью заполнит блок */
-  background-position: center; /* Центрирует изображение */
+  background-position: center; /* Прижимаем к низу — обрезаем сверху */
   background-repeat: no-repeat;
   padding: 20px;
   display: flex;
@@ -51,12 +51,12 @@
 
 /* Кнопки для вызова и Telegram */
 .buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
   display: flex;
-  gap: 16px;
-  justify-content: flex-end; /* Расположение справа */
-  width: 100%;
-  margin-top: 20px; /* Отступ для визуального разделения */
-  
+  gap: 12px;
+  z-index: 2;
 }
 
 .button, .buttonTelegram {
@@ -68,12 +68,105 @@
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s;
-  display: inline-block;
-  max-width: 170px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .button:hover, .buttonTelegram:hover {
   background-color: #1f1fcc;
+}
+
+
+/* Блок "Обо мне" / "Без посредников" */
+.aboutSection {
+  width: 100%;
+  max-width: 959px;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aboutBlock {
+  background-color: #1a2633;
+  border: 1px solid #94ADC7;
+  border-radius: 8px;
+  padding: 16px 20px;
+  color: #D0E0F1;
+}
+
+.aboutBlockAccent {
+  background-color: #243647;
+  border: 2px solid #4a9eff;
+  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.15);
+}
+
+.aboutBlock h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.aboutBlock h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  margin: 8px 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aboutBlock p {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  margin: 0 0 5px;
+}
+
+.aboutBlock p:last-child {
+  margin-bottom: 0;
+}
+
+.aboutList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 6px;
+}
+
+.aboutList li {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 2px 0;
+}
+
+.aboutListCompact li {
+  padding: 0;
+  line-height: 1.25;
+}
+
+.aboutBlock strong {
+  color: white;
+  font-weight: 700;
+}
+
+.aboutHighlight {
+  border-left: 3px solid #4a9eff;
+  padding: 4px 0 4px 14px;
+  margin: 0 0 12px;
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.aboutDivider {
+  border: none;
+  border-top: 2px solid rgba(74, 158, 255, 0.55);
+  margin: 10px 0;
 }
 
 
@@ -305,14 +398,45 @@
   }
 
   .buttons {
-    justify-content: center; /* Центрирование кнопок на мобильных */
+    top: 10px;
+    right: 10px;
+    bottom: auto;
+    gap: 8px;
   }
 
   .button, .buttonTelegram {
-    padding: 8px 16px;
-    font-size: 0.800rem; /* Уменьшение размера текста */
-    max-width: 140px; /* Уменьшение ширины */
-    margin-left: 200px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .aboutSection {
+    padding: 0;
+    gap: 12px;
+  }
+
+  .aboutBlock {
+    padding: 16px 18px;
+  }
+
+  .aboutBlock h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .aboutBlock h3 {
+    font-size: 0.8rem;
+    margin: 12px 0 6px;
+  }
+
+  .aboutBlock p,
+  .aboutList li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .aboutHighlight {
+    font-size: 0.9rem;
+    padding-left: 12px;
   }
 
   .cardWrapper {

@@ -48,7 +48,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       title: fm.title,
       description: fm.description,
       siteName: 'Адвокат Песков — уголовные дела',
-      ...(fm.ogImage ? { images: [{ url: fm.ogImage }] } : {}),
+      images: [
+        fm.ogImage
+          ? { url: fm.ogImage }
+          : { url: '/1312.webp', width: 1000, height: 723, alt: 'Адвокат Песков В.С.' },
+      ],
     },
     twitter: { card: 'summary', title: fm.title, description: fm.description },
     robots: fm.noindex ? { index: false, follow: false } : undefined,
@@ -110,12 +114,12 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
         '@type': 'Article',
         headline: h1,
         description: fm.description,
-        image: [`${SITE_URL}/foto008.webp`],
+        image: [`${SITE_URL}/1312.webp`],
         datePublished: fm.published,
         dateModified: fm.updated || fm.published,
         inLanguage: 'ru-RU',
         mainEntityOfPage: url,
-        author: { '@type': 'Person', name: 'Адвокат Песков', url: `${SITE_URL}/ob-advokate/` },
+        author: { '@type': 'Person', name: 'Адвокат Песков', url: `${SITE_URL}/` },
         publisher: { '@id': `${SITE_URL}#attorney` },
       };
 

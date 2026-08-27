@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Footer() {
@@ -17,9 +17,6 @@ export default function Footer() {
         <span className={styles.iconSeparator}>|</span>
         <a href="https://t.me/Peskov_Vladislav" target="_blank" rel="noopener noreferrer" className={styles.iconLinkTG}>
           <FaTelegramPlane />
-        </a>
-        <a href="https://wa.me/+79165780936" target="_blank" rel="noopener noreferrer" className={styles.iconLinkWA}>
-          <FaWhatsapp />
         </a>
       </div>
     </footer>
