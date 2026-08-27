@@ -84,14 +84,18 @@ export function getAllContent(): ContentItem[] {
   return out;
 }
 
-export type HubIntro = { title?: string; body: string } | null;
+export type HubIntro = { title?: string; body: string; noindex?: boolean } | null;
 
 export function getHubIntro(hub: HubKey): HubIntro {
   const filePath = path.join(CONTENT_DIR, hub, '_index.mdx');
   const raw = readFileIfExists(filePath);
   if (raw == null) return null;
   const parsed = matter(raw);
-  return { title: (parsed.data.title as string) || undefined, body: parsed.content };
+  return {
+    title: (parsed.data.title as string) || undefined,
+    body: parsed.content,
+    noindex: parsed.data.noindex === true,
+  };
 }
 
 export function getContentByHub(hub: HubKey): ContentItem[] {

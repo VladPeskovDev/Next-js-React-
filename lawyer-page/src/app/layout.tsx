@@ -8,11 +8,13 @@ const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+  display: "swap",
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -118,6 +120,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="preconnect" href="https://mc.yandex.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
@@ -129,13 +133,15 @@ export default function RootLayout({
               m[i].l=1*new Date();
               for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
               k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-              (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+              (window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=111984647", "ym");
 
-              ym(92326839, "init", {
+              ym(111984647, "init", {
+                  ssr:true,
+                  webvisor:true,
                   clickmap:true,
-                  trackLinks:true,
+                  ecommerce:"dataLayer",
                   accurateTrackBounce:true,
-                  webvisor:true
+                  trackLinks:true
               });
             `,
           }}
@@ -143,7 +149,7 @@ export default function RootLayout({
         <noscript>
           <div>
             <img
-              src="https://mc.yandex.ru/watch/92326839"
+              src="https://mc.yandex.ru/watch/111984647"
               style={{ position: "absolute", left: "-9999px" }}
               alt=""
             />

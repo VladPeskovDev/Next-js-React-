@@ -31,6 +31,12 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <div className={styles.container}>
+      <link
+        rel="preload"
+        as="image"
+        href="/1312.webp"
+        fetchPriority="high"
+      />
       <section className={styles.heroSection}>
         <div className={styles.heroTextContainer}>
           <h1 className={styles.heroTitle}>

@@ -22,12 +22,14 @@ export async function generateMetadata({ params }: { params: Promise<{ hub: stri
   const { hub } = await params;
   if (!isEnabledHub(hub)) return {};
   const cfg = HUBS[hub as HubKey];
+  const intro = getHubIntro(hub as HubKey);
   const url = `${SITE_URL}/${hub}/`;
   return {
     title: `${cfg.title} — Адвокат Песков`,
     description: cfg.description,
     alternates: { canonical: url },
     openGraph: { type: 'website', url, title: cfg.title, description: cfg.description },
+    robots: intro?.noindex ? { index: false, follow: true } : undefined,
   };
 }
 
@@ -65,11 +67,9 @@ export default async function HubIndexPage({ params }: { params: Promise<{ hub: 
         )}
       </div>
 
-      <div className={styles.body}>
-        <h2>Материалы раздела</h2>
-        {items.length === 0 ? (
-          <p>Материалы готовятся.</p>
-        ) : (
+      {items.length > 0 && (
+        <div className={styles.body}>
+          <h2>Материалы раздела</h2>
           <ul>
             {items.map((c) => (
               <li key={c.frontmatter.slug}>
@@ -80,8 +80,8 @@ export default async function HubIndexPage({ params }: { params: Promise<{ hub: 
               </li>
             ))}
           </ul>
-        )}
-      </div>
+        </div>
+      )}
     </article>
   );
 }
