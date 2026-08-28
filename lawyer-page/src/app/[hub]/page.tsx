@@ -24,14 +24,15 @@ export async function generateMetadata({ params }: { params: Promise<{ hub: stri
   const cfg = HUBS[hub as HubKey];
   const intro = getHubIntro(hub as HubKey);
   const url = `${SITE_URL}/${hub}/`;
+  const metaTitle = intro?.title ?? `${cfg.title} — Адвокат Песков`;
   return {
-    title: `${cfg.title} — Адвокат Песков`,
+    title: { absolute: metaTitle },
     description: cfg.description,
     alternates: { canonical: url },
     openGraph: {
       type: 'website',
       url,
-      title: cfg.title,
+      title: metaTitle,
       description: cfg.description,
       siteName: 'Адвокат Песков — уголовные дела',
       images: [{ url: '/1312.webp', width: 1000, height: 723, alt: 'Адвокат Песков В.С.' }],
