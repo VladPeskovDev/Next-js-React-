@@ -145,15 +145,6 @@ export default function RootLayout({
             `,
           }}
         />
-        <noscript>
-          <div>
-            <img
-              src="https://mc.yandex.ru/watch/111984647"
-              style={{ position: "absolute", left: "-9999px" }}
-              alt=""
-            />
-          </div>
-        </noscript>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />

@@ -56,7 +56,91 @@
     font-weight: bold;
     color: white;
   }
-  
+
+  .intro {
+    background-color: #1a2633;
+    border: 1px solid #94ADC7;
+    border-radius: 8px;
+    padding: 16px 20px;
+    color: #D0E0F1;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .intro p {
+    margin: 0 0 10px;
+  }
+
+  .intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section {
+    margin-top: 32px;
+    background-color: #1a2633;
+    border: 1px solid #94ADC7;
+    border-radius: 8px;
+    padding: 20px;
+    color: #D0E0F1;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 16px;
+  }
+
+  .section p {
+    line-height: 1.5;
+    margin: 0 0 10px;
+  }
+
+  .section ul {
+    margin: 8px 0 12px;
+    padding-left: 22px;
+    line-height: 1.5;
+  }
+
+  .section li {
+    margin-bottom: 6px;
+  }
+
+  .section a {
+    color: #4a9eff;
+    text-decoration: underline;
+  }
+
+  .priceGroupTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #94ADC7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 20px 0 8px;
+  }
+
+  .faqItem {
+    background-color: #243647;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+
+  .faqQuestion {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 6px;
+  }
+
+  .faqAnswer {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #D0E0F1;
+    margin: 0;
+  }
+
   @media (max-width: 768px) {
     .mainContainer {
       padding: 15px;
@@ -83,5 +167,24 @@
     .serviceTitle, .price {
       font-size: 1rem;
     }
+
+    .intro, .section {
+      padding: 14px 16px;
+    }
+
+    .sectionTitle {
+      font-size: 1.2rem;
+    }
+
+    .faqItem {
+      padding: 12px 14px;
+    }
+
+    .faqQuestion {
+      font-size: 1rem;
+    }
+
+    .faqAnswer {
+      font-size: 0.9rem;
+    }
   }
-  

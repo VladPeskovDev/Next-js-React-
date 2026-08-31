@@ -87,14 +87,14 @@
   margin: 16px 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .aboutBlock {
   background-color: #1a2633;
   border: 1px solid #94ADC7;
   border-radius: 8px;
-  padding: 16px 20px;
+  padding: 12px 20px;
   color: #D0E0F1;
 }
 
@@ -411,11 +411,11 @@
 
   .aboutSection {
     padding: 0;
-    gap: 12px;
+    gap: 10px;
   }
 
   .aboutBlock {
-    padding: 16px 18px;
+    padding: 12px 18px;
   }
 
   .aboutBlock h2 {

@@ -2,9 +2,8 @@ export type HubKey =
   | 'narkotiki'
   | 'moshennichestvo'
   | 'ekonomika'
-  | 'situatsii'
+  | 'srochnyj-vyezd'
   | 'sledstvie'
-  | 'uslugi'
   | 'praktika'
   | 'blog';
 
@@ -25,14 +24,9 @@ export const HUBS: Record<HubKey, HubConfig> = {
     description: 'Статьи 159, 187, 174, 174.1 УК РФ: P2P-арбитраж, дропперы, отмывание, кредитное мошенничество.',
     enabled: true,
   },
-  uslugi: {
-    title: 'Услуги',
-    description: 'Услуги адвоката по уголовным делам в Москве: защита на следствии и в суде, обжалование, консультации, срочный выезд при задержании. От 40 000 ₽.',
-    enabled: true,
-  },
-  situatsii: {
-    title: 'Ситуации',
-    description: 'Срочный адвокат в Москве 24/7 при задержании, обыске, допросе. Выезд за 30-40 минут. Что делать до приезда защитника.',
+  'srochnyj-vyezd': {
+    title: 'Срочный выезд 24/7',
+    description: 'Срочный выезд адвоката в Москве 24/7 при задержании, обыске, допросе, очной ставке. Приезд за 30–40 минут. Выезд от 25 000 ₽.',
     enabled: true,
   },
   blog: {

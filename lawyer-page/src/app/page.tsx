@@ -125,7 +125,7 @@ export default function HomePage() {
       <section className={styles.fourCardsSection}>
         <div className={styles.cardWrapper}>
           <div className={styles.serviceCard}>
-            <Link href="/uslugi/advokat-po-228/">
+            <Link href="/narkotiki/advokat-po-228/">
               <FaUserShield className={styles.cardIcon} />
               <h2>Адвокат по 228 УК РФ</h2>
               <p>
@@ -135,7 +135,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className={styles.serviceCard}>
-            <Link href="/uslugi/advokat-po-159/">
+            <Link href="/moshennichestvo/advokat-po-159/">
               <FaBook className={styles.cardIcon} />
               <h2>Адвокат по 159 УК РФ</h2>
               <p>
@@ -145,12 +145,11 @@ export default function HomePage() {
             </Link>
           </div>
           <div className={styles.serviceCard}>
-            <Link href="/uslugi/">
+            <Link href="/srochnyj-vyezd/">
               <FaGavel className={styles.cardIcon} />
-              <h2>Все услуги</h2>
+              <h2>Срочный выезд 24/7</h2>
               <p>
-                Полный спектр защиты по уголовным делам на всех стадиях
-                процесса.
+                Задержание, обыск, допрос — приезжаю в течение 30–40 минут.
               </p>
             </Link>
           </div>
@@ -165,8 +164,8 @@ export default function HomePage() {
       </section>
 
       <section className={styles.allServicesButton}>
-        <Link href="/uslugi/">
-          <button className={styles.actionButton}>Все услуги</button>
+        <Link href="/blog/">
+          <button className={styles.actionButton}>Читать блог</button>
         </Link>
         <a href="tel:+79165780936">
           <button className={styles.actionButton}>Позвонить адвокату</button>
@@ -175,20 +174,6 @@ export default function HomePage() {
 
       <section className={styles.threeCardsSection}>
         <div className={styles.cardWrapper3card}>
-          <div className={styles.caseCard}>
-            <Link href="/moshennichestvo/">
-              <img
-                src="/159.webp"
-                alt="Адвокат по 159 УК РФ (мошенничество) в Москве — Песков В.С."
-                className={styles.caseImage}
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-            <h2>Мошенничество (159 УК РФ)</h2>
-          </div>
           <div className={styles.caseCard}>
             <Link href="/narkotiki/">
               <img
@@ -204,7 +189,7 @@ export default function HomePage() {
             <h2>Наркотики (228 УК РФ)</h2>
           </div>
           <div className={styles.caseCard}>
-            <Link href="/situatsii/">
+            <Link href="/srochnyj-vyezd/">
               <img
                 src="/raznoye.webp"
                 alt="Срочный адвокат в Москве — выезд 24/7 при задержании и обыске"
@@ -216,6 +201,20 @@ export default function HomePage() {
               />
             </Link>
             <h2>Срочный выезд 24/7</h2>
+          </div>
+          <div className={styles.caseCard}>
+            <Link href="/moshennichestvo/">
+              <img
+                src="/159.webp"
+                alt="Адвокат по 159 УК РФ (мошенничество) в Москве — Песков В.С."
+                className={styles.caseImage}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+            <h2>Мошенничество (159 УК РФ)</h2>
           </div>
         </div>
       </section>

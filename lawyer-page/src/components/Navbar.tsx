@@ -31,7 +31,6 @@ export default function Navbar() {
         <div className={styles.navLinks}>
           <ul className={`${styles.navList} ${isMenuOpen ? styles.showMenu : ""}`}>
             <li><Link href="/" className={styles.navLink} onClick={toggleMenu}>Главная</Link></li>
-            <li><Link href="/uslugi/" className={styles.navLink} onClick={toggleMenu}>Услуги</Link></li>
             <li><Link href="/tseny/" className={styles.navLink} onClick={toggleMenu}>Цены</Link></li>
             <li><Link href="/blog/" className={styles.navLink} onClick={toggleMenu}>Блог</Link></li>
             <li><Link href="/kontakty/" className={styles.navLink} onClick={toggleMenu}>Контакты</Link></li>

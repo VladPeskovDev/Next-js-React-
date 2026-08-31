@@ -111,22 +111,29 @@ module.exports = {
     let priority = 0.5;
     let changefreq = 'monthly';
 
+    // Коммерческие посадки — высший приоритет для конверсионных страниц
+    const commercialLandings = new Set([
+      '/narkotiki/advokat-po-228/',
+      '/moshennichestvo/advokat-po-159/',
+    ]);
+
     if (clean === '/') {
       priority = 1.0;
       changefreq = 'weekly';
-    } else if (/^\/uslugi\/[^/]+\/$/.test(clean)) {
+    } else if (clean === '/srochnyj-vyezd/' || /^\/srochnyj-vyezd\/[^/]+\/$/.test(clean)) {
+      // Хаб срочного выезда и все его подстраницы — коммерческие
       priority = 0.9;
-      changefreq = 'monthly';
-    } else if (clean === '/uslugi/') {
+      changefreq = 'weekly';
+    } else if (commercialLandings.has(clean)) {
       priority = 0.9;
       changefreq = 'monthly';
     } else if (['/tseny/', '/kontakty/'].includes(clean)) {
       priority = 0.8;
       changefreq = 'monthly';
-    } else if (/^\/(narkotiki|moshennichestvo|situatsii|blog)\/$/.test(clean)) {
+    } else if (/^\/(narkotiki|moshennichestvo|blog)\/$/.test(clean)) {
       priority = 0.7;
       changefreq = 'weekly';
-    } else if (/^\/(narkotiki|moshennichestvo|situatsii|blog)\/[^/]+\/$/.test(clean)) {
+    } else if (/^\/(narkotiki|moshennichestvo|blog)\/[^/]+\/$/.test(clean)) {
       priority = 0.6;
       changefreq = 'monthly';
     }
