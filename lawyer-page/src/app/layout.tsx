@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     siteName: "Адвокат Песков — уголовные дела",
-    images: [{ url: "/1312.webp", width: 1000, height: 723, alt: "Адвокат Песков В.С. — уголовные дела, Москва" }],
+    images: [{ url: "/peskov-hero.webp", width: 800, height: 800, alt: "Адвокат Песков В.С. — уголовные дела, Москва" }],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -47,8 +47,8 @@ const orgJsonLd = {
       description:
         "Адвокат по уголовным делам в Москве. Защита на следствии и в суде, консультации, обжалование.",
       url: SITE_URL,
-      image: `${SITE_URL}/1312.webp`,
-      logo: `${SITE_URL}/1312.webp`,
+      image: `${SITE_URL}/peskov-hero.webp`,
+      logo: `${SITE_URL}/peskov-hero.webp`,
       telephone: "+7-916-578-09-36",
       priceRange: "от 15000 руб.",
       areaServed: [

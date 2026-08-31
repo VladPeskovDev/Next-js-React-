@@ -13,9 +13,9 @@ export const metadata = {
     siteName: "Адвокат Песков — уголовные дела",
     images: [
       {
-        url: "https://advokat-peskov.com/1312.webp",
-        width: 1000,
-        height: 723,
+        url: "https://advokat-peskov.com/peskov-hero.webp",
+        width: 800,
+        height: 800,
         alt: "Адвокат по уголовным делам Песков В.С.",
       },
     ],
@@ -40,63 +40,76 @@ import styles from "./HomePage.module.css";
 export default function HomePage() {
   return (
     <div className={styles.container}>
-      <link rel="preload" as="image" href="/1312.webp" fetchPriority="high" />
+      <link rel="preload" as="image" href="/peskov-hero.webp" fetchPriority="high" />
       <section className={styles.heroSection}>
-        <div className={styles.heroTextContainer}>
-          <h1 className={styles.heroTitle}>
-            Адвокат по уголовным делам Песков В.С.
-          </h1>
-          <p className={styles.heroDescription}>
-            Опытный адвокат по уголовным делам, с успешной практикой на
-            протяжении долгих лет.
-          </p>
-        </div>
-        <div className={styles.buttons}>
-          <a href="tel:+79165780936" className={styles.button}>
-            +7 916 578 09 36
-          </a>
-          <a
-            href="https://t.me/Peskov_Vladislav"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.buttonTelegram}
-          >
-            <FaTelegramPlane />
-            Telegram
-          </a>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroPhoto}>
+            <img
+              src="/peskov-hero.webp"
+              alt="Адвокат по уголовным делам Песков В.С. — Москва"
+              width={800}
+              height={800}
+              fetchPriority="high"
+            />
+
+            <div className={styles.heroTextOverlay}>
+              <h1 className={styles.heroTitle}>
+                Адвокат по уголовным делам Песков В.С.
+              </h1>
+              <p className={styles.heroDescription}>
+                Опытный адвокат по уголовным делам, с успешной практикой на
+                протяжении долгих лет.
+              </p>
+            </div>
+
+            <div className={styles.buttons}>
+              <a href="tel:+79165780936" className={styles.button}>
+                +7 916 578 09 36
+              </a>
+              <a
+                href="https://t.me/Peskov_Vladislav"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.buttonTelegram}
+              >
+                <FaTelegramPlane />
+                Telegram
+              </a>
+            </div>
+          </div>
+
+          <article className={`${styles.heroContent} ${styles.aboutBlock}`}>
+            <h2>Обо мне</h2>
+            <p>
+              Действующий адвокат по уголовным делам с 10-летним опытом. Работаю
+              преимущественно в Москве и МО по всем стадиям уголовного процесса:
+              доследственная проверка, следствие, суды всех инстанций.
+            </p>
+            <p>
+              До адвокатской практики много лет работал в органах предварительного
+              следствия, где занимался расследованием мошенничеств (159 УК РФ) и
+              преступлений, связанных с незаконным оборотом наркотиков (228 УК РФ).
+              Знание процессуальной механики «изнутри» системы даёт заметное
+              преимущество при построении линии защиты.
+            </p>
+
+            <h3>Адвокатский статус</h3>
+            <ul className={`${styles.aboutList} ${styles.aboutListCompact}`}>
+              <li>Действующий адвокат</li>
+              <li>Реестровый номер: 13/597</li>
+              <li>Удостоверение адвоката: № 686</li>
+            </ul>
+
+            <h3>Срочный выезд 24/7 без выходных</h3>
+            <p>
+              В случае задержания, обыска или вызова на допрос — выезжаю в течение
+              30–40 минут. Строгое соблюдение адвокатской тайны.
+            </p>
+          </article>
         </div>
       </section>
 
       <section className={styles.aboutSection}>
-        <article className={styles.aboutBlock}>
-          <h2>Обо мне</h2>
-          <p>
-            Действующий адвокат по уголовным делам с 10-летним опытом. Работаю
-            преимущественно в Москве и МО по всем стадиям уголовного процесса:
-            доследственная проверка, следствие, суды всех инстанций.
-          </p>
-          <p>
-            До адвокатской практики много лет работал в органах предварительного
-            следствия, где занимался расследованием мошенничеств (159 УК РФ) и
-            преступлений, связанных с незаконным оборотом наркотиков (228 УК РФ).
-            Знание процессуальной механики «изнутри» системы даёт заметное
-            преимущество при построении линии защиты.
-          </p>
-
-          <h3>Адвокатский статус</h3>
-          <ul className={`${styles.aboutList} ${styles.aboutListCompact}`}>
-            <li>Действующий адвокат</li>
-            <li>Реестровый номер: 13/597</li>
-            <li>Удостоверение адвоката: № 686</li>
-          </ul>
-
-          <h3>Срочный выезд 24/7 без выходных</h3>
-          <p>
-            В случае задержания, обыска или вызова на допрос — выезжаю в течение
-            30–40 минут. Строгое соблюдение адвокатской тайны.
-          </p>
-        </article>
-
         <article className={`${styles.aboutBlock} ${styles.aboutBlockAccent}`}>
           <h2>Без посредников. Без обещаний.</h2>
           <p>
