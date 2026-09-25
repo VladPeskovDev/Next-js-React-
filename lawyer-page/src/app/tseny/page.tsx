@@ -4,7 +4,7 @@ import styles from "./PricingPage.module.css";
 export const metadata = {
   title: "Сколько стоит адвокат по уголовным делам в Москве — цены",
   description:
-    "Прозрачные цены адвоката Пескова В.С. в Москве: консультация от 5 000 ₽, срочный выезд от 25 000 ₽, ведение дела под ключ от 250 000 ₽. Оплата поэтапно.",
+    "Прозрачные цены адвоката Пескова В.С. в Москве: консультация от 15 000 ₽, срочный выезд от 25 000 ₽, ведение дела под ключ от 250 000 ₽. Оплата поэтапно.",
   keywords:
     "сколько стоит адвокат по уголовным делам, сколько стоит уголовный адвокат, сколько стоят услуги адвоката, адвокат в Москве цена, уголовный адвокат в Москве цены, стоимость услуг адвоката",
   alternates: { canonical: "https://advokat-peskov.com/tseny/" },
@@ -13,7 +13,7 @@ export const metadata = {
     url: "https://advokat-peskov.com/tseny/",
     title: "Сколько стоит адвокат по уголовным делам в Москве — цены Пескова В.С.",
     description:
-      "Прозрачные цены адвоката по уголовным делам в Москве. Консультация от 5 000 ₽, срочный выезд от 25 000 ₽, дело под ключ от 250 000 ₽.",
+      "Прозрачные цены адвоката по уголовным делам в Москве. Консультация от 15 000 ₽, срочный выезд от 25 000 ₽, дело под ключ от 250 000 ₽.",
     siteName: "Адвокат Песков — уголовные дела",
     images: [{ url: "/1312.webp", width: 1000, height: 723, alt: "Адвокат Песков В.С." }],
   },
@@ -27,10 +27,10 @@ const offerCatalog = {
   provider: { "@id": "https://advokat-peskov.com#attorney" },
   itemListElement: [
     { "@type": "Offer", name: "Первичная устная консультация по телефону", price: "0", priceCurrency: "RUB" },
-    { "@type": "Offer", name: "Устная консультация в офисе", price: "5000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "5000", priceCurrency: "RUB", minPrice: "5000" } },
-    { "@type": "Offer", name: "Изучение материалов уголовного дела (1 том)", price: "5000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "5000", priceCurrency: "RUB", minPrice: "5000" } },
+    { "@type": "Offer", name: "Устная консультация в офисе", price: "15000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "15000", priceCurrency: "RUB", minPrice: "15000" } },
+    { "@type": "Offer", name: "Изучение материалов уголовного дела (1 том)", price: "15000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "15000", priceCurrency: "RUB", minPrice: "15000" } },
     { "@type": "Offer", name: "Разовый выезд адвоката днём", price: "25000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "25000", priceCurrency: "RUB", minPrice: "25000" } },
     { "@type": "Offer", name: "Разовый выезд адвоката ночью", price: "35000", priceCurrency: "RUB",
@@ -49,6 +49,8 @@ const offerCatalog = {
       priceSpecification: { "@type": "PriceSpecification", price: "50000", priceCurrency: "RUB", minPrice: "50000" } },
     { "@type": "Offer", name: "Дело под ключ (следствие + суд первой инстанции)", price: "250000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "250000", priceCurrency: "RUB", minPrice: "250000" } },
+    { "@type": "Offer", name: "Дело по ст. 228.1 УК РФ (закладки) под ключ", price: "300000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "300000", priceCurrency: "RUB", minPrice: "300000" } },
   ],
 };
 
@@ -112,6 +114,14 @@ const faqJsonLd = {
         text: "Адвокат по назначению для клиента бесплатный (оплачивает государство), но у него ограничены время и мотивация. Частный адвокат — платный, но работает с полной вовлечённостью, отвечает только перед клиентом и подбирает линию защиты индивидуально.",
       },
     },
+    {
+      "@type": "Question",
+      name: "Есть ли рассрочка или можно платить частями?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Да, можно платить частями. Оплата всегда разбивается на стадии (следствие, суд первой инстанции, апелляция — отдельно), а в рамках одной стадии сумму можно вносить по частям — по договорённости, обсуждаем на первой консультации. Полностью «в рассрочку без предоплаты» не работаем, но гибкость по внесению есть.",
+      },
+    },
   ],
 };
 
@@ -129,7 +139,7 @@ export default function PricingPage() {
 
       <section className={styles.intro}>
         <p>
-          Сколько стоит адвокат по уголовным делам — вопрос, который задают чаще всего. Ниже — конкретные цифры по каждой услуге: от бесплатной первичной консультации до ведения дела под ключ.
+          Сколько стоит адвокат по уголовным делам в Москве? Первичная консультация по телефону — бесплатно, устная в офисе — от 15 000 ₽, срочный выезд к задержанному — от 25 000 ₽, ведение стадии (следствие или суд) — от 200 000 ₽, дело под ключ — от 250 000 ₽. Ниже — полный прайс с разбором каждой услуги.
         </p>
         <p>
           Работаю лично, без посредников и кол-центра. Первичная консультация по телефону — бесплатно: обсудим ситуацию, назову ориентировочную стоимость под конкретный случай.
@@ -145,11 +155,11 @@ export default function PricingPage() {
         </div>
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Устная консультация в офисе</h3>
-          <p className={styles.price}>от 5 000 ₽</p>
+          <p className={styles.price}>от 15 000 ₽</p>
         </div>
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Изучение материалов уголовного дела (за 1 том)</h3>
-          <p className={styles.price}>5 000 ₽</p>
+          <p className={styles.price}>15 000 ₽</p>
         </div>
 
         <h2 className={styles.priceGroupTitle}>Срочный выезд и разовые действия</h2>
@@ -195,6 +205,10 @@ export default function PricingPage() {
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Дело под ключ (следствие + суд первой инстанции)</h3>
           <p className={styles.price}>от 250 000 ₽</p>
+        </div>
+        <div className={styles.pricingItem}>
+          <h3 className={styles.serviceTitle}>Дело по ст. 228.1 УК РФ (закладки) — под ключ</h3>
+          <p className={styles.price}>от 300 000 ₽</p>
         </div>
       </section>
 
@@ -283,6 +297,13 @@ export default function PricingPage() {
           <h3 className={styles.faqQuestion}>Что дешевле: адвокат по назначению или частный?</h3>
           <p className={styles.faqAnswer}>
             Адвокат по назначению для клиента бесплатный (оплачивает государство), но у него ограничены время и мотивация. Частный адвокат — платный, но работает с полной вовлечённостью, отвечает только перед клиентом и подбирает линию защиты индивидуально.
+          </p>
+        </div>
+
+        <div className={styles.faqItem}>
+          <h3 className={styles.faqQuestion}>Есть ли рассрочка или можно платить частями?</h3>
+          <p className={styles.faqAnswer}>
+            Да, можно платить частями. Оплата всегда разбивается на стадии (следствие, суд первой инстанции, апелляция — отдельно), а в рамках одной стадии сумму можно вносить по частям — по договорённости, обсуждаем на первой консультации. Полностью «в рассрочку без предоплаты» не работаем, но гибкость по внесению есть.
           </p>
         </div>
       </section>
