@@ -41,8 +41,8 @@ const offerCatalog = {
       priceSpecification: { "@type": "PriceSpecification", price: "200000", priceCurrency: "RUB", minPrice: "200000" } },
     { "@type": "Offer", name: "Защита в суде первой инстанции", price: "200000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "200000", priceCurrency: "RUB", minPrice: "200000" } },
-    { "@type": "Offer", name: "Апелляционное обжалование приговора", price: "75000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "75000", priceCurrency: "RUB", minPrice: "75000" } },
+    { "@type": "Offer", name: "Апелляционное обжалование приговора", price: "150000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "150000", priceCurrency: "RUB", minPrice: "150000" } },
     { "@type": "Offer", name: "Кассационное обжалование приговора", price: "75000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "75000", priceCurrency: "RUB", minPrice: "75000" } },
     { "@type": "Offer", name: "Защита потерпевшего", price: "50000", priceCurrency: "RUB",
@@ -189,7 +189,7 @@ export default function PricingPage() {
         </div>
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Апелляционное обжалование приговора</h3>
-          <p className={styles.price}>от 75 000 ₽</p>
+          <p className={styles.price}>от 150 000 ₽</p>
         </div>
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Кассационное обжалование приговора</h3>
