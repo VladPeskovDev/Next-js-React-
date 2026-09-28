@@ -232,12 +232,12 @@
 }
 
 .materialCard:hover {
-  border-color: #d4a94e;
+  border-color: #9fcbff;
   background: #1f2d3d;
 }
 
 .materialCardCategory {
-  color: #d4a94e;
+  color: #9fcbff;
   font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -283,7 +283,7 @@
 }
 
 .materialCardReading {
-  color: #d4a94e;
+  color: #9fcbff;
   font-weight: 600;
 }
 

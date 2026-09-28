@@ -28,13 +28,7 @@ export const metadata = {
 };
 
 import Link from "next/link";
-import {
-  FaBook,
-  FaFileAlt,
-  FaGavel,
-  FaTelegramPlane,
-  FaUserShield,
-} from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
@@ -150,104 +144,105 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={styles.servicesHeader}>
-        <h2>Услуги</h2>
-      </section>
+      <section className={styles.principlesSection}>
+        <div className={styles.principlesLabel}>Почему выбирают адвоката Пескова</div>
+        <h2 className={styles.principlesTitle}>Принципы работы адвоката</h2>
+        <div className={styles.principlesGrid}>
+          <article className={styles.principleCard}>
+            <div className={styles.principleNumber}>01</div>
+            <h3 className={styles.principleTitle}>Честная оценка шансов</h3>
+            <p className={styles.principleDescription}>
+              Не берусь за заведомо проигрышные дела. Перед соглашением — чёткий
+              анализ ситуации и реальный прогноз исхода. Без сладких обещаний.
+            </p>
+          </article>
 
-      <section className={styles.fourCardsSection}>
-        <div className={styles.cardWrapper}>
-          <div className={styles.serviceCard}>
-            <Link href="/narkotiki/advokat-po-228/">
-              <FaUserShield className={styles.cardIcon} />
-              <h2>Адвокат по 228 УК РФ</h2>
-              <p>
-                Защита по делам о наркотиках: задержание, следствие, суд,
-                обжалование.
-              </p>
-            </Link>
-          </div>
-          <div className={styles.serviceCard}>
-            <Link href="/moshennichestvo/advokat-po-159/">
-              <FaBook className={styles.cardIcon} />
-              <h2>Адвокат по 159 УК РФ</h2>
-              <p>
-                Защита по делам о мошенничестве, включая IT-составы: P2P, дропы,
-                крипта.
-              </p>
-            </Link>
-          </div>
-          <div className={styles.serviceCard}>
-            <Link href="/srochnyj-vyezd/">
-              <FaGavel className={styles.cardIcon} />
-              <h2>Срочный выезд 24/7</h2>
-              <p>
-                Задержание, обыск, допрос — приезжаю в течение 30–40 минут.
-              </p>
-            </Link>
-          </div>
-          <div className={styles.serviceCard}>
-            <Link href="/tseny/">
-              <FaFileAlt className={styles.cardIcon} />
-              <h2>Цены</h2>
-              <p>Прозрачный прайс с фиксированными ставками по этапам дела.</p>
-            </Link>
-          </div>
+          <article className={styles.principleCard}>
+            <div className={styles.principleNumber}>02</div>
+            <h3 className={styles.principleTitle}>Прозрачная стоимость</h3>
+            <p className={styles.principleDescription}>
+              Цена фиксируется до начала работы. Никаких доплат «по ходу дела».
+              Оплата поэтапно — за каждую стадию отдельно.
+            </p>
+          </article>
+
+          <article className={styles.principleCard}>
+            <div className={styles.principleNumber}>03</div>
+            <h3 className={styles.principleTitle}>Срочный выезд 24/7</h3>
+            <p className={styles.principleDescription}>
+              Задержание, обыск, допрос — выезжаю в течение 30–40 минут по
+              Москве. Круглосуточно, без выходных, лично беру трубку.
+            </p>
+          </article>
+
+          <article className={styles.principleCard}>
+            <div className={styles.principleNumber}>04</div>
+            <h3 className={styles.principleTitle}>Опыт следствия изнутри</h3>
+            <p className={styles.principleDescription}>
+              До адвокатуры работал в органах предварительного следствия по 159
+              и 228 УК РФ. Знание процессуальной механики — на стороне защиты.
+            </p>
+          </article>
+
+          <article className={styles.principleCard}>
+            <div className={styles.principleNumber}>05</div>
+            <h3 className={styles.principleTitle}>Адвокатская тайна</h3>
+            <p className={styles.principleDescription}>
+              Всё, что вы рассказываете адвокату, охраняется законом. Ни
+              следствие, ни суд не вправе требовать эти сведения.
+            </p>
+          </article>
+
+          <article className={styles.principleCard}>
+            <div className={styles.principleNumber}>06</div>
+            <h3 className={styles.principleTitle}>Работаю лично</h3>
+            <p className={styles.principleDescription}>
+              Без посредников и кол-центров. Я сам беру трубку, разбираю
+              ситуацию и лично выезжаю к задержанному. Всегда один защитник.
+            </p>
+          </article>
         </div>
       </section>
 
-      <section className={styles.allServicesButton}>
-        <Link href="/blog/">
-          <button className={styles.actionButton}>Читать блог</button>
-        </Link>
-        <a href="tel:+79165780936">
-          <button className={styles.actionButton}>Позвонить адвокату</button>
-        </a>
-      </section>
+      <section className={styles.specializationSection}>
+        <div className={styles.specializationLabel}>Направления практики</div>
+        <h2 className={styles.specializationTitle}>Адвокат в Москве — области специализации</h2>
+        <p className={styles.specializationSubtitle}>
+          Защита по уголовным делам на всех стадиях — от доследственной проверки до апелляции.
+          Работаю с делами любой сложности, специализация — наркотики (ст. 228 УК РФ) и мошенничество
+          (ст. 159 УК РФ), включая IT-составы.
+        </p>
+        <div className={styles.specializationGrid}>
+          <Link href="/narkotiki/" className={styles.specializationCard}>
+            <div className={styles.specializationIcon}>💊</div>
+            <h3 className={styles.specializationCardTitle}>Наркотики (228 УК РФ)</h3>
+            <p className={styles.specializationCardDescription}>
+              Защита по 228, 228.1 УК РФ: задержание, следствие, суд, апелляция. Работа с
+              закладками, крупными и особо крупными размерами. Тактика 51-й, домашний арест
+              вместо СИЗО.
+            </p>
+            <span className={styles.specializationCta}>Узнать стоимость →</span>
+          </Link>
 
-      <section className={styles.threeCardsSection}>
-        <div className={styles.cardWrapper3card}>
-          <div className={styles.caseCard}>
-            <Link href="/narkotiki/">
-              <img
-                src="/narkotiki228.webp"
-                alt="Адвокат по 228 УК РФ (наркотики) в Москве — Песков В.С."
-                className={styles.caseImage}
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-            <h2>Наркотики (228 УК РФ)</h2>
-          </div>
-          <div className={styles.caseCard}>
-            <Link href="/srochnyj-vyezd/">
-              <img
-                src="/raznoye.webp"
-                alt="Срочный адвокат в Москве — выезд 24/7 при задержании и обыске"
-                className={styles.caseImage}
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-            <h2>Срочный выезд 24/7</h2>
-          </div>
-          <div className={styles.caseCard}>
-            <Link href="/moshennichestvo/">
-              <img
-                src="/159.webp"
-                alt="Адвокат по 159 УК РФ (мошенничество) в Москве — Песков В.С."
-                className={styles.caseImage}
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-            <h2>Мошенничество (159 УК РФ)</h2>
-          </div>
+          <Link href="/moshennichestvo/" className={styles.specializationCard}>
+            <div className={styles.specializationIcon}>⚖️</div>
+            <h3 className={styles.specializationCardTitle}>Мошенничество (159 УК РФ)</h3>
+            <p className={styles.specializationCardDescription}>
+              Защита по 159 УК РФ и IT-составам: P2P-крипта, дропы, кредитное мошенничество,
+              компьютерные преступления. Блокировка счетов по 115-ФЗ, работа с эпизодами.
+            </p>
+            <span className={styles.specializationCta}>Узнать стоимость →</span>
+          </Link>
+
+          <Link href="/srochnyj-vyezd/" className={styles.specializationCard}>
+            <div className={styles.specializationIcon}>⚡</div>
+            <h3 className={styles.specializationCardTitle}>Срочный выезд 24/7</h3>
+            <p className={styles.specializationCardDescription}>
+              Задержание, обыск, допрос, очная ставка — выезд по Москве в течение 30–40 минут.
+              Круглосуточно, лично беру трубку. Первая консультация по телефону — бесплатно.
+            </p>
+            <span className={styles.specializationCta}>Узнать стоимость →</span>
+          </Link>
         </div>
       </section>
     </div>

@@ -136,17 +136,75 @@ const mediaPublications = [
 ];
 
 const certificates = [
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate1.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate2.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate3.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate4.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate6.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate12.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate 2.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate 3.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate 4.pdf" },
-  { name: "Программа повышения квалификации адвоката", file: "/certificate/certificate1 2.pdf" },
+  {
+    preview: "/certificate-previews/cert-04.webp",
+    date: "1 сентября 2025 г.",
+    hours: 6,
+    topics: [
+      "Практические вопросы судебного доказывания по гражданским делам (часть 3)",
+      "Новые нормы миграционного законодательства: практика правоприменения",
+      "Соглашение об оказании юридической помощи: правовая природа и условия",
+    ],
+  },
+  {
+    preview: "/certificate-previews/cert-05.webp",
+    date: "10 сентября 2025 г.",
+    hours: 6,
+    topics: [
+      "Практические вопросы судебного доказывания по гражданским делам (часть 1)",
+      "Обжалование результатов экологического надзора в практике судов",
+      "Постановление Пленума ВС РФ о возвращении уголовного дела прокурору",
+    ],
+  },
+  {
+    preview: "/certificate-previews/cert-10.webp",
+    date: "22 сентября 2025 г.",
+    hours: 6,
+    topics: [
+      "Практические вопросы судебного доказывания по гражданским делам (часть 2)",
+      "Наследование: базовые вопросы и подводные камни",
+      "Разрешение спортивных споров: теория и практика",
+    ],
+  },
+  {
+    preview: "/certificate-previews/cert-01.webp",
+    date: "22 сентября 2025 г.",
+    hours: 6,
+    topics: [
+      "Практические вопросы судебного доказывания по гражданским делам (часть 4)",
+      "Незаконное воздействие на членов судебных заседателей и защита от него",
+      "Альтернативные процедуры разрешения споров, переговоры",
+    ],
+  },
+  {
+    preview: "/certificate-previews/cert-02.webp",
+    date: "10 декабря 2025 г.",
+    hours: 6,
+    topics: [
+      "Правовые основы производства медицинской экспертизы",
+      "Защита и самозащита прав адвокатов при вызове на допрос",
+      "Отвод адвоката как способ нарушения профессиональных прав",
+    ],
+  },
+  {
+    preview: "/certificate-previews/cert-07.webp",
+    date: "16 сентября 2026 г.",
+    hours: 6,
+    topics: [
+      "Биомеханика падения из положения стоя (судебно-медицинское значение)",
+      "Выделение супружеской доли и наследование бизнеса",
+      "Участие адвоката в делах о правовом статусе граждан (дееспособность)",
+    ],
+  },
+  {
+    preview: "/certificate-previews/cert-03.webp",
+    date: "17 сентября 2026 г.",
+    hours: 2,
+    topics: [
+      "Соблюдение адвокатами требований 115-ФЗ (ПОД/ФТ)",
+      "Противодействие легализации (отмыванию) доходов, финансированию терроризма",
+    ],
+  },
 ];
 
 export default function AboutPage() {
@@ -159,7 +217,7 @@ export default function AboutPage() {
         <div className={styles.heroGrid}>
           <div className={styles.photoContainer}>
             <img
-              src="/peskov-portrait.jpg"
+              src="/peskov-portrait.webp"
               alt="Адвокат Песков Владислав Сергеевич — уголовные дела, Москва"
               className={styles.photo}
               width={853}
@@ -195,33 +253,30 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Проверяемые данные */}
+        {/* Данные адвоката */}
         <section className={styles.section}>
           <h2>Данные адвоката</h2>
-          <ul>
-            <li><strong>ФИО:</strong> Песков Владислав Сергеевич</li>
-            <li><strong>Регистрационный номер адвоката:</strong> 13/597</li>
-            <li><strong>Номер удостоверения:</strong> 686</li>
-            <li><strong>Статус:</strong> Действующий</li>
-            <li><strong>Начало практики:</strong> июль 2018 года</li>
-            <li><strong>Проверить статус:</strong> <a href="https://lawyers.minjust.gov.ru/" target="_blank" rel="noopener nofollow">Реестр адвокатов Министерства юстиции РФ</a></li>
-          </ul>
+          <p><strong>ФИО:</strong> Песков Владислав Сергеевич</p>
+          <p><strong>Регистрационный номер адвоката:</strong> 13/597</p>
+          <p><strong>Номер удостоверения:</strong> 686</p>
+          <p><strong>Статус:</strong> действующий</p>
+          <p><strong>Начало практики:</strong> июль 2018 года</p>
+          <p><strong>Проверить статус:</strong> <a href="https://lawyers.minjust.gov.ru/" target="_blank" rel="noopener nofollow">Реестр адвокатов Министерства юстиции РФ</a></p>
         </section>
 
         {/* Образование и специализация */}
-        <div className={styles.educationSection}>
-          <h3>Образование и специализация</h3>
+        <section className={styles.section}>
+          <h2>Образование и специализация</h2>
           <p><strong>Образование:</strong> высшее юридическое, выпуск 2014 года.</p>
-          <p><strong>Статус адвоката:</strong> получен в июле 2018 года.</p>
-          <p><strong>Специализация:</strong> сложные и особо сложные уголовные дела. Преимущественные направления:</p>
+          <p><strong>Специализация:</strong> сложные и особо сложные уголовные дела. Преимущественные направления работы:</p>
           <ul>
-            <li>защита по <Link href="/narkotiki/advokat-po-228/">ст. 228, 228.1 УК РФ</Link> (наркотические преступления, включая закладки);</li>
-            <li>защита по <Link href="/moshennichestvo/advokat-po-159/">ст. 159 УК РФ</Link> (мошенничество), включая IT-составы, P2P-крипту, дропов;</li>
+            <li>защита по <Link href="/narkotiki/advokat-po-228/">ст. 228, 228.1 УК РФ</Link> — наркотические преступления, включая закладки;</li>
+            <li>защита по <Link href="/moshennichestvo/advokat-po-159/">ст. 159 УК РФ</Link> — мошенничество, включая IT-составы (P2P-крипта, дропы);</li>
             <li>защита по иным составам УК РФ на всех стадиях: следствие, суд первой инстанции, <Link href="/srochnyj-vyezd/apellyatsiya-po-ugolovnomu-delu/">апелляционное обжалование</Link>;</li>
             <li><Link href="/srochnyj-vyezd/">срочный выезд адвоката 24/7</Link> — в полицию, СИЗО, к следователю.</li>
           </ul>
           <p><strong>Опыт практики:</strong> более 200 проведённых уголовных дел за 12 лет работы в юриспруденции.</p>
-        </div>
+        </section>
 
         {/* Публикации в СМИ — сетка кубиков */}
         <section className={styles.section}>
@@ -286,17 +341,44 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2>Повышение квалификации адвоката</h2>
           <p>
-            Систематически прохожу программы повышения квалификации по уголовному праву и уголовному процессу
-            в рамках требований адвокатской палаты. Ниже — сертификаты о прохождении программ. Все документы
-            доступны для ознакомления.
+            Систематически прохожу программы повышения квалификации в{" "}
+            <strong>Федеральной палате адвокатов Российской Федерации</strong> — по требованиям
+            адвокатского статуса и по темам, актуальным для практики: уголовный процесс,
+            судебное доказывание, защита прав адвокатов, миграционное законодательство,
+            наследственные и семейные споры, медицинская экспертиза, ПОД/ФТ (115-ФЗ).
+          </p>
+          <p>
+            За 2025-2026 годы — <strong>{certificates.reduce((sum, c) => sum + c.hours, 0)} академических часов</strong>
+            {" "}по {certificates.length} программам. Каждый сертификат — нажмите для просмотра оригинала.
           </p>
           <div className={styles.certificateGrid}>
             {certificates.map((cert, i) => (
-              <div key={i} className={styles.certificateItem}>
-                <a href={cert.file} target="_blank" rel="noopener">
-                  📄 Сертификат №{i + 1} — {cert.name}
-                </a>
-              </div>
+              <a
+                key={i}
+                href={cert.preview}
+                target="_blank"
+                rel="noopener"
+                className={styles.certificateItem}
+              >
+                <img
+                  src={cert.preview}
+                  alt={`Сертификат Федеральной палаты адвокатов РФ — ${cert.date}, ${cert.hours} акад. часов`}
+                  className={styles.certPreview}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className={styles.certContent}>
+                  <div className={styles.certDate}>
+                    {cert.date} · {cert.hours} акад. {cert.hours === 1 ? "час" : cert.hours < 5 ? "часа" : "часов"}
+                  </div>
+                  <div className={styles.certOrg}>Федеральная палата адвокатов РФ</div>
+                  <ul className={styles.certTopics}>
+                    {cert.topics.map((t, j) => (
+                      <li key={j}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              </a>
             ))}
           </div>
         </section>

@@ -99,8 +99,8 @@
   width: 100%;
   max-width: 960px;
   padding: 0 16px;
-  margin-top: 10px;
-  margin-bottom: 75px;
+  margin-top: 8px;
+  margin-bottom: 24px;
   color: white;
 }
 
@@ -112,9 +112,20 @@
 }
 
 .educationSection p {
-  font-size: 1rem;
-  margin-bottom: 8px;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.educationSection ul {
+  padding-left: 20px;
+  margin: 4px 0 8px;
+}
+
+.educationSection li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 3px;
 }
 
 /* Новые секции — регалии, СМИ, ссылки, контакты */
@@ -123,14 +134,14 @@
   width: 100%;
   max-width: 960px;
   padding: 0 16px;
-  margin-top: 40px;
+  margin-top: 30px;
   color: white;
 }
 
 .section h2 {
   font-size: 1.6rem;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: white;
   border-bottom: 2px solid #444;
   padding-bottom: 8px;
@@ -139,26 +150,26 @@
 .section h3 {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 16px;
+  margin-bottom: 8px;
   color: white;
 }
 
 .section p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 6px;
 }
 
 .section ul {
   padding-left: 20px;
-  margin-bottom: 16px;
+  margin: 4px 0 8px;
 }
 
 .section li {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 3px;
 }
 
 .section a {
@@ -268,19 +279,76 @@
   flex-grow: 1;
 }
 
-/* Блок сертификатов */
+/* Блок сертификатов — сетка карточек с превью */
 .certificateGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
-  margin-top: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .certificateItem {
-  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
   background-color: rgba(255, 255, 255, 0.04);
   border-radius: 6px;
+  border: 1px solid #2f4b63;
   border-left: 3px solid #6ea8ff;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.certificateItem:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #6ea8ff;
+  transform: translateY(-2px);
+}
+
+.certPreview {
+  width: auto;
+  height: 140px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 14px auto 4px;
+  background: transparent;
+}
+
+.certContent {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.certDate {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 700;
+}
+
+.certOrg {
+  font-size: 0.78rem;
+  color: #a8b5c4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.certTopics {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 6px 0 0;
+}
+
+.certTopics li {
+  font-size: 0.82rem;
+  color: #d0e0f1;
+  line-height: 1.4;
+  margin-bottom: 4px;
 }
 
 /* Блок TV-интервью */
