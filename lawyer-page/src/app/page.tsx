@@ -78,57 +78,76 @@ export default function HomePage() {
             </div>
           </div>
 
-          <article className={`${styles.heroContent} ${styles.aboutBlock}`}>
-            <h2>Обо мне</h2>
+          <article className={`${styles.heroContent} ${styles.aboutBlock} ${styles.aboutBlockAccent}`}>
+            <h2>Без посредников. Без обещаний.</h2>
             <p>
-              Действующий адвокат по уголовным делам с 10-летним опытом. Работаю
-              преимущественно в Москве и МО по всем стадиям уголовного процесса:
-              доследственная проверка, следствие, суды всех инстанций.
+              Вы получаете помощь напрямую от квалифицированного адвоката, а не
+              попадаете в кол-центр, задача которого — просто продать вашу заявку
+              любому исполнителю, готовому за неё заплатить. Я сам беру трубку,
+              разбираю ситуацию, даю первые инструкции и лично выезжаю к
+              задержанному, если требуется срочная защита.
             </p>
+            <hr className={styles.aboutDivider} />
             <p>
-              До адвокатской практики много лет работал в органах предварительного
-              следствия, где занимался расследованием мошенничеств (159 УК РФ) и
-              преступлений, связанных с незаконным оборотом наркотиков (228 УК РФ).
-              Знание процессуальной механики «изнутри» системы даёт заметное
-              преимущество при построении линии защиты.
-            </p>
-
-            <h3>Адвокатский статус</h3>
-            <ul className={`${styles.aboutList} ${styles.aboutListCompact}`}>
-              <li>Действующий адвокат</li>
-              <li>Реестровый номер: 13/597</li>
-              <li>Удостоверение адвоката: № 686</li>
-            </ul>
-
-            <h3>Срочный выезд 24/7 без выходных</h3>
-            <p>
-              В случае задержания, обыска или вызова на допрос — выезжаю в течение
-              30–40 минут. Строгое соблюдение адвокатской тайны.
+              Мой клиент и его близкие никогда не услышат от меня того, что им
+              хотелось бы услышать — только то, как ситуация обстоит на самом деле
+              и каким может быть реальный исход дела. Опыт позволяет прогнозировать
+              большинство сценариев заранее. Я не даю сладких обещаний ради того,
+              чтобы вы заключили со мной соглашение — я работаю с фактами, а не с
+              ожиданиями.
             </p>
           </article>
         </div>
       </section>
 
       <section className={styles.aboutSection}>
-        <article className={`${styles.aboutBlock} ${styles.aboutBlockAccent}`}>
-          <h2>Без посредников. Без обещаний.</h2>
-          <p>
-            Вы получаете помощь напрямую от квалифицированного адвоката, а не
-            попадаете в кол-центр, задача которого — просто продать вашу заявку
-            любому исполнителю, готовому за неё заплатить. Я сам беру трубку,
-            разбираю ситуацию, даю первые инструкции и лично выезжаю к
-            задержанному, если требуется срочная защита.
-          </p>
-          <hr className={styles.aboutDivider} />
-          <p>
-            Мой клиент и его близкие никогда не услышат от меня того, что им
-            хотелось бы услышать — только то, как ситуация обстоит на самом деле
-            и каким может быть реальный исход дела. Опыт позволяет
-            прогнозировать большинство сценариев заранее. Я не даю сладких
-            обещаний ради того, чтобы вы заключили со мной соглашение — я
-            работаю с фактами, а не с ожиданиями.
-          </p>
-        </article>
+        <div className={styles.ctaBlock}>
+          {/* Статистика — 4 карточки */}
+          <div className={styles.ctaStatsGrid}>
+            <a
+              href="https://yandex.ru/maps/org/advokat_peskov_v_s_/188017863893/"
+              target="_blank"
+              rel="noopener nofollow"
+              className={styles.ctaStatCard}
+            >
+              <div className={styles.ctaStatValue}>5.0 ★</div>
+              <div className={styles.ctaStatLabel}>Яндекс.Карты</div>
+            </a>
+            <a
+              href="https://www.google.com/maps/place/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82+%D0%9F%D0%B5%D1%81%D0%BA%D0%BE%D0%B2+%D0%92.%D0%A1./@55.7981739,37.4932198,461m/data=!3m1!1e3!4m6!3m5!1s0x46b549d8bc932b7b:0x84f43677f11ea3e6!8m2!3d55.7981709!4d37.4957947!16s%2Fg%2F11zz0kcjjm"
+              target="_blank"
+              rel="noopener nofollow"
+              className={styles.ctaStatCard}
+            >
+              <div className={styles.ctaStatValue}>5.0 ★</div>
+              <div className={styles.ctaStatLabel}>Google Maps</div>
+            </a>
+            <div className={styles.ctaStatCard}>
+              <div className={styles.ctaStatValue}>24/7</div>
+              <div className={styles.ctaStatLabel}>Режим работы</div>
+            </div>
+            <Link href="/tseny/" className={styles.ctaStatCard}>
+              <div className={styles.ctaStatValue}>от 25 000 ₽</div>
+              <div className={styles.ctaStatLabel}>Выезд на место</div>
+            </Link>
+          </div>
+
+          {/* Кнопки CTA — позвонить и Telegram */}
+          <div className={styles.ctaButtons}>
+            <a href="tel:+79165780936" className={styles.ctaButtonPrimary}>
+              Позвонить — +7 (916) 578-09-36
+            </a>
+            <a
+              href="https://t.me/Peskov_Vladislav"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaButtonSecondary}
+            >
+              <FaTelegramPlane /> Записаться онлайн
+            </a>
+          </div>
+
+        </div>
       </section>
 
       <section className={styles.servicesHeader}>

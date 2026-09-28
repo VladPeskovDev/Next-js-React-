@@ -132,7 +132,7 @@
   background-color: #1a2633;
   border: 1px solid #94ADC7;
   border-radius: 8px;
-  padding: 12px 20px;
+  padding: 18px 22px;
   color: #D0E0F1;
 }
 
@@ -140,6 +140,109 @@
   background-color: #243647;
   border: 2px solid #4a9eff;
   box-shadow: 0 2px 8px rgba(74, 158, 255, 0.15);
+}
+
+/* ==== CTA-блок на главной: статистика + кнопки + адрес + экстренная помощь ==== */
+.ctaBlock {
+  background-color: #1a2633;
+  border: 1px solid #94ADC7;
+  border-radius: 8px;
+  padding: 20px;
+  color: #D0E0F1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ctaStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.ctaStatCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2f4b63;
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 26px;
+}
+
+a.ctaStatCard:hover {
+  border-color: #d4a94e;
+  background: rgba(212, 169, 78, 0.05);
+}
+
+.ctaStatValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d4a94e;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.ctaStatLabel {
+  font-size: 0.6rem;
+  color: #a8b5c4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.ctaButtonPrimary {
+  flex: 1;
+  padding: 6px 12px;
+  background-color: #d4a94e;
+  color: #1a2633;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.ctaButtonPrimary:hover {
+  background-color: #b8912f;
+}
+
+.ctaButtonSecondary {
+  flex: 1;
+  padding: 9px 16px;
+  background: transparent;
+  border: 1px solid #94ADC7;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: border-color 0.2s, background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ctaButtonSecondary:hover {
+  border-color: #d4a94e;
+  background-color: rgba(212, 169, 78, 0.05);
 }
 
 .aboutBlock h2 {
@@ -160,9 +263,9 @@
 }
 
 .aboutBlock p {
-  font-size: 0.9rem;
-  line-height: 1.35;
-  margin: 0 0 5px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 10px;
 }
 
 .aboutBlock p:last-child {
@@ -445,6 +548,17 @@
 
   .allServicesButton button {
     width: 90%;
+  }
+
+  /* Мобильный адаптив для CTA-блока */
+  .ctaStatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 8px;
   }
 }
 

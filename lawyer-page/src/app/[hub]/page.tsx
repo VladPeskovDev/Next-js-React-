@@ -78,16 +78,38 @@ export default async function HubIndexPage({ params }: { params: Promise<{ hub: 
       {items.length > 0 && (
         <div className={styles.body}>
           <h2>Материалы раздела</h2>
-          <ul>
-            {items.map((c) => (
-              <li key={c.frontmatter.slug}>
-                <div className={styles.card}>
-                  <Link href={`/${hub}/${c.frontmatter.slug}/`}>{c.frontmatter.h1 || c.frontmatter.title}</Link>
-                  <div className={styles.cardDesc}>{c.frontmatter.description}</div>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.materialsGrid}>
+            {items.map((c) => {
+              const date = c.frontmatter.updated || c.frontmatter.published;
+              const formattedDate = (() => {
+                try {
+                  return new Intl.DateTimeFormat('ru-RU', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  }).format(new Date(date)) + ' г.';
+                } catch {
+                  return date;
+                }
+              })();
+              return (
+                <Link
+                  key={c.frontmatter.slug}
+                  href={`/${hub}/${c.frontmatter.slug}/`}
+                  className={styles.materialCard}
+                >
+                  <div className={styles.materialCardCategory}>{cfg.title}</div>
+                  <div className={styles.materialCardTitle}>{c.frontmatter.h1 || c.frontmatter.title}</div>
+                  <div className={styles.materialCardDescription}>{c.frontmatter.description}</div>
+                  <hr className={styles.materialCardDivider} />
+                  <div className={styles.materialCardFooter}>
+                    <span className={styles.materialCardDate}>{formattedDate}</span>
+                    <span className={styles.materialCardReading}>{c.readingMinutes} мин →</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       )}
     </article>

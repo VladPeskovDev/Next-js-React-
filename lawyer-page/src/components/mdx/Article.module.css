@@ -55,7 +55,7 @@
   font-size: 1.45rem;
   font-weight: 800;
   color: #a0c4ff;
-  margin: 1.4rem 0 0.6rem;
+  margin: 1rem 0 0.4rem;
   scroll-margin-top: 84px;
 }
 .body h3 { font-size: 1.2rem; }
@@ -63,9 +63,9 @@
 
 .body p {
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.4;
   color: #d0e0f1;
-  margin: 0.6rem 0;
+  margin: 0.35rem 0;
 }
 
 .body a { color: #9fcbff; }
@@ -73,11 +73,11 @@
 
 .body ul, .body ol {
   padding-left: 1.25rem;
-  margin: 0.6rem 0 1rem;
+  margin: 0.35rem 0 0.6rem;
   color: #d0e0f1;
-  line-height: 1.65;
+  line-height: 1.4;
 }
-.body ul li, .body ol li { margin: 0.3rem 0; }
+.body ul li, .body ol li { margin: 0.15rem 0; }
 
 .body strong { color: #eaf3ff; }
 .body em { font-style: italic; }
@@ -162,9 +162,9 @@
 .faqQ::after { content: "▾"; float: right; opacity: 0.9; transition: transform 0.2s ease; }
 .faqItem[open] .faqQ::after { transform: rotate(180deg); }
 .faqA {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.4;
   color: #d0e0f1;
   opacity: 0.96;
 }
@@ -210,6 +210,83 @@
 }
 .hubIndex .cardDesc { color: #d0e0f1; font-size: 0.95rem; margin-top: 6px; }
 
+/* ====== Сетка кубиков-карточек статей (для хабов и related) ====== */
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.materialCard {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  background: #1a2633;
+  border: 1px solid #2f4b63;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background-color 0.2s;
+  min-height: 220px;
+}
+
+.materialCard:hover {
+  border-color: #d4a94e;
+  background: #1f2d3d;
+}
+
+.materialCardCategory {
+  color: #d4a94e;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.materialCardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.materialCardDescription {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #a8b5c4;
+  margin-bottom: 14px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.materialCardDivider {
+  border: none;
+  border-top: 1px solid #2f4b63;
+  margin: 0 0 12px;
+}
+
+.materialCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.materialCardDate {
+  color: #8a97a6;
+}
+
+.materialCardReading {
+  color: #d4a94e;
+  font-weight: 600;
+}
+
 /* ====== Адаптив ====== */
 @media (max-width: 768px) {
   .articlesContainer { padding: 16px; border-radius: 10px; }
@@ -217,7 +294,13 @@
   .body { padding: 16px; border-radius: 10px; }
   .body h2 { font-size: 1.2rem; }
   .body h3 { font-size: 1.05rem; }
-  .body p { font-size: 0.98rem; line-height: 1.6; }
+  .body p { font-size: 0.98rem; line-height: 1.4; }
   .faqItem { padding: 10px 12px; }
   .faqA { font-size: 0.98rem; }
+  .materialsGrid { grid-template-columns: 1fr; }
+  .materialCard { min-height: auto; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .materialsGrid { grid-template-columns: repeat(2, 1fr); }
 }

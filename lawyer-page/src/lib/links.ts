@@ -6,17 +6,23 @@ export type RelatedLink = {
   slug: string;
   title: string;
   h1: string;
+  description: string;
   url: string;
+  date: string;
+  readingMinutes: number;
 };
 
 function toLink(c: ContentItem): RelatedLink {
-  const { hub, slug, title, h1 } = c.frontmatter;
+  const { hub, slug, title, h1, description, updated, published } = c.frontmatter;
   return {
     hub,
     slug,
     title,
     h1: h1 || title,
+    description: description || '',
     url: `/${hub}/${slug}/`,
+    date: updated || published,
+    readingMinutes: c.readingMinutes,
   };
 }
 

@@ -10,47 +10,75 @@
   margin-top: 50px;
 }
 
-/* Контейнер для фото */
-.photoContainer {
-  width: 100%;
-  max-width: 960px;
-  height: 400px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #333;
-  margin-bottom: 20px;
+/* Hero-блок: фото слева + текст справа */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 30px;
+  align-items: stretch;
+  margin-bottom: 30px;
 }
 
-.photoOverlay {
-  width: 928px;
+/* Рейтинг в карточках Яндекс/Google — верх карточки */
+.linkCardRating {
+  color: #d4a94e;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.linkCardStar {
+  display: inline-block;
+  color: #d4a94e;
+}
+
+.photoContainer {
+  width: 100%;
   height: 100%;
+  display: flex;
+  align-items: stretch;
+  padding-bottom: 20px;
 }
 
 .photo {
   width: 100%;
   height: 100%;
+  min-height: 0;
   object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
 /* Секция "Обо мне" */
 .aboutSection {
-  width: 100%;
-  max-width: 960px;
+  width: 97%;
+  height: 96%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  padding: 0 16px;
-
+  align-items: stretch;
 }
 
 .aboutContent {
-  width: 928px;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify;
+  color: #D0E0F1;
+  background-color: #243647;
+  border: 2px solid #4a9eff;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.15);
+}
+
+.aboutContent h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 12px;
   color: white;
+  text-align: left;
 }
 
 .aboutContent h2 {
@@ -61,9 +89,9 @@
 }
 
 .aboutContent p {
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 16px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-bottom: 11px;
 }
 
 /* Секция "Образование и прочее" */
@@ -89,20 +117,281 @@
   line-height: 1.4;
 }
 
+/* Новые секции — регалии, СМИ, ссылки, контакты */
+
+.section {
+  width: 100%;
+  max-width: 960px;
+  padding: 0 16px;
+  margin-top: 40px;
+  color: white;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: white;
+  border-bottom: 2px solid #444;
+  padding-bottom: 8px;
+}
+
+.section h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.section p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.section ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.section li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.section a {
+  color: #6ea8ff;
+  text-decoration: none;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
+
+/* Блок публикаций в СМИ — сетка кубиков */
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.mediaCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  border-left: 3px solid #6ea8ff;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.mediaCard:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Верхний блок с логотипом СМИ — светлый фон для контраста */
+.mediaLogoBox {
+  width: calc(100% - 20px);
+  margin: 10px auto 0;
+  height: 70px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+}
+
+.mediaLogo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Контент кубика — под логотипом */
+.mediaCardContent {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.mediaSource {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mediaTopic {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.mediaLink {
+  font-size: 0.9rem;
+  color: #6ea8ff;
+  margin-top: auto;
+}
+
+/* Кубик с фото (TV-интервью) — образ занимает верх карточки */
+.mediaCardTv {
+  padding: 0;
+  overflow: hidden;
+}
+
+.mediaCardImage {
+  width: calc(100% - 20px);
+  margin: 10px auto 0;
+  height: 130px;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+}
+
+.mediaCardTvContent {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Блок сертификатов */
+.certificateGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.certificateItem {
+  padding: 12px 14px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  border-left: 3px solid #6ea8ff;
+}
+
+/* Блок TV-интервью */
+.tvInterviewBlock {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.tvInterviewImage {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Блок ссылок / профилей */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.linkCard {
+  padding: 14px 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  border-left: 3px solid #6ea8ff;
+  transition: background-color 0.2s;
+}
+
+.linkCard:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.linkCard strong {
+  display: block;
+  color: white;
+  margin-bottom: 4px;
+}
+
+/* Блок контактов */
+.contactBlock {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(110, 168, 255, 0.08);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.contactBlock a {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
 /* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
+
+  .section {
+    padding: 0 10px;
+    margin-top: 30px;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+  }
+
+  .section h3 {
+    font-size: 1.1rem;
+  }
+
+  .section p, .section li {
+    font-size: 0.95rem;
+  }
+
+  .certificateGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .mediaGrid {
+    grid-template-columns: 1fr;
+  }
+
   .mainContainer {
     padding: 10px;
     margin-top: 50px;
   }
 
-  .photoContainer {
-    max-width: 100%;
-    height: 300px; /* Уменьшенная высота для мобильных */
+  /* Hero: на мобилке — одна колонка (фото сверху, текст снизу) */
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
   }
 
-  .photoOverlay {
-    width: 100%;
+  .photoContainer {
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  .photo {
+    height: auto;
+    aspect-ratio: 2 / 3;
   }
 
   .aboutSection, .educationSection {
@@ -113,9 +402,10 @@
 
   .aboutContent {
     width: 100%;
+    text-align: left; /* на мобилке justify выглядит некрасиво из-за узкой ширины */
   }
 
-  .aboutContent h2 {
+  .aboutContent h1, .aboutContent h2 {
     font-size: 1.5rem;
     margin-bottom: 6px;
   }
