@@ -91,6 +91,60 @@
   border-radius: 8px;
 }
 
+/* ====== Таблицы (для сравнений, цен, статей УК) ====== */
+.body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 0.95rem;
+  color: #d0e0f1;
+  background: #1a2633;
+  border: 1px solid #2f4b63;
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: auto;
+}
+
+.body thead {
+  background: #27425a;
+}
+
+.body th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  color: #a0c4ff;
+  border-bottom: 1px solid #385a76;
+}
+
+.body td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #2f4b63;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.body tbody tr:nth-child(even) {
+  background: #1f3245;
+}
+
+.body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.body tbody tr:hover {
+  background: #223c52;
+}
+
+@media (max-width: 768px) {
+  .body table {
+    font-size: 0.85rem;
+  }
+  .body th, .body td {
+    padding: 7px 8px;
+  }
+}
+
 /* ====== Кастомные MDX-компоненты ====== */
 .callout {
   margin: 14px 0;
