@@ -4,7 +4,7 @@ import styles from "./AboutPage.module.css";
 export const metadata = {
   title: "Об адвокате Пескове В.С. — уголовные дела в Москве",
   description:
-    "Адвокат Песков Владислав Сергеевич — уголовные дела в Москве. Реестровый № 13/597, удостоверение № 686. С 2018 года: 200+ дел, специализация 228/159 УК РФ. Публикации в СМИ.",
+    "Адвокат Песков В.С. — уголовные дела в Москве. Реестр № 13/597. С 2018 года: 200+ дел, специализация 228, 159 УК РФ. Публикации в СМИ.",
   keywords:
     "адвокат Песков, Песков Владислав Сергеевич, адвокат по уголовным делам Москва, реестровый номер 13/597, удостоверение 686, адвокат Песков биография, адвокат Песков публикации",
   alternates: { canonical: "https://advokat-peskov.com/ob-advokate/" },
@@ -13,7 +13,7 @@ export const metadata = {
     url: "https://advokat-peskov.com/ob-advokate/",
     title: "Об адвокате Пескове В.С. — уголовные дела в Москве",
     description:
-      "Адвокат по уголовным делам в Москве. Реестровый № 13/597. Специализация 228, 159 УК РФ. Более 200 проведённых дел. Публикации в СМИ.",
+      "Адвокат Песков В.С. — уголовные дела в Москве. Реестр № 13/597. С 2018 года: 200+ дел, специализация 228, 159 УК РФ. Публикации в СМИ.",
     siteName: "Адвокат Песков — уголовные дела",
     images: [{ url: "/peskov-hero.webp", width: 800, height: 800, alt: "Адвокат Песков Владислав Сергеевич" }],
   },
@@ -32,8 +32,7 @@ const personJsonLd = {
   telephone: "+7 (916) 578-09-36",
   memberOf: {
     "@type": "Organization",
-    name: "Адвокатская палата",
-    url: "https://aprm.fparf.ru/about/lawyers/peskov-vladislav-sergeevich/",
+    name: "Адвокатская палата Московской области",
   },
   identifier: [
     { "@type": "PropertyValue", name: "Реестровый номер адвоката", value: "13/597" },
@@ -68,8 +67,6 @@ const personJsonLd = {
     { "@type": "Country", name: "Россия" },
   ],
   sameAs: [
-    "https://legal-saransk.ru/attorneys/peskov-vladislav-sergeevic-31",
-    "https://aprm.fparf.ru/about/lawyers/peskov-vladislav-sergeevich/",
     "https://yandex.ru/maps/org/advokat_peskov_v_s_/188017863893/",
     "https://www.google.com/maps/place/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82+%D0%9F%D0%B5%D1%81%D0%BA%D0%BE%D0%B2+%D0%92.%D0%A1./@55.7981739,37.4932198,461m/data=!3m1!1e3!4m6!3m5!1s0x46b549d8bc932b7b:0x84f43677f11ea3e6!8m2!3d55.7981709!4d37.4957947!16s%2Fg%2F11zz0kcjjm",
     "https://t.me/Peskov_Vladislav",
@@ -390,14 +387,6 @@ export default function AboutPage() {
             Проверить статус адвоката, специализацию и историю практики можно на официальных ресурсах и картах:
           </p>
           <div className={styles.linksGrid}>
-            <a href="https://aprm.fparf.ru/about/lawyers/peskov-vladislav-sergeevich/" target="_blank" rel="noopener nofollow" className={styles.linkCard}>
-              <strong>Федеральная палата адвокатов РФ</strong>
-              Официальный профиль в реестре ФПА
-            </a>
-            <a href="https://legal-saransk.ru/attorneys/peskov-vladislav-sergeevic-31" target="_blank" rel="noopener nofollow" className={styles.linkCard}>
-              <strong>Профиль адвоката (палата)</strong>
-              Данные о статусе и практике
-            </a>
             <a href="https://lawyers.minjust.gov.ru/" target="_blank" rel="noopener nofollow" className={styles.linkCard}>
               <strong>Реестр адвокатов Минюста РФ</strong>
               Проверка по регистрационному номеру 13/597

@@ -86,12 +86,12 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/data/'],
+        disallow: ['/api/', '/_next/'],
       },
       {
         userAgent: 'Yandex',
         allow: '/',
-        disallow: ['/api/', '/_next/data/'],
+        disallow: ['/api/', '/_next/'],
       },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
