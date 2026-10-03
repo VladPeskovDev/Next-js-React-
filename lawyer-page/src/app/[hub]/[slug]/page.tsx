@@ -8,8 +8,7 @@ import { getAllHubSlugPairs, getContent } from '@/lib/content';
 import { HUBS, isEnabledHub, HubKey } from '@/lib/hubs';
 import { validateRelated } from '@/lib/links';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
-import { Breadcrumbs } from '@/components/mdx/Breadcrumbs';
-import { FaqBlock } from '@/components/mdx/FaqBlock';
+import { Breadcrumbs, BreadcrumbsMicrodata } from '@/components/mdx/Breadcrumbs';
 import { RelatedLinks } from '@/components/mdx/RelatedLinks';
 import { Cta } from '@/components/mdx/Cta';
 import { Disclaimer } from '@/components/mdx/MdxComponents';
@@ -154,6 +153,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       )}
 
+      <BreadcrumbsMicrodata items={crumbs} />
       <Breadcrumbs items={crumbs} />
       <h1 className={styles.articlesTitle}>{h1}</h1>
       <div className={styles.meta}>
@@ -167,8 +167,6 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
           options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } }}
         />
       </div>
-
-      {fm.faq?.length ? <FaqBlock items={fm.faq} /> : null}
 
       <Disclaimer />
       <Cta />

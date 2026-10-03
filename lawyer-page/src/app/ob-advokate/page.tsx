@@ -1,10 +1,16 @@
 import Link from "next/link";
 import styles from "./AboutPage.module.css";
+import { BreadcrumbsMicrodata } from "@/components/mdx/Breadcrumbs";
+
+const breadcrumbItems = [
+  { name: "Главная", url: "/" },
+  { name: "Об адвокате", url: "/ob-advokate/" },
+];
 
 export const metadata = {
   title: "Об адвокате Пескове В.С. — уголовные дела в Москве",
   description:
-    "Адвокат Песков В.С. — уголовные дела в Москве. Реестр № 13/597. С 2018 года: 200+ дел, специализация 228, 159 УК РФ. Публикации в СМИ.",
+    "Адвокат Песков Владислав Сергеевич — уголовные дела в Москве. Реестр № 13/597, удостоверение № 686. С 2018 года: более 200 проведённых дел, специализация 228, 159 УК РФ. Публикации в СМИ, повышение квалификации, судебная практика.",
   keywords:
     "адвокат Песков, Песков Владислав Сергеевич, адвокат по уголовным делам Москва, реестровый номер 13/597, удостоверение 686, адвокат Песков биография, адвокат Песков публикации",
   alternates: { canonical: "https://advokat-peskov.com/ob-advokate/" },
@@ -13,7 +19,7 @@ export const metadata = {
     url: "https://advokat-peskov.com/ob-advokate/",
     title: "Об адвокате Пескове В.С. — уголовные дела в Москве",
     description:
-      "Адвокат Песков В.С. — уголовные дела в Москве. Реестр № 13/597. С 2018 года: 200+ дел, специализация 228, 159 УК РФ. Публикации в СМИ.",
+      "Адвокат Песков Владислав Сергеевич — уголовные дела в Москве. Реестр № 13/597, удостоверение № 686. С 2018 года: более 200 проведённых дел, специализация 228, 159 УК РФ. Публикации в СМИ, повышение квалификации, судебная практика.",
     siteName: "Адвокат Песков — уголовные дела",
     images: [{ url: "/peskov-hero.webp", width: 800, height: 800, alt: "Адвокат Песков Владислав Сергеевич" }],
   },
@@ -62,10 +68,14 @@ const personJsonLd = {
     "Наркотические преступления",
     "Апелляционное обжалование приговоров",
   ],
-  areaServed: [
-    { "@type": "City", name: "Москва" },
-    { "@type": "Country", name: "Россия" },
-  ],
+  workLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Москва",
+      addressCountry: "RU",
+    },
+  },
   sameAs: [
     "https://yandex.ru/maps/org/advokat_peskov_v_s_/188017863893/",
     "https://www.google.com/maps/place/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82+%D0%9F%D0%B5%D1%81%D0%BA%D0%BE%D0%B2+%D0%92.%D0%A1./@55.7981739,37.4932198,461m/data=!3m1!1e3!4m6!3m5!1s0x46b549d8bc932b7b:0x84f43677f11ea3e6!8m2!3d55.7981709!4d37.4957947!16s%2Fg%2F11zz0kcjjm",
@@ -204,10 +214,21 @@ const certificates = [
   },
 ];
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com/" },
+    { "@type": "ListItem", position: 2, name: "Об адвокате", item: "https://advokat-peskov.com/ob-advokate/" },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <main className="container mx-auto p-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <BreadcrumbsMicrodata items={breadcrumbItems} />
 
       <div className={styles.mainContainer}>
         {/* Hero-блок: фото слева + текст справа */}

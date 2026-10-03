@@ -1,11 +1,17 @@
 import styles from "./ContactPage.module.css";
 import { FaTelegramPlane } from "react-icons/fa";
 import ClientYandexMap from "../../components/ClientYandexMap"; // Импортируем клиентский компонент
+import { BreadcrumbsMicrodata } from "@/components/mdx/Breadcrumbs";
+
+const breadcrumbItems = [
+  { name: "Главная", url: "/" },
+  { name: "Контакты", url: "/kontakty/" },
+];
 
 export const metadata = {
   title: "Телефон адвоката в Москве — помощь 24/7",
   description:
-    "Телефоны адвокатов по уголовным делам. Срочная юридическая помощь, консультация, защита в суде. Звоните круглосуточно: 8 916 578 09 36.",
+    "Телефоны и адрес адвоката по уголовным делам Пескова В.С. в Москве. Срочная юридическая помощь, бесплатная консультация, защита в суде, выезд при задержании 24/7. Звоните круглосуточно: 8 916 578 09 36. Telegram: @Peskov_Vladislav.",
   keywords: "телефон адвоката, телефоны адвокатов, адвокат по уголовным делам телефон, срочный адвокат Москва, консультация адвоката",
   alternates: { canonical: "https://advokat-peskov.com/kontakty/" },
   openGraph: {
@@ -20,9 +26,23 @@ export const metadata = {
 };
 
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com/" },
+    { "@type": "ListItem", position: 2, name: "Контакты", item: "https://advokat-peskov.com/kontakty/" },
+  ],
+};
+
 export default function ContactPage() {
   return (
     <main className={styles.container}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <BreadcrumbsMicrodata items={breadcrumbItems} />
       <div className={styles.photoContainer}>
         <div className={styles.photoOverlay}>
           <h1 className={styles.overlayText}>Контакты адвоката по уголовным делам в Москве</h1>

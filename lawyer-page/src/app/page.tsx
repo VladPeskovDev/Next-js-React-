@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Уголовный адвокат в Москве — Песков В.С. Защита по 228, 159 УК РФ",
   description:
-    "Адвокат по уголовным делам в Москве: защита по 228, 159, экономическим составам. Следствие, суд, апелляция. Консультация бесплатно, круглосуточно.",
+    "Адвокат по уголовным делам в Москве — Песков В.С.: защита по 228, 159, 160, 187 УК РФ и экономическим составам. Следствие, суд, апелляция, срочный выезд при задержании. Консультация бесплатно, круглосуточно. +7 (916) 578-09-36.",
   keywords:
     "уголовный адвокат Москва, адвокат по уголовным делам, адвокат по 228, адвокат по 159, защита в суде, защита на следствии, срочный адвокат Москва",
   alternates: { canonical: "https://advokat-peskov.com/" },
@@ -9,7 +9,7 @@ export const metadata = {
     title: "Адвокат по уголовным делам в Москве — Песков В.С.",
     description:
       "Защита по уголовным делам на всех стадиях: следствие, суд, апелляция. Круглосуточно.",
-    url: "https://advokat-peskov.com",
+    url: "https://advokat-peskov.com/",
     siteName: "Адвокат Песков — уголовные дела",
     images: [
       {
@@ -30,10 +30,26 @@ export const metadata = {
 import Link from "next/link";
 import { FaTelegramPlane } from "react-icons/fa";
 import styles from "./HomePage.module.css";
+import { BreadcrumbsMicrodata } from "@/components/mdx/Breadcrumbs";
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com/" },
+  ],
+};
+
+const breadcrumbItems = [{ name: "Главная", url: "/" }];
 
 export default function HomePage() {
   return (
     <div className={styles.container}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <BreadcrumbsMicrodata items={breadcrumbItems} />
       <link rel="preload" as="image" href="/peskov-hero.webp" fetchPriority="high" />
       <section className={styles.heroSection}>
         <div className={styles.heroGrid}>

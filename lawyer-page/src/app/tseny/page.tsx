@@ -1,10 +1,16 @@
 import Link from "next/link";
 import styles from "./PricingPage.module.css";
+import { BreadcrumbsMicrodata } from "@/components/mdx/Breadcrumbs";
+
+const breadcrumbItems = [
+  { name: "Главная", url: "/" },
+  { name: "Цены", url: "/tseny/" },
+];
 
 export const metadata = {
   title: "Сколько стоит адвокат по уголовным делам в Москве — цены",
   description:
-    "Прозрачные цены адвоката Пескова В.С. в Москве: консультация от 15 000 ₽, срочный выезд от 25 000 ₽, ведение дела под ключ от 250 000 ₽. Оплата поэтапно.",
+    "Прозрачные цены адвоката Пескова В.С. в Москве: консультация от 15 000 ₽, срочный выезд от 25 000 ₽, ведение дела под ключ от 500 000 ₽. Оплата поэтапно.",
   keywords:
     "сколько стоит адвокат по уголовным делам, сколько стоит уголовный адвокат, сколько стоят услуги адвоката, адвокат в Москве цена, уголовный адвокат в Москве цены, стоимость услуг адвоката",
   alternates: { canonical: "https://advokat-peskov.com/tseny/" },
@@ -13,7 +19,7 @@ export const metadata = {
     url: "https://advokat-peskov.com/tseny/",
     title: "Сколько стоит адвокат по уголовным делам в Москве — цены Пескова В.С.",
     description:
-      "Прозрачные цены адвоката по уголовным делам в Москве. Консультация от 15 000 ₽, срочный выезд от 25 000 ₽, дело под ключ от 250 000 ₽.",
+      "Прозрачные цены адвоката по уголовным делам в Москве. Консультация от 15 000 ₽, срочный выезд от 25 000 ₽, дело под ключ от 500 000 ₽.",
     siteName: "Адвокат Песков — уголовные дела",
     images: [{ url: "/1312.webp", width: 1000, height: 723, alt: "Адвокат Песков В.С." }],
   },
@@ -37,20 +43,20 @@ const offerCatalog = {
       priceSpecification: { "@type": "PriceSpecification", price: "35000", priceCurrency: "RUB", minPrice: "35000" } },
     { "@type": "Offer", name: "Защита свидетеля на допросе", price: "25000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "25000", priceCurrency: "RUB", minPrice: "25000" } },
-    { "@type": "Offer", name: "Защита на предварительном следствии", price: "200000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "200000", priceCurrency: "RUB", minPrice: "200000" } },
-    { "@type": "Offer", name: "Защита в суде первой инстанции", price: "200000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "200000", priceCurrency: "RUB", minPrice: "200000" } },
+    { "@type": "Offer", name: "Защита на предварительном следствии", price: "300000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "300000", priceCurrency: "RUB", minPrice: "300000" } },
+    { "@type": "Offer", name: "Защита в суде первой инстанции", price: "300000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "300000", priceCurrency: "RUB", minPrice: "300000" } },
     { "@type": "Offer", name: "Апелляционное обжалование приговора", price: "150000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "150000", priceCurrency: "RUB", minPrice: "150000" } },
     { "@type": "Offer", name: "Кассационное обжалование приговора", price: "75000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "75000", priceCurrency: "RUB", minPrice: "75000" } },
     { "@type": "Offer", name: "Защита потерпевшего", price: "50000", priceCurrency: "RUB",
       priceSpecification: { "@type": "PriceSpecification", price: "50000", priceCurrency: "RUB", minPrice: "50000" } },
-    { "@type": "Offer", name: "Дело под ключ (следствие + суд первой инстанции)", price: "250000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "250000", priceCurrency: "RUB", minPrice: "250000" } },
-    { "@type": "Offer", name: "Дело по ст. 228.1 УК РФ (закладки) под ключ", price: "300000", priceCurrency: "RUB",
-      priceSpecification: { "@type": "PriceSpecification", price: "300000", priceCurrency: "RUB", minPrice: "300000" } },
+    { "@type": "Offer", name: "Дело под ключ (следствие + суд первой инстанции)", price: "500000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "500000", priceCurrency: "RUB", minPrice: "500000" } },
+    { "@type": "Offer", name: "Защита по ст. 228.1 УК РФ (сбыт, закладки) — за стадию", price: "350000", priceCurrency: "RUB",
+      priceSpecification: { "@type": "PriceSpecification", price: "350000", priceCurrency: "RUB", minPrice: "350000" } },
   ],
 };
 
@@ -63,7 +69,7 @@ const faqJsonLd = {
       name: "Сколько стоит адвокат по 228 УК РФ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Стоимость защиты по 228 УК РФ начинается от 200 000 ₽ за стадию (следствие или суд). Итоговая цена зависит от части статьи, размера и обстоятельств дела. Точная сумма обсуждается на очной консультации.",
+        text: "Стоимость защиты по 228 УК РФ начинается от 300 000 ₽ за стадию (следствие или суд). По ст. 228.1 (сбыт, закладки) — от 350 000 ₽ за стадию. Итоговая цена зависит от части статьи, размера и обстоятельств дела. Точная сумма обсуждается на очной консультации.",
       },
     },
     {
@@ -71,7 +77,7 @@ const faqJsonLd = {
       name: "Сколько стоит адвокат по 159 УК РФ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Защита по 159 УК РФ — от 200 000 ₽ за стадию. При большом количестве эпизодов, потерпевших или сложности IT-составов (P2P, крипта, дропы) стоимость растёт.",
+        text: "Защита по 159 УК РФ — от 300 000 ₽ за стадию. При большом количестве эпизодов, потерпевших или сложности IT-составов (P2P, крипта, дропы) стоимость растёт.",
       },
     },
     {
@@ -125,9 +131,23 @@ const faqJsonLd = {
   ],
 };
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com/" },
+    { "@type": "ListItem", position: 2, name: "Цены", item: "https://advokat-peskov.com/tseny/" },
+  ],
+};
+
 export default function PricingPage() {
   return (
     <main className={`${styles.mainContainer} container mx-auto p-4`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <BreadcrumbsMicrodata items={breadcrumbItems} />
       <header className={styles.header}>
         <h1 className={styles.title}>
           Сколько стоит адвокат по уголовным делам в Москве
@@ -139,7 +159,7 @@ export default function PricingPage() {
 
       <section className={styles.intro}>
         <p>
-          Сколько стоит адвокат по уголовным делам в Москве? Первичная консультация по телефону — бесплатно, устная в офисе — от 15 000 ₽, срочный выезд к задержанному — от 25 000 ₽, ведение стадии (следствие или суд) — от 200 000 ₽, дело под ключ — от 250 000 ₽. Ниже — полный прайс с разбором каждой услуги.
+          Сколько стоит адвокат по уголовным делам в Москве? Первичная консультация по телефону — бесплатно, устная в офисе — от 15 000 ₽, срочный выезд к задержанному — от 25 000 ₽, ведение стадии (следствие или суд) — от 300 000 ₽, дело под ключ — от 500 000 ₽. Ниже — полный прайс с разбором каждой услуги.
         </p>
         <p>
           Работаю лично, без посредников и кол-центра. Первичная консультация по телефону — бесплатно: обсудим ситуацию, назову ориентировочную стоимость под конкретный случай.
@@ -181,11 +201,11 @@ export default function PricingPage() {
 
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Защита на предварительном следствии</h3>
-          <p className={styles.price}>от 200 000 ₽</p>
+          <p className={styles.price}>от 300 000 ₽</p>
         </div>
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Защита в суде первой инстанции</h3>
-          <p className={styles.price}>от 200 000 ₽</p>
+          <p className={styles.price}>от 300 000 ₽</p>
         </div>
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Апелляционное обжалование приговора</h3>
@@ -204,11 +224,11 @@ export default function PricingPage() {
 
         <div className={styles.pricingItem}>
           <h3 className={styles.serviceTitle}>Дело под ключ (следствие + суд первой инстанции)</h3>
-          <p className={styles.price}>от 250 000 ₽</p>
+          <p className={styles.price}>от 500 000 ₽</p>
         </div>
         <div className={styles.pricingItem}>
-          <h3 className={styles.serviceTitle}>Дело по ст. 228.1 УК РФ (закладки) — под ключ</h3>
-          <p className={styles.price}>от 300 000 ₽</p>
+          <h3 className={styles.serviceTitle}>Защита по ст. 228.1 УК РФ (сбыт, закладки) — за стадию</h3>
+          <p className={styles.price}>от 350 000 ₽</p>
         </div>
       </section>
 
@@ -254,14 +274,14 @@ export default function PricingPage() {
         <div className={styles.faqItem}>
           <h3 className={styles.faqQuestion}>Сколько стоит адвокат по 228 УК РФ?</h3>
           <p className={styles.faqAnswer}>
-            Стоимость защиты по 228 УК РФ начинается от 200 000 ₽ за стадию (следствие или суд). Итоговая цена зависит от части статьи, размера и обстоятельств дела. Точная сумма обсуждается на очной консультации. Подробнее — на странице <Link href="/narkotiki/advokat-po-228/">адвокат по 228 УК РФ</Link>.
+            Стоимость защиты по 228 УК РФ начинается от 300 000 ₽ за стадию (следствие или суд). По ст. 228.1 (сбыт, закладки) — от 350 000 ₽ за стадию. Итоговая цена зависит от части статьи, размера и обстоятельств дела. Точная сумма обсуждается на очной консультации. Подробнее — на странице <Link href="/narkotiki/advokat-po-228/">адвокат по 228 УК РФ</Link>.
           </p>
         </div>
 
         <div className={styles.faqItem}>
           <h3 className={styles.faqQuestion}>Сколько стоит адвокат по 159 УК РФ?</h3>
           <p className={styles.faqAnswer}>
-            Защита по 159 УК РФ — от 200 000 ₽ за стадию. При большом количестве эпизодов, потерпевших или сложности IT-составов (P2P, крипта, дропы) стоимость растёт. Подробнее — <Link href="/moshennichestvo/advokat-po-159/">адвокат по 159 УК РФ</Link>.
+            Защита по 159 УК РФ — от 300 000 ₽ за стадию. При большом количестве эпизодов, потерпевших или сложности IT-составов (P2P, крипта, дропы) стоимость растёт. Подробнее — <Link href="/moshennichestvo/advokat-po-159/">адвокат по 159 УК РФ</Link>.
           </p>
         </div>
 

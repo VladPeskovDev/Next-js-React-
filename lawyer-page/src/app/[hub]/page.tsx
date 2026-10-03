@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { HUBS, HUB_KEYS, isEnabledHub, HubKey } from '@/lib/hubs';
 import { getContentByHub, getHubIntro } from '@/lib/content';
-import { Breadcrumbs } from '@/components/mdx/Breadcrumbs';
+import { Breadcrumbs, BreadcrumbsMicrodata } from '@/components/mdx/Breadcrumbs';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
 import styles from '@/components/mdx/Article.module.css';
 
@@ -58,8 +58,24 @@ export default async function HubIndexPage({ params }: { params: Promise<{ hub: 
     { name: cfg.title, url: `/${hub}/` },
   ];
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: SITE_URL + c.url,
+    })),
+  };
+
   return (
     <article className={`${styles.articlesContainer} ${styles.hubIndex}`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <BreadcrumbsMicrodata items={crumbs} />
       <Breadcrumbs items={crumbs} />
       <h1 className={styles.articlesTitle}>{intro?.title || cfg.title}</h1>
 
