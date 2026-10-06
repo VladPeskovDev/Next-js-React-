@@ -77,7 +77,7 @@ export default async function HubIndexPage({ params }: { params: Promise<{ hub: 
       />
       <BreadcrumbsMicrodata items={crumbs} />
       <Breadcrumbs items={crumbs} />
-      <h1 className={styles.articlesTitle}>{intro?.title || cfg.title}</h1>
+      <h1 className={styles.articlesTitle}>{intro?.h1 || intro?.title || cfg.title}</h1>
 
       <div className={styles.body}>
         {intro ? (
@@ -103,7 +103,7 @@ export default async function HubIndexPage({ params }: { params: Promise<{ hub: 
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric',
-                  }).format(new Date(date)) + ' г.';
+                  }).format(new Date(date));
                 } catch {
                   return date;
                 }

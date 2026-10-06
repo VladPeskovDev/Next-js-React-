@@ -84,7 +84,7 @@ export function getAllContent(): ContentItem[] {
   return out;
 }
 
-export type HubIntro = { title?: string; body: string; noindex?: boolean } | null;
+export type HubIntro = { title?: string; h1?: string; body: string; noindex?: boolean } | null;
 
 export function getHubIntro(hub: HubKey): HubIntro {
   const filePath = path.join(CONTENT_DIR, hub, '_index.mdx');
@@ -93,6 +93,7 @@ export function getHubIntro(hub: HubKey): HubIntro {
   const parsed = matter(raw);
   return {
     title: (parsed.data.title as string) || undefined,
+    h1: (parsed.data.h1 as string) || undefined,
     body: parsed.content,
     noindex: parsed.data.noindex === true,
   };

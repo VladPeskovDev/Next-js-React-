@@ -26,24 +26,12 @@ export function BreadcrumbsMicrodata({ items }: { items: Crumb[] }) {
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   return (
     <nav className={styles.breadcrumbs} aria-label="breadcrumb">
-      <ol itemScope itemType="https://schema.org/BreadcrumbList">
+      <ol>
         {items.map((c, i) => {
           const isLast = i === items.length - 1;
           return (
-            <li
-              key={c.url}
-              itemProp="itemListElement"
-              itemScope
-              itemType="https://schema.org/ListItem"
-            >
-              {isLast ? (
-                <span itemProp="name">{c.name}</span>
-              ) : (
-                <Link href={c.url} itemProp="item">
-                  <span itemProp="name">{c.name}</span>
-                </Link>
-              )}
-              <meta itemProp="position" content={String(i + 1)} />
+            <li key={c.url}>
+              {isLast ? <span>{c.name}</span> : <Link href={c.url}>{c.name}</Link>}
               {!isLast && <span className={styles.sep}> · </span>}
             </li>
           );
