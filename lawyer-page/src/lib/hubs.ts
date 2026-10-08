@@ -5,7 +5,8 @@ export type HubKey =
   | 'srochnyj-vyezd'
   | 'sledstvie'
   | 'praktika'
-  | 'blog';
+  | 'blog'
+  | 'drugie-prestupleniya';
 
 export type HubConfig = {
   title: string;
@@ -32,6 +33,11 @@ export const HUBS: Record<HubKey, HubConfig> = {
   blog: {
     title: 'Блог',
     description: 'Блог адвоката по уголовным делам: разбор судебной практики, свежие изменения законодательства, разъяснения статей УК РФ и пошаговые инструкции для клиентов.',
+    enabled: true,
+  },
+  'drugie-prestupleniya': {
+    title: 'Другие уголовные дела',
+    description: 'Защита по уголовным делам за пределами наркотиков и мошенничества: убийство, контрабанда стероидов, оружия и товаров. Москва, выезд 24/7.',
     enabled: true,
   },
   ekonomika: {

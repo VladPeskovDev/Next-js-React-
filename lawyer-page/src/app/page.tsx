@@ -261,6 +261,17 @@ export default function HomePage() {
             </p>
             <span className={styles.specializationCta}>Узнать стоимость →</span>
           </Link>
+
+          <Link href="/drugie-prestupleniya/" className={styles.specializationCard}>
+            <div className={styles.specializationIcon}>📦</div>
+            <h3 className={styles.specializationCardTitle}>Другие уголовные дела</h3>
+            <p className={styles.specializationCardDescription}>
+              Контрабанда (ст. 226.1 УК РФ): стероиды и лекарства из-за границы, оружие,
+              стратегические товары. Санкции от 3 лет, но пространство для защиты — от отсутствия
+              умысла до условного срока.
+            </p>
+            <span className={styles.specializationCta}>Узнать подробнее →</span>
+          </Link>
         </div>
       </section>
     </div>
