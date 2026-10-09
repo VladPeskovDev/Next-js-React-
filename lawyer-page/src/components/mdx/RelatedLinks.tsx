@@ -10,7 +10,7 @@ function formatDate(iso: string): string {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
-    }).format(d) + ' г.';
+    }).format(d);
   } catch {
     return iso;
   }
