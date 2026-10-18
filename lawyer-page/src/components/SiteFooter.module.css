@@ -1,0 +1,105 @@
+/* Футер — белая «подложка» на всю ширину окна со скруглёнными верхними углами,
+   как у остальных блоков сайта. Содержимое остаётся в колонке 1320px по центру.
+   Вариант «слиться с фоном полностью»: background: transparent; border-top: 1px solid rgba(43, 39, 62, 0.1); */
+.footer {
+  align-self: flex-start;
+  width: calc(100vw / var(--z, 1));
+  min-width: 1440px;
+  margin-left: min(0px, calc(50% - 50vw / var(--z, 1)));
+  background: #fff;
+  border-radius: 40px 40px 0 0;
+  padding: 35px 60px;
+  display: flex;
+  overflow: hidden;
+}
+.content {
+  flex: 1 0 0;
+  max-width: 1320px;
+  margin: 0 auto;
+  height: 281px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cols { display: flex; gap: 20px; align-items: flex-start; width: 100%; }
+.col { flex: 1 0 0; min-width: 1px; display: flex; flex-direction: column; align-items: flex-start; }
+.sections { gap: 20px; }
+.practice { gap: 18px; justify-content: center; }
+.contact { gap: 12px; }
+.label { font-size: 22px; line-height: 28px; white-space: nowrap; }
+.link { font-size: 16px; line-height: 22px; white-space: nowrap; transition: color 0.15s; }
+.link:hover { color: var(--purple-mid); }
+.full { width: 100%; }
+.secondary {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 13px 17px 13px 21px;
+  border: 1px solid var(--purple-mid);
+  border-radius: 999px;
+  color: var(--purple-mid);
+  font-size: 16px;
+  line-height: 21.142px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.secondary:hover { background: rgba(104, 96, 169, 0.08); }
+.icon16 { width: 16px; height: 16px; position: relative; flex-shrink: 0; }
+.icon16 img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.phone {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 32px 0 20px;
+  border-radius: 999px;
+  background: var(--purple-mid);
+  color: #fff;
+  font-size: 16px;
+  line-height: 21.142px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.icon24 { width: 24px; height: 24px; position: relative; flex-shrink: 0; }
+.icon24 img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.socials { display: flex; gap: 12px; align-items: center; }
+.social {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 666px;
+  background: var(--purple-mid);
+}
+.socialPlain { background: none; }
+.socialPlain img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tg { position: absolute; inset: 0 0 0 -1.67%; }
+.tg img { width: 100%; height: 100%; }
+.max { width: 15.915px; height: 15.986px; position: relative; }
+.max img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.copy { font-size: 16px; line-height: 22px; color: var(--purple-dark-70); width: 100%; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) — работает везде, где рендерится SiteFooter ========== */
+@media (max-width: 767px) {
+  .footer {
+    align-self: stretch;
+    width: 100%; min-width: 0; margin-left: 0;
+    padding: 32px 20px;
+    border-radius: 28px 28px 0 0;
+  }
+  .content { height: auto; gap: 32px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 16px; }
+  .col:nth-child(n + 3) { grid-column: 1 / -1; }
+  .sections,
+  .practice { gap: 12px; }
+  .label { font-size: 18px; line-height: 24px; }
+  .link { white-space: normal; }
+  .copy { font-size: 14px; line-height: 20px; }
+}

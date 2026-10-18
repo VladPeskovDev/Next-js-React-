@@ -27,253 +27,180 @@ export const metadata = {
   },
 };
 
-import Link from "next/link";
-import { FaTelegramPlane } from "react-icons/fa";
-import styles from "./HomePage.module.css";
+import ConsultationCta from "@/components/ConsultationCta";
+import ContactButtons from "@/components/ContactButtons";
+import Header from "@/components/Header";
 import { BreadcrumbsMicrodata } from "@/components/mdx/Breadcrumbs";
+import MediaComments from "@/components/MediaComments";
+import PracticeAreas from "@/components/PracticeAreas";
+import ProcessSteps from "@/components/ProcessSteps";
+import Reviews from "@/components/Reviews";
+import SiteFooter from "@/components/SiteFooter";
+import Statement from "@/components/Statement";
+import WhyCards from "@/components/WhyCards";
+import { IMG } from "@/lib/img";
+import s from "./page.module.css";
 
 const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Главная", item: "https://advokat-peskov.com/" },
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Главная",
+      item: "https://advokat-peskov.com/",
+    },
   ],
 };
 
 const breadcrumbItems = [{ name: "Главная", url: "/" }];
 
+const FACTS: [string, string][] = [
+  ["12+", "лет опыта"],
+  ["200+", "уголовных дел"],
+  ["24/7", "Режим работы"],
+  ["Москва и МО", "Область работы"],
+  ["от 25 000 ₽", "Выезд на место"],
+  ["Поэтапная оплата", "Прозрачно и честно"],
+];
+
+const STEPS = [
+  {
+    title: (
+      <>
+        Вы рассказываете <br />о ситуации
+      </>
+    ),
+    text: "Коротко разбираем обстоятельства дела по телефону. Первичная консультация — бесплатно.",
+  },
+  {
+    title: (
+      <>
+        Я оцениваю <br />
+        ситуацию
+      </>
+    ),
+    text: "Обозначаю возможные риски, перспективы и необходимые действия. Если дело не имеет реальной перспективы — говорю об этом прямо.",
+  },
+  {
+    title: "Определяем план защиты",
+    text: "Согласовываем объём работы, стоимость и этап, на котором требуется участие адвоката.",
+  },
+  {
+    title: (
+      <>
+        Я подключаюсь <br />к делу
+      </>
+    ),
+    text: "Выезжаю на задержание или следственные действия, знакомлюсь с материалами и веду защиту на соответствующей стадии.",
+  },
+];
+
 export default function HomePage() {
   return (
-    <div className={styles.container}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <BreadcrumbsMicrodata items={breadcrumbItems} />
-      <link rel="preload" as="image" href="/peskov-hero.webp" fetchPriority="high" />
-      <section className={styles.heroSection}>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroPhoto}>
-            <img
-              src="/peskov-hero.webp"
-              alt="Адвокат по уголовным делам Песков В.С. — Москва"
-              width={800}
-              height={800}
-              fetchPriority="high"
-            />
+      <link rel="preload" as="image" href={IMG.heroHome} fetchPriority="high" />
 
-            <div className={styles.heroTextOverlay}>
-              <h1 className={styles.heroTitle}>
-                Адвокат по уголовным делам Песков В.С.
-              </h1>
-              <p className={styles.heroDescription}>
-                Опытный адвокат по уголовным делам, с успешной практикой на
-                протяжении долгих лет.
-              </p>
+      <main className="page page--home">
+        <div className={s.top}>
+          <section className={s.hero}>
+            <div className={s.heroImg}>
+              <img
+                src={IMG.heroHome}
+                alt="Адвокат Песков Владислав Сергеевич"
+              />
             </div>
-
-            <div className={styles.buttons}>
-              <a href="tel:+79165780936" className={styles.button}>
-                +7 916 578 09 36
+            <div className={s.heroCard}>
+              <div className={s.intro}>
+                <h1 className="t-h1">Адвокат по уголовным делам Песков В.С.</h1>
+                <p className="t-body1">
+                  Опытный адвокат по уголовным делам, с успешной практикой на
+                  протяжении 12 лет
+                </p>
+              </div>
+              <div className={s.contact}>
+                <div className={`t-body1 ${s.benefits}`}>
+                  <p>
+                    <span className="accent">Быстрый</span> ответ. Ответим сразу
+                    или перезвоним в течении 15 минут
+                  </p>
+                  <p>
+                    Первичная консультация -{" "}
+                    <span className="accent">бесплатно</span>
+                  </p>
+                </div>
+                <ContactButtons />
+              </div>
+            </div>
+            <div className={s.ratings}>
+              <a
+                className={s.ratingRow}
+                href="https://yandex.ru/maps/org/advokat_peskov_v_s_/188017863893/?ll=37.495626%2C55.798116&z=16"
+                target="_blank"
+                rel="noopener nofollow"
+              >
+                <span className={s.ratingVal}>
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden>
+                    <path d="M12 2l2.9 6.9L22 10l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.2L2 10l7.1-1.1L12 2z" fill="#FFC107" />
+                  </svg>
+                  5.0
+                </span>
+                <span>Яндекс.Карты</span>
               </a>
               <a
-                href="https://t.me/Peskov_Vladislav"
+                className={s.ratingRow}
+                href="https://www.google.com/maps/place/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82+%D0%9F%D0%B5%D1%81%D0%BA%D0%BE%D0%B2+%D0%92.%D0%A1./@55.7981739,37.4932198,461m/data=!3m1!1e3!4m6!3m5!1s0x46b549d8bc932b7b:0x84f43677f11ea3e6!8m2!3d55.7981709!4d37.4957947!16s%2Fg%2F11zz0kcjjm"
                 target="_blank"
-                rel="noopener noreferrer"
-                className={styles.buttonTelegram}
+                rel="noopener nofollow"
               >
-                <FaTelegramPlane />
-                Telegram
+                <span className={s.ratingVal}>
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden>
+                    <path d="M12 2l2.9 6.9L22 10l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.2L2 10l7.1-1.1L12 2z" fill="#FFC107" />
+                  </svg>
+                  5.0
+                </span>
+                <span>Google Maps</span>
               </a>
             </div>
-          </div>
-
-          <article className={`${styles.heroContent} ${styles.aboutBlock} ${styles.aboutBlockAccent}`}>
-            <h2>Без посредников. Без обещаний.</h2>
-            <p>
-              Вы получаете помощь адвоката по уголовным делам напрямую — минуя
-              кол-центр, задача которого продать вашу заявку любому исполнителю,
-              готовому за неё заплатить. Я сам беру трубку, разбираю ситуацию, даю
-              первые инструкции и лично выезжаю к задержанному, если требуется
-              срочная защита по уголовному делу.
-            </p>
-            <hr className={styles.aboutDivider} />
-            <p>
-              Мой доверитель и его близкие никогда не услышат от меня того, что им
-              хотелось бы услышать — только то, как ситуация обстоит на самом деле
-              и каким может быть реальный исход дела. Опыт позволяет прогнозировать
-              большинство сценариев заранее. Я не даю сладких обещаний ради того,
-              чтобы вы заключили со мной соглашение — я работаю с фактами, а не с
-              ожиданиями. Если вам нужен юрист по уголовным делам в Москве — звоните,
-              разберём ситуацию по телефону бесплатно.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className={styles.aboutSection}>
-        <div className={styles.ctaBlock}>
-          {/* Статистика — 4 карточки */}
-          <div className={styles.ctaStatsGrid}>
-            <a
-              href="https://yandex.ru/maps/org/advokat_peskov_v_s_/188017863893/"
-              target="_blank"
-              rel="noopener nofollow"
-              className={styles.ctaStatCard}
-            >
-              <div className={styles.ctaStatValue}>5.0 ★</div>
-              <div className={styles.ctaStatLabel}>Яндекс.Карты</div>
-            </a>
-            <a
-              href="https://www.google.com/maps/place/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82+%D0%9F%D0%B5%D1%81%D0%BA%D0%BE%D0%B2+%D0%92.%D0%A1./@55.7981739,37.4932198,461m/data=!3m1!1e3!4m6!3m5!1s0x46b549d8bc932b7b:0x84f43677f11ea3e6!8m2!3d55.7981709!4d37.4957947!16s%2Fg%2F11zz0kcjjm"
-              target="_blank"
-              rel="noopener nofollow"
-              className={styles.ctaStatCard}
-            >
-              <div className={styles.ctaStatValue}>5.0 ★</div>
-              <div className={styles.ctaStatLabel}>Google Maps</div>
-            </a>
-            <div className={styles.ctaStatCard}>
-              <div className={styles.ctaStatValue}>24/7</div>
-              <div className={styles.ctaStatLabel}>Режим работы</div>
+            <Header active="home" className={s.header} />
+          </section>
+          <section className={s.facts}>
+            <div className={s.factsRow}>
+              {FACTS.map(([v, l]) => (
+                <div className={s.fact} key={v}>
+                  <p className="t-h3">{v}</p>
+                  <p className="t-body1">{l}</p>
+                </div>
+              ))}
             </div>
-            <Link href="/tseny/" className={styles.ctaStatCard}>
-              <div className={styles.ctaStatValue}>от 25 000 ₽</div>
-              <div className={styles.ctaStatLabel}>Выезд на место</div>
-            </Link>
-          </div>
-
-          {/* Кнопки CTA — позвонить и Telegram */}
-          <div className={styles.ctaButtons}>
-            <a href="tel:+79165780936" className={styles.ctaButtonPrimary}>
-              Позвонить — +7 (916) 578-09-36
-            </a>
-            <a
-              href="https://t.me/Peskov_Vladislav"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaButtonSecondary}
-            >
-              <FaTelegramPlane /> Записаться онлайн
-            </a>
-          </div>
-
+          </section>
         </div>
-      </section>
 
-      <section className={styles.principlesSection}>
-        <div className={styles.principlesLabel}>Почему выбирают адвоката Пескова</div>
-        <h2 className={styles.principlesTitle}>Принципы работы адвоката</h2>
-        <div className={styles.principlesGrid}>
-          <article className={styles.principleCard}>
-            <div className={styles.principleNumber}>01</div>
-            <h3 className={styles.principleTitle}>Честная оценка шансов</h3>
-            <p className={styles.principleDescription}>
-              Не берусь за заведомо проигрышные дела. Перед соглашением — чёткий
-              анализ ситуации и реальный прогноз исхода. Без сладких обещаний.
-            </p>
-          </article>
+        <PracticeAreas />
+        <WhyCards />
 
-          <article className={styles.principleCard}>
-            <div className={styles.principleNumber}>02</div>
-            <h3 className={styles.principleTitle}>Прозрачная стоимость</h3>
-            <p className={styles.principleDescription}>
-              Цена фиксируется до начала работы. Никаких доплат «по ходу дела».
-              Оплата поэтапно — за каждую стадию отдельно.
-            </p>
-          </article>
+        <Statement>
+          Мой доверитель и его близкие никогда не услышат от меня того, что им
+          хотелось бы услышать — только то, как ситуация обстоит на самом деле и
+          каким может быть реальный исход дела. Опыт позволяет прогнозировать
+          большинство сценариев заранее. Я не даю сладких обещаний ради того,
+          чтобы вы заключили со мной соглашение — я работаю с фактами, а не с
+          ожиданиями.
+        </Statement>
 
-          <article className={styles.principleCard}>
-            <div className={styles.principleNumber}>03</div>
-            <h3 className={styles.principleTitle}>Срочный выезд 24/7</h3>
-            <p className={styles.principleDescription}>
-              Задержание, обыск, допрос — выезжаю в течение 30–40 минут по
-              Москве. Круглосуточно, без выходных, лично беру трубку.
-            </p>
-          </article>
+        <ProcessSteps steps={STEPS} widths={[291, null, 291, 291]} />
 
-          <article className={styles.principleCard}>
-            <div className={styles.principleNumber}>04</div>
-            <h3 className={styles.principleTitle}>Опыт следствия изнутри</h3>
-            <p className={styles.principleDescription}>
-              До адвокатуры работал в органах предварительного следствия по 159
-              и 228 УК РФ. Знание процессуальной механики — на стороне защиты.
-            </p>
-          </article>
-
-          <article className={styles.principleCard}>
-            <div className={styles.principleNumber}>05</div>
-            <h3 className={styles.principleTitle}>Адвокатская тайна</h3>
-            <p className={styles.principleDescription}>
-              Всё, что вы рассказываете адвокату, охраняется законом. Ни
-              следствие, ни суд не вправе требовать эти сведения.
-            </p>
-          </article>
-
-          <article className={styles.principleCard}>
-            <div className={styles.principleNumber}>06</div>
-            <h3 className={styles.principleTitle}>Работаю лично</h3>
-            <p className={styles.principleDescription}>
-              Без посредников и кол-центров. Я сам беру трубку, разбираю
-              ситуацию и лично выезжаю к задержанному. Всегда один защитник.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className={styles.specializationSection}>
-        <div className={styles.specializationLabel}>Направления практики</div>
-        <h2 className={styles.specializationTitle}>Адвокат в Москве — области специализации</h2>
-        <p className={styles.specializationSubtitle}>
-          Защита адвокатом по уголовным делам на всех стадиях — от доследственной проверки
-          до апелляции и кассации. Помощь уголовного адвоката при задержании, обыске, допросе,
-          очной ставке. Работаю с делами любой сложности, специализация — наркотики
-          (ст. 228 УК РФ) и мошенничество (ст. 159 УК РФ), включая IT-составы.
-        </p>
-        <div className={styles.specializationGrid}>
-          <Link href="/narkotiki/" className={styles.specializationCard}>
-            <div className={styles.specializationIcon}>💊</div>
-            <h3 className={styles.specializationCardTitle}>Наркотики (228 УК РФ)</h3>
-            <p className={styles.specializationCardDescription}>
-              Защита по 228, 228.1 УК РФ: задержание, следствие, суд, апелляция. Работа с
-              закладками, крупными и особо крупными размерами. Тактика 51-й, домашний арест
-              вместо СИЗО.
-            </p>
-            <span className={styles.specializationCta}>Узнать стоимость →</span>
-          </Link>
-
-          <Link href="/moshennichestvo/" className={styles.specializationCard}>
-            <div className={styles.specializationIcon}>⚖️</div>
-            <h3 className={styles.specializationCardTitle}>Мошенничество (159 УК РФ)</h3>
-            <p className={styles.specializationCardDescription}>
-              Защита по 159 УК РФ и IT-составам: P2P-крипта, дропы, кредитное мошенничество,
-              компьютерные преступления. Блокировка счетов по 115-ФЗ, работа с эпизодами.
-            </p>
-            <span className={styles.specializationCta}>Узнать стоимость →</span>
-          </Link>
-
-          <Link href="/srochnyj-vyezd/" className={styles.specializationCard}>
-            <div className={styles.specializationIcon}>⚡</div>
-            <h3 className={styles.specializationCardTitle}>Срочный выезд 24/7</h3>
-            <p className={styles.specializationCardDescription}>
-              Задержание, обыск, допрос, очная ставка — выезд по Москве в течение 30–40 минут.
-              Круглосуточно, лично беру трубку. Первая консультация по телефону — бесплатно.
-            </p>
-            <span className={styles.specializationCta}>Узнать стоимость →</span>
-          </Link>
-
-          <Link href="/drugie-prestupleniya/" className={styles.specializationCard}>
-            <div className={styles.specializationIcon}>📦</div>
-            <h3 className={styles.specializationCardTitle}>Другие уголовные дела</h3>
-            <p className={styles.specializationCardDescription}>
-              Контрабанда (ст. 226.1 УК РФ): стероиды и лекарства из-за границы, оружие,
-              стратегические товары. Санкции от 3 лет, но пространство для защиты — от отсутствия
-              умысла до условного срока.
-            </p>
-            <span className={styles.specializationCta}>Узнать подробнее →</span>
-          </Link>
-        </div>
-      </section>
-    </div>
+        <MediaComments />
+        <Reviews />
+        <ConsultationCta />
+        <SiteFooter />
+      </main>
+    </>
   );
 }

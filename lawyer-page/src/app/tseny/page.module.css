@@ -1,0 +1,39 @@
+.top { width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: center; }
+
+/* Вводный параграф с ключевиками — SEO-смысловое ядро страницы.
+   Ширина = ширине карточек PriceGroup ниже (padding 0 120px как у .group). */
+.intro {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+}
+.intro p {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.bottomRow { display: flex; gap: 40px; align-items: flex-start; }
+.bottomCol { flex: 1 0 0; min-width: 1px; display: flex; flex-direction: column; gap: 12px; }
+.bottomCol > h3 { min-height: 108px; }
+.bottomCol > p { font-size: 20px; line-height: 28px; }
+
+/* Мобильная адаптация */
+@media (max-width: 767px) {
+  /* Hero-блок начинается от самого верха страницы; отступ под navbar — внутри banner */
+  .top { padding-top: 0; gap: 20px; }
+
+  .intro { padding: 0 16px; font-size: 15px; line-height: 22px; gap: 12px; }
+  .bottomRow { flex-direction: column; gap: 16px; }
+  .bottomCol { gap: 6px; }
+  .bottomCol > h3 { min-height: auto; font-size: 18px; line-height: 22px; }
+  .bottomCol > p { font-size: 14px; line-height: 20px; }
+}

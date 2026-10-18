@@ -1,0 +1,60 @@
+.panel {
+  position: relative;
+  width: 1356px;
+  background: var(--purple-dark);
+  border-radius: 40px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: hidden;
+  color: #fff;
+}
+.panel > :not(.ellipse) { position: relative; }
+.ellipse {
+  position: absolute;
+  left: -722.39px;
+  top: 90px;
+  width: 2686.58px;
+  height: 2686.58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.rot { transform: rotate(-96.8deg); }
+.box { position: relative; width: 2417.408px; height: 2417.408px; }
+.box img { position: absolute; inset: -4.14%; width: 108.28%; height: 108.28%; max-width: none; }
+.head { display: flex; flex-direction: column; gap: 12px; }
+.grid { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 12px; align-items: stretch; }
+.card {
+  flex: 1 0 0;
+  min-width: 1px;
+  padding: 20px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(169.54deg, rgba(197, 200, 230, 0.2) 7.3216%, rgba(226, 228, 245, 0.2) 92.621%);
+}
+.cardText { font-size: 20px; line-height: 28px; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .panel {
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    padding: 20px 16px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+  .ellipse { display: none; }
+  .head { gap: 6px; }
+  .head > h2 { line-height: 26px; }
+  .grid { gap: 8px; }
+  .row { flex-direction: column; gap: 8px; }
+  .card { padding: 12px 14px; border-radius: 14px; gap: 4px; }
+  .card > h3 { font-size: 17px; line-height: 20px; }
+  .cardText { font-size: 13px; line-height: 18px; }
+}

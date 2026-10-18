@@ -1,0 +1,43 @@
+.group { width: 100%; padding: 0 120px; display: flex; flex-direction: column; gap: 40px; }
+.rows { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 12px; align-items: center; }
+.card {
+  flex: 1 0 0;
+  min-width: 1px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.spacer { flex: 1 0 0; min-width: 1px; }
+.text { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+/* Заголовки карточек — чуть меньше чем базовый t-h3 (28px), чтобы длинные тексты вроде
+   «Первичная устная консультация по телефону» помещались в одной строке на 3 колонки */
+.text > h3 { font-size: 22px; line-height: 28px; }
+.price { font-size: 40px; line-height: 48px; color: var(--purple-mid); white-space: nowrap; }
+.natural { justify-content: flex-start; gap: 12px; }
+.group > .rows + .rows { margin-top: 0; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .group { padding: 0 12px; gap: 12px; }
+  .rows { gap: 8px; }
+  .row { flex-direction: column; gap: 8px; }
+  .group > h2 { font-size: 22px; line-height: 26px; }
+  .card {
+    width: 100%;
+    height: auto !important;
+    min-height: auto;
+    padding: 12px 14px;
+    border-radius: 16px;
+    gap: 8px;
+  }
+  .spacer { display: none; }
+  .text { gap: 4px; }
+  .text > h3 { font-size: 16px; line-height: 20px; }
+  .text > p { font-size: 13px; line-height: 18px; }
+  .price { font-size: 20px; line-height: 24px; }
+}

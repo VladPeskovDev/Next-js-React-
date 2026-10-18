@@ -1,21 +1,19 @@
+/* Шрифты — грузим только нужное:
+   - Commissioner: wght.css вместо full.css (без неиспользуемых VF-осей flar/volm/slnt)
+   - Inter: только latin + cyrillic (без latin-ext/cyrillic-ext/greek/vietnamese) */
+import "@fontsource-variable/commissioner/wght.css";
+import "@fontsource/inter/latin-400.css";
+import "@fontsource/inter/latin-700.css";
+import "@fontsource/inter/cyrillic-400.css";
+import "@fontsource/inter/cyrillic-700.css";
 import "./globals.css";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import type { Metadata, Viewport } from "next";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-  display: "swap",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-  display: "swap",
-});
+/* Viewport meta — критично для мобилки, иначе @media (max-width: 767px) не срабатывает */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://advokat-peskov.com"),
@@ -146,11 +144,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,0 +1,152 @@
+.header {
+  width: 1361px;
+  max-width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.pill {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: var(--purple-dark-70);
+  font-size: 16px;
+  line-height: 21.142px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+}
+.brand { padding: 12px 32px; }
+.nav { padding: 0 16px; border-radius: 60px; }
+.link {
+  padding: 12px 16px;
+  border-radius: 60px;
+  color: #fff;
+  transition: color 0.15s;
+}
+.link:hover { color: rgba(255, 255, 255, 0.75); }
+.active { color: var(--white-50); pointer-events: none; }
+.call {
+  height: 46px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--purple-mid);
+  color: #fff;
+  font-size: 16px;
+  line-height: 21.142px;
+  font-weight: 500;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.call:hover { background: #5a5296; }
+
+/* Варианты бренда (переключаются через медиа) */
+.brandFull { display: inline; }
+.brandShort { display: none; }
+
+/* Бургер скрыт на десктопе */
+.burger { display: none; }
+.burgerLines { display: inline-flex; flex-direction: column; gap: 4px; width: 20px; }
+.burgerLines span { display: block; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+.burgerOpen .burgerLines span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burgerOpen .burgerLines span:nth-child(2) { opacity: 0; }
+.burgerOpen .burgerLines span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.mobileMenu { display: none; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) — работает на всех страницах, где есть Header ========== */
+@media (max-width: 767px) {
+  .header {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+    transform: none;
+    gap: 8px;
+    justify-content: space-between;
+    z-index: 100;
+  }
+  .pill { font-size: 14px; line-height: 18px; }
+  .brand {
+    height: 40px;
+    padding: 10px 16px;
+    flex: 0 0 auto;
+    max-width: calc(100% - 56px);
+  }
+  .brandFull { display: none; }
+  .brandShort { display: inline; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Полная nav-пилюля и call-кнопка прячутся — вместо них бургер */
+  .nav { display: none; }
+  .call { display: none; }
+
+  /* Бургер показывается */
+  .burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  /* Выпадающее меню */
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    border-radius: 20px;
+    background: rgba(44, 39, 69, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    z-index: 20;
+  }
+  .mobileLink {
+    display: block;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    border-radius: 12px;
+    text-decoration: none;
+  }
+  .mobileLink:hover,
+  .mobileLink:focus { background: rgba(255,255,255,0.08); }
+  .mobileLinkActive { background: var(--purple-mid); }
+  .mobileCall {
+    display: block;
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: var(--purple-mid);
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,43 @@
+.top { width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: center; }
+.grid { width: 100%; padding: 0 120px; display: flex; gap: 12px; align-items: stretch; }
+.grid > a { flex: 1 0 0; min-width: 1px; width: auto; }
+.topics {
+  width: 1360px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  box-sizing: border-box;
+}
+.topicRow { display: flex; gap: 12px; align-items: stretch; }
+.topic {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 16px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(175.03deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+  transition: filter 0.15s;
+}
+.topic:hover { filter: brightness(1.03); }
+.topic img { width: 42px; height: 42px; flex-shrink: 0; }
+.topic p { font-size: 20px; line-height: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .top { padding-top: 0; gap: 20px; }
+  .grid { padding: 0 12px; flex-direction: column; gap: 12px; }
+  .topics { width: calc(100% - 24px); margin: 0 12px; padding: 20px; border-radius: 20px; gap: 16px; }
+  .topicRow { flex-direction: column; gap: 8px; align-items: stretch; }
+  .topic { width: 100%; padding: 20px 16px; border-radius: 14px; }
+  .topic p { font-size: 15px; line-height: 20px; }
+  .topic img { width: 32px; height: 32px; }
+}

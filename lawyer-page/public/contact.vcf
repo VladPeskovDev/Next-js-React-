@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Песков;Владислав;Сергеевич;;
+FN:Владислав Сергеевич Песков
+TITLE:Адвокат
+TEL;TYPE=CELL:+79165780936
+EMAIL;TYPE=INTERNET:peskov_lawyer@mail.ru
+ADR;TYPE=WORK:;;ул. Маршала Рыбалко, д. 2, корп. 6, оф. 408;Москва;;;Россия
+item1.URL:https://t.me/Peskov_Vladislav
+item1.X-ABLabel:Telegram
+END:VCARD

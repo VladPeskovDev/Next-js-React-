@@ -1,0 +1,73 @@
+.media {
+  width: 1361px;
+  border-radius: 40px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  overflow: hidden;
+  background: linear-gradient(171.35deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+.head { width: 963px; }
+/* Лента по ширине контента: карточки уезжают под фиолетовый отступ 80px
+   одинаково с обеих сторон (обрезка по линии отступа, а не по краю блока) */
+.track {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+.card {
+  width: 397px;
+  height: 244px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.cardAlt { border-radius: 20px; }
+.cardLink { cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; color: inherit; text-decoration: none; }
+.cardLink:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(44, 39, 69, 0.1); }
+.cardLink:hover .link { opacity: 0.75; }
+
+/* Photo-карточка (ТВ-интервью): фото сверху, под ним source + заголовок + стрелка */
+.cardPhoto { padding: 0; justify-content: flex-start; }
+.photo { width: 100%; height: 172px; object-fit: cover; object-position: center 20%; flex-shrink: 0; }
+.photoContent { padding: 8px 12px 10px; display: flex; flex-direction: column; gap: 2px; width: 100%; flex: 1; }
+.photoSource { font-size: 11px; line-height: 14px; color: var(--purple-mid); font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; }
+/* Переопределяем размер заголовка для photo-карточки */
+.cardPhoto .title { font-size: 15px; line-height: 18px; font-weight: 500; }
+.photoLink { margin-top: auto; padding-top: 2px; font-size: 12px; line-height: 15px; color: var(--purple-mid); font-weight: 500; }
+.title { width: 100%; }
+.titleInter { font-family: var(--font-inter); font-weight: 700; font-size: 24px; line-height: 31px; }
+.foot { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; }
+.pubSmall { width: 108px; align-self: stretch; padding: 4px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.pubWide { width: 178.5px; height: 51px; padding: 4px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.pubBig { width: 100%; height: 102px; padding: 8px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; overflow: hidden; }
+.link { width: 48px; height: 48px; flex-shrink: 0; position: relative; transition: opacity 0.15s; }
+.link:hover { opacity: 0.8; }
+.link img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.flip { transform: rotate(180deg) scaleX(-1); }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ГЛАВНОЙ (до 767px) ========== */
+@media (max-width: 767px) {
+  :global(.page--home) .media { width: calc(100% - 24px); padding: 32px 20px; border-radius: 28px; gap: 24px; }
+  :global(.page--home) .head { width: auto; }
+  :global(.page--home) .card { width: 280px; height: 220px; }
+  :global(.page--home) .titleInter { font-size: 20px; line-height: 26px; }
+  :global(.page--home) .pubBig img {
+    width: auto !important; height: auto !important;
+    max-width: 100% !important; max-height: 64px;
+  }
+  /* Фото в карточке ТВ-интервью чуть ниже, чтобы не наезжало на текст */
+  :global(.page--home) .cardPhoto .photo { height: 158px; }
+}

@@ -1,907 +1,655 @@
+/* ============================================
+   HomePage — редизайн по Figma (строго по макету)
+   Токены:
+     --color-purple-dark: #2c2745 (puple-dark)
+     --color-purple-mid:  #6860a9 (puple-midle)
+     --color-oil:         #0b1215 (oil-black)
+     --color-bg-primary:  #f5f5f5
+     --color-bg-secondary:#ffffff
+   ============================================ */
 
-
-.container {
+.page {
   width: 100%;
-  max-width: 959px;
+  max-width: 950px;
   margin: 0 auto;
-  background-color: var(--background);
-  color: white;
-  padding: 20px;
-  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  background: var(--color-bg-primary);
+  color: var(--color-text);
+  padding: 0 0 100px;
 }
+@media (max-width: 900px) { .page { gap: 64px; padding: 0 0 64px; } }
 
-/* Верхний контейнер */
+/* ============================================
+   HERO — full-width image + absolute card + absolute rating
+   ============================================ */
 .heroSection {
-  width: 100%;
-  max-width: 959px;
-  padding: 0;
   position: relative;
+  width: 100%;
+  height: 650px;
   overflow: hidden;
 }
 
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-.heroPhoto {
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #1a2633;
-  aspect-ratio: 1 / 1;
-  position: relative;
-}
-
-.heroPhoto img {
+.heroImage {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  object-position: center 50%;
+  z-index: 0;
 }
 
-/* Градиент снизу фото — для читаемости H1 и описания */
-.heroPhoto::after {
-  content: '';
+/* Hero Content card: bottom-left внутри heroSection */
+.heroCard {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 55%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.heroTextOverlay {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 40px;
+  left: 32px;
+  bottom: 32px;
+  width: 560px;
+  max-width: calc(100% - 64px);
+  background: var(--color-bg-secondary);
+  border-radius: 32px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   z-index: 2;
-  max-width: 65%;
+  box-shadow: 0 20px 60px rgba(44, 39, 69, 0.15);
 }
 
-.heroContent {
-  /* использует .aboutBlock для типографии — grid stretch тянет высоту */
-}
+.heroIntro { display: flex; flex-direction: column; gap: 16px; color: #2c2745; }
 
 .heroTitle {
-  font-size: 1.3rem;
-  font-weight: 900;
-  line-height: 1.2;
-  color: white;
-  margin: 0 0 6px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.heroDescription {
-  font-size: 0.85rem;
-  font-weight: normal;
-  line-height: 1.35;
-  color: white;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 48px;
+  color: #2c2745;
   margin: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.5px;
 }
 
-/* Кнопки для вызова и Telegram — поверх фото */
-.buttons {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
+.heroSubtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  color: #2c2745;
+  margin: 0;
+}
+
+.heroContact { display: flex; flex-direction: column; gap: 32px; }
+
+.heroBenefits {
   display: flex;
-  gap: 8px;
-  z-index: 3;
+  gap: 12px;
+  margin: 0;
+  color: #2c2745;
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 28px;
 }
+.heroBenefit { flex: 1 0 0; min-width: 0; }
+.heroBenefit em { color: var(--color-purple-mid); font-style: normal; font-weight: 400; }
 
-.button, .buttonTelegram {
-  padding: 6px 12px;
-  font-size: 0.82rem;
-  font-weight: bold;
-  color: white;
-  background-color: #243647;
-  border-radius: 6px;
+.heroButtons { display: flex; align-items: center; gap: 0; }
+
+.heroPhoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px 12px 16px;
+  background: var(--color-purple-mid);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.142px;
+  border-radius: 999px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  white-space: nowrap;
+  transition: background 0.2s;
+  margin-right: 12px;
+}
+.heroPhoneBtn:hover { background: #7b73c0; }
+
+.heroIconBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  width: 46px;
+  height: 46px;
+  background: var(--color-purple-mid);
+  color: #fff;
+  border-radius: 666px;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-left: 0;
 }
+.heroIconBtn + .heroIconBtn { margin-left: 8px; }
+.heroIconBtn:hover { background: #7b73c0; }
 
-.button:hover, .buttonTelegram:hover {
-  background-color: #1f1fcc;
-}
-
-
-/* Блок "Обо мне" / "Без посредников" */
-.aboutSection {
-  width: 100%;
-  max-width: 959px;
-  margin: 16px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.aboutBlock {
-  background-color: #1a2633;
-  border: 1px solid #94ADC7;
-  border-radius: 8px;
-  padding: 18px 22px;
-  color: #D0E0F1;
-}
-
-.aboutBlockAccent {
-  background-color: #243647;
-  border: 2px solid #4a9eff;
-  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.15);
-}
-
-/* ==== CTA-блок на главной: статистика + кнопки + адрес + экстренная помощь ==== */
-.ctaBlock {
-  background-color: #1a2633;
-  border: 1px solid #94ADC7;
-  border-radius: 8px;
+/* Rating pills: bottom-right внутри heroSection */
+.heroRatings {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  background: var(--color-bg-secondary);
+  border-radius: 20px;
   padding: 20px;
-  color: #D0E0F1;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(44, 39, 69, 0.15);
 }
 
-.ctaStatsGrid {
+.heroRating {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+}
+.heroRatingStar { display: inline-flex; align-items: center; gap: 4px; }
+.heroRatingStar img { width: 24px; height: 24px; }
+.heroRatingValue {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--color-purple-mid);
+}
+.heroRatingName {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  color: #0b1215;
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .heroSection { height: auto; min-height: 700px; }
+  .heroCard {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin: 300px 0 16px;
+    padding: 24px;
+    gap: 20px;
+  }
+  .heroTitle { font-size: 32px; line-height: 36px; }
+  .heroSubtitle { font-size: 18px; line-height: 24px; }
+  .heroBenefits { font-size: 16px; line-height: 22px; flex-direction: column; }
+  .heroRatings { position: static; margin: 16px 0; align-self: flex-end; }
+}
+
+/* ============================================
+   KEY FACTS — 6 stats row (белая полоса под hero)
+   ============================================ */
+.keyFacts {
+  background: var(--color-bg-secondary);
+  padding: 32px 42px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+
+.keyFact { display: flex; flex-direction: column; gap: 4px; }
+
+.keyFactValue {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  color: var(--color-purple-mid);
+}
+
+.keyFactLabel {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  color: #0b1215;
+}
+
+@media (max-width: 900px) {
+  .keyFacts { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 24px 16px; }
+  .keyFactValue { font-size: 28px; line-height: 36px; }
+  .keyFactLabel { font-size: 16px; line-height: 22px; }
+}
+
+/* ============================================
+   PRACTICE AREAS — header 2 cols + 4 cards с градиентом
+   ============================================ */
+.practiceSection { padding: 0 40px; }
+
+.practiceHeader {
+  display: flex;
+  gap: 21px;
+  align-items: flex-start;
+  max-width: 1361px;
+  margin: 0 auto 32px;
+}
+
+.practiceHeaderTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  color: #0b1215;
+  margin: 0;
+  width: 470px;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+
+.practiceHeaderDesc {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 31px;
+  color: #0b1215;
+  margin: 0;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.practiceGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.ctaStatCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid #2f4b63;
-  border-radius: 6px;
-  padding: 6px 10px;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  transition: border-color 0.2s, background-color 0.2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 26px;
-}
-
-a.ctaStatCard:hover {
-  border-color: #d4a94e;
-  background: rgba(212, 169, 78, 0.05);
-}
-
-.ctaStatValue {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #d4a94e;
-  line-height: 1.1;
-  margin-bottom: 2px;
-}
-
-.ctaStatLabel {
-  font-size: 0.6rem;
-  color: #a8b5c4;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-}
-
-.ctaButtons {
-  display: flex;
-  gap: 10px;
-}
-
-.ctaButtonPrimary {
-  flex: 1;
-  padding: 6px 12px;
-  background-color: #d4a94e;
-  color: #1a2633;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
-  border-radius: 6px;
-  text-decoration: none;
-  text-align: center;
-  transition: background-color 0.2s;
-}
-
-.ctaButtonPrimary:hover {
-  background-color: #b8912f;
-}
-
-.ctaButtonSecondary {
-  flex: 1;
-  padding: 9px 16px;
-  background: transparent;
-  border: 1px solid #94ADC7;
-  color: white;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
-  border-radius: 6px;
-  text-decoration: none;
-  text-align: center;
-  transition: border-color 0.2s, background-color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.ctaButtonSecondary:hover {
-  border-color: #d4a94e;
-  background-color: rgba(212, 169, 78, 0.05);
-}
-
-.aboutBlock h2 {
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: white;
-  margin: 0 0 6px;
-  line-height: 1.2;
-}
-
-.aboutBlock h3 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: white;
-  margin: 8px 0 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.aboutBlock p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0 0 10px;
-}
-
-.aboutBlock p:last-child {
-  margin-bottom: 0;
-}
-
-.aboutList {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 6px;
-}
-
-.aboutList li {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  padding: 2px 0;
-}
-
-.aboutListCompact li {
-  padding: 0;
-  line-height: 1.25;
-}
-
-.aboutBlock strong {
-  color: white;
-  font-weight: 700;
-}
-
-.aboutHighlight {
-  border-left: 3px solid #4a9eff;
-  padding: 4px 0 4px 14px;
-  margin: 0 0 12px;
-  color: white;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  font-weight: 600;
-}
-
-.aboutDivider {
-  border: none;
-  border-top: 2px solid rgba(74, 158, 255, 0.55);
-  margin: 10px 0;
-}
-
-
-/* ==== Блок "Принципы работы адвоката" — 6 карточек 3x2 ==== */
-.principlesSection {
-  width: 100%;
-  max-width: 959px;
-  margin: 30px 0 10px;
-}
-
-.principlesLabel {
-  display: flex;
-  align-items: center;
-  color: #d4a94e;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.principlesLabel::before {
-  content: '';
-  display: inline-block;
-  width: 32px;
-  height: 1px;
-  background: #d4a94e;
-  margin-right: 12px;
-}
-
-.principlesTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 22px;
-  line-height: 1.2;
-}
-
-.principlesGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  max-width: 1361px;
+  margin: 0 auto;
 }
 
-.principleCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid #2f4b63;
-  border-radius: 8px;
-  padding: 20px 18px;
-  color: #d0e0f1;
+.practiceCard {
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s;
+  justify-content: space-between;
+  height: 409px;
+  padding: 20px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: #0b1215;
+  background-image: linear-gradient(149.5deg, rgb(197, 200, 230) 7.3%, rgb(226, 228, 245) 92.6%);
+  transition: transform 0.2s;
+  overflow: hidden;
 }
+.practiceCard:hover { transform: translateY(-4px); }
 
-.principleCard:hover {
-  border-color: #d4a94e;
-}
+.practiceCardContent { display: flex; flex-direction: column; gap: 12px; }
 
-.principleNumber {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #d4a94e;
-  line-height: 1;
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-}
-
-.principleTitle {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 8px;
-  line-height: 1.3;
-}
-
-.principleDescription {
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: #a8b5c4;
+.practiceCardTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: #0b1215;
   margin: 0;
 }
 
-/* Контейнер "Услуги" (если ещё где-то используется) */
-.servicesHeader {
-  width: 100%;
-  max-width: 959px;
-  height: 60px;
-  display: flex;
+.practiceCardDesc {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 22px;
+  color: #0b1215;
+  margin: 0;
+}
+
+.practiceCardArrow {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 20px;
+  width: 46px;
+  height: 46px;
+  background: rgba(239, 238, 244, 0.5);
+  border-radius: 666px;
+  color: var(--color-purple-dark);
+  font-size: 16px;
 }
 
-/* ==== Секция "Области специализации" ==== */
-.specializationSection {
-  width: 100%;
-  max-width: 959px;
-  margin: 40px 0 20px;
+@media (max-width: 1200px) { .practiceGrid { grid-template-columns: repeat(2, 1fr); } .practiceHeader { flex-direction: column; } .practiceHeaderTitle { width: auto; } }
+@media (max-width: 600px) { .practiceGrid { grid-template-columns: 1fr; } .practiceSection { padding: 0 16px; } .practiceHeaderTitle { font-size: 28px; line-height: 32px; } }
+
+/* ============================================
+   CLIENT BENEFITS — тёмно-пурпурный блок + полупрозрачные карточки
+   ============================================ */
+.benefitsSection {
+  background: var(--color-purple-dark);
+  color: #fff;
+  padding: 100px 40px;
+  margin: 0 40px;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
-.specializationLabel {
-  display: flex;
-  align-items: center;
-  color: #d4a94e;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  font-weight: 600;
+.benefitsDecor {
+  position: absolute;
+  left: -400px;
+  top: -200px;
+  width: 1600px;
+  height: 1600px;
+  background: radial-gradient(circle, rgba(104, 96, 169, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+  border-radius: 50%;
 }
 
-.specializationLabel::before {
-  content: '';
-  display: inline-block;
-  width: 32px;
-  height: 1px;
-  background: #d4a94e;
-  margin-right: 12px;
-}
-
-.specializationTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 12px;
-  line-height: 1.2;
-}
-
-.specializationSubtitle {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #a8b5c4;
-  margin: 0 0 22px;
+.benefitsTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  color: #fff;
+  margin: 0 0 40px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.5px;
   max-width: 800px;
 }
 
-.specializationGrid {
+.benefitsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-}
-
-.specializationCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid #2f4b63;
-  border-radius: 8px;
-  padding: 24px 20px;
-  color: #d0e0f1;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  transition: border-color 0.2s, background-color 0.2s;
-}
-
-.specializationCard:hover {
-  border-color: #d4a94e;
-  background: rgba(212, 169, 78, 0.04);
-}
-
-.specializationIcon {
-  font-size: 1.8rem;
-  margin-bottom: 14px;
-  line-height: 1;
-}
-
-.specializationCardTitle {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 10px;
-  line-height: 1.3;
-}
-
-.specializationCardDescription {
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: #a8b5c4;
-  margin: 0 0 16px;
-  flex-grow: 1;
-}
-
-.specializationCta {
-  color: #d4a94e;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: auto;
-}
-
-/* Контейнер с 4 карточками */
-.fourCardsSection {
-  width: 100%;
-  max-width: 959px;
-  padding: 16px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cardWrapper {
-  width: 100%;
-  max-width: 927px;
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-}
-
-.serviceCard {
-  width: 100%;
-  max-width: 223px;
-  height: 218px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #334D66;
-  border: 1px solid #94ADC7;
-  padding: 16px;
   position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+  max-width: 1361px;
+  margin: 0 auto;
 }
 
-.serviceCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.serviceCard h2 {
-  font-size: 1rem;
-  margin-bottom: 8px;
-}
-
-.serviceCard p {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: #D0E0F1;
-}
-
-.cardIcon {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 1.5rem;
-  color: #D0E0F1;
-}
-
-/* Контейнер с кнопкой "Все услуги" */
-.allServicesButton {
-  width: 100%;
-  max-width: 959px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px; /* Отступ между кнопками */
-  margin-top: 20px;
-}
-
-.allServicesButton button {
-  background-color: #243647;
-  color: white;
-  padding: 8px 16px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  
-}
-
-.allServicesButton button:hover {
-  background-color: #1f1fcc;
-}
-
-.actionButton {
-  width: 150px; /* Фиксированная ширина */
-  height: 48px; /* Фиксированная высота */
-  background-color: #243647;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  display: flex;
-  align-items: center; /* Центрируем текст по вертикали */
-  justify-content: center; /* Центрируем текст по горизонтали */
-  padding: 0; /* Убираем лишние внутренние отступы */
-}
-
-.actionButton:hover {
-  background-color: #1f1fcc;
-}
-
-/* Секция с 3 карточками */
-.threeCardsSection {
-  width: 100%;
-  max-width: 959px;
-  padding: 16px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.caseCard {
-  flex: 1;
-  min-width: 0;
-  background-color: #1a2633;
+.benefitCard {
+  background-image: linear-gradient(162.3deg, rgba(197, 200, 230, 0.2) 7.3%, rgba(226, 228, 245, 0.2) 92.6%);
+  border-radius: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
   gap: 8px;
-  padding: 10px;
-  text-align: center;
+  min-height: 298px;
+  color: #fff;
 }
 
-.cardWrapper3card {
-  width: 100%;
-  max-width: 959px;
+.benefitIcon {
+  width: 90px;
+  height: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-purple-mid);
+  color: #fff;
+  border-radius: 24px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.benefitContent { display: flex; flex-direction: column; gap: 12px; }
+
+.benefitTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: #fff;
+  margin: 0;
+}
+
+.benefitDesc {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 1000px) { .benefitsGrid { grid-template-columns: repeat(2, 1fr); } .benefitsSection { padding: 48px 24px; } .benefitsTitle { font-size: 28px; line-height: 32px; } }
+@media (max-width: 600px) { .benefitsGrid { grid-template-columns: 1fr; } .benefitsSection { margin: 0 16px; } }
+
+/* ============================================
+   WORK PROCESS
+   ============================================ */
+.processSection { padding: 0 40px; max-width: 1361px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+
+.processTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  color: #0b1215;
+  margin: 0 0 40px;
+  letter-spacing: -0.5px;
+}
+
+.processGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+.processStep {
   display: flex;
+  flex-direction: column;
   gap: 16px;
+  padding: 24px 0;
+  border-top: 2px solid var(--color-purple-mid);
+}
+
+.processNum {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--color-purple-mid);
+}
+
+.processStepTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #0b1215;
+  margin: 0;
+}
+
+.processDesc {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 22px;
+  color: #0b1215;
+  margin: 0;
+}
+
+@media (max-width: 900px) { .processGrid { grid-template-columns: repeat(2, 1fr); } .processTitle { font-size: 28px; line-height: 32px; } }
+@media (max-width: 600px) { .processGrid { grid-template-columns: 1fr; } .processSection { padding: 0 16px; } }
+
+/* ============================================
+   MEDIA ARTICLES
+   ============================================ */
+.mediaSection { padding: 0 40px; max-width: 1361px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+
+.mediaTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  color: #0b1215;
+  margin: 0 0 40px;
+  letter-spacing: -0.5px;
+}
+
+.mediaGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
+.mediaCard {
+  background: var(--color-bg-secondary);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 24px;
+  min-height: 280px;
+  text-decoration: none;
+  color: #0b1215;
+  transition: transform 0.2s;
+}
+.mediaCard:hover { transform: translateY(-4px); }
+
+.mediaLogo { height: 32px; width: auto; max-width: 160px; object-fit: contain; }
+
+.mediaCardTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #0b1215;
+  margin: 0;
 }
 
-.caseImage {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  height: auto;
-  background-color: #404552;
-  border-radius: 8px;
-  object-fit: cover;
+.mediaMeta {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(11, 18, 21, 0.6);
+  margin: 8px 0 0;
 }
 
-/* Адаптивные стили */
-@media (max-width: 768px) {
-  .container, .heroSection, .servicesHeader, .fourCardsSection, .allServicesButton, .threeCardsSection {
-    width: 100%;
-    max-width: 100%;
-  }
+@media (max-width: 1200px) { .mediaGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .mediaGrid { grid-template-columns: 1fr; } .mediaSection { padding: 0 16px; } .mediaTitle { font-size: 28px; line-height: 32px; } }
 
-  .heroSection {
-    padding: 0;
-  }
+/* ============================================
+   REVIEWS
+   ============================================ */
+.reviewsSection { padding: 0 40px; max-width: 1361px; margin: 0 auto; width: 100%; box-sizing: border-box; }
 
-  .heroGrid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .heroPhoto {
-    /* На мобилке фото на полную ширину контейнера — оверлеи внутри выглядят как раньше */
-    aspect-ratio: 1 / 1;
-  }
-
-  .heroTextOverlay {
-    max-width: 100%;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-  }
-
-  .heroTitle {
-    font-size: 1.0rem;
-  }
-
-  .heroDescription {
-    font-size: 0.82rem;
-  }
-
-  /* Кнопки — top-right на мобилке (было bottom-right) */
-  .buttons {
-    top: 10px;
-    right: 10px;
-    bottom: auto;
-    gap: 6px;
-  }
-
-  /* На мобилке показываем только телефон, Telegram скрываем — две кнопки наезжают на лицо */
-  .buttonTelegram {
-    display: none;
-  }
-
-  .button {
-    padding: 5px 10px;
-    font-size: 0.75rem;
-  }
-
-  .cardWrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cardWrapper3card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .serviceCard, .caseCard {
-    width: 100%;
-    max-width: 90%;
-    margin-bottom: 16px;
-  }
-
-  .allServicesButton button {
-    width: 90%;
-  }
-
-  /* Мобильный адаптив для CTA-блока */
-  .ctaStatsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .ctaButtons {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  /* Принципы — 1 колонка на мобилке */
-  .principlesSection {
-    margin: 24px 0 10px;
-  }
-
-  .principlesTitle {
-    font-size: 1.35rem;
-    margin-bottom: 16px;
-  }
-
-  .principlesLabel {
-    font-size: 0.65rem;
-  }
-
-  .principlesGrid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .principleCard {
-    padding: 16px 14px;
-  }
-
-  .principleNumber {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+.reviewsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
-/* Планшет — 2 колонки для принципов */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .principlesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .specializationGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.reviewsTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  color: #0b1215;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
-/* Мобильный override для специализации */
-@media (max-width: 768px) {
-  .specializationSection {
-    margin: 30px 0 15px;
-  }
+.reviewsPlatforms { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 
-  .specializationTitle {
-    font-size: 1.35rem;
-  }
+.reviewPlatform {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-bg-secondary);
+  border-radius: 666px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  color: #0b1215;
+  text-decoration: none;
+}
+.reviewPlatform img { height: 20px; width: auto; }
 
-  .specializationLabel {
-    font-size: 0.65rem;
-  }
+.reviewsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
-  .specializationSubtitle {
-    font-size: 0.9rem;
-  }
-
-  .specializationGrid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .specializationCard {
-    padding: 20px 16px;
-  }
+.reviewCard {
+  background: var(--color-bg-secondary);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 300px;
 }
 
-@media (max-width: 768px) {
-  /* Основной контейнер карусели */
-  .fourCardsSection {
-    width: 100%;
-    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
-    display: flex;
-    padding: 16px 0;
-    align-items: center;
-    justify-content: flex-start; /* Карточки выровнены влево */
-  }
+.reviewTag {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-purple-mid);
+}
 
-  .aboutSection {
-    padding: 0;
-    gap: 10px;
-  }
+.reviewText {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 22px;
+  color: #0b1215;
+  margin: 0;
+  flex: 1;
+}
 
-  .aboutBlock {
-    padding: 12px 18px;
-  }
+.reviewAuthor {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  color: #0b1215;
+  margin: 0;
+}
 
-  .aboutBlock h2 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
+@media (max-width: 1000px) { .reviewsGrid { grid-template-columns: 1fr; } .reviewsSection { padding: 0 16px; } .reviewsTitle { font-size: 28px; line-height: 32px; } }
 
-  .aboutBlock h3 {
-    font-size: 0.8rem;
-    margin: 12px 0 6px;
-  }
+/* ============================================
+   CONSULTATION CTA
+   ============================================ */
+.ctaSection {
+  margin: 0 40px;
+  background: var(--color-purple-dark);
+  color: #fff;
+  border-radius: 40px;
+  padding: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
-  .aboutBlock p,
-  .aboutList li {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
+.ctaTitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.5px;
+  max-width: 600px;
+}
 
-  .aboutHighlight {
-    font-size: 0.9rem;
-    padding-left: 12px;
-  }
+.ctaActions { display: flex; gap: 12px; align-items: center; }
 
-  .cardWrapper {
-    width: max-content; /* Ширина на основе содержимого */
-    display: flex;
-    gap: 16px;
-    flex-direction: row; /* Горизонтальная компоновка карточек */
-  }
+.ctaPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: var(--color-purple-mid);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.ctaPhone:hover { background: #7b73c0; }
 
-  .serviceCard {
-    width: 80vw; /* Ширина карточки относительно ширины экрана */
-    flex-shrink: 0; /* Отключаем сжатие, чтобы они не сжимались */
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #334D66;
-    border: 1px solid #94ADC7;
-    padding: 16px;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.ctaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--color-purple-mid);
+  color: #fff;
+  border-radius: 666px;
+  text-decoration: none;
+}
 
-  /* Прокрутка по горизонтали без вертикальной полосы прокрутки */
-  .fourCardsSection::-webkit-scrollbar {
-    display: none;
-  }
-
-
-  @media (max-width: 768px) {
-    .threeCardsSection {
-      display: flex;
-      overflow-x: auto; /* Добавляем горизонтальную прокрутку */
-      padding: 16px 0;
-    }
-  
-    .cardWrapper3card {
-      width: max-content; /* Ширина на основе содержимого */
-      display: flex;
-      gap: 16px;
-      flex-direction: row; /* Горизонтальная компоновка карточек */
-    }
-  
-    .caseCard {
-      flex-shrink: 0; /* Отключаем сжатие, чтобы карточки не сжимались */
-      width: 80vw; /* Ширина карточки относительно ширины экрана */
-      max-width: none;
-    }
-  
-    /* Прокрутка по горизонтали без полосы прокрутки на мобильных устройствах */
-    .threeCardsSection::-webkit-scrollbar {
-      display: none;
-    }
-  }
+@media (max-width: 900px) {
+  .ctaSection { margin: 0 16px; padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  .ctaTitle { font-size: 24px; line-height: 28px; }
 }

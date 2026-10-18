@@ -1,18 +1,25 @@
-/* ====== Контейнер и базовые ====== */
+/* Обёртка страницы — переопределяем .page { gap: 100px } на меньший */
+.wrap { gap: 40px; }
+
+/* ====== Контейнер статьи — ширина как у Header (навбара) ====== */
 .articlesContainer {
   width: 100%;
-  max-width: 960px;
-  background-color: #1a2633;
-  color: #fff;
-  margin: 65px auto;
-  padding: 20px;
-  border-radius: 12px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  padding: 20px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: var(--oil-black);
+  box-sizing: border-box;
 }
 
+/* ====== Breadcrumbs ====== */
 .breadcrumbs {
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-  opacity: 0.85;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--purple-dark-70);
 }
 .breadcrumbs ol {
   list-style: none;
@@ -20,341 +27,495 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
 }
-.breadcrumbs a { color: #9fcbff; text-decoration: none; }
+.breadcrumbs a {
+  color: var(--purple-mid);
+  text-decoration: none;
+}
 .breadcrumbs a:hover { text-decoration: underline; }
-.breadcrumbs .sep { opacity: 0.6; }
+.breadcrumbs .sep { color: var(--purple-dark-70); }
 
+/* ====== Заголовок и мета ====== */
 .articlesTitle {
-  font-size: 1.9rem;
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: .2px;
-  margin-bottom: 18px;
+  font-family: var(--font);
+  font-size: 44px;
+  line-height: 52px;
+  color: var(--purple-dark);
+  margin: 0;
 }
 
 .meta {
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin-bottom: 18px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--purple-dark-70);
+  margin: 0;
 }
 
-/* ====== Тело статьи (MDX-контент) ====== */
+/* ====== Тело статьи (MDX-контент) — block для работы float: right у виджета ====== */
 .body {
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #223a4e;
-  border: 1px solid #2f4b63;
-  margin-bottom: 20px;
+  display: block;
+  width: 100%;
 }
+/* MDX-элементы (p, h2, h3, ul, ol, etc.) уже обнулены в globals.
+   Reset НЕ ставим: иначе съедал бы margin у float-виджета (специфичность .body > *). */
+.body > * + * { margin-top: 20px; }
+.body::after { content: ""; display: block; clear: both; }
 
-.body h2,
-.body h3 {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #a0c4ff;
-  margin: 1rem 0 0.4rem;
+/* Заголовки H2/H3 — отбивка-разделитель секций. font-weight наследуется из globals (400) чтобы совпадало с хабами */
+.body h2 {
+  font-family: var(--font);
+  font-size: 32px;
+  line-height: 38px;
+  color: var(--purple-dark);
+  margin-top: 32px;
   scroll-margin-top: 84px;
 }
-.body h3 { font-size: 1.2rem; }
-.body h2:first-child, .body h3:first-child { margin-top: 0; }
+.body h3 {
+  font-family: var(--font);
+  font-size: 22px;
+  line-height: 28px;
+  color: var(--purple-dark);
+  margin-top: 24px;
+  scroll-margin-top: 84px;
+}
+.body > h2:first-child,
+.body > h3:first-child { margin-top: 0; }
 
+/* Параграфы — выравнивание по ширине с переносами (hyphens: auto) чтобы не было дыр */
 .body p {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #d0e0f1;
-  margin: 0.35rem 0;
+  font-family: var(--font-inter);
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--oil-black);
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
-.body a { color: #9fcbff; }
-.body a:hover { text-decoration: underline; }
-
-.body ul, .body ol {
-  padding-left: 1.25rem;
-  margin: 0.35rem 0 0.6rem;
-  color: #d0e0f1;
-  line-height: 1.4;
+/* Ссылки в теле — тёмные с подчёркиванием */
+.body a {
+  color: var(--oil-black);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-underline-position: from-font;
 }
-.body ul li, .body ol li { margin: 0.15rem 0; }
+.body a:hover { color: var(--purple-mid); }
 
-.body strong { color: #eaf3ff; }
+/* Жирный акцент — фиолетовый */
+.body strong { color: var(--purple-dark); font-weight: 500; }
 .body em { font-style: italic; }
 
-.body blockquote {
-  margin: 12px 0;
-  padding: 10px 14px;
-  border-left: 3px solid #7fb3ff;
-  background: #1f3248;
-  color: #d7e8ff;
-  border-radius: 8px;
+/* Списки — disc маркеры с нужным отступом */
+.body ul, .body ol {
+  padding-left: 24px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-inter);
+  font-size: 17px;
+  line-height: 25px;
+  color: var(--oil-black);
 }
+.body ul { list-style: disc; }
+.body ol { list-style: decimal; }
+.body ul ul, .body ol ol, .body ul ol, .body ol ul {
+  margin-top: 8px;
+  padding-left: 24px;
+}
+.body ul li::marker { color: var(--purple-mid); }
+.body ol li::marker { color: var(--purple-mid); font-weight: 500; }
 
-/* ====== Таблицы (для сравнений, цен, статей УК) ====== */
+/* Цитата */
+.body blockquote {
+  margin: 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--purple-mid);
+  background: var(--purple-light);
+  color: var(--oil-black);
+  border-radius: 0 12px 12px 0;
+  font-family: var(--font-inter);
+  font-size: 17px;
+  line-height: 25px;
+}
+.body blockquote p { margin: 0; }
+
+/* ====== Таблицы ====== */
 .body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 14px 0;
-  font-size: 0.95rem;
-  color: #d0e0f1;
-  background: #1a2633;
-  border: 1px solid #2f4b63;
-  border-radius: 8px;
+  font-family: var(--font-inter);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--oil-black);
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 16px;
   overflow: hidden;
   table-layout: auto;
 }
-
-.body thead {
-  background: #27425a;
-}
-
+.body thead { background: var(--purple-light); }
 .body th {
-  padding: 10px 12px;
+  padding: 14px 16px;
   text-align: left;
-  font-weight: 700;
-  color: #a0c4ff;
-  border-bottom: 1px solid #385a76;
-}
-
-.body td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #2f4b63;
+  font-weight: 500;
+  color: var(--purple-dark);
+  border-bottom: 1px solid rgba(104, 96, 169, 0.2);
   vertical-align: top;
-  line-height: 1.4;
 }
-
-.body tbody tr:nth-child(even) {
-  background: #1f3245;
+.body td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(104, 96, 169, 0.1);
+  vertical-align: top;
+  line-height: 22px;
 }
-
-.body tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.body tbody tr:hover {
-  background: #223c52;
-}
-
-@media (max-width: 768px) {
-  .body table {
-    font-size: 0.85rem;
-  }
-  .body th, .body td {
-    padding: 7px 8px;
-  }
-}
+.body tbody tr:last-child td { border-bottom: none; }
+.body tbody tr:nth-child(even) { background: rgba(239, 238, 244, 0.3); }
+.body tbody tr:hover { background: rgba(104, 96, 169, 0.07); }
+.body table strong { color: var(--purple-dark); font-weight: 500; }
 
 /* ====== Кастомные MDX-компоненты ====== */
 .callout {
-  margin: 14px 0;
-  padding: 12px 14px;
-  border-left: 3px solid #7fb3ff;
-  background: #1f3248;
-  color: #d7e8ff;
-  border-radius: 8px;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-left: 3px solid var(--purple-mid);
+  border-radius: 16px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--oil-black);
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
-.calloutWarning { border-left-color: #ffb37f; background: #35291f; color: #ffe8d7; }
-.calloutInfo { border-left-color: #7fb3ff; }
-.calloutLaw { border-left-color: #a0c4ff; background: #1e3144; }
+.callout p { margin: 0; }
+.callout p + p { margin-top: 10px; }
+.calloutWarning { border-left-color: #d97706; background: #fffbeb; }
+.calloutInfo { border-left-color: var(--purple-mid); }
+.calloutLaw { border-left-color: var(--purple-dark); background: var(--purple-light); }
 
 .lawRef {
   display: inline-block;
-  padding: 2px 8px;
-  background: #27425a;
-  border: 1px solid #385a76;
+  padding: 2px 10px;
+  background: var(--purple-light);
+  border: 1px solid rgba(104, 96, 169, 0.3);
   border-radius: 999px;
-  font-size: 0.9em;
-  color: #cfe3ff;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--purple-dark);
   white-space: nowrap;
 }
 
 .disclaimer {
-  background: #223a4e;
-  border: 1px solid #2f4b63;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 20px 0;
-  font-size: 0.95rem;
-  opacity: 0.95;
-  color: #d0e0f1;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 20px;
+  font-family: var(--font-inter);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--purple-dark-70);
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
+.disclaimer p { margin: 0; }
+.disclaimer strong { color: var(--purple-dark); font-weight: 500; }
 
 /* ====== CTA ====== */
 .cta {
-  margin: 18px 0 8px;
-  padding: 16px;
-  background: #1e3144;
-  border: 1px solid #2f4b63;
-  border-radius: 12px;
-  color: #d7e8ff;
+  padding: 28px 32px;
+  background: linear-gradient(170.76deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+  border-radius: 24px;
+  color: var(--oil-black);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+.cta p { margin: 0; font-family: var(--font-inter); font-size: 17px; line-height: 26px; }
+.cta strong { color: var(--purple-dark); font-weight: 500; }
 .cta a {
-  color: #9fcbff;
+  color: var(--purple-mid);
+  font-weight: 500;
   text-decoration: none;
-  font-weight: 700;
 }
 .cta a:hover { text-decoration: underline; }
-.linksRow { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.linksRow { display: flex; gap: 24px; flex-wrap: wrap; }
 
-/* ====== FAQ ====== */
-.faq { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
-.faqItem {
-  background: #1a2633;
-  border: 1px solid #2f4b63;
-  border-radius: 12px;
-  padding: 12px 14px;
+/* ====== FAQ-аккордеон (details) — после "Ответы на частые вопросы" ======
+   Карточки с бордером и chevron-стрелкой. На всех экранах одинаковое поведение:
+   свёрнуто по умолчанию, клик — развернуть. HTML с ответами ВСЕГДА в DOM —
+   краулеры Google/Яндекс видят и вопрос, и ответ (details — нативный HTML,
+   содержимое не прячется от парсеров, только от визуального рендера). */
+.body :global(details.faq-item) {
+  display: block;
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.faqQ {
-  cursor: pointer;
-  font-weight: 800;
-  color: #a0c4ff;
+.body :global(details.faq-item + details.faq-item) { margin-top: 12px; }
+.body :global(details.faq-item:hover) {
+  border-color: var(--purple-mid);
+}
+.body :global(details.faq-item[open]) {
+  border-color: var(--purple-mid);
+  box-shadow: 0 10px 24px rgba(44, 39, 69, 0.08);
+}
+.body :global(details.faq-item > summary) {
   list-style: none;
-  outline: none;
+  cursor: pointer;
+  padding: 20px 56px 20px 24px;
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--purple-dark);
+  margin-top: 0;
+  position: relative;
+  user-select: none;
 }
-.faqQ::-webkit-details-marker { display: none; }
-.faqQ::after { content: "▾"; float: right; opacity: 0.9; transition: transform 0.2s ease; }
-.faqItem[open] .faqQ::after { transform: rotate(180deg); }
-.faqA {
-  margin-top: 8px;
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #d0e0f1;
-  opacity: 0.96;
+.body :global(details.faq-item > summary::-webkit-details-marker),
+.body :global(details.faq-item > summary::marker) { display: none; }
+/* Chevron-стрелка справа */
+.body :global(details.faq-item > summary::after) {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--purple-mid);
+  border-bottom: 2px solid var(--purple-mid);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
 }
-.faqItem:hover { border-color: #3a5b78; }
+.body :global(details.faq-item[open] > summary::after) {
+  transform: translateY(-30%) rotate(-135deg);
+}
+/* Контент (ответ) — скрыт пока details закрыт, раскрывается при [open] */
+.body :global(details.faq-item > *:not(summary)) {
+  display: none;
+  padding: 0 24px 20px;
+  margin-top: 0;
+}
+.body :global(details.faq-item[open] > *:not(summary)) {
+  display: block;
+}
+.body :global(details.faq-item[open] > *:not(summary) + *:not(summary)) {
+  margin-top: 12px;
+}
 
-/* ====== Related ====== */
+/* ====== Related / Читайте также ====== */
 .related {
-  margin: 20px 0 8px;
-  padding: 16px;
-  background: #1f3245;
-  border: 1px solid #2f4b63;
-  border-radius: 12px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .related h2 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #a0c4ff;
-  margin: 0 0 10px;
-}
-.related ul { list-style: none; padding: 0; margin: 0; }
-.related li { margin: 6px 0; }
-.related a { color: #9fcbff; text-decoration: none; }
-.related a:hover { text-decoration: underline; }
-.related .hubTag {
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  background: #27425a;
-  border: 1px solid #385a76;
-  border-radius: 999px;
-  color: #cfe3ff;
-  margin-right: 8px;
+  font-family: var(--font);
+  font-size: 32px;
+  line-height: 38px;
+  color: var(--purple-dark);
+  margin: 0;
 }
 
-/* ====== Хаб-индекс ====== */
-.hubIndex ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.hubIndex a { color: #9fcbff; text-decoration: none; font-weight: 600; }
-.hubIndex a:hover { text-decoration: underline; }
-.hubIndex .card {
-  padding: 14px 16px;
-  background: #223a4e;
-  border: 1px solid #2f4b63;
-  border-radius: 10px;
-}
-.hubIndex .cardDesc { color: #d0e0f1; font-size: 0.95rem; margin-top: 6px; }
-
-/* ====== Сетка кубиков-карточек статей (для хабов и related) ====== */
+/* Сетка карточек без фото */
 .materialsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 8px;
+  gap: 12px;
 }
-
 .materialCard {
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  padding: 18px 20px;
-  background: #1a2633;
-  border: 1px solid #2f4b63;
-  border-radius: 10px;
+  gap: 10px;
   text-decoration: none;
-  color: inherit;
-  transition: border-color 0.2s, background-color 0.2s;
-  min-height: 220px;
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
 }
-
 .materialCard:hover {
-  border-color: #9fcbff;
-  background: #1f2d3d;
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+  border-color: var(--purple-mid);
 }
-
 .materialCardCategory {
-  color: #9fcbff;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-weight: 500;
+  color: var(--purple-mid);
 }
-
 .materialCardTitle {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.35;
-  margin-bottom: 10px;
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--purple-dark);
+  flex: 1;
 }
-
+.materialCard:hover .materialCardTitle { color: var(--purple-mid); }
 .materialCardDescription {
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: #a8b5c4;
-  margin-bottom: 14px;
-  flex-grow: 1;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--oil-black);
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .materialCardDivider {
   border: none;
-  border-top: 1px solid #2f4b63;
-  margin: 0 0 12px;
+  border-top: 1px solid rgba(104, 96, 169, 0.15);
+  margin: 2px 0 0;
 }
-
 .materialCardFooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.82rem;
+  gap: 12px;
 }
-
 .materialCardDate {
-  color: #8a97a6;
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--purple-dark-70);
 }
-
 .materialCardReading {
-  color: #9fcbff;
-  font-weight: 600;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--purple-mid);
+  white-space: nowrap;
 }
 
-/* ====== Адаптив ====== */
-@media (max-width: 768px) {
-  .articlesContainer { padding: 16px; border-radius: 10px; }
-  .articlesTitle { font-size: 1.55rem; }
-  .body { padding: 16px; border-radius: 10px; }
-  .body h2 { font-size: 1.2rem; }
-  .body h3 { font-size: 1.05rem; }
-  .body p { font-size: 0.98rem; line-height: 1.4; }
-  .faqItem { padding: 10px 12px; }
-  .faqA { font-size: 0.98rem; }
-  .materialsGrid { grid-template-columns: 1fr; }
-  .materialCard { min-height: auto; }
-}
+/* ====== Хаб-индекс (fallback если где-то ещё используется) ====== */
+.hubIndex ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.hubIndex a { color: var(--purple-mid); text-decoration: none; font-weight: 500; }
+.hubIndex a:hover { text-decoration: underline; }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .materialsGrid { grid-template-columns: repeat(2, 1fr); }
+/* ====== Адаптив — мобилка до 767px ====== */
+@media (max-width: 767px) {
+  .wrap { gap: 20px; }
+  .articlesContainer {
+    width: 100%;
+    max-width: 100%;
+    /* padding-top 72px — чтобы контент не залезал под fixed Header (40px + 12px top + запас) */
+    padding: 72px 12px 40px;
+    gap: 20px;
+  }
+
+  .articlesTitle {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .meta { font-size: 14px; line-height: 20px; }
+
+  .body { gap: 18px; }
+  .body h2 {
+    font-size: 22px;
+    line-height: 28px;
+    margin-top: 10px;
+  }
+  .body h3 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 6px;
+  }
+  .body p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .body ul, .body ol {
+    font-size: 15px;
+    line-height: 23px;
+    padding-left: 20px;
+    gap: 6px;
+  }
+  .body blockquote {
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  /* Таблицы — горизонтальный скролл на мобилке, сохраняем структуру */
+  .body table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 13px;
+    line-height: 18px;
+    border-radius: 12px;
+  }
+  .body th, .body td {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+
+  .callout {
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 14px;
+  }
+
+  .disclaimer {
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 16px;
+  }
+
+  .cta {
+    padding: 20px 20px;
+    gap: 12px;
+    border-radius: 20px;
+  }
+  .cta p { font-size: 15px; line-height: 24px; }
+  .linksRow { gap: 16px; }
+
+  /* FAQ-аккордеон на мобилке — компактнее десктопа (базовое поведение уже в основных стилях) */
+  .body :global(details.faq-item + details.faq-item) { margin-top: 10px; }
+  .body :global(details.faq-item > summary) {
+    padding: 14px 44px 14px 16px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .body :global(details.faq-item > summary::after) {
+    right: 18px;
+    width: 9px;
+    height: 9px;
+  }
+  .body :global(details.faq-item > *:not(summary)) {
+    padding: 0 16px 14px;
+  }
+  .body :global(details.faq-item p) { font-size: 14px; line-height: 20px; }
+
+  .related { gap: 14px; margin-top: 8px; }
+  .related h2 { font-size: 22px; line-height: 28px; }
+  .materialsGrid { grid-template-columns: 1fr; gap: 10px; }
+  /* На мобилке карточки сразу с фиолетовым бордером — нет hover на тач-девайсах */
+  .materialCard {
+    padding: 16px;
+    border-radius: 18px;
+    border-color: var(--purple-mid);
+  }
+  .materialCardTitle { color: var(--purple-mid); font-size: 17px; line-height: 23px; }
 }

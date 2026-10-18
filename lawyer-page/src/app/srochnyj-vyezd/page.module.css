@@ -1,0 +1,323 @@
+/* Контейнер страницы — отступ между секциями, на мобилке меньше */
+.main { gap: 72px; }
+
+/* Аккордеон 3 панелей: на десктопе кнопка-заголовок + body всегда виден */
+.panelSummary {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font);
+  font-size: 28px;
+  line-height: 32px;
+  color: var(--oil-black);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: default;
+}
+.panelBody { display: block; margin-top: 20px; }
+
+/* Вводные параграфы — SEO ключи после hero */
+.intro {
+  width: 1200px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  padding: 32px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+}
+.intro strong { color: var(--purple-dark); font-weight: 500; }
+.intro a { color: var(--purple-mid); font-weight: 500; }
+.intro a:hover { text-decoration: underline; }
+
+/* Стоимость */
+.priceWrap { width: 100%; display: flex; flex-direction: column; gap: 40px; }
+.priceRow2 { width: 100%; padding: 0 120px; display: flex; gap: 12px; align-items: flex-start; }
+.priceCard { flex: 1 0 0; min-width: 1px; background: #fff; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.priceCardFree { height: 164px; justify-content: space-between; }
+.free { font-size: 40px; line-height: 48px; color: var(--purple-mid); white-space: nowrap; }
+
+/* Что входит */
+.includes {
+  width: 1361px;
+  border-radius: 40px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+  background: linear-gradient(170.76deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+.includes > h2 { width: 963px; }
+.grid { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 12px; align-items: stretch; }
+.incCard { flex: 1 0 0; min-width: 1px; background: #fff; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+/* Desktop: summary видно (цифра), body видно (полный текст), short-title скрыт */
+.incSummary { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 0; cursor: default; }
+.incShort { display: none; }
+.incBody { display: block; }
+.gradNum {
+  font-size: 28px;
+  line-height: 32px;
+  background-image: linear-gradient(177.82deg, #6860a9 7.3216%, #e2e4f5 92.621%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Когда нужен срочный выезд */
+.when { position: relative; width: 100%; padding: 0 120px; display: flex; flex-direction: column; gap: 40px; }
+.chips { position: relative; z-index: 1; width: 1200px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; align-content: center; }
+.chip { background: var(--purple-light); border-radius: 24px; padding: 20px; font-size: 22px; line-height: 28px; white-space: nowrap; }
+.chipWithBtn { height: 68px; display: flex; gap: 12px; align-items: center; }
+.question { position: absolute; left: 1098px; top: 88px; width: 300px; height: 308px; object-fit: cover; pointer-events: none; }
+
+/* Белые карточки */
+.cards { width: 100%; padding: 0 120px; display: flex; flex-direction: column; gap: 40px; }
+.cardsRow { display: flex; gap: 12px; align-items: stretch; }
+.card { flex: 1 0 0; min-width: 1px; background: #fff; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.card2lines { min-height: 64px; }
+
+/* Как проходит */
+.flow { display: flex; flex-direction: column; gap: 16px; }
+.flowRow { display: flex; gap: 12px; align-items: center; }
+.flowRow > .card { align-self: stretch; }
+.arrow { width: 48px; height: 48px; flex-shrink: 0; }
+
+/* Три градиентные панели */
+.panels { width: 100%; padding: 0 40px; display: flex; gap: 12px; align-items: stretch; }
+.panel {
+  flex: 1 0 0;
+  min-width: 1px;
+  padding: 50px 80px;
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(158.15deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+
+/* Что делать прямо сейчас */
+.nowGrid { display: flex; flex-direction: column; gap: 12px; }
+.nowRow { display: flex; gap: 12px; align-items: stretch; }
+.nowCard {
+  flex: 1 0 0;
+  min-width: 1px;
+  padding: 20px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(169.54deg, rgba(197, 200, 230, 0.2) 7.3216%, rgba(226, 228, 245, 0.2) 92.621%);
+}
+.nowCard > p:first-child { font-size: 28px; line-height: 36px; }
+.nowSpacer { flex: 1 0 0; min-width: 1px; }
+.hourglassBox { position: absolute !important; left: 923px; top: 312px; width: 375.898px; height: 369.311px; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.hourglassBox img { width: 316.27px; height: 307.568px; object-fit: cover; transform: rotate(12.64deg); max-width: none; }
+
+/* Материалы раздела — 6 карточек без фото, 3 в ряд */
+.materials {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.matCard {
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+.matCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+  border-color: var(--purple-mid);
+}
+.matTitle { color: var(--purple-dark); }
+.matCard:hover .matTitle { color: var(--purple-mid); }
+.matDesc {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--oil-black);
+  flex: 1;
+}
+.matFoot {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(104, 96, 169, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.matDate {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--purple-dark-70);
+}
+.matTime {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--purple-mid);
+  white-space: nowrap;
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  /* Fix 2: меньше gap между секциями */
+  .main { gap: 28px; }
+
+  /* Intro блок — тонкая рамка остаётся, компактнее */
+  .intro { padding: 20px 16px; font-size: 15px; line-height: 22px; gap: 12px; max-width: calc(100% - 24px); border-radius: 20px; }
+
+  /* Стоимость */
+  .priceWrap { gap: 16px; }
+  .priceRow2 { flex-direction: column; padding: 0 12px; gap: 8px; }
+  .priceCard { padding: 12px 14px; border-radius: 14px; gap: 8px; }
+  .priceCard > p { font-size: 14px; line-height: 20px; }
+  .priceCard > a { height: 36px; padding: 8px 14px; font-size: 13px; }
+  .priceCardFree { height: auto; }
+  .free { font-size: 20px; line-height: 24px; }
+
+  /* Fix 3: Что входит — аккордеон на мобилке */
+  .includes { width: calc(100% - 24px); margin: 0 12px; padding: 20px 14px; border-radius: 20px; gap: 16px; }
+  .includes > h2 { width: 100%; font-size: 20px; line-height: 26px; }
+  .grid { gap: 8px; }
+  .row { flex-direction: column; gap: 8px; }
+  .incCard { padding: 14px 16px; border-radius: 16px; gap: 8px; display: block; }
+  .incSummary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding-right: 28px;
+  }
+  /* На мобильном цифра — обычный цвет (gradient background-clip может глючить на iOS Safari) */
+  .incSummary .gradNum {
+    font-size: 20px;
+    line-height: 22px;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--purple-mid);
+    flex-shrink: 0;
+  }
+  .incShort {
+    display: inline;
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--oil-black);
+    flex: 1;
+    min-width: 0;
+  }
+  .incSummary::after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid var(--purple-mid);
+    border-bottom: 2px solid var(--purple-mid);
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s;
+  }
+  .incCard[data-open="true"] .incSummary::after {
+    transform: translateY(-30%) rotate(-135deg);
+  }
+  .incCard[data-open="false"] .incBody { display: none; }
+  .incBody { margin-top: 10px; }
+  .incBody p { font-size: 13px; line-height: 18px; }
+
+  /* Когда нужен (chips) */
+  .when { padding: 0 12px; gap: 16px; }
+  .when > h2 { font-size: 22px; line-height: 28px; }
+  .chips { width: 100%; gap: 8px; }
+  .chip { padding: 10px 14px; font-size: 14px; line-height: 18px; border-radius: 16px; }
+  /* Fix 4: чип "Задержание ст.91" с кнопкой — компактнее */
+  .chipWithBtn { height: auto; padding: 8px 10px; gap: 8px; flex-wrap: wrap; }
+  .chipWithBtn > button {
+    height: 32px !important;
+    padding: 4px 12px !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    border-radius: 999px !important;
+  }
+  .question { display: none; }
+
+  /* Белые карточки (Почему нельзя ждать + Как проходит) */
+  .cards { padding: 0 12px; gap: 20px; }
+  .cards > h2 { font-size: 22px; line-height: 28px; }
+  .cardsRow { flex-direction: column; gap: 8px; }
+  .card { padding: 14px 16px; border-radius: 16px; gap: 6px; }
+  .card2lines { min-height: 0; }
+  .card > h3 { font-size: 17px; line-height: 22px; }
+  .card > p { font-size: 14px; line-height: 20px; }
+
+  /* Fix 5: Flow — все карточки одной ширины, без смещения */
+  .flow { gap: 8px; }
+  .flowRow { flex-direction: column; gap: 8px; align-items: stretch; }
+  .flowRow > .card { width: 100%; align-self: stretch; margin: 0; }
+  .arrow { display: none; }
+
+  /* Fix 6: Три панели скрыты на мобилке, остаются в DOM для SEO (Google видит текст) */
+  .panels { display: none; }
+
+  /* DarkPanel "Что делать прямо сейчас" */
+  .nowGrid { gap: 8px; }
+  .nowRow { flex-direction: column; gap: 8px; }
+  .nowCard { padding: 12px 14px; border-radius: 14px; gap: 4px; }
+  .nowCard > p:first-child { font-size: 18px; line-height: 24px; }
+  .nowCard > p:last-child { font-size: 14px; line-height: 20px; }
+  .nowSpacer { display: none; }
+  .hourglassBox { display: none !important; }
+
+  /* Материалы раздела */
+  .materials { padding: 0 12px; gap: 16px; }
+  .materials > h2 { font-size: 22px; line-height: 28px; }
+  .materialsGrid { grid-template-columns: 1fr; gap: 10px; }
+  /* На мобилке границы сразу фиолетовые — на тач-девайсах нет hover */
+  .matCard { padding: 16px; border-radius: 18px; gap: 10px; border-color: var(--purple-mid); }
+  .matTitle { color: var(--purple-mid); }
+  .matTitle { font-size: 18px; line-height: 24px; }
+  .matDesc { font-size: 14px; line-height: 20px; }
+  .matFoot { padding-top: 10px; margin-top: 4px; }
+  .matDate { font-size: 13px; line-height: 18px; }
+  .matTime { font-size: 14px; line-height: 18px; }
+}
+
+@media (max-width: 767px) {
+  .includes {
+    display: none !important;
+  }
+}

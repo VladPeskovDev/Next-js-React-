@@ -1,0 +1,24 @@
+.wrap { width: 100%; padding: 0 120px; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+.wrap > h2 { width: 100%; }
+.steps { width: 100%; display: flex; gap: 12px; align-items: flex-start; }
+.step { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; flex: 1 0 0; min-width: 1px; }
+.step > * { width: 100%; }
+.num {
+  font-size: 40px;
+  line-height: 48px;
+  background-image: var(--number-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ГЛАВНОЙ (до 767px) ========== */
+@media (max-width: 767px) {
+  :global(.page--home) .wrap { padding: 0 16px; gap: 16px; }
+  :global(.page--home) .steps { flex-direction: column; gap: 14px; }
+  :global(.page--home) .step { flex: none !important; width: 100%; gap: 4px; }
+  :global(.page--home) .num { font-size: 24px; line-height: 28px; }
+  :global(.page--home) .step h3 { line-height: 22px; }
+  :global(.page--home) .step p:last-child { line-height: 18px; }
+}
+

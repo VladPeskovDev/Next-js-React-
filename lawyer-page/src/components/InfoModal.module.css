@@ -1,0 +1,28 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(12, 12, 14, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade 0.18s ease-out;
+}
+.box {
+  width: 711px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.head { display: flex; gap: 16px; align-items: center; width: 100%; }
+.head > h3 { flex: 1 0 0; min-width: 1px; }
+.close { width: 32px; height: 32px; flex-shrink: 0; position: relative; }
+.close img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.body { width: 631px; max-width: 100%; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }

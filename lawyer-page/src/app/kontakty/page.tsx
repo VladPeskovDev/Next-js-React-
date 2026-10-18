@@ -1,18 +1,19 @@
-import styles from "./ContactPage.module.css";
-import { FaTelegramPlane } from "react-icons/fa";
-import ClientYandexMap from "../../components/ClientYandexMap"; // Импортируем клиентский компонент
+import type { Metadata } from "next";
+import ContactButtons from "@/components/ContactButtons";
+import SiteFooter from "@/components/SiteFooter";
+import Header from "@/components/Header";
+import ClientYandexMap from "@/components/ClientYandexMap";
 import { BreadcrumbsMicrodata } from "@/components/mdx/Breadcrumbs";
+import { IMG } from "@/lib/img";
+import { ADDRESS } from "@/lib/site";
+import s from "./page.module.css";
 
-const breadcrumbItems = [
-  { name: "Главная", url: "/" },
-  { name: "Контакты", url: "/kontakty/" },
-];
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Телефон адвоката в Москве — помощь 24/7",
   description:
     "Телефон и адрес адвоката по уголовным делам в Москве — Песков В.С. Выезд при задержании 24/7, бесплатная консультация. +7 (916) 578-09-36, Telegram 24/7.",
-  keywords: "телефон адвоката, телефоны адвокатов, адвокат по уголовным делам телефон, срочный адвокат Москва, консультация адвоката",
+  keywords:
+    "телефон адвоката, телефоны адвокатов, адвокат по уголовным делам телефон, срочный адвокат Москва, консультация адвоката",
   alternates: { canonical: "https://advokat-peskov.com/kontakty/" },
   openGraph: {
     type: "website",
@@ -25,6 +26,10 @@ export const metadata = {
   },
 };
 
+const breadcrumbItems = [
+  { name: "Главная", url: "/" },
+  { name: "Контакты", url: "/kontakty/" },
+];
 
 const breadcrumbLd = {
   "@context": "https://schema.org",
@@ -35,44 +40,78 @@ const breadcrumbLd = {
   ],
 };
 
-export default function ContactPage() {
+export default function ContactsPage() {
   return (
-    <main className={styles.container}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <BreadcrumbsMicrodata items={breadcrumbItems} />
-      <div className={styles.photoContainer}>
-        <div className={styles.photoOverlay}>
-          <h1 className={styles.overlayText}>Контакты адвоката по уголовным делам в Москве</h1>
-          <p className={styles.overlaySubtext}>Если Вам нужна помощь, звоните — работаю круглосуточно.</p>
-          <div className={styles.buttons}>
-            <a href="tel:+79165780936" className={styles.button}>+7 916 578 09 36</a>
-            <a href="https://t.me/Peskov_Vladislav" target="_blank" rel="noopener noreferrer" className={styles.buttonTelegram}>
-              <FaTelegramPlane className={styles.icon}/>Telegram
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className={styles.infoSection}>
-        <div className={styles.infoWrapper}>
-          <div className={styles.card}>
-            <p>Адрес: г. Москва, ул. Маршала Рыбалко 2, корп.6, оф.408</p>
-          </div>
-          <div className={styles.card}>
-            <p>Коллегия адвокатов №1, ИНН 1326186560, ОГРН 1021300987070</p>
-          </div>
-          <div className={styles.card}>
-            <p>Регистрационный №13/597, Удостоверение № 686</p>
-          </div>
-        </div>
-      </div>
 
-      {/* Карта загружается лениво */}
-      <div className={styles.mapContainer}>
-        <ClientYandexMap />
-      </div>
-    </main>
+      <main className="page page--home page--inner" style={{ gap: 40 }}>
+        <div className={s.top}>
+          <Header active="contacts" />
+          <div className={s.heroRow}>
+            <div className={s.heroLeft}>
+              <div className={s.heroLeftInner}>
+                <div className={s.intro}>
+                  <h1 className="t-h1">Контакты адвоката по уголовным делам в Москве</h1>
+                  <p className="t-body1">
+                    Если нужна помощь — звоните, работаю круглосуточно. Выезд по Москве за 30–40 минут. Первичная консультация по телефону — бесплатно.
+                  </p>
+                </div>
+                <ContactButtons />
+              </div>
+            </div>
+            <div className={s.photo}>
+              <a className={s.qrBox} href="/contact.vcf" download aria-label="Скачать контакт адвоката">
+                <img src="/qr-peskov.svg" alt="QR-код с контактами адвоката Пескова В.С." className={s.qrImg} />
+                <p className={s.qrCaption}>Отсканируй и забери контакты</p>
+              </a>
+            </div>
+          </div>
+
+          <div className={s.bottom}>
+            <div className={s.infoWrap}>
+              <div className={s.infoRow}>
+                <div className={s.info}>
+                  <div className={s.icon}><img src={IMG.iconClock} alt="" /></div>
+                  <div className={s.infoText}>
+                    <p className="t-h3">Режим работы</p>
+                    <p className="t-body3">Круглосуточно, без выходных</p>
+                  </div>
+                </div>
+                <div className={s.info}>
+                  <div className={s.icon}><img src={IMG.iconPin} alt="" /></div>
+                  <div className={s.infoText}>
+                    <p className="t-h3">Адрес</p>
+                    <p className="t-body3">{ADDRESS}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Реквизиты адвоката — важно для E-E-A-T и подтверждения статуса */}
+            <div className={s.infoWrap}>
+              <div className={s.credRow}>
+                <div className={s.cred}>
+                  <p className={s.credLabel}>Коллегия адвокатов № 1</p>
+                  <p className={s.credValue}>ИНН 1326186560 · ОГРН 1021300987070</p>
+                </div>
+                <div className={s.cred}>
+                  <p className={s.credLabel}>Регистрационный номер</p>
+                  <p className={s.credValue}>№ 13/597 · Удостоверение № 686</p>
+                </div>
+              </div>
+            </div>
+
+            <div className={s.mapWrap}>
+              <div className={s.map} aria-label="Карта: офис адвоката Пескова В.С. в Москве">
+                <ClientYandexMap />
+              </div>
+            </div>
+          </div>
+        </div>
+        <SiteFooter />
+      </main>
+    </>
   );
 }

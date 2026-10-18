@@ -1,0 +1,174 @@
+/* ---------- Hero ---------- */
+/* Первый экран живёт в той же колонке 1440px, что и весь сайт,
+   поэтому при автомасштабе фото уменьшается вместе с карточками.
+   Вернуть фото «на весь экран»: см. комментарий FULL-BLEED в конце файла. */
+.top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 852px; /* высота из макета */
+}
+.heroImg { position: absolute; inset: 0; overflow: hidden; }
+/* Кадрирование фото 1:1 как в макете Figma (фото приближено, стена частично обрезана) */
+.heroImg img {
+  position: absolute;
+  width: 158.4%;
+  height: 166.18%;
+  left: -3.97%;
+  top: -14.32%;
+  max-width: none;
+}
+/* Header глобально зафиксирован (см. Header.module.css) — локального позиционирования не нужно */
+/* Карточка и рейтинги привязаны к низу экрана (отступы те же, что в макете) */
+.heroCard {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  width: 620px;
+  height: 412px;
+  padding: 40px;
+  border-radius: 40px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.intro { display: flex; flex-direction: column; gap: 16px; color: var(--purple-dark); }
+.contact { display: flex; flex-direction: column; gap: 32px; }
+.benefits { display: flex; gap: 12px; color: var(--purple-dark); }
+.benefits > p { flex: 1 0 0; min-width: 1px; }
+.ratings {
+  position: absolute;
+  right: 43px;
+  bottom: 54px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ratingRow { display: flex; gap: 12px; align-items: center; font-size: 20px; line-height: 31px; white-space: nowrap; }
+.ratingVal { display: flex; gap: 4px; align-items: center; color: var(--purple-mid); font-weight: 500; }
+.ratingVal img { width: 24px; height: 24px; }
+
+/* ---------- Key facts (белая полоса тоже на всю ширину) ---------- */
+.facts { width: 100%; background: #fff; padding: 32px 42px; overflow: hidden; }
+.factsRow { display: flex; align-items: center; justify-content: space-between; white-space: nowrap; }
+.fact { display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+.fact > :first-child { color: var(--purple-mid); }
+
+/* ---------- Почему доверители ---------- */
+.why {
+  position: relative;
+  width: 1361px;
+  background: var(--purple-dark);
+  border-radius: 40px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: hidden;
+  color: #fff;
+}
+.ellipse {
+  position: absolute;
+  left: -722.39px;
+  top: 90px;
+  width: 2686.58px;
+  height: 2686.58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.ellipseRot { transform: rotate(-96.8deg); }
+.ellipseBox { position: relative; width: 2417.408px; height: 2417.408px; }
+.ellipseBox img { position: absolute; inset: -4.14%; width: 108.28%; height: 108.28%; max-width: none; }
+.why > h2 { position: relative; width: 100%; }
+.whyGrid { position: relative; display: flex; flex-direction: column; gap: 12px; }
+.whyRow { display: flex; gap: 12px; }
+.whyCard {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 298px;
+  padding: 20px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--light-gradient-20);
+}
+.whyIcon { position: relative; width: 90px; height: 90px; overflow: hidden; flex-shrink: 0; }
+.whyIconInner { position: absolute; overflow: hidden; }
+.whyIconInner img { position: absolute; top: 0; height: 100%; max-width: none; }
+.whyText { display: flex; flex-direction: column; gap: 12px; }
+.whyText p:last-child { font-size: 20px; line-height: 28px; }
+
+/* ---------- Цитата ---------- */
+.statement { width: 100%; padding: 0 120px; display: flex; gap: 40px; align-items: center; }
+.statement > p { flex: 1 0 0; min-width: 1px; }
+
+/* FULL-BLEED: чтобы снова растянуть первый экран на всё окно, замените .top и высоту .hero на:
+.top { align-self: flex-start; width: calc(100vw / var(--z, 1)); min-width: 1441px;
+       margin-left: min(0px, calc(50% - 50vw / var(--z, 1))); display: flex; flex-direction: column; }
+.hero { height: calc(100svh / var(--z, 1)); min-height: 680px; }
+*/
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  /* Первый экран: фото сверху, карточка наезжает на него снизу */
+  .hero { height: auto; display: flex; flex-direction: column; }
+  .heroImg { position: relative; inset: auto; height: 460px; }
+  .heroImg img {
+    width: 100%; height: 100%; left: 0; top: 0;
+    object-fit: cover;
+    object-position: 35% 20%; /* сдвиньте первую цифру, если адвокат не в центре */
+  }
+  /* .hero .header больше не нужен — Header зафиксирован глобально */
+  .heroCard {
+    position: relative; left: auto; bottom: auto;
+    width: auto; height: auto;
+    margin: -48px 12px 0;
+    padding: 18px 16px;
+    border-radius: 24px;
+    gap: 14px;
+    transform: none;
+  }
+  .intro { gap: 8px; }
+  .contact { gap: 12px; }
+  .benefits { flex-direction: column; gap: 4px; }
+  .benefits > p { line-height: 18px; }
+  .ratings {
+    position: static;
+    margin: 12px 12px;
+    padding: 14px 16px;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 12px;
+    border: 1px solid var(--purple-mid);
+  }
+  .ratingRow { font-size: 16px; line-height: 22px; gap: 8px; }
+
+  /* Цифры — сетка 2×3 */
+  .facts { padding: 18px 16px; }
+  .factsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 12px; white-space: normal; }
+  .fact { gap: 2px; }
+  .fact > :first-child { font-size: 20px; line-height: 24px; }
+  .fact > :last-child { font-size: 14px; line-height: 18px; }
+
+  /* «Почему доверители обращаются ко мне» */
+  .why { width: calc(100% - 24px); padding: 28px 20px; border-radius: 28px; gap: 20px; }
+  .ellipse { display: none; }
+  .whyRow { flex-direction: column; gap: 10px; }
+  .whyCard { height: auto; flex: none; padding: 14px 16px; gap: 4px; }
+  .whyIcon { width: 70px; height: 70px; }
+  .whyText { gap: 6px; }
+  .whyText p:last-child { font-size: 15px; line-height: 20px; }
+}
+

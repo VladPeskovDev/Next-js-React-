@@ -1,0 +1,107 @@
+.top { width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: center; }
+.heroRow { width: 1360px; display: flex; gap: 20px; align-items: center; }
+.heroLeft { flex: 1 0 0; min-width: 1px; height: 444px; display: flex; flex-direction: column; justify-content: center; }
+.heroLeftInner { display: flex; flex-direction: column; gap: 40px; }
+.intro { display: flex; flex-direction: column; gap: 16px; color: var(--purple-dark); }
+.intro > p { width: 557px; }
+.photo { position: relative; width: 485px; height: 444px; flex-shrink: 0; border-radius: 40px; overflow: hidden; background: transparent; }
+.photoBox { position: absolute; width: 591px; height: 598px; left: -53px; top: -102px; overflow: hidden; }
+.photoBox img { position: absolute; height: 100%; width: 181.16%; left: -43.12%; top: 0; max-width: none; }
+
+/* QR-код: вместо фото. При клике скачивается vcf-карточка контактов */
+.qrBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--purple-dark);
+  transition: transform 0.2s;
+}
+.qrBox:hover { transform: scale(1.02); }
+.qrImg {
+  width: 280px;
+  height: 280px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+.qrCaption {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--purple-dark);
+  max-width: 320px;
+}
+/* align-items: center выравнивает все .infoWrap/.mapWrap по центру родителя .page --home (1361px) —
+   иначе .infoWrap (1440px, с padding 40px) прижат к левому краю и сдвигает контент на 40px вправо
+   относительно абзаца «Контакты адвоката…» в .heroRow (1360px, центрирован).
+   Gap 12 вместо 20 — поднять блок реквизитов ближе к блоку «Режим работы / Адрес». */
+.bottom { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.infoWrap { width: 1440px; padding: 0 40px; box-sizing: border-box; }
+.infoRow { display: flex; gap: 12px; align-items: center; }
+.info { flex: 1 0 0; min-width: 1px; background: #fff; border-radius: 24px; padding: 20px; display: flex; gap: 12px; align-items: flex-start; }
+.icon { position: relative; width: 64px; height: 64px; overflow: hidden; flex-shrink: 0; }
+.icon img { position: absolute; left: 2.84px; top: 3.56px; width: 58.378px; height: 57.6px; object-fit: cover; max-width: none; }
+.infoText { flex: 1 0 0; min-width: 1px; display: flex; flex-direction: column; gap: 12px; }
+.mapWrap { width: 100%; padding: 0 40px; }
+.map { position: relative; width: 100%; height: 558px; border-radius: 40px; overflow: hidden; background: #fff; }
+.map > div { width: 100% !important; height: 100% !important; }
+
+/* Блок реквизитов адвоката (ИНН, ОГРН, рег. номер) */
+.credRow { display: flex; gap: 12px; align-items: stretch; }
+.cred {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.credLabel { font-family: var(--font); font-size: 22px; line-height: 28px; color: var(--purple-dark); }
+.credValue { font-family: var(--font-inter); font-size: 16px; line-height: 22px; color: var(--oil-black); }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .top { padding-top: 68px; gap: 24px; }
+
+  .heroRow { width: 100%; flex-direction: column; gap: 20px; padding: 0 12px; box-sizing: border-box; }
+  .heroLeft { height: auto; order: 1; }
+  .heroLeftInner { gap: 20px; }
+  .intro > p { width: auto; font-size: 15px; line-height: 22px; }
+
+  .photo { width: 100%; height: auto; min-height: 0; border-radius: 0; order: 2; padding: 0; }
+  .photoBox { width: 100%; height: 100%; left: 0; top: 0; }
+  .photoBox img { width: 100%; height: 100%; left: 0; top: 0; object-fit: cover; object-position: center top; }
+  /* QR-код на мобильном — компактнее */
+  .qrBox { padding: 20px 16px; gap: 14px; }
+  .qrImg { width: 220px; height: 220px; }
+  .qrCaption { font-size: 15px; line-height: 20px; max-width: 240px; }
+
+  .bottom { gap: 12px; }
+  .infoWrap { width: 100%; padding: 0 12px; }
+  .infoRow { flex-direction: column; gap: 10px; align-items: stretch; }
+  .info { width: 100%; padding: 14px 16px; gap: 10px; border-radius: 18px; }
+  .icon { width: 48px; height: 48px; }
+  .icon img { width: 44px; height: 44px; left: 2px; top: 2px; }
+  .infoText { gap: 4px; }
+  .infoText > p:first-child { font-size: 18px; line-height: 22px; }
+  .infoText > p:last-child { font-size: 14px; line-height: 20px; }
+
+  .credRow { flex-direction: column; gap: 10px; }
+  .cred { padding: 14px 16px; gap: 4px; border-radius: 18px; }
+  .credLabel { font-size: 16px; line-height: 20px; }
+  .credValue { font-size: 13px; line-height: 18px; }
+
+  .mapWrap { padding: 0 12px; }
+  .map { height: 280px; border-radius: 24px; }
+}

@@ -1,0 +1,275 @@
+/* Контейнер страницы */
+.main { gap: 72px; }
+
+/* Вводные параграфы — SEO-смысловое ядро после PracticeHero */
+.intro {
+  width: 1200px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  padding: 32px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+}
+.intro strong { color: var(--purple-dark); font-weight: 500; }
+.intro a { color: var(--purple-mid); font-weight: 500; }
+.intro a:hover { text-decoration: underline; }
+
+/* Выберите вашу ситуацию — 5 карточек на градиентной подложке */
+.situations {
+  width: 1361px;
+  border-radius: 40px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden;
+  background: linear-gradient(170.76deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+.situations > h2 { width: 963px; max-width: 100%; }
+.sitGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.sitCard {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+.sitCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+}
+.sitCard h3 { color: var(--purple-dark); min-height: 64px; }
+.sitText {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--oil-black);
+  flex: 1;
+}
+.sitLink {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(104, 96, 169, 0.15);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--purple-mid);
+}
+.sitFoot {
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--oil-black);
+}
+.sitFoot strong { color: var(--purple-dark); font-weight: 500; }
+
+/* Что решает исход дела — 5 белых карточек */
+.factors {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.factorsIntro {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+  max-width: 1000px;
+}
+.factorsIntro strong { color: var(--purple-dark); font-weight: 500; }
+.factorsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.factorCard {
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.15);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.factorCard h3 { color: var(--purple-dark); }
+.factorText {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--oil-black);
+}
+.factorText a {
+  color: var(--purple-mid);
+  font-weight: 500;
+}
+.factorText a:hover { text-decoration: underline; }
+
+/* Практика — тёмная панель, 4 кейса в 2 ряда */
+.casesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.caseCard {
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(169.54deg, rgba(197, 200, 230, 0.2) 7.3216%, rgba(226, 228, 245, 0.2) 92.621%);
+}
+.caseText {
+  font-family: var(--font-inter);
+  font-size: 17px;
+  line-height: 25px;
+  color: #fff;
+  opacity: 0.95;
+}
+.casesFoot {
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+}
+.casesFoot a { color: #fff; text-decoration: underline; }
+.casesFoot a:hover { opacity: 0.85; }
+
+/* Материалы раздела — 5 карточек, 3+2 */
+.materials {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.matCard {
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+.matCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+  border-color: var(--purple-mid);
+}
+.matTitle { color: var(--purple-dark); }
+.matCard:hover .matTitle { color: var(--purple-mid); }
+.matDesc {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--oil-black);
+  flex: 1;
+}
+.matFoot {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(104, 96, 169, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.matDate {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--purple-dark-70);
+}
+.matTime {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--purple-mid);
+  white-space: nowrap;
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .main { gap: 28px; }
+
+  .intro {
+    padding: 20px 16px;
+    font-size: 15px;
+    line-height: 22px;
+    gap: 12px;
+    max-width: calc(100% - 24px);
+    border-radius: 20px;
+  }
+
+  .situations {
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    padding: 20px 14px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+  .situations > h2 { width: 100%; font-size: 20px; line-height: 26px; }
+  .sitGrid { grid-template-columns: 1fr; gap: 8px; }
+  .sitCard { padding: 14px 16px; border-radius: 16px; gap: 8px; }
+  .sitCard h3 { font-size: 16px; line-height: 22px; min-height: 0; }
+  .sitText { font-size: 14px; line-height: 20px; }
+  .sitLink { font-size: 14px; line-height: 18px; padding-top: 10px; margin-top: 4px; }
+  .sitFoot { font-size: 14px; line-height: 20px; }
+
+  .factors { padding: 0 12px; gap: 16px; }
+  .factors > h2 { font-size: 22px; line-height: 28px; }
+  .factorsIntro { font-size: 15px; line-height: 22px; }
+  .factorsGrid { grid-template-columns: 1fr; gap: 8px; }
+  .factorCard { padding: 14px 16px; border-radius: 16px; gap: 6px; }
+  .factorCard h3 { font-size: 17px; line-height: 22px; }
+  .factorText { font-size: 14px; line-height: 20px; }
+
+  .casesGrid { grid-template-columns: 1fr; gap: 8px; }
+  .caseCard { padding: 14px 16px; border-radius: 16px; gap: 6px; }
+  .caseCard h3 { font-size: 17px; line-height: 22px; }
+  .caseText { font-size: 14px; line-height: 20px; }
+  .casesFoot { font-size: 14px; line-height: 20px; }
+
+  .materials { padding: 0 12px; gap: 16px; }
+  .materials > h2 { font-size: 22px; line-height: 28px; }
+  .materialsGrid { grid-template-columns: 1fr; gap: 10px; }
+  /* На мобилке границы сразу фиолетовые — на тач-девайсах нет hover */
+  .matCard { padding: 16px; border-radius: 18px; gap: 10px; border-color: var(--purple-mid); }
+  .matTitle { color: var(--purple-mid); }
+  .matTitle { font-size: 18px; line-height: 24px; }
+  .matDesc { font-size: 14px; line-height: 20px; }
+  .matFoot { padding-top: 10px; margin-top: 4px; }
+  .matDate { font-size: 13px; line-height: 18px; }
+  .matTime { font-size: 14px; line-height: 18px; }
+}

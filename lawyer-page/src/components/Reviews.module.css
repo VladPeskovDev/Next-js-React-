@@ -1,0 +1,78 @@
+/* Отзывы в фиолетовом блоке — как «Экспертные комментарии в СМИ» */
+.reviews {
+  width: 1361px;
+  padding: 50px 80px;
+  border-radius: 40px;
+  background: linear-gradient(171.35deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  overflow: hidden;
+}
+.head { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.title { white-space: nowrap; }
+.platforms { width: 512px; display: flex; gap: 60px; align-items: flex-start; }
+.platform { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.platformRating { display: flex; gap: 20px; align-items: flex-start; font-size: 20px; line-height: 31px; white-space: nowrap; }
+.star { display: flex; align-items: center; gap: 4px; }
+.star img { width: 24px; height: 24px; }
+/* Лента карточек уходит за правый край, как в макете; прокручивается горизонтально */
+/* Лента по ширине контента: карточки уезжают под фиолетовый отступ 80px
+   одинаково с обеих сторон (обрезка по линии отступа, а не по краю блока) */
+.track {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+.card {
+  width: 525px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.card > p { width: 100%; }
+
+/* Кликабельная карточка — переход на Яндекс.Отзывы */
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+.cardLink:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+}
+.cardLink .name {
+  color: var(--purple-mid);
+  transition: color 0.15s;
+}
+.cardLink:hover .name { text-decoration: underline; }
+.footer { width: 100%; display: flex; gap: 20px; align-items: center; }
+.name { flex: 1 0 0; font-size: 20px; line-height: 31px; }
+.cardRating { display: flex; gap: 4px; align-items: center; font-size: 20px; line-height: 22px; white-space: nowrap; }
+.cardRating img { width: 24px; height: 24px; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ГЛАВНОЙ (до 767px) ========== */
+@media (max-width: 767px) {
+  :global(.page--home) .reviews { width: calc(100% - 24px); padding: 32px 20px; border-radius: 28px; gap: 24px; }
+  :global(.page--home) .head { flex-direction: column; align-items: flex-start; gap: 16px; }
+  :global(.page--home) .platforms { width: auto; gap: 24px; flex-wrap: wrap; }
+  :global(.page--home) .platform { align-items: flex-start; }
+  :global(.page--home) .platform > img { max-width: 130px; height: auto !important; }
+  :global(.page--home) .platformRating { font-size: 15px; line-height: 22px; gap: 8px; }
+  :global(.page--home) .card { width: 290px; padding: 16px; gap: 14px; }
+  :global(.page--home) .name { font-size: 17px; line-height: 24px; }
+}

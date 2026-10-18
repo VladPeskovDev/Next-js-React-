@@ -1,0 +1,58 @@
+.wrap { width: 100%; padding: 0 120px; display: flex; flex-direction: column; gap: 50px; align-items: flex-start; }
+.head { width: 100%; display: flex; gap: 21px; align-items: flex-start; }
+.title { width: 470px; flex-shrink: 0; }
+.desc { flex: 1 0 0; min-width: 1px; white-space: pre-wrap; }
+.cards { width: 100%; display: flex; gap: 12px; align-items: stretch; }
+.card {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 409px;
+  padding: 20px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--light-gradient);
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12); }
+.dark { background: var(--purple-dark); color: #fff; }
+.dark:hover { box-shadow: 0 20px 40px rgba(44, 39, 69, 0.3); }
+.content { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+.content a { text-decoration: underline; text-underline-position: from-font; }
+.arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 666px;
+  background: var(--purple-light-2-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.15s;
+}
+.card:hover .arrow { background: rgba(239, 238, 244, 0.9); }
+.arrow img { width: 16px; height: 16px; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ГЛАВНОЙ (до 767px) ========== */
+@media (max-width: 767px) {
+  :global(.page--home) .wrap { padding: 0 16px; gap: 24px; }
+  :global(.page--home) .head { flex-direction: column; gap: 12px; }
+  :global(.page--home) .title { width: auto; }
+  /* карточки — карусель с прокруткой пальцем */
+  :global(.page--home) .cards {
+    width: calc(100% + 32px);
+    margin: 0 -16px;
+    padding: 0 16px;
+    scroll-padding-inline: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  :global(.page--home) .cards::-webkit-scrollbar { display: none; }
+  :global(.page--home) .card { flex: 0 0 80%; height: 340px; scroll-snap-align: start; }
+}

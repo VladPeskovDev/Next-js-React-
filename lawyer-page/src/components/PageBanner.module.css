@@ -1,0 +1,50 @@
+.banner {
+  position: relative;
+  width: 1362px;
+  height: 428px;
+  padding: 20px;
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: linear-gradient(172.49deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+.content { position: relative; z-index: 1; width: 992px; display: flex; flex-direction: column; gap: 40px; }
+.title { color: var(--purple-dark); }
+.chips { display: flex; gap: 12px; align-items: flex-start; }
+.chip { background: #fff; border-radius: 60px; padding: 16px 20px 20px; color: var(--purple-mid); }
+.imgBox { position: absolute; overflow: hidden; pointer-events: none; }
+.imgBox img { position: absolute; max-width: none; object-fit: cover; }
+.withSub { gap: 12px; }
+.sub { width: 557px; color: var(--purple-dark); }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .banner {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    min-height: 320px;
+    padding: 72px 16px 24px;
+    border-radius: 0 0 24px 24px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .content { width: 100%; gap: 20px; z-index: 2; }
+  .title { font-size: 24px; line-height: 28px; }
+  .sub { width: auto; font-size: 15px; line-height: 22px; }
+  .chips { flex-wrap: wrap; gap: 8px; }
+  .chip { padding: 10px 14px 12px; font-size: 14px; line-height: 18px; }
+  /* Декоративная картинка на мобильном уходит в фон правого нижнего угла */
+  .imgBox {
+    width: 220px !important;
+    height: 220px !important;
+    left: auto !important;
+    right: -40px !important;
+    top: auto !important;
+    bottom: -40px !important;
+    opacity: 0.45;
+  }
+}

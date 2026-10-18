@@ -1,0 +1,197 @@
+/* Контейнер страницы */
+.main { gap: 72px; }
+
+/* Вводные параграфы — SEO-смысловое ядро */
+.intro {
+  width: 1200px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  padding: 32px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+}
+.intro strong { color: var(--purple-dark); font-weight: 500; }
+.intro a { color: var(--purple-mid); font-weight: 500; }
+.intro a:hover { text-decoration: underline; }
+
+/* Группы категорий — просто текстом как в оригинале, в новых цветах */
+.block {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.p {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+  max-width: 1100px;
+}
+.p strong { color: var(--purple-dark); font-weight: 500; }
+.p a { color: var(--purple-mid); font-weight: 500; }
+.p a:hover { text-decoration: underline; }
+
+/* "Если вашей статьи здесь нет" — лёгкий блок */
+.noteWrap {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.note {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 31px;
+  color: var(--oil-black);
+  max-width: 1000px;
+}
+
+/* Другие разделы — 3 белые карточки с ссылками на родственные хабы */
+.otherSections {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.otherCard {
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-decoration: none;
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+.otherCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+  border-color: var(--purple-mid);
+}
+.otherCard h3 { color: var(--purple-dark); flex: 1; }
+.otherCard:hover h3 { color: var(--purple-mid); }
+
+/* Материалы раздела — 6 карточек, 3+3 */
+.materials {
+  width: 100%;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.matCard {
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--oil-black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+.matCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(44, 39, 69, 0.12);
+  border-color: var(--purple-mid);
+}
+.matTitle { color: var(--purple-dark); }
+.matCard:hover .matTitle { color: var(--purple-mid); }
+.matDesc {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--oil-black);
+  flex: 1;
+}
+.matFoot {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(104, 96, 169, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.matDate {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--purple-dark-70);
+}
+.matTime {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--purple-mid);
+  white-space: nowrap;
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .main { gap: 28px; }
+
+  .intro {
+    padding: 20px 16px;
+    font-size: 15px;
+    line-height: 22px;
+    gap: 12px;
+    max-width: calc(100% - 24px);
+    border-radius: 20px;
+  }
+
+  .block { padding: 0 12px; gap: 12px; }
+  .block > h2 { font-size: 22px; line-height: 28px; }
+  .p { font-size: 15px; line-height: 22px; }
+
+  .noteWrap { padding: 0 12px; gap: 10px; }
+  .noteWrap > h2 { font-size: 22px; line-height: 28px; }
+  .note { font-size: 15px; line-height: 22px; }
+
+  .otherSections { padding: 0 12px; gap: 16px; }
+  .otherSections > h2 { font-size: 22px; line-height: 28px; }
+  .otherGrid { grid-template-columns: 1fr; gap: 10px; }
+  /* На мобилке границы сразу фиолетовые — на тач-девайсах нет hover */
+  .otherCard { padding: 16px; border-radius: 18px; gap: 12px; border-color: var(--purple-mid); }
+  .otherCard h3 { font-size: 17px; line-height: 22px; color: var(--purple-mid); }
+
+  .materials { padding: 0 12px; gap: 16px; }
+  .materials > h2 { font-size: 22px; line-height: 28px; }
+  .materialsGrid { grid-template-columns: 1fr; gap: 10px; }
+  /* На мобилке границы сразу фиолетовые — на тач-девайсах нет hover */
+  .matCard { padding: 16px; border-radius: 18px; gap: 10px; border-color: var(--purple-mid); }
+  .matTitle { color: var(--purple-mid); font-size: 18px; line-height: 24px; }
+  .matDesc { font-size: 14px; line-height: 20px; }
+  .matFoot { padding-top: 10px; margin-top: 4px; }
+  .matDate { font-size: 13px; line-height: 18px; }
+  .matTime { font-size: 14px; line-height: 18px; }
+}

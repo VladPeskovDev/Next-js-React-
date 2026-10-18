@@ -1,0 +1,89 @@
+.widget {
+  float: right;
+  width: 340px;
+  /* Отступы, которые работают при обтекании:
+     — margin-left: расстояние между левой гранью виджета и текстом слева
+     — margin-bottom: расстояние между нижней гранью виджета и текстом, который пошёл под ним */
+  margin: 0 0 28px 28px;
+  background: #fff;
+  border: 1px solid rgba(104, 96, 169, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+/* Шапка — молния + заголовок */
+.head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.bolt {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--purple-mid);
+}
+.title {
+  font-family: var(--font);
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 500;
+  color: var(--purple-dark);
+  margin: 0;
+}
+
+/* Текст */
+.text {
+  font-family: var(--font-inter);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--oil-black);
+  margin: 0;
+}
+
+/* Кнопки — переопределяем gap у .row из ContactButtons, VK скрываем (не помещается) */
+.buttons { gap: 8px; }
+.buttons a[aria-label="ВКонтакте"] { display: none; }
+
+/* Статистики */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(104, 96, 169, 0.15);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.statValue {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--purple-mid);
+  margin: 0;
+  white-space: nowrap;
+}
+.statLabel {
+  font-family: var(--font-inter);
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--purple-dark-70);
+  margin: 0;
+}
+
+/* Мобилка — пока скрываем, разберёмся отдельно */
+@media (max-width: 1023px) {
+  .widget { display: none; }
+}

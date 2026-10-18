@@ -1,23 +1,178 @@
+/* Tailwind preflight + utilities — нужны для /tseny и /ob-advokate (пока не редизайнят) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  /* Цвета из макета (коллекция «Цвета») */
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --purple-dark: #2c2745;
+  --purple-dark-70: rgba(43, 39, 62, 0.7);
+  --purple-mid: #6860a9;
+  --purple-light-2-50: rgba(239, 238, 244, 0.5);
+  --oil-black: #0b1215;
+  --white-50: rgba(255, 255, 255, 0.5);
+  --purple-light: #dddff3;
+
+  /* Градиенты */
+  --light-gradient: linear-gradient(149.51deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+  --light-gradient-20: linear-gradient(162.34deg, rgba(197, 200, 230, 0.2) 7.3216%, rgba(226, 228, 245, 0.2) 92.621%);
+  --number-gradient: linear-gradient(176.04deg, #6860a9 7.3216%, #e2e4f5 92.621%);
+
+  --font: "Commissioner Variable", "Commissioner", Arial, sans-serif;
+  --font-inter: "Inter", Arial, sans-serif;
+
+  /* legacy — для старых страниц */
   --background: #1a2633;
   --foreground: #171717;
 }
 
+/* ---------- Автомасштаб (имитация Cmd−) ----------
+   Вся страница пропорционально уменьшается на ноутбуках, по бокам — фон сайта.
+   Подбирается одним числом --z на каждый диапазон ширины окна.
+   В браузерах без поддержки zoom остаётся 100%. */
+:root { --z: 1; }
+@supports (zoom: 1) {
+  @media (max-width: 2100px) { :root { --z: 0.85; } }  /* большие мониторы 2K */
+  @media (max-width: 1800px) { :root { --z: 0.75; } }  /* MacBook Air 15", Full HD */
+  @media (max-width: 1600px) { :root { --z: 0.75; } }  /* MacBook Air 13", MacBook Pro 14" */
+  html { zoom: var(--z); }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+}
+
+body {
+  min-width: 1440px;
+  font-family: var(--font);
+  font-weight: 400;
+  font-variation-settings: "FLAR" 0, "VOLM" 0;
+  color: var(--oil-black);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, p, ul, ol, figure, blockquote {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--purple-mid);
+  outline-offset: 2px;
+}
+
+/* Типографика (стили текста из макета) */
+.t-h1 { font-size: 50px; line-height: 48px; }
+.t-h2 { font-size: 40px; line-height: 48px; }
+.t-h3 { font-size: 28px; line-height: 32px; }
+.t-h3-36 { font-size: 28px; line-height: 36px; }
+.t-body1 { font-size: 22px; line-height: 28px; }
+.t-body2 { font-size: 20px; line-height: 31px; }
+.t-body3 { font-size: 16px; line-height: 22px; }
+.t-body3-bold { font-size: 16px; line-height: 21.142px; font-weight: 500; }
+
+.accent { color: var(--purple-mid); }
+
+/* Каркас страницы: 1361px — такая же ширина как у Header (навбара), все страницы выровнены */
+.page {
+  width: 1361px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+.page--inner { padding-top: 16px; }
+.page--home { width: 1361px; }
+
+.section-x {
+  width: 100%;
+  padding: 0 120px;
 }
 
-body > main {
-  flex: 1;
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 
+/* Botton secondary (без иконки) */
+.btn-secondary {
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 21px;
+  border: 1px solid var(--purple-mid);
+  border-radius: 999px;
+  color: var(--purple-mid);
+  font-size: 16px;
+  line-height: 21.142px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: rgba(104, 96, 169, 0.08); }
 
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ГЛАВНОЙ (до 767px) ========== */
+@media (max-width: 767px) {
+  :root { --z: 1; } /* на телефоне автомасштаб выключен */
+  /* На мобилке снимаем min-width: 1440px у body для любой страницы с .page (главная, хабы, статьи) */
+  body:has(.page) { min-width: 0; overflow-x: clip; }
+  .page { width: 100%; gap: 30px; }
+  .page--home { width: 100%; gap: 30px; }
+
+  /* Шкала текста для телефона */
+  .page--home .t-h1 { font-size: 24px; line-height: 28px; }
+  .page--home .t-h2 { font-size: 26px; line-height: 32px; }
+  .page--home .t-h3,
+  .page--home .t-h3-36 { font-size: 20px; line-height: 26px; }
+  .page--home .t-body1 { font-size: 15px; line-height: 20px; }
+  .page--home .t-body2 { font-size: 15px; line-height: 22px; }
+
+  /* Блок «фото + цитата» (компонент Statement) */
+  .page--home .statement { padding: 0 12px !important; flex-direction: column; align-items: stretch !important; gap: 20px !important; }
+  /* На мобильном скрываем фото адвоката (кавычки) в блоке цитаты — остаётся только текст */
+  .page--home .statement > :first-child { display: none; }
+  /* Цитату оборачиваем в такую же рамочку как у блока рейтингов */
+  .page--home .statement > p {
+    background: #fff;
+    border: 1px solid var(--purple-mid);
+    border-radius: 20px;
+    padding: 16px 18px;
+    flex: none !important;
+  }
+}

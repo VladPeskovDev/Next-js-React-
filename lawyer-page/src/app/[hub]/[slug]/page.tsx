@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
+import rehypeFaqDetails from '@/lib/rehype-faq-details';
 
 import { getAllHubSlugPairs, getContent } from '@/lib/content';
 import { HUBS, isEnabledHub, HubKey } from '@/lib/hubs';
@@ -12,6 +13,9 @@ import { Breadcrumbs, BreadcrumbsMicrodata } from '@/components/mdx/Breadcrumbs'
 import { RelatedLinks } from '@/components/mdx/RelatedLinks';
 import { Cta } from '@/components/mdx/Cta';
 import { Disclaimer } from '@/components/mdx/MdxComponents';
+import Header from '@/components/Header';
+import SiteFooter from '@/components/SiteFooter';
+import UrgentWidget from '@/components/UrgentWidget';
 import styles from '@/components/mdx/Article.module.css';
 
 const SITE_URL = 'https://advokat-peskov.com';
@@ -146,31 +150,38 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
     : null;
 
   return (
-    <article className={styles.articlesContainer}>
+    <main className={`page page--inner ${styles.wrap}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {faqLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       )}
 
-      <BreadcrumbsMicrodata items={crumbs} />
-      <Breadcrumbs items={crumbs} />
-      <h1 className={styles.articlesTitle}>{h1}</h1>
-      <div className={styles.meta}>
-        Обновлено: {fm.updated || fm.published} · {item.readingMinutes} мин чтения
-      </div>
+      <Header active={null} />
 
-      <div className={styles.body}>
-        <MDXRemote
-          source={item.body}
-          components={mdxComponents}
-          options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } }}
-        />
-      </div>
+      <article className={styles.articlesContainer}>
+        <BreadcrumbsMicrodata items={crumbs} />
+        <Breadcrumbs items={crumbs} />
+        <h1 className={styles.articlesTitle}>{h1}</h1>
+        <p className={styles.meta}>
+          Обновлено: {fm.updated || fm.published} · {item.readingMinutes} мин чтения
+        </p>
 
-      <Disclaimer />
-      <Cta />
-      <RelatedLinks hub={hub as HubKey} slug={slug} />
-    </article>
+        <div className={styles.body}>
+          <UrgentWidget />
+          <MDXRemote
+            source={item.body}
+            components={mdxComponents}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug, rehypeFaqDetails] } }}
+          />
+        </div>
+
+        <Disclaimer />
+        <Cta />
+        <RelatedLinks hub={hub as HubKey} slug={slug} />
+      </article>
+
+      <SiteFooter />
+    </main>
   );
 }

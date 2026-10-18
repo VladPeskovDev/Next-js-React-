@@ -1,0 +1,111 @@
+.top { width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: center; padding-top: 78px; }
+.heroRow { width: 1360px; display: flex; gap: 20px; align-items: center; }
+.heroLeft { flex: 1 0 0; min-width: 1px; height: 444px; display: flex; flex-direction: column; justify-content: space-between; }
+.heroLeftTop { display: flex; flex-direction: column; gap: 40px; }
+.titleBlock { display: flex; flex-direction: column; gap: 20px; }
+.status { display: flex; gap: 8px; align-items: center; color: #0cb000; font-size: 20px; line-height: 31px; white-space: nowrap; }
+.status img { width: 8px; height: 8px; }
+.name { color: var(--purple-dark); }
+.cardsBlock { display: flex; flex-direction: column; gap: 12px; }
+.regRow { display: flex; gap: 12px; font-size: 22px; line-height: 28px; }
+.regCard {
+  flex: 1 0 0;
+  min-width: 1px;
+  padding: 20px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(173.42deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+.regCard > p:last-child { width: 212px; }
+.registry {
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.registry > p { width: 415px; }
+.photo { position: relative; width: 485px; height: 444px; flex-shrink: 0; border-radius: 20px; overflow: hidden; background: #fff; }
+.photo img { position: absolute; width: 666px; height: 1000px; left: -182px; top: -103px; max-width: none; object-fit: cover; }
+/* Новый вариант: фото из /1312.webp — только лицо через object-fit: cover + object-position */
+.photoImg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+/* Таймлайн — оригинальный шаблонный дизайн с горизонтальной линией и точками */
+.edu { width: 1360px; max-width: 100%; margin: 0 auto; padding: 31px 80px; display: flex; flex-direction: column; gap: 40px; overflow: hidden; box-sizing: border-box; }
+.timeline { position: relative; width: 1200px; height: 196px; }
+.tl { position: absolute; }
+.year { top: 0; color: var(--purple-mid); white-space: nowrap; }
+.line { top: 43px; left: 5.36px; display: flex; align-items: center; }
+.dot { padding: 8px; border-radius: 40px; background: var(--purple-light); margin-right: -2px; flex-shrink: 0; }
+.dot > span { display: block; width: 12px; height: 12px; border-radius: 999px; background: var(--purple-mid); }
+.seg { height: 3px; background: var(--purple-light); margin-right: -2px; flex-shrink: 0; }
+.desc { top: 93px; width: 294.643px; }
+.descCol { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; width: 296.429px; }
+.descCol > p { height: 43px; width: 100%; }
+
+/* Мобильные вехи — на десктопе скрыты */
+.milestones { display: none; }
+.milestone {
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--light-gradient-20);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  border: 1px solid rgba(104, 96, 169, 0.15);
+}
+.year { color: var(--purple-mid); font-weight: 500; white-space: nowrap; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ /ob-advokate (до 767px) ========== */
+@media (max-width: 767px) {
+  .top { padding-top: 68px; gap: 24px; }
+
+  /* Hero: порядок на мобилке — имя → статус → фото → контакты → карточки регистрации → проверка статуса */
+  .heroRow { width: 100%; flex-direction: column; gap: 16px; align-items: stretch; padding: 0 12px; box-sizing: border-box; }
+  /* "Распаковываем" вложенные контейнеры, чтобы все блоки стали прямыми детьми .heroRow */
+  .heroLeft { display: contents; }
+  .heroLeftTop { display: contents; }
+  /* Прямой порядок в flex-колонке heroRow */
+  .titleBlock { order: 1; gap: 12px; }
+  .photo { order: 2; }
+  .contactsBlock { order: 3; }
+  .cardsBlock { order: 4; }
+  /* Внутри titleBlock: имя → потом статус */
+  .titleBlock > .status { order: 2; }
+  .titleBlock > .name { order: 1; }
+  .status { font-size: 14px; line-height: 20px; }
+  .status img { width: 8px; height: 8px; }
+
+  /* Карточки регистрации в столбик, компактнее */
+  .regRow { flex-direction: column; gap: 10px; font-size: 15px; line-height: 20px; }
+  .regCard { padding: 14px 16px; gap: 8px; border-radius: 20px; }
+  .regCard > p:last-child { width: auto; font-size: 20px; font-weight: 500; }
+
+  .registry { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 16px; border-radius: 20px; }
+  .registry > p { width: auto; font-size: 16px; line-height: 22px; }
+
+  /* Фото адвоката: ширина 100%, высота адаптивная */
+  .photo { width: 100%; height: 360px; border-radius: 20px; }
+  .photo img { width: 100%; height: 100%; left: 0; top: 0; object-fit: cover; object-position: center top; }
+
+  /* На мобильном: прячем десктопный таймлайн, показываем 2 карточки-вехи */
+  .edu { width: 100%; max-width: 100%; margin: 0; padding: 0 12px; gap: 16px; }
+  .timeline { display: none; }
+  .milestones { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .milestone { padding: 14px 16px; gap: 6px; border-radius: 16px; }
+  .milestone .year { font-size: 16px; line-height: 20px; }
+}

@@ -1,0 +1,78 @@
+.top { width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: center; }
+.banner {
+  position: relative;
+  width: 1362px;
+  height: 428px;
+  padding: 20px;
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(172.49deg, #c5c8e6 7.3216%, #e2e4f5 92.621%);
+}
+.intro { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; color: var(--purple-dark); }
+.intro > p { width: 557px; }
+.img { position: absolute; max-width: none; object-fit: cover; pointer-events: none; }
+.helpWrap { width: 1440px; padding: 0 120px; }
+.helpRow { display: flex; gap: 12px; align-items: stretch; }
+.help { flex: 1 0 0; min-width: 1px; background: #fff; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.helpText { display: flex; flex-direction: column; gap: 12px; }
+.helpText > p { color: var(--purple-dark); }
+.stat {
+  width: 202px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 24px;
+  padding: 20px 32px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+.statIcon { position: relative; width: 64px; height: 64px; flex-shrink: 0; }
+.clip { overflow: hidden; }
+.statIconBox { position: absolute; overflow: hidden; }
+.statIconBox img { position: absolute; max-width: none; }
+.statText { display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
+.statValue { font-size: 22px; line-height: 28px; color: var(--purple-mid); }
+.statLabel { font-family: var(--font-inter); font-size: 16px; line-height: 25px; min-height: 50px; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 767px) ========== */
+@media (max-width: 767px) {
+  .top { gap: 12px; padding-top: 45px; }
+
+  .banner {
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    height: auto;
+    min-height: 220px;
+    padding: 20px 18px 140px;
+    border-radius: 20px;
+    gap: 10px;
+  }
+  .intro > p { width: auto; font-size: 15px; line-height: 22px; }
+  .img {
+    left: auto !important;
+    right: -40px !important;
+    bottom: -20px !important;
+    top: auto !important;
+    width: 240px !important;
+    height: 240px !important;
+    opacity: 0.9;
+  }
+
+  .helpWrap { width: 100%; padding: 0 12px; box-sizing: border-box; }
+  .helpRow { flex-direction: column; gap: 10px; }
+  .help { padding: 16px; gap: 14px; border-radius: 20px; }
+  .helpText { gap: 8px; }
+
+  /* Fix 1: иконка слева, текст справа; увеличиваем контейнер иконки чтобы ничего не наезжало */
+  .stat { width: 100%; padding: 14px 16px; flex-direction: row; align-items: center; gap: 14px; border-radius: 16px; }
+  .statIcon { width: 56px; height: 56px; flex-shrink: 0; }
+  .statIconBox { transform-origin: top left; }
+  .statText { gap: 2px; flex: 1 1 auto; min-width: 0; }
+  .statValue { font-size: 18px; line-height: 22px; white-space: normal; }
+  .statLabel { font-size: 14px; line-height: 18px; min-height: 0; white-space: normal; }
+}

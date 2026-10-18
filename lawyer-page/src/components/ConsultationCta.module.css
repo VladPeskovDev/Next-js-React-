@@ -1,0 +1,20 @@
+.cta {
+  width: 847px;
+  background: var(--purple-dark);
+  border-radius: 40px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  color: #fff;
+}
+.cta > p { width: 100%; }
+/* В макете заголовок в одну строку; ширина текста превышает 687px на доли пикселя */
+.cta > h2 { white-space: nowrap; }
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ГЛАВНОЙ (до 767px) ========== */
+@media (max-width: 767px) {
+  :global(.page--home) .cta { width: calc(100% - 24px); padding: 32px 20px; border-radius: 28px; gap: 24px; }
+  :global(.page--home) .cta > h2 { white-space: normal; }
+}
