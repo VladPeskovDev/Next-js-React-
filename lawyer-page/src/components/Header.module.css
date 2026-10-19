@@ -52,6 +52,23 @@
 }
 .call:hover { background: #5a5296; }
 
+/* Переключатель RU/EN — круглая пилюля с 2-буквенным кодом */
+.langSwitch {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.langSwitch:hover { background: rgba(104, 96, 169, 0.9); }
+
 /* Варианты бренда (переключаются через медиа) */
 .brandFull { display: inline; }
 .brandShort { display: none; }
@@ -85,7 +102,8 @@
     height: 40px;
     padding: 10px 16px;
     flex: 0 0 auto;
-    max-width: calc(100% - 56px);
+    /* ширина резервирует место под 2 пилюли справа: lang (40) + burger (40) + gaps = ~104px */
+    max-width: calc(100% - 104px);
   }
   .brandFull { display: none; }
   .brandShort { display: inline; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -93,6 +111,19 @@
   /* Полная nav-пилюля и call-кнопка прячутся — вместо них бургер */
   .nav { display: none; }
   .call { display: none; }
+
+  /* Lang-переключатель на мобилке: круглая пилюля 40×40 как бургер,
+     стоит слева от бургера (в DOM уже перед ним). Рендерится только когда active === "home".
+     margin-right: -5px — сокращает промежуток до бургера на 5px (ближе прижат). */
+  .langSwitch {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-right: -40px;
+  }
 
   /* Бургер показывается */
   .burger {

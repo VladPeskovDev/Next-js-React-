@@ -49,9 +49,8 @@
   margin: 0;
 }
 
-/* Кнопки — переопределяем gap у .row из ContactButtons, VK скрываем (не помещается) */
+/* Кнопки — переопределяем gap у .row из ContactButtons */
 .buttons { gap: 8px; }
-.buttons a[aria-label="ВКонтакте"] { display: none; }
 
 /* Статистики */
 .stats {

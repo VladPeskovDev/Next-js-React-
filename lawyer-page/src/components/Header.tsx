@@ -2,23 +2,35 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { NAV, NavKey, PHONE_TEL, ROUTES } from "@/lib/site";
+import { NAV, NAV_EN, NavKey, PHONE_TEL, ROUTES } from "@/lib/site";
 import s from "./Header.module.css";
 
-export default function Header({ active, className = "" }: { active: NavKey; className?: string }) {
+type Props = { active: NavKey; className?: string; lang?: "ru" | "en" };
+
+export default function Header({ active, className = "", lang = "ru" }: Props) {
   const [open, setOpen] = useState(false);
+  const isEn = lang === "en";
+  const items = isEn ? NAV_EN : NAV;
+
+  const brandFull = isEn ? "Criminal Defense Attorney in Moscow" : "Адвокат по уголовным делам в Москве";
+  const brandShort = isEn ? "Criminal Defense Attorney" : "Адвокат по уголовным делам";
+  const callLabel = isEn ? "Request a call" : "Заказать звонок";
+  const menuAria = isEn ? "Main menu" : "Основное меню";
+  const burgerAria = isEn ? "Open menu" : "Открыть меню";
+  const brandHref = isEn ? "/en/" : ROUTES.home;
+  const switchHref = isEn ? "/" : "/en/";
+  const switchLabel = isEn ? "RU" : "EN";
+  const switchAria = isEn ? "Switch to Russian" : "Switch to English";
 
   return (
     <header className={`${s.header} ${className}`}>
-      <Link href={ROUTES.home} className={`${s.pill} ${s.brand}`}>
-        {/* Полный вариант — показывается на десктопе */}
-        <span className={s.brandFull}>Адвокат по уголовным делам в Москве</span>
-        {/* Короткий вариант — показывается на мобильном (≤767px) */}
-        <span className={s.brandShort}>Адвокат по уголовным делам</span>
+      <Link href={brandHref} className={`${s.pill} ${s.brand}`}>
+        <span className={s.brandFull}>{brandFull}</span>
+        <span className={s.brandShort}>{brandShort}</span>
       </Link>
 
-      <nav className={`${s.pill} ${s.nav}`} aria-label="Основное меню">
-        {NAV.map((item) => (
+      <nav className={`${s.pill} ${s.nav}`} aria-label={menuAria}>
+        {items.map((item) => (
           <Link
             key={item.key}
             href={item.href}
@@ -30,15 +42,29 @@ export default function Header({ active, className = "" }: { active: NavKey; cla
         ))}
       </nav>
 
+      {/* Переключатель RU/EN на десктопе — только на главной.
+          На внутренних страницах скрыт (клик с /kontakty/ не должен уводить на /en/ homepage).
+          Для мобилки языковой пункт остаётся всегда внутри бургер-меню (см. ниже). */}
+      {active === "home" && (
+        <Link
+          href={switchHref}
+          className={`${s.pill} ${s.langSwitch}`}
+          aria-label={switchAria}
+          hrefLang={isEn ? "ru" : "en"}
+        >
+          {switchLabel}
+        </Link>
+      )}
+
       <a href={PHONE_TEL} className={s.call}>
-        Заказать звонок
+        {callLabel}
       </a>
 
-      {/* Бургер — виден только на мобильном (CSS). При открытии показывает выпадающее меню */}
+      {/* Бургер */}
       <button
         className={`${s.pill} ${s.burger} ${open ? s.burgerOpen : ""}`}
         onClick={() => setOpen((v) => !v)}
-        aria-label="Открыть меню"
+        aria-label={burgerAria}
         aria-expanded={open}
       >
         <span className={s.burgerLines}>
@@ -50,7 +76,7 @@ export default function Header({ active, className = "" }: { active: NavKey; cla
 
       {open && (
         <div className={s.mobileMenu}>
-          {NAV.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.key}
               href={item.href}
@@ -61,7 +87,7 @@ export default function Header({ active, className = "" }: { active: NavKey; cla
             </Link>
           ))}
           <a href={PHONE_TEL} className={s.mobileCall} onClick={() => setOpen(false)}>
-            Заказать звонок
+            {callLabel}
           </a>
         </div>
       )}

@@ -36,8 +36,45 @@ const ITEMS: { title: string; text: string; icon: Icon }[] = [
   },
 ];
 
-export default function WhyCards({ title = "Почему доверители обращаются ко мне" }: { title?: string }) {
-  const rows = [ITEMS.slice(0, 3), ITEMS.slice(3)];
+const ITEMS_EN: { title: string; text: string; icon: Icon }[] = [
+  {
+    title: "Honest case assessment",
+    text: "Before signing a retainer — clear analysis and realistic forecast of the outcome. No sweet promises.",
+    icon: ITEMS[0].icon,
+  },
+  {
+    title: "Transparent pricing",
+    text: "Fixed fees agreed before work starts. No surprise charges mid-case. Pay per stage separately.",
+    icon: ITEMS[1].icon,
+  },
+  {
+    title: "Urgent response 24/7",
+    text: "Arrest, search, interrogation — I arrive within 30–40 minutes anywhere in Moscow. Round the clock, I pick up the phone personally.",
+    icon: ITEMS[2].icon,
+  },
+  {
+    title: "Insider experience of investigation",
+    text: "Before private practice I worked in criminal investigation (Articles 159 & 228 of the Russian Criminal Code). I know procedural mechanics from the other side.",
+    icon: ITEMS[3].icon,
+  },
+  {
+    title: "Attorney-client privilege",
+    text: "Everything you tell the attorney is protected by Russian law. Neither investigators nor the court can compel disclosure.",
+    icon: ITEMS[4].icon,
+  },
+  {
+    title: "English via certified interpreter (C1)",
+    text: "Full support in English through a certified interpreter who works with me regularly. Comfortable and precise communication at every step — negotiations, interrogations, court hearings.",
+    icon: ITEMS[5].icon,
+  },
+];
+
+type Props = { title?: string; lang?: "ru" | "en" };
+
+export default function WhyCards({ title, lang = "ru" }: Props) {
+  const items = lang === "en" ? ITEMS_EN : ITEMS;
+  const heading = title ?? (lang === "en" ? "Why clients choose me" : "Почему доверители обращаются ко мне");
+  const rows = [items.slice(0, 3), items.slice(3)];
   return (
     <section className={s.why}>
       <div className={s.ellipse} aria-hidden>
@@ -47,7 +84,7 @@ export default function WhyCards({ title = "Почему доверители о
           </div>
         </div>
       </div>
-      <h2 className="t-h2">{title}</h2>
+      <h2 className="t-h2">{heading}</h2>
       <div className={s.whyGrid}>
         {rows.map((row, ri) => (
           <div className={s.whyRow} key={ri}>

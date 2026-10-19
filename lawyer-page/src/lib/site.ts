@@ -28,3 +28,12 @@ export const NAV: { key: Exclude<NavKey, null>; label: string; href: string }[] 
   { key: "blog", label: "Блог", href: ROUTES.blog },
   { key: "contacts", label: "Контакты", href: ROUTES.contacts },
 ];
+
+/* Английская версия навигации — для одной английской landing-page /en/ */
+export const NAV_EN: { key: Exclude<NavKey, null>; label: string; href: string }[] = [
+  { key: "home", label: "Home", href: "/en/" },
+  { key: "about", label: "About", href: ROUTES.about },
+  { key: "prices", label: "Prices", href: ROUTES.prices },
+  { key: "blog", label: "Blog", href: ROUTES.blog },
+  { key: "contacts", label: "Contacts", href: ROUTES.contacts },
+];
