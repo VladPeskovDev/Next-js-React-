@@ -18,7 +18,7 @@ export default function PageBanner({
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   chips?: string[];
-  image: BannerImage;
+  image?: BannerImage;
   children?: React.ReactNode;
 }) {
   return (
@@ -35,9 +35,11 @@ export default function PageBanner({
         )}
         {children}
       </div>
-      <div className={s.imgBox} style={image.box} aria-hidden>
-        <img src={image.src} alt="" style={image.crop} />
-      </div>
+      {image && (
+        <div className={s.imgBox} style={image.box} aria-hidden>
+          <img src={image.src} alt="" style={image.crop} />
+        </div>
+      )}
     </section>
   );
 }

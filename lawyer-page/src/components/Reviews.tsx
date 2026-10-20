@@ -1,5 +1,4 @@
 import { IMG } from "@/lib/img";
-import LawyerPhoto from "./LawyerPhoto";
 import s from "./Reviews.module.css";
 
 export type Review = { topic: string; text: string; name: string; rating?: string; url?: string };
@@ -59,7 +58,6 @@ function Star() {
 function ReviewCard({ r }: { r: Review }) {
   const content = (
     <>
-      <LawyerPhoto width={60} height={48} />
       <p className="t-h3">{r.topic}</p>
       <p className="t-body3">{r.text}</p>
       <div className={s.footer}>
