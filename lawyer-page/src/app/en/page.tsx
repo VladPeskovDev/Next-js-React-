@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Criminal Defense Attorney in Moscow — Vladislav Peskov",
   description:
-    "English-speaking criminal defense attorney in Moscow — defense in drug cases, fraud, 24/7 urgent response. Investigation, trial, appeal. Free initial phone consultation.",
+    "English-speaking criminal defense attorney in Moscow. Drugs, fraud, 24/7 urgent response. Investigation, trial, appeal. Free initial phone consultation.",
   keywords:
     "criminal defense attorney moscow, english speaking lawyer moscow, criminal lawyer moscow russia, drug lawyer moscow, fraud lawyer russia, arrested in moscow lawyer, 24/7 criminal attorney moscow, defense lawyer article 228, russian criminal defense english",
   alternates: {

@@ -98,7 +98,7 @@ export default function Reviews({ items = DEFAULT_REVIEWS, title = "Отзывы
             rel="noopener nofollow"
           >
             <img src={IMG.googleMaps} alt="Google Maps" style={{ width: 164.417, height: 31.601 }} />
-            <PlatformRating count={7} />
+            <PlatformRating count={8} />
           </a>
           <a
             className={s.platform}
@@ -107,7 +107,7 @@ export default function Reviews({ items = DEFAULT_REVIEWS, title = "Отзывы
             rel="noopener nofollow"
           >
             <img src={IMG.yandexMaps} alt="Яндекс Карты" style={{ width: 164, height: 34.104 }} />
-            <PlatformRating count={7} />
+            <PlatformRating count={13} />
           </a>
         </div>
       </div>

@@ -38,7 +38,7 @@ const orgJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["Attorney", "LegalService"],
+      "@type": ["Attorney", "LegalService", "Organization"],
       "@id": `${SITE_URL}#attorney`,
       name: "Адвокат Песков В.С.",
       alternateName: "Vladislav Peskov",
@@ -81,6 +81,10 @@ const orgJsonLd = {
       },
       sameAs: [
         "https://t.me/Peskov_Vladislav",
+        "https://wa.me/79165780936",
+        "https://yandex.ru/maps/org/advokat_peskov_v_s_/188017863893/",
+        "https://www.google.com/maps/place/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82+%D0%9F%D0%B5%D1%81%D0%BA%D0%BE%D0%B2+%D0%92.%D0%A1.",
+        "https://zakon.ru/Profile/User/vlad_lawyer",
       ],
       contactPoint: [
         {

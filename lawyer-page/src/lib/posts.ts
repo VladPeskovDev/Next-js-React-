@@ -8,8 +8,15 @@ export type Post = {
   date: string;
 };
 
-/* 3 поста блога — совпадают с content/blog/*.mdx. */
+/* 4 поста блога — совпадают с content/blog/*.mdx. */
 export const POSTS: Post[] = [
+  {
+    slug: "kak-najti-advokata-po-ugolovnomu-delu",
+    title: "Как найти хорошего адвоката по уголовному делу",
+    excerpt: "Как проверить адвоката в реестре, чем он отличается от юриста, что спросить на первой встрече и какие красные флаги.",
+    image: IMG.postFindLawyer,
+    date: "14 октября 2026 · 8 мин",
+  },
   {
     slug: "obysk-doma",
     title: "Обыск дома — что делать: инструкция от адвоката",

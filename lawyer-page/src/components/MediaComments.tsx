@@ -27,6 +27,13 @@ export const DEFAULT_MEDIA: MediaItem[] = [
     },
   },
   {
+    title: "Когда работа курьера становится мошенничеством",
+    layout: "big",
+    titleStyle: "inter",
+    href: "https://zakon.ru/blog/2026/10/16/kurer_na_million_pochemu_obychnaya_dostavka_mozhet_zakonchitsya_obvineniem_v_moshennichestve",
+    logo: { src: IMG.logoZakonRu, w: 200, h: 98.5 },
+  },
+  {
     title: "Что делать при банкротстве брокера",
     layout: "wide",
     href: "https://news.ru/economics/advokat-rasskazal-chto-delat-pri-bankrotstve-brokera",
@@ -152,7 +159,7 @@ export default function MediaComments({
               className={className}
               href={m.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               aria-label={typeof m.title === "string" ? m.title : undefined}
             >
               {inner}

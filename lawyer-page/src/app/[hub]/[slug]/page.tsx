@@ -82,7 +82,23 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
 
   const isService = fm.type === 'usluga';
 
-  const articleLd = isService
+  /* Article — всегда (контентная сущность с автором и датами).
+     Service+Offer — дополнительно для коммерческих usluga-страниц. */
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: h1,
+    description: fm.description,
+    image: [fm.ogImage ? `${SITE_URL}${fm.ogImage}` : `${SITE_URL}/1312.webp`],
+    datePublished: fm.published,
+    dateModified: fm.updated || fm.published,
+    inLanguage: 'ru-RU',
+    mainEntityOfPage: url,
+    author: { '@type': 'Person', name: 'Адвокат Песков В.С.', url: `${SITE_URL}/ob-advokate/` },
+    publisher: { '@id': `${SITE_URL}#attorney` },
+  };
+
+  const serviceLd = isService
     ? {
         '@context': 'https://schema.org',
         '@type': 'Service',
@@ -112,19 +128,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
             }
           : {}),
       }
-    : {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: h1,
-        description: fm.description,
-        image: [`${SITE_URL}/1312.webp`],
-        datePublished: fm.published,
-        dateModified: fm.updated || fm.published,
-        inLanguage: 'ru-RU',
-        mainEntityOfPage: url,
-        author: { '@type': 'Person', name: 'Адвокат Песков', url: `${SITE_URL}/` },
-        publisher: { '@id': `${SITE_URL}#attorney` },
-      };
+    : null;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -152,6 +156,9 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
   return (
     <main className={`page page--inner ${styles.wrap}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      {serviceLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      )}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {faqLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
