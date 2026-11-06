@@ -44,6 +44,7 @@ export const IMG = {
   postVpn: "/images/blog/vpn.webp",
   postDetained: "/images/blog/zaderzhanie.webp",
   postFindLawyer: "/images/blog/blog4.webp",
+  postNeedLawyer: "/images/blog/lawyer31.webp",
   fraudHero: "/images/fraud-hero.webp",
   urgentHero: "/images/urgent-hero.webp",
   questionMark: "/images/decor/question-mark.webp",
