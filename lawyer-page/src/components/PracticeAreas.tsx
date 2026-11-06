@@ -23,6 +23,9 @@ export default function PracticeAreas({ lang = "ru" }: { lang?: Lang }) {
         otherTitle: "Defense in other criminal cases",
         otherText:
           "Smuggling (Art. 226.1, 229.1, 200.1), theft and bank card theft (Art. 158), self-help (Art. 330), fights and bodily injury (Art. 111, 112, 115, 116, 119). All stages: investigation, trial, appeal.",
+        regionTitle: <>Moscow <br />Region</>,
+        regionText:
+          "Defense across the Moscow Region: Krasnogorsk, Khimki, Odintsovo, Mytishchi, Podolsk, Vidnoye, Troitsk. Regional city courts, Moscow Regional Court on appeal, cassation in Saratov. On-call 24/7.",
       }
     : {
         title: "Направления практики",
@@ -40,6 +43,9 @@ export default function PracticeAreas({ lang = "ru" }: { lang?: Lang }) {
         otherTitle: "Защита по иным составам УК РФ",
         otherText:
           "Контрабанда (226.1, 229.1, 200.1), кража и кража с банковской карты (158), самоуправство (330), драки и причинение вреда здоровью (111, 112, 115, 116, 119). На всех стадиях: следствие, суд первой инстанции, апелляция.",
+        regionTitle: <>Московская <br />область</>,
+        regionText:
+          "Защита в городах Подмосковья: Красногорск, Химки, Одинцово, Мытищи, Подольск, Видное, Троицк. Городские и районные суды МО, апелляция в Мособлсуде, кассация в Саратове. Выезд в область 24/7.",
       };
 
   return (
@@ -80,6 +86,15 @@ export default function PracticeAreas({ lang = "ru" }: { lang?: Lang }) {
           <div className={s.content}>
             <h3 className="t-h3-36">{t.otherTitle}</h3>
             <p className="t-body3">{t.otherText}</p>
+          </div>
+          <span className={s.arrow}>
+            <img src={IMG.arrowCardDark} alt="" />
+          </span>
+        </Link>
+        <Link href={ROUTES.region} className={s.card}>
+          <div className={s.content}>
+            <h3 className="t-h3-36">{t.regionTitle}</h3>
+            <p className="t-body3">{t.regionText}</p>
           </div>
           <span className={s.arrow}>
             <img src={IMG.arrowCardDark} alt="" />

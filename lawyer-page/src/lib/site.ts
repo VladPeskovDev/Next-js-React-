@@ -17,6 +17,7 @@ export const ROUTES = {
   fraud: "/moshennichestvo/",
   urgent: "/srochnyj-vyezd/",
   other: "/drugie-prestupleniya/",
+  region: "/podmoskove/",
 } as const;
 
 export type NavKey = "home" | "about" | "prices" | "blog" | "contacts" | null;

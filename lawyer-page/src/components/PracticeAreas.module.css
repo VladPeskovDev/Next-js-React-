@@ -1,4 +1,4 @@
-.wrap { width: 100%; padding: 0 120px; display: flex; flex-direction: column; gap: 50px; align-items: flex-start; }
+.wrap { width: 100%; padding: 0; display: flex; flex-direction: column; gap: 50px; align-items: flex-start; }
 .head { width: 100%; display: flex; gap: 21px; align-items: flex-start; }
 .title { width: 470px; flex-shrink: 0; }
 .desc { flex: 1 0 0; min-width: 1px; white-space: pre-wrap; }

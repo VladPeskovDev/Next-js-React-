@@ -6,7 +6,8 @@ export type HubKey =
   | 'sledstvie'
   | 'praktika'
   | 'blog'
-  | 'drugie-prestupleniya';
+  | 'drugie-prestupleniya'
+  | 'podmoskove';
 
 export type HubConfig = {
   title: string;
@@ -38,6 +39,11 @@ export const HUBS: Record<HubKey, HubConfig> = {
   'drugie-prestupleniya': {
     title: 'Другие уголовные дела',
     description: 'Защита по уголовным делам за пределами наркотиков и мошенничества: убийство, контрабанда стероидов, оружия и товаров. Москва, выезд 24/7.',
+    enabled: true,
+  },
+  podmoskove: {
+    title: 'Подмосковье',
+    description: 'Адвокат по уголовным делам в Московской области: Красногорск, Химки, Одинцово, Мытищи, Подольск, Видное, Троицк. Суды МО, апелляция в Мособлсуде, выезд 24/7.',
     enabled: true,
   },
   ekonomika: {
