@@ -63,6 +63,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Десктопный зум +10% — аналог Cmd+ один раз.
+   Применяется только на широких экранах, мобильная вёрстка (<1200px) не затронута. */
+@media (min-width: 1200px) {
+  body { zoom: 1.1; }
+}
+
 h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   margin: 0;
   padding: 0;

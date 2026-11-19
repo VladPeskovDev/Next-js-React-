@@ -196,6 +196,30 @@ export default function PodmoskoveHubPage() {
               <h3 className="t-h3">Красногорск</h3>
               <span className={s.sitLink}>Перейти →</span>
             </Link>
+            <Link href="/podmoskove/himki/" className={s.otherCard}>
+              <h3 className="t-h3">Химки · Шереметьево</h3>
+              <span className={s.sitLink}>Перейти →</span>
+            </Link>
+            <Link href="/podmoskove/odincovo/" className={s.otherCard}>
+              <h3 className="t-h3">Одинцово</h3>
+              <span className={s.sitLink}>Перейти →</span>
+            </Link>
+            <Link href="/podmoskove/vidnoe/" className={s.otherCard}>
+              <h3 className="t-h3">Видное</h3>
+              <span className={s.sitLink}>Перейти →</span>
+            </Link>
+            <Link href="/podmoskove/troitsk/" className={s.otherCard}>
+              <h3 className="t-h3">Троицк · Новая Москва</h3>
+              <span className={s.sitLink}>Перейти →</span>
+            </Link>
+            <Link href="/podmoskove/mytishchi/" className={s.otherCard}>
+              <h3 className="t-h3">Мытищи</h3>
+              <span className={s.sitLink}>Перейти →</span>
+            </Link>
+            <Link href="/podmoskove/podolsk/" className={s.otherCard}>
+              <h3 className="t-h3">Подольск</h3>
+              <span className={s.sitLink}>Перейти →</span>
+            </Link>
           </div>
         </section>
 
